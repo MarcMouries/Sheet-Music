@@ -1,6 +1,6 @@
 # B-flat Harmonica
 
-## Bb Harmonica Note Chart 
+## Bb Harmonica Note Chart
 
 | Hole Number | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  |
 |-------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -25,8 +25,15 @@
 
 # Licks
 ```
--4    -5     -4    
- C     Eb     C      G      Bb     C
+-4    -5     -4     5     4
+C     Eb     C      D     Bb
+
+-4     5     -5     6    -5    6    -6
+C      D     Eb     F    Eb    F     G
+
+
+https://www.youtube.com/watch?v=a7-JRUyKV08&t=0s
+
 ```
 
 
