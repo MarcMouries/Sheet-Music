@@ -16,8 +16,8 @@ global = {
 
 chordNames = \chordmode {
   \global
-  g1:m
-  
+  g2.:m  f2.   g2.:m  f2.
+  g2.:m  f2.   g2.:m  f4. g4.
 }
 
 melody = \relative c' {
