@@ -23,8 +23,8 @@ violin = \relative c'' {
 R2. * 4
 
 \tuplet 3/2 {a8_2( bf a)}  d4.( a8 )
-\tuplet 3/2 {g8_1( a  g)}  d'4.( g,8 )
-a4.( g8) \tuplet 3/2 {g8( f e)}
+\tuplet 3/2 {g8_1( a  g)}  d'4.( g,8_1 )
+a4.( g8_3) \tuplet 3/2 {g8( f e)}
 f2 r4
 
 \once\override MultiMeasureRest.expand-limit = #1
@@ -37,14 +37,17 @@ R2. * 2
 % Move the tuplet number down
 \once \override TupletNumber.Y-offset = #-2
 
-\tuplet 3/2 {a8(\startTextSpan bf a)}  f'4.( a,8 )
-\tuplet 3/2 {g8( a  g)}  e'4.( d8 )
+\tuplet 3/2 {a8^2(\startTextSpan bf a)}  f'4.( a,8 )
+\tuplet 3/2 {g8_1( a  g)}  e'4.( d8 )
 c4.( bf8) \tuplet 3/2 {bf8( a g)}
 a2 \stopTextSpan r4
 \once\override MultiMeasureRest.expand-limit = #1
 R2. * 2 
-
-a8.( cs16  ) f4.( e8 )
+\break
+a8.( cs16  ) f4._3( e8 )
+d8.( a16) f4.( d8)
+\tuplet 3/2 {b'8( a b)} d4.( b8)
+a2._2
 
 }
 
