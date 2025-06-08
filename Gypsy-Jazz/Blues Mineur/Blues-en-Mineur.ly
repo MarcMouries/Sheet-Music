@@ -1,14 +1,9 @@
 \version "2.19.53"
 \language "english"
-\include "../common/bars-per-line-engraver.ly"
+\include "../../stylesheets/bars-per-line-engraver.ly"
 
 
-\markup { }
-\markup {\bold {Video} here }
-\markup {\bold {Video} here }
-\markup { }
-\markup { }
-\markup { }
+
 
 
 %% https://www.youtube.com/watch?v=EfnYL_lGSP0
@@ -16,6 +11,15 @@
 \header {
   title = "Blues en Mineur"
   subtitle = "1949 Rome"
+}
+
+
+\markup "intro"
+\relative c' {
+  g4 r4 bf r4
+  a r8 d8 r8 c bf a
+  g4 r4 bf r4
+  a r8 d8 r8 c bf a
 }
 
 \relative c''' {
@@ -46,22 +50,23 @@ global = {
 
 chordNames = \chordmode {
   \global
-  s1 s1 s1
-  g:m g:m g:m g:m 
-  c:m c:m g:m g:m 
-  d:7 d:7 g:m g:m 
+  d1:7  d:7  g:m  d:7 
 
-  g:m g:m g:m g:m 
-  c:m c:m g:m g:m 
-  d:7 d:7 g:m g:m 
+  g:m  g:m  g:m  g:m 
+  c:m  c:m  g:m  g:m 
+  d:7  d:7  g:m  d:7 
+
+  g:m  g:m  g:m  g:m 
+  c:m  c:m  g:m  g:m 
+  d:7  d:7  g:m  d:7 
   
-  g:m g:m g:m g:m 
-  c:m c:m g:m g:m 
-  d:7 d:7 g:m g:m 
+  g:m  g:m  g:m  g:m 
+  c:m  c:m  g:m  g:m 
+  d:7  d:7  g:m  d:7 
   
-  g:m g:m g:m g:m 
-  c:m c:m g:m g:m 
-  d:7 d:7 g:m g:m 
+  g:m  g:m  g:m  g:m 
+  c:m  c:m  g:m  g:m 
+  d:7  d:7  g:m  d:7 
 
 }
 
@@ -109,7 +114,7 @@ melody = \relative c'' {
   
   d'8   cs(  c) af( g) f af! b d b 
   c4 r r4 g'8 g
-  bf a g fs a gs g ef
+  bf a( g) fs a gs g ef
   d cs c a bf g ef d 
   g4 r8 f'8~ f8  f ~ f ef8\trill
   d8 d8( d8) d8( d4) r4
@@ -125,7 +130,7 @@ melody = \relative c'' {
   bf8 a g d g4 r4
   r8 \tuplet 3/2 {ef16( d ef}  d8) ef 
   ef' d c bf 
-  a8 g fs a c ef d fs, 
+  a8 g fs a c ef d fs,! 
   g8 g8( g8) g8( g4) r4
   r8 <d' bf'> ~ <d bf'> <d bf'> ~ <d bf'>
   <d bf'> ~ <d bf'> a8 

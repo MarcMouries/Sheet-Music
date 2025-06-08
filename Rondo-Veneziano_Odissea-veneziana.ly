@@ -57,7 +57,7 @@ violinOne = \relative c'' {
   % Page 41 - Line 4 (measure 20)
   e16 a, cs a d a e' a, f' a, g' a, a' a, f' a, |
 \break
-  d16 bf' a bf g a f g e f d e c c' bf c |
+  d16 bf' a bf g a f g-1 e-3 f d e c-1 c' bf c |
   a bf g a  f g e f d d' c d bf c a bf |
   \break
   % Page 41 - Line 5 (measure 23)
