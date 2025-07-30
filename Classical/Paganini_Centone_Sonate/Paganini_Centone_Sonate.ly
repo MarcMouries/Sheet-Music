@@ -23,28 +23,27 @@ melody = \relative c'{
   \repeat volta 2 {
   \partial 4
   e8 r8
-  a8. gs16 a8. b16 c8. b16 c8. d16 
-  e8 r8 r4 a2
-  a,8. gs16 a8. b16 d8. c16 b8. a16
-  b8 r8   r4 e,2
-  
-  a8. gs16 a8. b16 c8. b16 c8. d16 
+  a8[ r16 gs16]  a8[ r16 b16] c8[ r16 b16] c8[ r16 d16] 
+  e8 r8 r4 a2\accent
+  a,8[ r16 gs16]  a8[ r16 b16] d8[ r16 c16] b8[ r16 a16]
+  b8 r8   r4 e,2-\accent
   \break
-  e8 r8 r4 a2
-  g8 b e, g fs b ds, fs
+  a8[ r16 gs16]  a8[ r16 b16]  c8[ r16 b16]  c8[ r16 d16] 
+  e8 r8 r4 a2\accent
+  g8[ r16 b]  e,8[ r16 g]  fs8[ r16 b]  ds,8[ r16 fs]
   e2 ( e'8) r8
-  
   }
+  \break
   \repeat volta 2 {
     g,,4
-    c8. b16 c8. d16-1 e8. d16 e8. fs16 
-    g2 g,2
+    c8[ r16 b16] c8[ r16 d16-1] e8[ r16 d16] e8[ r16 fs16] 
+    g2\accent g,2\accent
     bf8 a bf c 
     d c d e 
-    f2 f,2
+    f2\accent f,2\accent
     a8 gs a b c b c d
-    e4 ( b8) r16 b16 d8. c16 b8. a16
-    b4 ( e8.) b16 d8 c b a
+    e4 ( b8) r16 b16 d8[ r16 c16] b8[ r16 a16]
+    b4 ( e8[ r16) b16]  d8 c b a
     gs e' gs  b e8-0 r8 e,,4 
     
   }

@@ -12,6 +12,13 @@
 
 %       \once\override MultiMeasureRestNumber.font-name = "Vera Bold"
 
+\markup "Practice Schubert Serenade Arpegios"
+\relative c' {
+  d-2 f a d-1 f d a f
+  c-1 e g c-1 e c g e
+}
+
+
 violin = \relative c'' {
   \clef treble
   \key f \major
