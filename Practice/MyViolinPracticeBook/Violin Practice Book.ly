@@ -276,45 +276,6 @@ impro_Triad_Above_Below = \relative c' {
 \pageBreak
 
 
-%=============================================
-% Shift in Third Position
-%=============================================
-\tocItem \markup "Shift in Third Position"
-\markup \bold "Shift in Third Position"
-shift_ThirdPosition = \relative c'' {
-  \tempo 4 = 40 - 60
-  \repeat volta 10 {
-    b4   \glissando d   d  \glissando b
-    cs4  \glissando e   e  \glissando cs
-    d4   \glissando fs  fs \glissando d
-    e4   \glissando g   g  \glissando e
-    \break
-  }
-}
-\score {    \new Staff { \shift_ThirdPosition }
-    \layout { ragged-right = ##f  indent = 0\cm }
-}
-
-
-
-
-
-\tocItem \markup "Shift in Fourth"
-\markup \bold "Shift in Fourth"
-shift_Fourth = \relative c' {
-  \time 2/4
-  \slurUp
-  \phrasingSlurDown
-   e4-1( \( \grace g8) a4-2 \)
-   a4-2( \( \grace f8) e4-1 \)
-   f4-2( \( \grace a8) b4-3 \)
-   b4-3( \( \grace g8) f4-2 \)
-   g4-3( \( \grace b8) c4-4 \)
-   c4-4( \( \grace a8) g4-3 \)
-}
-\score {    \new Staff { \shift_Fourth }
-    \layout { ragged-right = ##f  indent = 0\cm }
-}
 
 % SHIFTS
 \markup \vspace #1
@@ -328,50 +289,8 @@ shiftA = \relative c'' {
 }
 \markup { \writeMusic ##{ \shiftA#} }
 
-%=============================================
-% SHIFT : Mel Bonis
-%=============================================
-\tocItem \markup "SHIFT : Mel Bonis"
-\markup \bold "SHIFT : Mel Bonis"
-SHIFT_Mel_Bonis = \relative c'' {
- \repeat volta 2 { b8 a b a g fs g fs }
- \repeat volta 2 {e8( fs) g( a) b( c) b( c) b c b c b a g fs}
- \tuplet 3/2 { c'8( b a)} \tuplet 3/2 { g8( fs e)}
-}
-\markup { \writeMusic ##{ \SHIFT_Mel_Bonis #} }
 
 
-%=============================================
-% Shift from 1 to 5th Position
-%=============================================
-\tocItem \markup "Shift from 1 to 5th Position"
-\markup \bold "Shift from 1 to 5th Position"
-shift_OneToFifthPosition = \relative c'' {
-  \tempo 4 = 40 - 60
-  \repeat volta 10 {
-    g4.  fs8 e  fs g4
-    a4.  g 8 fs g  a4
-    b4.  a 8 g  a  b4
-    c4.  b 8 a g   c4
-  }
-}
-%\markup { \writeMusic ##{ \shift_OneToFifthPosition #} }
-\score {    \new Staff { \shift_OneToFifthPosition }
-    \layout { ragged-right = ##f  indent = 0\cm }
-}
-
-%=============================================
-% Shift from 2 to 5th Position
-%=============================================
-\tocItem \markup "Shift from 2nd to 5th Position"
-\markup \bold "Shift from 2nd to 5th Position"
-shift_TwoToFifthPosition = \relative c' {
-  \tempo 4 = 40 - 60
-  \repeat volta 10 {
-    f-1 g a bf-1 c d
-  }
-}
-\markup { \writeMusic ##{ \shift_TwoToFifthPosition #} }
 
 \pageBreak
 
@@ -655,35 +574,7 @@ A_template = \relative c' {
 }
 
 
-\tocItem \markup "Major 7th Arpeggios in Circle of Fourth"
-\markup \bold "Major 7th Arpeggios in Circle of Fourth"
-chordNamesMajorSeventhArpeggios_in_Fourth = \chordmode {
-  b1:7  e:7  a:7  d:7
-  g1:7  c:7  f:7  bf:7
-  ef:7  af:7 df:7  gf:7
-}
 
-MajorSeventhArpeggios_in_Fourth = \relative c''' {
-b,8  ds fs  a   b   a   fs  ds
-e,8  gs b   d   e   d   b   gs
-a,8  cs e   g   a   g   e   cs
-d 8  fs a   c   d   c   a   fs
-g 8  b  d   f   g   f   d   b
-c,8  e  g   bf  c   bf  g   e
-f 8  a  c   ef  f   ef  c   a
-bf8  d  f   af  bf  af  f   d
-ef,8 g  bf  df  ef  df  bf  g
-af,8 c  ef  gf  af  gf  ef  c
-df8  f  af  cf  df  cf  af  f
-fs8  as cs  e   fs  e   cs  as
-
-}\score {
-  <<
-   \new ChordNames \chordNamesMajorSeventhArpeggios_in_Fourth
-    \new Staff { \MajorSeventhArpeggios_in_Fourth }
-  >>
-  \layout {indent =0\cm }
-}
 
 \tocItem \markup "Scale in Broken Thirds"
 \markup \bold "Scale in Broken Thirds"

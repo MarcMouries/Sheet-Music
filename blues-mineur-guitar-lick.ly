@@ -25,7 +25,7 @@ melody = \relative c' {
   bf8 a g fs ef d c bf
   a8 g fs g bf d d c
   ef4 d8 g8 ~ g4 r4 
-  r4 \tuplet 3/2 {fs8 a c} ef8 d c bf 
+  r4 \tuplet 3/2 {fs,8 a c} ef8 d c bf 
   a g fs ef d c bf a 
   g bf d4 c8 ef fs a 
   g2 r2

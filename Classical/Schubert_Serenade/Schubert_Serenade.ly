@@ -1,4 +1,3 @@
-
 \version "2.24"
 \language "english"
 
@@ -8,14 +7,6 @@
   title = "Serenade"
   subtitle = "D. 957 No. 4"
   composer = "Franz Schubert"
-}
-
-%       \once\override MultiMeasureRestNumber.font-name = "Vera Bold"
-
-\markup "Practice Schubert Serenade Arpegios"
-\relative c' {
-  d-2 f a d-1 f d a f
-  c-1 e g c-1 e c g e
 }
 
 
@@ -34,8 +25,11 @@ R2. * 4
 a4.( g8_3) \tuplet 3/2 {g8( f e)}
 f2 r4
 
+
 \once\override MultiMeasureRest.expand-limit = #1
 R2. * 2 
+
+\break
 
 % String indication
 \once \override TextSpanner.bound-details.left.text = \markup { "Sul D" }
@@ -50,11 +44,23 @@ c4.( bf8) \tuplet 3/2 {bf8( a g)}
 a2 \stopTextSpan r4
 \once\override MultiMeasureRest.expand-limit = #1
 R2. * 2 
-\break
+
+%\break
+
 a8.( cs16  ) f4._3( e8 )
+
+\break
+
 d8.( a16) f4.( d8)
-\tuplet 3/2 {b'8( a b)} d4.( b8)
+\tuplet 3/2 {   bf'8( a b)} d4.( b8)
 a2._2
+
+ \tuplet 3/2 {   g8_1( fs_1 g)} bf4.( g8_3)
+f!2._2
+
+a8.( cs16  ) f4._3( e8 )
+
+
 
 }
 

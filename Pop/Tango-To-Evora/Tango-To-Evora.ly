@@ -37,12 +37,12 @@ melody = \relative c'' {
  
   a8 a a a e'4 a4 
   r8 a, a a e'4. d16( c) 
-    b8 b b b c4 b4 
+  b8 b b b c4 b4 
   g8 g g g a4 g4 
   fs8 fs fs fs g4 fs4 
- r8 fs fs fs b2    
-    b4. a8 g4 fs4 
-    g1
+  r8 fs fs fs b2    
+  b4. a8 g4 fs4 
+  g1
 }
 
 
