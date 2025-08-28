@@ -31,7 +31,7 @@ songMelody = \relative c' {
     \break
     g4 g8 fs8 g4 a4
     fs4. e8 d2
-    fs4 f8 e8 fs4 g4
+    fs4 fs8 e8 fs4 g4
     e2. r4
   }
   \break
@@ -43,7 +43,7 @@ songMelody = \relative c' {
     \break
     a4 a8 g8 a4 b4
     g4. fs8 e2
-    fs4 f8 e8 f4 g4
+    fs4 fs8 e8 fs4 g4
     e2. r4
   }
 }
