@@ -15,7 +15,7 @@ global = {
 
 chordNames = \chordmode {
   \global
-  f2.:m  ef df  c:m f:m c df
+  f2.:m  c2.:m df  c:m f:m c df
 }
 
 melody = \relative c'' {
@@ -80,36 +80,36 @@ melody = \relative c'' {
 
 % Score 1: Original version in F minor
 
-\book {
-
-  \bookpart {
-    \header {
-      title = "The Mad Lover"
-      composer = "John Eccles"
-      piece = "Original in F minor"
-    }
-    \score {
-      <<
-        \new ChordNames \chordNames
-        \new Staff {
-          \melody
-        }
-      >>
-      \layout {
-        \context {
-          \Voice
-          \twoByTwoBeaming
-        }
-        \context {
-          \Score
-          %use the line below to insist on your layout
-          %\override NonMusicalPaperColumn.line-break-permission = ##f
-          \consists #(bars-per-line-engraver '(5 4 4 4 4 4  4  4 4  5))
-        }
-      }
-    }
-  }% bookpart
-} % book
+% \book {
+% 
+%   \bookpart {
+%     \header {
+%       title = "The Mad Lover"
+%       composer = "John Eccles"
+%       piece = "Original in F minor"
+%     }
+%     \score {
+%       <<
+%         \new ChordNames \chordNames
+%         \new Staff {
+%           \melody
+%         }
+%       >>
+%       \layout {
+%         \context {
+%           \Voice
+%           \twoByTwoBeaming
+%         }
+%         \context {
+%           \Score
+%           %use the line below to insist on your layout
+%           %\override NonMusicalPaperColumn.line-break-permission = ##f
+%           \consists #(bars-per-line-engraver '(5 4 4 4 4 4  4  4 4  5))
+%         }
+%       }
+%     }
+%   }% bookpart
+% } % book
 
 
 
@@ -135,8 +135,18 @@ melody = \relative c'' {
           }
         }
       >>
-      \layout { }
-      \midi { }
+            \layout {
+        \context {
+          \Voice
+          \twoByTwoBeaming
+        }
+        \context {
+          \Score
+          %use the line below to insist on your layout
+          %\override NonMusicalPaperColumn.line-break-permission = ##f
+          \consists #(bars-per-line-engraver '(5 4 4 4 4 4  4  4 4  5))
+        }
+      }
     }
   }% bookpart
 } % book
