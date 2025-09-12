@@ -4,6 +4,7 @@
 \header {
   title = "Wrong Roads"
   composer = "Steve Kroeger x Skye Holland"
+  % Steve Kroeger x Skye Holland - Wrong Roads
   
 }
 
@@ -15,14 +16,23 @@ global = {
 
 chordNames = \chordmode {
   \global
-  e1
+  a1     e1     b1    cs1:m
+  e1     cs1:m  e1    cs1:m
+  e1     cs1:m  e1    cs1:m
   
 }
 
 melody = \relative c' {
   \global
-  b8 cs  e fs fs b cs e 
-  gs gs fs fs e b 
+  
+  b8   cs  e   fs  fs  b  cs  e 
+  gs   gs  fs  e   b   r  r4   
+  r4   gs'8 fs e cs e cs 
+  cs2  r2 
+  \break
+  r1   r   r   r
+  \break
+  r1   r   r   r
   
 }
 
