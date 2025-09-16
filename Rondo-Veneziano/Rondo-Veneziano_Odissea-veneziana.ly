@@ -57,8 +57,8 @@ violinOne = \relative c'' {
   % Page 41 - Line 4 (measure 20)
   e16 a, cs a d a e' a, f' a, g' a, a' a, f' a, |
 \break
-  d16_"1st pos. jusqu'au Mi avec 3e doigt. Rester la en 2e pos. Même chose jusqu'au fa au 22, 3e doigt" bf' a bf g a f g-1 e-3 f d e c-1 c' bf c |
-  a bf g a-1  f g e f d d' c d bf c a bf |
+  d16_"1st pos. jusqu'au Mi avec 3e doigt. Rester la en 2e pos. Même chose jusqu'au fa au 22, 3e doigt" bf' a bf g a f g e-3 f d e c-1 c' bf c |
+  a bf g a  f-3 g e f d d' c d bf c a bf |
   \break
   % Page 41 - Line 5 (measure 23)
   g16  a  f   g  
