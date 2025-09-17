@@ -1,4 +1,4 @@
-\version "2.19"
+\version "2.24.0"
 \language "english"
 
 date = #(strftime "%B, %d %Y" (localtime (current-time)))
@@ -7,24 +7,23 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
   title = "Summertime" 
   subtitle = "S. Grappelli"
   subsubtitle = "Album Stephane Grappelli, Bill Coleman"
+  % from this video https://www.youtube.com/watch?v=9Y4d8DXF83M
 
-  composer = "Gershwin" 
+
+  composer = "G. Gershwin"
   tagline = ##f     % Remove default LilyPond tagline
-    poet =  "Transcribed by Marc & Maxence Mouries"
+  poet =  "Transcribed by Marc Mouries"
   tagline = \markup 
   \column {
-    {
       "(cc)(by)(sa) me Rights Reserved."
-     \with-url #"https://www.youtube.com/watch?v=mNejZlpOpAU"
-     { "Youtube Video Gypsy Jazz Violin Lessons - Minor Swing" }}
-    { \line {  $(format "Typeset with LilyPond ~a. ," (lilypond-version))
-               \date  } 
-    }
+     \with-url "https://www.youtube.com/watch?v=mNejZlpOpAU" { "Youtube Video Gypsy Jazz Violin Lessons - Minor Swing" }
+     \line {  $(format "Typeset with LilyPond ~a. ," (lilypond-version))  \date  } 
   } 
 } 
 
 \markup \vspace #1
-\markup { "- Add Swing Tempo"}
+\markup { "=> Add Chords"}
+\markup { "=> Add Swing Tempo"}
 \markup \vspace #1
 #(set-global-staff-size 21)
 \layout {
@@ -44,8 +43,11 @@ global = {
 violin = \relative c' {
   \global
   \partial 8
-  b16 b 
-  \grace g' \glissando b4 g bf(\glissando b) a g a b a g
+  b16 b16 
+  \grace g' \glissando b8 g8 b8 b8 ~ b2 
+  a8 g a g \grace a (\glissando bf)  a 
+  g g e e e c b4
+  r4 r4 r4 r4 r4 
 }
 
 \score {

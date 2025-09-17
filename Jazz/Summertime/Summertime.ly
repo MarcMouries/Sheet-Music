@@ -3,36 +3,48 @@
 \header {
   title = "Summertime"
   composer = "G. Gershwin"
-  enteredby = "Laurent Martelli"
+  subtitle = "(from Porgy and Bess)"
   tagline = ""
-  head = ""
 }
 
 Chords = \chordmode {
-  \partial 4  s4
+  \partial 2  s2
   \repeat "volta" 2 {
-    d1*4:min7 | g1*2:min7 | e1:min7.5- | a:7.9+ |
-    d1*3:min7 | g2:min7 c:7 |
-    f1:maj | e2:min7.5- a:7.9+ | d1:min7 | a:7.9+ |
+    |  a1:min7          |  a2:min7      e2:7.9+ | a1:min7       | a1:min7
+    |  d1:min7          |  f:9                  | b1:min7.5+    | e:7.9+    
+    |  a1:min7          |  e:7.5+               | a1:min7       | d1:min7
+    |  c2:maj7  a2:min7 |  b2:min7.5+   e:7.5+  | s1            | s1
+    | s1                |                       | s1            | s1
+    | s1                |                       | s1            | s1
   }
 }
 
 Tune = \relative c''{
-  \partial 4
-  a8. f16 | \repeat "volta" 2 {
-  a1 | r4 g8. f16 g8. a16 f4 | d2 a ~ | a4 r a' f |  
+  \partial 2
+  e4 c4 | 
+  \repeat "volta" 2 {
+  | e1 ~  
+  | e4  d8 c8 d8 e8 c4  
+  | a2 e2 ~  
+  | e4 r e' c |  
   \break
-  g8 g ~ g2. | r4 f8. d16 f8. d16 f4 | e1 ~ | e2 r4   a8. f16 | 
+  | d8 d4. ~ d2 
+  | r4 c8 a8 c4 a8 c8
+  | b1 ~ 
+  | b2   r8 e4 c8 
   \break
-  a1 | r4 g8. f16 g8. a16 f4 | d2 a ~ | a2 r4 a | 
+  | e8 e4 e8 ~ e2 
+  | r4 d8 c8 d e8 c4
+  | a2 e2 ~ 
+  | e2 r4 e4
   \break
-  c a8 c d f ~ f4 | a8 g ~ g4 f2 | d1 ~ | d4 r r a'8. f16 |
+  | g4 e8 g8 a4 c4
+  | e8 ( d4.) c2 
+  | a1 ~ 
+  | a4 r4 \tuplet 3/4 {e'8 e8 c8 }
 
     \break
-    s1 s1   s1 s1
-    s1 s1   s1 s1
-    s1 s1   s1 s1
-    s1 s1   s1 s1
+| s1                |                       | s1          | s1     | s1    
 
   }
 }
