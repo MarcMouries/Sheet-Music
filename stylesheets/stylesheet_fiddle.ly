@@ -1,10 +1,15 @@
 \version "2.24.0"
 
 
-
+\layout {
+        
+      }
 
 \layout {
+  
+  % No indent on the first line
   indent = 0.0\cm
+  
    % Makes the size of the grace notes smaller
     \context {
       \Score \with{
@@ -19,6 +24,10 @@
         $(add-grace-property 'Voice 'Beam 'shorten '1)
       }
     }
+    
+  %% LyricText Smaller
+  \override Lyrics.LyricText.font-size = #-2  
+    
   % Changes default group beaming
   % from: |_|_|_|_|_|
   %
