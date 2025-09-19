@@ -82,7 +82,6 @@ melody = \relative c' {
       \consists #(bars-per-line-engraver '(4 ))
     }
   }
-
   \midi { }
 }
 
