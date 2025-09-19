@@ -1,8 +1,8 @@
 \version "2.19.49"
 \language "english"
-#(set-global-staff-size 22)
+%#(set-global-staff-size 22)
 
-raisedSharp = \markup \raise #0.6 \sharp 
+raisedSharp = \markup \raise #0.6 \sharp
 
 \header {
   title = "Gammes de Blues"
@@ -89,7 +89,7 @@ C_sharp_minor = \markup {
         \Staff
         \remove "Time_signature_engraver"
         \remove "Bar_engraver"
-        instrumentName = \markup \small \concat { "C" \raisedSharp "m" } 
+        instrumentName = \markup \small \concat { "C" \raisedSharp "m" }
       }
     }
   }
@@ -103,7 +103,7 @@ F_sharp_minor = \markup {
         \Staff
         \remove "Time_signature_engraver"
         \remove "Bar_engraver"
-        instrumentName = \markup \small \concat { "F" \raisedSharp "m" } 
+        instrumentName = \markup \small \concat { "F" \raisedSharp "m" }
       }
     }
   }
@@ -116,7 +116,7 @@ G_sharp_minor = \markup {
         \Staff
         \remove "Time_signature_engraver"
         \remove "Bar_engraver"
-        instrumentName = \markup \small \concat { "G" \raisedSharp "m" } 
+        instrumentName = \markup \small \concat { "G" \raisedSharp "m" }
       }
     }
   }
@@ -208,7 +208,7 @@ Re = \markup {
 % Mi 4
 Mi = \markup {
   \score {
-   \transpose c e \cMaj
+    \transpose c e \cMaj
     \layout {
       \context {
         \Staff
@@ -275,7 +275,7 @@ B_flat = \markup {
         \Staff
         \remove "Time_signature_engraver"
         \remove "Bar_engraver"
-        instrumentName = \markup \small \concat { "B" \flat } 
+        instrumentName = \markup \small \concat { "B" \flat }
       }
     }
   }
@@ -288,7 +288,7 @@ E_flat = \markup {
         \Staff
         \remove "Time_signature_engraver"
         \remove "Bar_engraver"
-        instrumentName = \markup \small \concat { "E" \flat } 
+        instrumentName = \markup \small \concat { "E" \flat }
       }
     }
   }
@@ -299,11 +299,11 @@ E_flat = \markup {
     \hspace #1
     \override #'(baseline-skip . 11) {
       \left-column {
-        \Do 
-        \Sol 
-        \Re 
-        \La 
-        \Mi 
+        \Do
+        \Sol
+        \Re
+        \La
+        \Mi
         \Si
         \Fa
         \B_flat
@@ -327,3 +327,48 @@ E_flat = \markup {
     \hspace #1
   }
 }
+
+
+\markup \bold "Blues Scale"
+Blues_Scale_in_Am_notes =  \relative c' {
+  \time 4/4
+  a8 c d ef  e g
+  a c d ef  e g
+
+  a g e ef d c
+  a e e ef d c
+}
+\score {
+  \transpose c c \Blues_Scale_in_Am_notes
+  \layout {
+    \context {
+      \Staff
+      %        \remove "Time_signature_engraver"
+      %        \remove "Bar_engraver"
+      instrumentName = \markup \small \concat { "Am" }
+    }
+  }
+}
+
+Blues_Scale_in_C_notes =  \relative c' {
+  \time 4/4
+  c8 d ef e  g
+  a8 c d  ef e g
+  a c a g e ef d c a g e ef d
+}
+\score {
+  \transpose c c  \Blues_Scale_in_C_notes
+  \layout {
+    \context {
+      \Staff
+
+      instrumentName = "Do"
+    }
+  }
+}
+
+\markup \bold "Pentatonic Scale"
+
+
+
+
