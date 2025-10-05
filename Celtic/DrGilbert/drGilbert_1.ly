@@ -1,13 +1,43 @@
-\include "violin-functions.ly"
+\include "../../stylesheets/violin-functions.ly"
+
+\layout {
+  %\set beamExceptions = #'()
+}
+\paper {
+  indent = 0\mm
+}
+
+
+
 \version "2.14.0"
 \language "english"
 \header {
-	title = "Dr. Gilbert's" 
-	tagline = ""
+  title = "Dr. Gilbert's"
+  tagline = ""
 }
-#(set-global-staff-size 20)
-\paper {
- indent = 0\mm
+%#(set-global-staff-size 20)
+
+
+melodySimple = {
+  \key e \minor
+
+  \relative c'' {
+    \partial 4  \grace fs8 \upbow g8\fermata(  fs)
+
+    \repeat volta 2 {
+      e8   b b a b e e d      
+
+      \tri{b8( c d) } a8   c8    b8  a8
+      g8    fs8   e8   d8    b8    d8    g4
+      fs8  g
+      |  e   d   b   e     d    a   a4
+      r4 r r r
+      r4 r r r
+      r4 r r r
+      r4 r r r
+      r4 r r r
+    }
+  }
 }
 
 
@@ -18,19 +48,19 @@ melody =  {
   \key e \minor
   \relative c'' {
     \partial 4  \grace fs8 \upbow g8\fermata(  fs)
-  \repeat volta 2 {
-       %{ 1 %}
-     |  e   b\acciaccatura {b c}  b   a     b4.\turn( cs8) 
-     |  d      b(\acciaccatura {b c}    b4)  a8  g(    fs g)
-     |  e(\acciaccatura {f e}     d)   b   d     g4       fs8  g
-     |  e   d   b   e     d    a   a4
-     |  b8  e   e   d     e4   d8  e
-     |  g   e   \tuplet 3/2 {fs8 e d}     e    fs  g   a
-     |  b   d   e   d     b    d   g   b
-     |  a   fs  d   fs    e4       g8[  fs]
+    \repeat volta 2 {
+      %{ 1 %}
+      |  e   b \acciaccatura {b d}  b   a     b4.\turn( cs8)
+      |  d      b(\acciaccatura {b c}    b4)  a8  g(    fs g)
+      |  e(\acciaccatura {f e}     d)   b   d     g4       fs8  g
+      |  e   d   b   e     d    a   a4
+      |  b8  e   e   d     e4   d8  e
+      |  g   e   \tuplet 3/2 {fs8 e d}     e    fs  g   a
+      |  b   d   e   d     b    d   g   b
+      |  a   fs  d   fs    e4       g8[  fs]
     }
     \break
-	\repeat volta 2 {
+    \repeat volta 2 {
       |  e8  b   b4        g'8     b,   b4
       |  d8  e   fs   g    a       fs   d   fs
       |  g4   b8  g   fs   g   a   fs
@@ -40,16 +70,22 @@ melody =  {
       |  e    a   c   a    \tri{b8 d e}   g   b
       |  a    fs  d   fs   e4
     }
-}
+  }
 }
 
 \score {
+  \new StaffGroup
   <<
-    \new Staff { \melody }
+        \new Staff = "ornamented" { \melody }
+    \new Staff = "plain"      { \melodySimple }
   >>
   \layout { }
   \midi { }
 }
+
+
+
+
 
 melodyB =  {
   \set Staff.midiInstrument = "violin"
@@ -58,38 +94,32 @@ melodyB =  {
   \key e \minor
   \relative c'' {
     \partial 4  g'8[  fs]
-	  \repeat volta 2 {
+    \repeat volta 2 {
       | e^"(A" b  \tri {c8( b a)} b d \acciaccatura { e16 } d8 b
-      | \tri{a8( b d)} a c  b a g fs
+      | \tri{b8( c d)} a c  b a g fs
       | e d b d  \tri{g8(fs e)} \tri{fs8( e d)}
       | e8  b \grace c16 \tri {b8(a b)} fs'8 b, \acciaccatura c16 \tri{b8(a b)}
-\break
+      \break
       | d8 e \tri{fs8( e d)} e d b d
       | \tri{g8(fs e)} \tri{fs8( e d)} e fs g a
       | \tri{b8( c d)} e8 d  b d e b'
       | a fs b, fs'  e fs g fs
-      }
-\break
-	  \repeat volta 2 {
+    }
+    \break
+    \repeat volta 2 {
       | e8 b \acciaccatura c8 \tri{b8( a b)} g'8 b, \acciaccatura c \tri{b8( a b)}
       | d e fs a \acciaccatura b  a fs d fs
       | g4 b8 g fs a \acciaccatura b  a fs
       | \tri{e8( fs g)} fs8 d e b \acciaccatura c \tri{b8( a b)}
-\break
+      \break
       | a' fs d fs  e d b c
       | \tri{d8( c b)} a fs a fs d fs
       | e b' \acciaccatura c b a  b d e b'
       | a fs d fs  e4  g8 fs
-      }
-   }
+    }
+  }
 }
 
 
 
-\score {
-  <<
-    \new Staff { \melodyB }
-  >>
-  \layout { }
-  \midi { }
-}
+%\score {    \new Staff { \melodyB }   \layout { } }
