@@ -1,12 +1,11 @@
 \include "../../stylesheets/violin-functions.ly"
 
 \layout {
-  %\set beamExceptions = #'()
+  \set beamExceptions = #'()
 }
 \paper {
   indent = 0\mm
 }
-
 
 
 \version "2.14.0"
@@ -25,15 +24,16 @@ melodySimple = {
     \partial 4  \grace fs8 \upbow g8\fermata(  fs)
 
     \repeat volta 2 {
-      e8   b b a b e e d      
+      e8   b b  a b e e d
 
-      \tri{b8( c d) } a8   c8    b8  a8
-      g8    fs8   e8   d8    b8    d8    g4
-      fs8  g
-      |  e   d   b   e     d    a   a4
-      r4 r r r
-      r4 r r r
-      r4 r r r
+      \tri{b8( c d) } a  c  b  a  g  fs
+      | e8 d  b  d \tri {g8 fs e}  \tri {fs8 e d}
+      |  e   b b   e d  b  a    b
+      |  b8  e   e   d     e4   d8  e
+      |  g   e   \tuplet 3/2 {fs8 e d}     e    fs  g   a
+      |  b   d   e   d     b    d   g   b
+      |  a   fs  d   fs    e4       g8[  fs]
+
       r4 r r r
       r4 r r r
     }
@@ -76,7 +76,7 @@ melody =  {
 \score {
   \new StaffGroup
   <<
-        \new Staff = "ornamented" { \melody }
+    \new Staff = "ornamented" { \melody }
     \new Staff = "plain"      { \melodySimple }
   >>
   \layout { }
@@ -122,4 +122,4 @@ melodyB =  {
 
 
 
-%\score {    \new Staff { \melodyB }   \layout { } }
+\score {    \new Staff { \melodyB }   \layout { } }

@@ -2,17 +2,35 @@
 \language "english"
 %#(set-global-staff-size 22)
 
+
+
+\relative c'' {
+  \time 6/8
+  \repeat volta 2{
+     d,8\downbow f g   a c d 
+     c8\downbow a g  f d c
+  }
+  \repeat volta 2{
+     d'8\downbow f g   a c d 
+     c8\downbow a g  f d c
+  }
+}
+
+
 raisedSharp = \markup \raise #0.6 \sharp
 
 \header {
   title = "Gammes de Blues"
-  subtitle = "1 3 "
+  subtitle = ""
   tagline = ##f
 }
 
 Am_notes =  \relative c' {
   \time 6/4
-  a' c d ef  e g
+  a' c d 
+    \tweak color #blue
+  \tweak Accidental.color #blue
+  ef  e g
 }
 cMaj =  \relative c' {
   \time 6/4
@@ -304,10 +322,11 @@ E_flat = \markup {
         \Re
         \La
         \Mi
-        \Si
         \Fa
         \B_flat
         \E_flat
+        \Si
+
       }
     }
     \hspace #1
@@ -361,7 +380,6 @@ Blues_Scale_in_C_notes =  \relative c' {
   \layout {
     \context {
       \Staff
-
       instrumentName = "Do"
     }
   }
