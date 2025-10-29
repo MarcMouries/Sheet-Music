@@ -1,7 +1,7 @@
 \version "2.19.32"
 \language "english"
-\include "violin-functions.ly"
-\include "markups.ly"
+\include "../../stylesheets/violin-functions.ly"
+\include "../../stylesheets/markups.ly"
 
 
 \header { tagline = ##f }

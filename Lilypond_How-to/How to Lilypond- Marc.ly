@@ -3,7 +3,7 @@
 
 
 % ****************************************************************
-% Start cut-&-pastable-section
+% This is a visual guide to How to Write Music for Violin with Lilypond"
 % ****************************************************************
 
 
@@ -46,15 +46,12 @@
       
       
 \markup \vspace #2  
-\markup \bold { "Bowing"}  
+\markup \bold { "Bowing indications"}  
+score_Bowing_downbow = \relative c' { c4(\downbow d) e(\upbow f) }
 \markup \fill-line {
-  \column { 
-    \score {
-       \relative c' { c4(\downbow d) e(\upbow f) }
-       \layout { }
-    }     
-  } 
-  \column { "=>" }     \column { \typewriter "c4(\downbow d) e(\upbow f)" }  
+  \column { \score { \score_Bowing_downbow }  } 
+  \column { "=>" }
+  \column { \typewriter "c4(\downbow d) e(\upbow f)" }  
 }
 
 
@@ -70,6 +67,10 @@
   } 
   \column { "=>" }     \column { \typewriter "\\tuplet 3/2 { d8 e f }" }  
 }
+
+
+
+
 
 
 

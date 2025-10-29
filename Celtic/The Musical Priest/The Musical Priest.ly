@@ -26,10 +26,10 @@ melody =  \relative c'' {
 
   % PART A
   \repeat volta 2 {
-    \partial 4    \acciaccatura { b16 cs} b8[ a]
-    | fs\downbow   b8(  \acciaccatura { cs} b a)  b4\turn  ~b8  d\upbow(
+    \partial 4    \acciaccatura { b16 d} b8[ a]
+    | fs\downbow   b8(  \acciaccatura { d} b a)  b4\turn  ~b8  d\upbow(
     | cs   b)    a\downbow    fs'    e    cs    b    a
-    | fs\downbow   b8(  \acciaccatura { cs} b a)  b4\turn  ~b8  d\upbow(
+    | fs\downbow   b8(  \acciaccatura { d} b a)  b4\turn  ~b8  d\upbow(
     | cs   b)    a    cs   b4
   }
 

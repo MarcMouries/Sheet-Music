@@ -13,33 +13,37 @@ melody = \relative c'' {
   <g b>4  r <fs b>4 r8   <e b'>8
   ~q4  r4 r4 r8 <e d'>8
   ~q4  b'8. a16 g8. e16 g8. <e b'>16~
-\break
    <e b'>4 r4 r4  r8 <e d'>8~
+\break
   d'4   b8. a16 g8. e16 g8 <e b'>8~
   <e b'>4 r8
   d'8 ~ d8. b16 c8 <e, b'>8 ~ q4
   r8 g8 ~ g8. e16 fs8 e ~
   e4 r r2
+\break
 }
 \alternative {
   {r1}
   {r4 r8 e'8 fs g4  a8~}
 }
+
   a4 r4 r2
-\break
   r8 a8 \tuplet 3/2 {  g8  fs d }
   fs8. g16 fs8. d16 b8. b16 r4 r2
+\break
   r4 r8 e8 fs g4  a8~
   a4 r4 r2
-\break
   r8 a8 \tuplet 3/2 {  g8  fs d }
   e8. fs16 e8. d16 b8. b16 r4 r2
-  r2 r4 r8 g8~
+\break
+r2 r4 r8 g8~
   <g b>4  r <fs b>4 r8   <e b'>8
+  r1
+  r1
 }
 chordNames = \chordmode {
   %\global
-  e1:m e1:m e1:m7
+  g2 b2 e1:m e1:m7
 
 }
 
