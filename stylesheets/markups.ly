@@ -26,8 +26,7 @@
 
 #(define-markup-command (writeMusicNoTime layout props music) (ly:music?)
    (let ((score (ly:make-score    music))
-         (score-layout (ly:output-def-clone $defaultlayout))
-         )
+         (score-layout (ly:output-def-clone $defaultlayout)))
      ;; change some settings in the \layout block
      (ly:output-def-set-variable! score-layout 'indent 0)
      ;; add the \layout block to the score
