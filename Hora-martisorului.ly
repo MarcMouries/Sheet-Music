@@ -35,9 +35,9 @@ melody = \relative c'' {
   b cs d cs
   b a gs fs 
   es! d cs bs
-  cs ds es fs
+  cs d es fs
   gs a b cs
-  ds es fs gs
+  d es fs gs
   a fs cs a'
   
 
@@ -55,7 +55,7 @@ melody = \relative c'' {
   b cs d cs
   b a gs fs 
   es! d cs bs
-  cs ds es fs
+  cs d es fs
   gs a b! a
   gs fs es! gs
   \appoggiatura {fs8 gs } fs8 fs
