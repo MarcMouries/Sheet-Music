@@ -1,7 +1,7 @@
 \version "2.19.15"
 \language "english"
 \header {
-  title = "Flesch One-octave arpeggios 2"
+  title = "Flesch One-octave arpeggios"
 }
 %{
            Page
@@ -21,7 +21,6 @@ scale_E_major = \relative c'{
   e8_1 fs16( gs_1) a( b-1) cs( ds)
   e8 ds16-4( cs) b( a) gs( fs)
 
-  \override TupletNumber.stencil = ##f
 
   \tuplet 3/2 {e8 g! ( b-1)}
   \tuplet 3/2 {e8 b ( g-3) }
@@ -48,7 +47,7 @@ scale_D_major = \relative c'{
   d8_1 e16( fs_1) g( a-1) b( cs)
   d8 cs16-4( b) a( g) fs( e)
 
-  \override TupletNumber.stencil = ##f
+  \override TupletNumber #'stencil = ##f
 
   \tuplet 3/2 {d8 f! ( a-1)}
   \tuplet 3/2 {d8 a ( f-3) }

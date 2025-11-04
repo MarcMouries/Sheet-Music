@@ -1,5 +1,6 @@
 \version "2.24.4"
 \language "english"
+\include "./markups.ly"
 
 \header {
   title = "8-Step Warm-Up Plan"
@@ -13,12 +14,12 @@
 % MACROS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-#(define-markup-command (sectionTitle layout props text)
-   (string?)
-   (interpret-markup layout props
-     (markup
-       #:vspace 1
-       #:bold #:larger text)))
+% SECTION TITLE
+#(define-markup-command (sectionTitle layout props title_text) (markup?)
+  (interpret-markup layout props
+   (markup #:column (#:vspace 1.5
+                    (#:fontsize 2 #:bold #:smallCaps  title_text)
+                     #:vspace 0.75))))
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EXAMPLE MATERIAL — using quoted identifiers
@@ -26,14 +27,11 @@
 
 
 
-
 "ex2a" = \relative c'' { \clef treble \time 4/4 c8^\downbow c^\upbow c^\downbow c^\upbow  c^\downbow c^\upbow c^\downbow c^\upbow | }
 "ex2b" = \relative c'' { \clef treble \time 4/4 c8 d e f  g a b c | d8 e f g  a b c d | e8 f g a  g f e d | c4( b8) r8 r2 | }
 
-"ex3a" = \relative g' { \clef treble \time 3/4 g4( a8 b) a4 | g4( a) g | a4( b8 c) b4 | a4( b) a | }
 % "ex3c_d_major" = \relative d' { \clef treble \time 4/4 \key d \major d8( fs e g)  fs4  e8( g fs a) g4 | }
 % "ex3c_c_major" = \relative c' { \clef treble \time 4/4 \key c \major c8( e d f)  e4  d8( f e g) f4 | }
-% "ex3d" = \relative c'' { \clef treble \time 3/4 c8 b c d e d | c8 b c d e d | }
 % 
 % "ex4a_whistler" = \relative c' { \clef treble \time 3/4 c8( d c d c d) | c8( d e f e d) | }
 % "ex4c_dounis" = \relative c'' { \clef treble \time 3/4 c8 d e g e d | d8 e f a f e | }
@@ -63,7 +61,6 @@
 \score { \new Staff { \"ex1b_b" } }
 
 \markup \concat {\bold "Example 1c:" \italic " Dounis' Daily Dozen"}
-
 "ex1b_c" = {
 \repeat volta 4 <<
   \relative c'' { f8-1 c-2 f c }
@@ -87,8 +84,6 @@
 
 
 
-
-
 \markup \sectionTitle "1) C. Bow-lilting exercise"
 
 
@@ -96,9 +91,13 @@
 \score { \new Staff { \"ex2a" } }
 \score { \new Staff { \"ex2b" } }
 
-\markup \sectionTitle "3) Shifting – Flesch scales, Lukacs, Dounis op.12 or 25."
+\markup \sectionTitle "3) Shifting"
+%\markup "Flesch scales, Lukacs, Dounis op.12 or 25."
 
 \markup \smallCaps "One-octave Flesch Scale System scale"
+"ex3a" = \relative g' {
+  \time 3/4 
+  g4( a8 b) a4 | g4( a) g | a4( b8 c) b4 | a4( b) a | }
 \score { \new Staff { \"ex3a" } }
 
 \markup \concat {\bold "EXAMPLE 3b:" \italic " Ricci Left-Hand Violin Technique, exercise 80b"}
@@ -113,10 +112,21 @@
   a16  gs  fs  e  d  cs  b a]
 }
 \score { \new Staff { \"ex3b_ricci" } }
-%\score { \new Staff { << \"ex3c_d_major" \"ex3c_c_major" >> } }
-%\score { \new Staff { \"ex3d" } }
 
-% \markup \sectionTitle "4) Strength / stretching – Whistler, Flor, Dounis 1."
+%\score { \new Staff { << \"ex3c_d_major" \"ex3c_c_major" >> } }
+
+dounis_shifting = 
+\relative c' { 
+  \cadenzaOn
+  \stemDown
+   c2_3 (c8_2[ c_1 c_2 c_3]) \bar "|"
+   d2_4 (d8_3[ d_2 d_1 d_2 d_3]) \bar "|"
+   e2_4 (e8_3[ e_2 e_1 e_2 e_3]) \bar "|"
+   
+}
+\score { \new Staff { \dounis_shifting } }
+
+\markup \sectionTitle "4) Strength / stretching – Whistler, Flor, Dounis 1."
 % \score { \new Staff { \"ex4a_whistler" } }
 % \score { \new Staff { \"ex4c_dounis" } }
 % 
@@ -129,7 +139,63 @@
 % \score { \new Staff { \"ex6c_glaser" } }
 % 
 \markup \sectionTitle "7) Double-stops"
- 
+
+\markup \concat {\bold "Example: " \italic " Roland Vamos: Pattern I"}
+
+vamos_double_stops_I_A = {
+\repeat volta 4 <<
+  \relative c'' { c2 e4( c4)}
+  \\
+  \relative c'  { e4( g4) g2   }
+>>
+}
+vamos_double_stops_I_B = {
+\repeat volta 4 <<
+  \relative c'' { c2 e2}
+  \\
+  \relative c'  { e8( g8 e8 g8)   e8( g8 e8 g8)   }
+>>
+}
+
+\score {
+{ \vamos_double_stops_I_A    \vamos_double_stops_I_B }
+}
+
+\markup \concat {\bold "Example: " \italic " Roland Vamos: Pattern IV"}
+
+vamos_double_stops_IV_A = {
+<<
+  \relative c'' { b2-1 c4( b4)}
+  \\
+  \relative c''  { g4_3( a4) a2   }
+>>
+}
+
+vamos_double_stops_IV_B = {
+<<
+  \relative c'' { b2 c2}
+  \\
+  \relative c''  { g8( a8 g8 a8)   g8( a8 g8 a8)   }
+>>
+}
+vamos_double_stops_IV_C = {
+<<
+  \relative c'' { b8( c8 b8 c8)   b8( c8 b8 c8)}
+  \\
+  \relative c''  { g2 a2   }
+>>
+}
+
+\score {
+{ \vamos_double_stops_IV_A   
+  \vamos_double_stops_IV_B
+  \vamos_double_stops_IV_C
+
+}
+}
+
+
+
 \markup "Trott"
 "ex7a_trott" = \relative c'' { \clef treble \time 2/4 <d fs>8( <e g>) <fs a>4 | }
  \score { \new Staff { \"ex7a_trott" } }
