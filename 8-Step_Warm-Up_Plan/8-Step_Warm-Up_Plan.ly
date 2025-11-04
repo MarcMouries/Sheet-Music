@@ -7,7 +7,22 @@
   tagline = ""
 }
 
-\paper { indent = 0 }
+\paper {
+  indent = 0
+  
+  % make book-level title larger
+  bookTitleMarkup =  \markup \column {
+    \fill-line { \fontsize #8 \bold \fromproperty #'header:title }
+  }
+  
+  % turn off the score title
+  scoreTitleMarkup = \markup \null
+}
+
+  
+
+
+
 \layout { }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,11 +30,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % SECTION TITLE
-#(define-markup-command (sectionTitle layout props title_text) (markup?)
+#(define-markup-command (section-title layout props title) (markup?)
   (interpret-markup layout props
    (markup #:column (#:vspace 1.5
-                    (#:fontsize 2 #:bold #:smallCaps  title_text)
+                    (#:fontsize 2 #:bold #:smallCaps  title)
                      #:vspace 0.75))))
+
+
+#(define-markup-command (section-titleA layout props title) (markup?)
+  (interpret-markup layout props
+   (markup
+     #:column (
+       #:vspace 1.5
+       #:fill-line (#:fontsize 3 #:bold #:smallCaps  title)
+       #:vspace 0.8))))
+
+
+%%%% ── Tiny helpers that \section uses
+#(define (add-no-page-break parser)
+  (collect-music-for-book
+    (make-music 'Music
+                'page-marker #t
+                'page-break-permission 'forbid)))
+
+#(define (add-toplevel-markup parser text)
+  (collect-scores-for-book (list text)))
+
+#(define (add-toc-item parser markup-symbol text)
+  (collect-music-for-book
+    (add-toc-item! markup-symbol text)))
+
+section = #(define-music-function (title) (string?)
+  (add-toc-item (*parser*) 'tocSectionMarkup title)
+  (add-toplevel-markup (*parser*)
+    (markup #:section-title (string-upcase title)))
+  (add-no-page-break (*parser*))
+  (make-music 'Music 'void #t))
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EXAMPLE MATERIAL — using quoted identifiers
@@ -47,7 +93,8 @@
 % SCORE WITH SECTION MACRO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\markup \sectionTitle "1) Silent finger exercises – Flesch Urstudien 1A/B or Dounis Daily Dozen 1."
+\section "1) Silent finger exercises"
+
 \markup \italic "Example 1a: Flesch Urstudien"
 "ex1a" = \relative c'' { \clef treble \time 4/4 <c g>1 | <b f>1 | <d a>1 | <c g>1 | }
 \score { \new Staff { \"ex1a" } }
@@ -84,14 +131,14 @@
 
 
 
-\markup \sectionTitle "1) C. Bow-lilting exercise"
+\section "1) C. Bow-lilting exercise"
 
-
-\markup \sectionTitle "2) Long tones & slow finger work – bow control before mirror; add vibrato."
+\section "2) Long tones & slow finger work"
+\markup "bow control before mirror; add vibrato."
 \score { \new Staff { \"ex2a" } }
 \score { \new Staff { \"ex2b" } }
 
-\markup \sectionTitle "3) Shifting"
+\section "3) Shifting"
 %\markup "Flesch scales, Lukacs, Dounis op.12 or 25."
 
 \markup \smallCaps "One-octave Flesch Scale System scale"
@@ -126,19 +173,20 @@ dounis_shifting =
 }
 \score { \new Staff { \dounis_shifting } }
 
-\markup \sectionTitle "4) Strength / stretching – Whistler, Flor, Dounis 1."
+\section "4) Strength / stretching – Whistler, Flor, Dounis 1."
 % \score { \new Staff { \"ex4a_whistler" } }
 % \score { \new Staff { \"ex4c_dounis" } }
 % 
-% \markup \sectionTitle "5) Tone & string-crossing – Dounis 11 or similar."
+\section "5) Tone & string-crossing"
+\markup " – Dounis 11 or similar."
 % \score { \new Staff { \"ex5" } }
 % 
-% \markup \sectionTitle "6) Three-octave scales & arpeggios – with articulation / vibrato."
+\section "6) Three-octave scales & arpeggios"
 % \score { \new Staff { \"ex6a_sevcik" } }
 % \score { \new Staff { \"ex6b_ricci" } }
 % \score { \new Staff { \"ex6c_glaser" } }
 % 
-\markup \sectionTitle "7) Double-stops"
+\section "7) Double-stops"
 
 \markup \concat {\bold "Example: " \italic " Roland Vamos: Pattern I"}
 
@@ -220,6 +268,7 @@ vamos_double_stops_IV_C = {
 \score { \new Staff { \"ex7e_ricci" } }
 
 
-\markup \sectionTitle "8) Strategic etude or passagework – Mazas, Kreutzer, Rovelli etc."
+\section "8) Strategic etude or passagework"
+\markup "Mazas, Kreutzer, Rovelli etc."
 
 \markup \italic "Add your current passage or an etude targeting today's focus (e.g., Kreutzer 2, 7, 9)."
