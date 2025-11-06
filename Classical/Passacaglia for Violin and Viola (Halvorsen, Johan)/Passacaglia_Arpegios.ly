@@ -48,33 +48,8 @@ melodyA = \relative c'' {
 }
 \score { 
   <<
-    \new ChordNames {\transpose g a \chordNames}
-    \new Staff      {\transpose g a \melodyA   }
-  >>
-}
-\score { 
-  <<
-    \new ChordNames {\transpose g a \chordNames}
-    \new Staff      {\transpose g a, \melodyA   }
-  >>
-}
-\score { 
-  <<
-    \new ChordNames {\transpose g b \chordNames}
-    \new Staff      {\transpose g b, \melodyA   }
-  >>
-}
-\score { 
-  <<
-    \new ChordNames {\transpose g c \chordNames}
-    \new Staff      {\transpose g c \melodyA  }
-  >>
-}
-
-\score { 
-  <<
-    \new ChordNames {\transpose g d \chordNames}
-    \new Staff      {\transpose g d \melodyA   }
+    \new ChordNames {\transpose g fs \chordNames}
+    \new Staff      {\transpose g fs \melodyA   }
   >>
 }
 \score { 
@@ -85,10 +60,31 @@ melodyA = \relative c'' {
 }
 \score { 
   <<
+    \new ChordNames {\transpose g d \chordNames}
+    \new Staff      {\transpose g d \melodyA   }
+  >>
+}
+\score { 
+  <<
+    \new ChordNames {\transpose g c \chordNames}
+    \new Staff      {\transpose g c \melodyA  }
+  >>
+}
+\score { 
+  <<
+    \new ChordNames {\transpose g b \chordNames}
+    \new Staff      {\transpose g b, \melodyA   }
+  >>
+}
+\score { 
+  <<
+    \new ChordNames {\transpose g a \chordNames}
+    \new Staff      {\transpose g a, \melodyA   }
+  >>
+}
+\score { 
+  <<
     \new ChordNames {\transpose g f \chordNames}
     \new Staff      {\transpose g f \melodyA   }
   >>
 }
-
-
-
