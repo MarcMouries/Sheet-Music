@@ -44,7 +44,17 @@ melody = \relative c'' {
 }
 
 \score {
-  \new Staff \with {
-    instrumentName = "Voice"
-  } { \melody }
+  \new Staff \with { instrumentName = "" } { \melody }
 }
+
+\score { \transpose g a \melody }
+
+\score { \transpose g b \melody } 
+
+\score { \transpose g c \melody } 
+
+\score { \transpose g d \melody } 
+
+\score { \transpose g e \melody } 
+
+\score { \transpose g fs \melody } 
