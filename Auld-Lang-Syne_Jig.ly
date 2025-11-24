@@ -11,7 +11,11 @@ global = {
 }
 
 chordNames = \chordmode {
-
+s4 
+g1 d1 g1 c1 
+g1 d1 g1 c1 
+g1 d1 g1 c1 
+g1 d1 g1 c1 
 }
 
 melody = \relative d' {
@@ -44,7 +48,7 @@ melody_jig = \relative d' {
     \partial 8 d8 |
 
     g4 g8 g4 b8
-    a4 g8 a4 b16 a
+    a8 g8 g8  a4 b16 a
     g4 g8  b4 d8
 
     e4. ~ 4  g16  e
@@ -55,12 +59,12 @@ melody_jig = \relative d' {
     g4. ~ 4 e'8
     \break
     d4 b8   b4 g8
-    a4 g8   a4 e'8
+    a8 g8 g8  a4 e'8
     d4 b8   b4 d8
     e4. ~ e4 g16 e
     \break
     d4 b8   b4 g8
-    a4 g8   a4 b16(a)
+    a8 g8 g8  a4 b16(a)
     g4 ( e8)  e4( d8)
     g4. ~ g4 r8
   
