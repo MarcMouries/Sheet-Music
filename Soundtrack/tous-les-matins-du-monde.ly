@@ -5,6 +5,9 @@
   title = "Improvisations sur les folies d'Espagne"
   subtitle = "Du Film Tous Les Matins du Monde"
   subsubtitle = "Transposed from D to G"
+  composer = "Marin Marais"
+  style = "baroque"
+  tagline = ""
 }
 
 global = {

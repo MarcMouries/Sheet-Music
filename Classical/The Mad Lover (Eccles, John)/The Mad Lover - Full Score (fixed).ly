@@ -23,8 +23,11 @@ chordsAuto = \chordmode {
 }
 
 \header {
-  title = "The Mad Lover — Full Score (Eccles)"
-  subtitle = "Combined Violin, Alto, Bass + Auto Chords (draft)"
+  title = "The Mad Lover"
+  subtitle = "Full Score - Combined Violin, Alto, Bass"
+  composer = "John Eccles (1668-1735)"
+  style = "baroque"
+  tagline = ""
 }
 
 \score {

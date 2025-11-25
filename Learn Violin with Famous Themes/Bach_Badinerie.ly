@@ -4,11 +4,11 @@
 
 \header {
   title = "Badinerie"
-  subtitle = "(aus der Orchester-Suite Nr. 2 in b-moll)"
-  composer = "Johann Sebastian Bach"
-  arranger = "(1685-1750)"
-  opus = "BWV1067"
-  enteredby = "cellist (2010-07-25)"
+  subtitle = "From Orchestral Suite No. 2 in B minor"
+  composer = "J. S. Bach (1685-1750)"
+  opus = "BWV 1067"
+  style = "suite movement"
+  tagline = ""
 }
 
 Bach_Badinerie = {

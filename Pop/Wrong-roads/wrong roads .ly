@@ -4,8 +4,8 @@
 \header {
   title = "Wrong Roads"
   composer = "Steve Kroeger x Skye Holland"
-  % Steve Kroeger x Skye Holland - Wrong Roads
-  
+  style = "pop"
+  tagline = ""
 }
 
 global = {

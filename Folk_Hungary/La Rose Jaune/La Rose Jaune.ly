@@ -3,7 +3,10 @@
 
 \header {
   title = "La Rose Jaune"
-  subtitle = "in Yoska Nemeth"
+  subtitle = "As performed by Yoska Nemeth"
+  composer = "Traditional Hungarian"
+  style = "folk tune"
+  tagline = ""
 }
 
 global = {

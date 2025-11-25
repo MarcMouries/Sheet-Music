@@ -25,8 +25,11 @@
 
 \header {
     title = "In The Mood For Love"
+    subtitle = "Yumeji's Theme - Accompaniment"
     composer = "Shigeru Umebayashi"
-    copyright = "Jias"
+    arranger = "Arranged by Jias"
+    style = "soundtrack"
+    tagline = ""
     }
 
 AVlnSolovoiceAA = \relative c'{

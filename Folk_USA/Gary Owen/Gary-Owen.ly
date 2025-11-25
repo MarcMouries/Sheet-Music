@@ -3,6 +3,9 @@
 
 \header {
   title = "Gary Owen"
+  composer = "Traditional Irish"
+  style = "jig"
+  tagline = ""
 }
 
 global = {

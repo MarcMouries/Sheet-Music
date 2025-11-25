@@ -2,7 +2,10 @@
 \language "english"
 
 \header {
-  title = "Si Tu Savais COPY HAS MORE NOTES"
+  title = "Si Tu Savais"
+  composer = "Django Reinhardt"
+  style = "gypsy jazz"
+  tagline = ""
 }
 
 global = {

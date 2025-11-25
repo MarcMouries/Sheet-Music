@@ -3,6 +3,9 @@
 
 \header {
   title = "Down To The River To Pray"
+  composer = "Traditional American"
+  style = "spiritual"
+  tagline = ""
 }
 
 global = {

@@ -10,8 +10,9 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 
 \header{
     title= "Mori Shej"
-    subtitle=""
-    composer= ""
+    subtitle="Mori Shej, Szabina (My Daughter Sabina)"
+    composer= "József Balogh (Kályi Jág)"
+    style = "lullaby"
     instrument =""
     arranger= ""
     tagline  = \markup {

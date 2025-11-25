@@ -3,6 +3,9 @@
 
 \header {
   title = "Yarou, Yarou"
+  composer = "Traditional Hungarian"
+  style = "czardas"
+  tagline = ""
 }
 
 global = {

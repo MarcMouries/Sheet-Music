@@ -11,10 +11,12 @@ Every LilyPond file should include these fields in the `\header` section:
 \header {
   title = "The Tune Name"
   composer = "Composer Name or 'Traditional'"
-  meter = "jig|reel|waltz|air|march|polka|etc"
+  style = "jig|reel|waltz|gypsy jazz|baroque|etc"
   tagline = ""
 }
 ```
+
+**Note**: We use `style` (not `meter`) to indicate the genre/type/style of music. In music theory, "meter" refers to time signature (3/4, 4/4, etc.), which is specified in the `\time` directive.
 
 ### Key Signature
 Include in the music section:

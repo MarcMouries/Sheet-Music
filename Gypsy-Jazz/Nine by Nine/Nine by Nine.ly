@@ -2,7 +2,9 @@
 \version "2.19.13"
 \header {
   title = "Nine by Nine"
-  subtitle = "N. Picket"
+  composer = "N. Picket"
+  style = "gypsy jazz"
+  tagline = ""
 }
 global = {
 }

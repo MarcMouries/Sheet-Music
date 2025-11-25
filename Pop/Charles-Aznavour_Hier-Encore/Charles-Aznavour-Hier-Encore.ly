@@ -5,6 +5,8 @@
   title = "Hier Encore"
   subtitle = "Violino"
   composer = "Charles Aznavour"
+  style = "chanson"
+  tagline = ""
 }
 
 violin = \relative c' {

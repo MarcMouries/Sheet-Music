@@ -3,7 +3,9 @@
 
 \header {
   title = "Bella Ciao"
-  subtitle = "Italian Folk Song"
+  composer = "Traditional Italian"
+  style = "folk song"
+  tagline = ""
 }
 
 

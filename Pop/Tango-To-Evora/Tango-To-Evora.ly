@@ -3,6 +3,9 @@
 
 \header {
   title = "Tango To Evora"
+  composer = "Loreena McKennitt"
+  style = "tango"
+  tagline = ""
 }
 
 global = {

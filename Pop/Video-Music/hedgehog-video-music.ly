@@ -2,8 +2,11 @@
 \language "english"
 
 \header {
-  title = "hedgehog video music"
+  title = "Hedgehog Video Music"
   subtitle = "https://www.youtube.com/shorts/mRy9mGiiDVo"
+  composer = "Unknown"
+  style = "video soundtrack"
+  tagline = ""
 }
 
 global = {

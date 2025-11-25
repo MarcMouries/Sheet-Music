@@ -3,7 +3,11 @@
 
 \header{
   title = "Star Spangled Banner"
-  subtitle = " "
+  subtitle = "The National Anthem of the United States"
+  composer = "John Stafford Smith"
+  poet = "Francis Scott Key"
+  style = "anthem"
+  tagline = ""
 }
 
 global = {

@@ -5,6 +5,9 @@
 \language "english"
 \header {
   title = "Jean Petit qui danse"
+  composer = "Traditional French"
+  style = "children's song"
+  tagline = ""
 }
 
 global = {

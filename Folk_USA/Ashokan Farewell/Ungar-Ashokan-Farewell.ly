@@ -9,6 +9,8 @@
 \header {
   title = "Ashokan Farewell"
   composer = "Jay Ungar"
+  style = "waltz"
+  tagline = ""
 }
 
 global = {

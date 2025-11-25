@@ -3,10 +3,6 @@
 
 \header {
   title = "Daphné"
-  composer = "Django Reinhardt"
-  arranger = "Grappelli + Taylor arrangement"
-  style = "gypsy jazz"
-  tagline = ""
 }
 
 global = {

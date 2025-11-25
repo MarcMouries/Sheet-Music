@@ -3,7 +3,11 @@
 
 \header {
   title = "Vivaldi-Style"
-  subtitle = "https://www.facebook.com/share/r/1GYw3dLfA3/"
+  subtitle = "Baroque style exercise"
+  composer = "Marc Mouries"
+  style = "practice exercise"
+  video = "https://www.facebook.com/share/r/1GYw3dLfA3/"
+  tagline = ""
 }
 
 

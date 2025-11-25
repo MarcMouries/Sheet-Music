@@ -1,6 +1,14 @@
 \version "2.24.0"
 \language "english"
 
+\header {
+  title = "Serenade - Overlay Fingerings"
+  composer = "Franz Schubert (1797-1828)"
+  arranger = "Fingering overlay by Marc Mouries"
+  style = "practice exercise"
+  tagline = ""
+}
+
 % This file DOES NOT change your pitches. It includes your original score
 % and overlays position/fingering markups at precise beats using skips (s).
 % Adjust the skip counts if bar alignment differs in your source.

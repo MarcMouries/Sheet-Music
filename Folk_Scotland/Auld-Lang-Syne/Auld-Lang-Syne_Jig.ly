@@ -3,6 +3,10 @@
 
 \header {
   title = "Auld Lang Syne"
+  subtitle = "Jig arrangement in G major"
+  composer = "Traditional Scottish"
+  style = "jig"
+  tagline = ""
 }
 
 global = {

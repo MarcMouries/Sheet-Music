@@ -3,6 +3,10 @@
 
 \header {
   title = "Bublitchki"
+  subtitle = "Бублички"
+  composer = "Traditional Russian"
+  style = "klezmer"
+  tagline = ""
 }
 
 global = {

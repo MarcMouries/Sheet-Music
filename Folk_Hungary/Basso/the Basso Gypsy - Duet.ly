@@ -10,10 +10,11 @@
 
 \header {
   title     = "Basso - Gypsy in Am"
-  %subtitle = "Duet for 2 violins"
-  composer = "Trad. Gypsy"
+  subtitle = "Duet for 2 violins"
+  composer = "Traditional Hungarian"
+  style = "csardas"
   %instrument = "Violin I"
-  poet = "Arranged by Marc Mouries"
+  arranger = "Arranged by Marc Mouries"
   tagline = ""
 }
 

@@ -3,6 +3,10 @@
 
 \header {
   title = "Auld Lang Syne"
+  subtitle = "in D major"
+  composer = "Traditional Scottish"
+  style = "air"
+  tagline = ""
 }
 
 global = {

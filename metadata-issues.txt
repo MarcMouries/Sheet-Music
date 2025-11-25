@@ -2,22 +2,9 @@ METADATA ISSUES REPORT
 ======================================================================
 
 MISSING COMPOSER:
-Untitled.ly
-Folk_USA/Gary Owen/Gary-Owen.ly
-Folk_USA/The-Star-Spangled-Banner/The-Star Spangled Banner.ly
-Folk_USA/Down-To-The-River-To-Pray/Down-To-The-River-To-Pray.ly
-Folk_French/Jean Petit qui danse/Jean Petit qui Danse.ly
-Soundtrack/tous-les-matins-du-monde.ly
-Soundtrack/In the Mood for Love/In the Mood for Love_lily.ly
 Soundtrack/Color Purple/Color-Purple.ly
-Pop/Tango-To-Evora/Tango-To-Evora.ly
-Pop/Video-Music/hedgehog-video-music.ly
-Folk_Hungary/Mori Shej/Mori+Shej.ly
 Folk_Hungary/Mori Shej/Mori+Shej_2.ly
-Folk_Hungary/Gari-Gari/Gari-Gari.ly
-Folk_Hungary/La Rose Jaune/La Rose Jaune.ly
 Folk_Hungary/La Rose Jaune/Chanson-Hongroise copy.ly
-Folk_Hungary/Yarou Yarou/Yarou-Yarou.ly
 8-Step_Warm-Up_Plan/vibrato-exercice.ly
 8-Step_Warm-Up_Plan/8-Step_Warm-Up_Plan.ly
 8-Step_Warm-Up_Plan/Flesch_Arpeggios.ly
@@ -27,27 +14,14 @@ Folk_Hungary/Yarou Yarou/Yarou-Yarou.ly
 8-Step_Warm-Up_Plan/_4 Chromatic/chromatic.ly
 8-Step_Warm-Up_Plan/_2 Diminished Scales/diminished scales.ly
 Latina/Latino-Chords/Latino chords.ly
-Learn Violin with Famous Themes/Beethoven_Fur Elise.ly
-Learn Violin with Famous Themes/Bach_Brandenburg Concerto No. 3.ly
 Learn Violin with Famous Themes/Learn Violin with Famous Themes.ly
-Learn Violin with Famous Themes/Beethoven_Minuet in G.ly
-Learn Violin with Famous Themes/Beethoven_Ode to Joy.ly
 Folk_Finland/Ievan Polkka/bug repeat partial.ly
 Folk_Finland/Ievan Polkka/bug rythm.ly
 Harmonica/Bb-Harmonica-Note-Chart-and-Cm-Licks.ly
 Harmonica/Entering-Notes-for-Harmonica.ly
 Harmonica/harmonica-notation.ly
-Folk_Italy/Bella Ciao/bella ciao.ly
-Classical/Passacaglia for Violin and Viola (Halvorsen, Johan)/Passacaglia_Arpegios.ly
 Classical/The Mad Lover (Eccles, John)/The Mad Lover (Eccles, John) - Violin.ly
-Classical/The Mad Lover (Eccles, John)/The Mad Lover - Full Score (fixed).ly
-Classical/The Mad Lover (Eccles, John)/The Mad Lover - Full Score.ly
-Classical/Paganini_Concerto-4/Paganini-Concerto-4.ly
-Classical/Vivaldi-Style/Vivaldi-Style.ly
-Classical/Schubert_Serenade/Practice_Arpeggios_Schubert_Serenade.ly
-Classical/Schubert_Serenade/Serenade_Overlay_Fingerings.ly
 Classical/Mel Bonis - Suite en trio, Op.59/Mel-BONIS-Serenade.ly
-Classical/Paganini_Centone_Sonate/Paganini_Centone_Sonate.ly
 Classical/Erik_Satie_Gymnopédie/Gymnopedie_Guitar/1.6/toc.ly
 Classical/Erik_Satie_Gymnopédie/Gymnopedie_Guitar/1.6/copyright.ly
 Classical/Erik_Satie_Gymnopédie/Gymnopedie_Guitar/1.6/version.ly
@@ -133,26 +107,18 @@ Marc's Practice Points/practice-points-header.ly
 Marc's Practice Points/Berceuse Faure_Marc's Practice Points.ly
 Marc's Practice Points/Bach Double_Marc's Practice Points.ly
 Marc's Practice Points/La Plus Que Lente_Marc's Practice Points.ly
-Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur.ly
 Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur - Serge Krief.ly
 Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur_Chords_Arpeggios.ly
 Gypsy-Jazz/Swing-Licks/licks_Swing.ly
 Gypsy-Jazz/Si-Tu-Savais/Si tu savais (Cm).ly
 Gypsy-Jazz/Si-Tu-Savais/Si-tu-savais copy.ly
-Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais.ly
 Gypsy-Jazz/Si-Tu-Savais/Si-tu-savais copy-Marc’s iMac.ly
-Gypsy-Jazz/Daphné/Daphne - Grappelli+Taylor.ly
 Gypsy-Jazz/Grappelli-Licks/licks_Grappelli.ly
 Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans.ly
 Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans_Daisy.ly
 Gypsy-Jazz/Rythmes-gitans/Practice-Gypsy-Rythmes-Gitans.ly
-Gypsy-Jazz/Nine by Nine/Nine by Nine.ly
 Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml.ly
 Gypsy-Jazz/_Swing_Movie/Swing_Movie_.ly
-Folk_Russia/Bublitchki/Bublitchki.ly
-Folk_Scotland/Auld-Lang-Syne/Auld-Lang-Syne_(in D).ly
-Folk_Scotland/Auld-Lang-Syne/Auld-Lang-Syne_Jig.ly
-Folk_England/Greensleeves Jig/Greensleeves Jig.ly
 Folk_England/Greensleeves Jig/Greensleeves-Jig.ly
 Folk_Jewish/Chosen-Kalle-Mazel-Tov/Chosen_Kalle_Mazel_Tov.ly
 Folk_Jewish/Papirosen/Papirosen.ly
@@ -271,32 +237,9 @@ Folk_Russia/Korobeiniki_Tetris/korobeiniki.ly
 Jazz/Summertime/Summertime.ly
 
 MISSING METER:
-Untitled.ly
-Folk_USA/Gary Owen/Gary-Owen.ly
-Folk_USA/The-Star-Spangled-Banner/The-Star Spangled Banner.ly
-Folk_USA/Jerusalem Ridge/Jerusulam Ridge, Kenny Baker.ly
-Folk_USA/Down-To-The-River-To-Pray/Down-To-The-River-To-Pray.ly
-Folk_USA/Ashokan Farewell/Ungar-Ashokan-Farewell.ly
-Folk_French/Jean Petit qui danse/Jean Petit qui Danse.ly
-Soundtrack/tous-les-matins-du-monde.ly
-Soundtrack/In the Mood for Love/In the Mood for Love_lily.ly
-Soundtrack/In the Mood for Love/Yumejis_theme_Accompaniment.ly
 Soundtrack/Color Purple/Color-Purple.ly
-Pop/Tango-To-Evora/Tango-To-Evora.ly
-Pop/Charles-Aznavour_Hier-Encore/Charles-Aznavour-Hier-Encore.ly
-Pop/Something-Got-a-Hold-of-Me/Something-s-got-a-hold-on-me.ly
-Pop/Video-Music/hedgehog-video-music.ly
-Pop/Ringtones/Violin-Ringtone.ly
-Pop/Wrong-roads/wrong roads .ly
-Folk_Hungary/Basso/the Basso Gypsy - Duet.ly
-Folk_Hungary/Basso/the Basso Gypsy - Duet - Preview.ly
-Folk_Hungary/Mori Shej/Mori+Shej.ly
 Folk_Hungary/Mori Shej/Mori+Shej_2.ly
-Folk_Hungary/Gari-Gari/Gari-Gari.ly
-Folk_Hungary/La Rose Jaune/La Rose Jaune.ly
 Folk_Hungary/La Rose Jaune/Chanson-Hongroise copy.ly
-Folk_Hungary/Yarou Yarou/Yarou-Yarou.ly
-Folk_Romania/Hora Martisorului/Hora-martisorului.ly
 8-Step_Warm-Up_Plan/vibrato-exercice.ly
 8-Step_Warm-Up_Plan/8-Step_Warm-Up_Plan.ly
 8-Step_Warm-Up_Plan/Flesch_Arpeggios.ly
@@ -311,13 +254,8 @@ Folk_Canada/L-Air-Mignonne/L-Air-Mignonne.ly
 Folk_Canada/Teardrop Waltz/Teardrop Waltz - Casey Willis.ly
 Folk_Canada/Teardrop Waltz/Teardrop Waltz_Marc.ly
 Learn Violin with Famous Themes/L'Apprenti Sorcier.ly
-Learn Violin with Famous Themes/Beethoven_Fur Elise.ly
-Learn Violin with Famous Themes/Bach_Brandenburg Concerto No. 3.ly
-Learn Violin with Famous Themes/Bach_Badinerie.ly
 Learn Violin with Famous Themes/Learn Violin with Famous Themes.ly
-Learn Violin with Famous Themes/Beethoven_Minuet in G.ly
 Learn Violin with Famous Themes/Mozart-Wolfgang-Amadeus-Symphony-No-40-in-G-minor-K-550.ly
-Learn Violin with Famous Themes/Beethoven_Ode to Joy.ly
 Folk_Finland/Ievan Polkka/bug repeat partial.ly
 Folk_Finland/Ievan Polkka/Ievan_Polkka from Musescore.ly
 Folk_Finland/Ievan Polkka/bug rythm.ly
@@ -327,30 +265,20 @@ Folk_Finland/Emma_(Waltz)/Emma_(Waltz).ly
 Harmonica/Bb-Harmonica-Note-Chart-and-Cm-Licks.ly
 Harmonica/Entering-Notes-for-Harmonica.ly
 Harmonica/harmonica-notation.ly
-Folk_Italy/Bella Ciao/bella ciao.ly
 Folk_Italy/Bella Ciao/Bella_Ciao  v2.ly
 Classical/Puccini_Nessun-Dorma/Giacomo-Puccini-Nessun-dorma.ly
 Classical/Dowland_Can-She-Excuse-My-Wrongs/Can-she-excuse-my-wrongs_(John Dowland).ly
 Classical/Brahms_Berceuse/Brahms-Berceuse.ly
-Classical/Passacaglia for Violin and Viola (Halvorsen, Johan)/Passacaglia_double-stops.ly
-Classical/Passacaglia for Violin and Viola (Halvorsen, Johan)/Passacaglia_Arpegios.ly
 Classical/Paradis - Sicilienne/Paradis-Sicilienne.ly
 Classical/Scheherazade-Mvt-2-Themes-Violin/Scheherazade-Mvt-2-Themes-Violin.ly
 Classical/The Mad Lover (Eccles, John)/The Mad Lover (Eccles, John) - Violin.ly
 Classical/The Mad Lover (Eccles, John)/The Mad Lover (Eccles, John) - Bass.ly
-Classical/The Mad Lover (Eccles, John)/The Mad Lover - Full Score (fixed).ly
-Classical/The Mad Lover (Eccles, John)/The Mad Lover - Full Score.ly
 Classical/The Mad Lover (Eccles, John)/The Mad Lover (Eccles, John) - Alto.ly
 Classical/The Mad Lover (Eccles, John)/The Mad Lover (Eccles, John).ly
 Classical/Bach_Badinerie/Bach-Badinerie.ly
-Classical/Paganini_Concerto-4/Paganini-Concerto-4.ly
-Classical/Vivaldi-Style/Vivaldi-Style.ly
-Classical/Schubert_Serenade/Practice_Arpeggios_Schubert_Serenade.ly
 Classical/Schubert_Serenade/Schubert_Serenade.ly
 Classical/Schubert_Serenade/D_minor_Serenade_Practice.ly
-Classical/Schubert_Serenade/Serenade_Overlay_Fingerings.ly
 Classical/Mel Bonis - Suite en trio, Op.59/Mel-BONIS-Serenade.ly
-Classical/Paganini_Centone_Sonate/Paganini_Centone_Sonate.ly
 Classical/Erik_Satie_Gymnopédie/gymnopedie_1_Violin.ly
 Classical/Erik_Satie_Gymnopédie/gymnopedie.ly
 Classical/Erik_Satie_Gymnopédie/gymnopedie_v2.ly
@@ -443,7 +371,6 @@ Marc's Practice Points/practice-points-header.ly
 Marc's Practice Points/Berceuse Faure_Marc's Practice Points.ly
 Marc's Practice Points/Bach Double_Marc's Practice Points.ly
 Marc's Practice Points/La Plus Que Lente_Marc's Practice Points.ly
-Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur.ly
 Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur - Serge Krief.ly
 Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur_Chords_Arpeggios.ly
 Gypsy-Jazz/Minor-Swing/Minor Swing - van Hemert.ly
@@ -451,24 +378,17 @@ Gypsy-Jazz/Swing-Licks/licks_Swing.ly
 Gypsy-Jazz/Chicago/Chicago - Grappelli.ly
 Gypsy-Jazz/Si-Tu-Savais/Si tu savais (Cm).ly
 Gypsy-Jazz/Si-Tu-Savais/Si-tu-savais copy.ly
-Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais.ly
 Gypsy-Jazz/Si-Tu-Savais/Si-tu-savais copy-Marc’s iMac.ly
 Gypsy-Jazz/Blue-Lou/Blue_Lou_Marc.ly
 Gypsy-Jazz/Blue-Lou/Blue-Lou_Chords.ly
 Gypsy-Jazz/Blue-Lou/Blue_Lou_Licks.ly
-Gypsy-Jazz/Daphné/Daphne - Grappelli+Taylor.ly
 Gypsy-Jazz/Grappelli-Licks/licks_Grappelli.ly
 Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans.ly
 Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans_Daisy.ly
 Gypsy-Jazz/Rythmes-gitans/Practice-Gypsy-Rythmes-Gitans.ly
-Gypsy-Jazz/Nine by Nine/Nine by Nine.ly
 Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml.ly
 Gypsy-Jazz/_Swing_Movie/Swing_Movie_.ly
-Folk_Russia/Bublitchki/Bublitchki.ly
 Folk_Russia/Korobeiniki_Tetris/korobeiniki.ly
-Folk_Scotland/Auld-Lang-Syne/Auld-Lang-Syne_(in D).ly
-Folk_Scotland/Auld-Lang-Syne/Auld-Lang-Syne_Jig.ly
-Folk_England/Greensleeves Jig/Greensleeves Jig.ly
 Folk_England/Greensleeves Jig/Greensleeves-Jig.ly
 Folk_Jewish/Im-Hashem-Lo-Yivneh-Bayis/Im-Hashem-Lo-Yivneh-Bayis.ly
 Folk_Jewish/Hevenu_Shalom_Aleichem/hevenu_shalom_aleichem.ly

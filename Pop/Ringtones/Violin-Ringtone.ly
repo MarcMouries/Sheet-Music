@@ -2,9 +2,10 @@
 
 \header {
   title = "Violin Ringtone"
-  composer = "composer ?"
-  subsubtitle = "music sheet: marc@mouries.net"
-  poet = "December 24, 2016"
+  composer = "Unknown"
+  style = "ringtone"
+  subtitle = "Transcribed by Marc Mouries, December 24, 2016"
+  tagline = ""
 }
 
 global = {

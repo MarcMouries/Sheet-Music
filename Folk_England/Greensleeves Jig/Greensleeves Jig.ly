@@ -3,7 +3,10 @@
 
 \header {
   title = "Greensleeves Jig"
-  %subtitle = "https://www.youtube.com/watch?v=4aDK9qdoWpk"
+  subtitle = "Jig arrangement"
+  composer = "Traditional English"
+  style = "jig"
+  video = "https://www.youtube.com/watch?v=4aDK9qdoWpk"
   tagline = ""
 }
 

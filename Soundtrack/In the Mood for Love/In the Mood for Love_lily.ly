@@ -67,6 +67,9 @@ d c bf
 
 \header {
   title = "In the Mood for Love"
+  subtitle = "Yumeji's Theme"
+  composer = "Shigeru Umebayashi"
+  style = "soundtrack"
   tagline = ""
 }
 

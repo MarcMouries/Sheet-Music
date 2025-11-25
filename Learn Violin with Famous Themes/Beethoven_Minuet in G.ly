@@ -1,10 +1,11 @@
 \version "2.19.53"
 
-    filename = "Minuet in G.ly"
-%    composer = "L. V. Beethoven (1770--1827)"
-%    title = "Ode to Joy"
-
-
+\header {
+  title = "Minuet in G"
+  composer = "L. V. Beethoven (1770--1827)"
+  style = "minuet"
+  tagline = ""
+}
 
 sop =  \transpose c c'{
 	\voiceOne

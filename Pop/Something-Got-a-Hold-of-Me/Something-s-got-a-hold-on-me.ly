@@ -5,6 +5,7 @@
   title = "Something's Got a Hold on Me"
   subtitle = "Blues style"
   composer = "Leroy Kirkland & Pearl Woods"
+  style = "blues"
   tagline = ""
 }
 

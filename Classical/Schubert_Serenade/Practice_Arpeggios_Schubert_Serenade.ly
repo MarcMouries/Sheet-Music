@@ -2,6 +2,12 @@
 \version "2.24"
 \language "english"
 
+\header {
+  title = "Practice Arpeggios - Schubert Serenade"
+  composer = "Marc Mouries"
+  style = "practice exercise"
+  tagline = ""
+}
 
 \markup \bold "Practice Arpegios - Schubert Serenade"
 % String indication

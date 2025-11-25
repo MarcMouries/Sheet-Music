@@ -1,6 +1,13 @@
 \version "2.19.25"
 \language "english"
 
+\header {
+  title = "Für Elise"
+  composer = "Ludwig van Beethoven"
+  style = "bagatelle"
+  tagline = ""
+}
+
 global = {
   \time 4/4
   \key c \major

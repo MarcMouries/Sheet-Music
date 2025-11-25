@@ -4,7 +4,10 @@
 
 \header {
   title = "Io Ti Penso Amore"
-  subtitle = "Paganini Concerto 4"
+  subtitle = "From Violin Concerto No. 4"
+  composer = "Niccolò Paganini (1782-1840)"
+  style = "concerto"
+  tagline = ""
 }
 
 global = {

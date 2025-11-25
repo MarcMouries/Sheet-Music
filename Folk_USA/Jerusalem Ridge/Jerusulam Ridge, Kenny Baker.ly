@@ -1,9 +1,12 @@
 \version "2.19.53"
 
 \header {
-  title = "Jerusulam Ridge"
+  title = "Jerusalem Ridge"
   subtitle = "https://youtu.be/JWySDSagHGU"
-  composer = "Kenny Baker"
+  composer = "Bill Monroe"
+  arranger = "As performed by Kenny Baker"
+  style = "bluegrass"
+  tagline = ""
 }
 
 global = {

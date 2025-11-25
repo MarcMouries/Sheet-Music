@@ -44,12 +44,12 @@ triplet =
 }
 
 
-  meter    = "transcription by Maxence"
+  style = "soundtrack"
   title = "Color Purple"
-  subtitle = "sub"
-  poet = "sdf"
-  composer ="Quincy Johns"
-  arranger = "John Williams" 
+  subtitle = "from The Color Purple"
+  poet = ""
+  composer = "Quincy Jones"
+  arranger = "transcription by Maxence Mouriès" 
   
 
 realBookTitle = \markup {

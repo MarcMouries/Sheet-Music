@@ -6,11 +6,13 @@
 
 
 
-%% https://www.youtube.com/watch?v=EfnYL_lGSP0
-
 \header {
   title = "Blues en Mineur"
   subtitle = "1949 Rome"
+  composer = "Django Reinhardt"
+  style = "gypsy jazz"
+  video = "https://www.youtube.com/watch?v=EfnYL_lGSP0"
+  tagline = ""
 }
 
 
