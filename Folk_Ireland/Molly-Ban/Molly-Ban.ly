@@ -1,6 +1,6 @@
 \version "2.24.4"
-\include "../../stylesheets/stylesheet_fiddle.ly"
 \language "english"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 
 \header {
   title = "Molly Bán"
@@ -8,9 +8,9 @@
   crossRefNumber = "1"
   footnotes = ""
   meter = "reel"
-  %subtitle = "https://thesession.org/tunes/1637#setting1637"
+  session = "https://thesession.org/tunes/1637#setting1637"
   tagline = ""
-  transcription = "emily_bmore"
+  video = "https://www.youtube.com/watch?v=29AUiWEPs3o"
 }
 
 melody =  {
