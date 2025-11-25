@@ -1,7 +1,11 @@
 \version "2.19.32"
 \header {
-  origin = "Rom" 
   title = "Mori Shej"
+  subtitle = "Mori Shej, Szabina (My Daughter Sabina)"
+  composer = "József Balogh (Kályi Jág)"
+  style = "lullaby"
+  origin = "Rom"
+  tagline = ""
 }
 melody =  \relative c'' {
   \tempo 4 = 120

@@ -58,7 +58,7 @@ def parse_lilypond_header(ly_file):
     metadata = {
         'title': ly_file.stem.replace('_', ' ').replace('-', ' '),
         'composer': '',
-        'style': '',
+        'meter': '',
         'key': '',
         'subtitle': '',
         'tempo': '',
@@ -75,7 +75,7 @@ def parse_lilypond_header(ly_file):
                 header = header_match.group(1)
 
                 # Extract fields
-                for field in ['title', 'composer', 'style', 'subtitle']:
+                for field in ['title', 'composer', 'meter', 'subtitle']:
                     pattern = rf'{field}\s*=\s*"([^"]*)"'
                     match = re.search(pattern, header)
                     if match:
@@ -94,9 +94,9 @@ def parse_lilypond_header(ly_file):
                 metadata['tempo'] = tempo_match.group(1)
 
             # Auto-detect tags from content
-            if 'jig' in content.lower() or metadata['style'] == 'jig':
+            if 'jig' in content.lower() or metadata['meter'] == 'jig':
                 metadata['tags'].append('jig')
-            if 'reel' in content.lower() or metadata['style'] == 'reel':
+            if 'reel' in content.lower() or metadata['meter'] == 'reel':
                 metadata['tags'].append('reel')
             if 'waltz' in content.lower() or '3/4' in content:
                 metadata['tags'].append('waltz')
@@ -223,7 +223,7 @@ def scan_repository():
             'title': metadata['title'],
             'composer': metadata['composer'],
             'category': category,
-            'style': metadata['style'],
+            'meter': metadata['meter'],
             'key': metadata['key'],
             'tempo': metadata['tempo'],
             'subtitle': metadata['subtitle'],
@@ -734,7 +734,7 @@ def generate_html(tunes):
         html += f"""</td>
                     <td>{tune['composer'] or '—'}</td>
                     <td><span class="category {category_class}">{tune['category']}</span></td>
-                    <td>{tune['style'] or '—'}</td>
+                    <td>{tune['meter'] or '—'}</td>
                     <td>{tune['key'] or '—'}</td>
                     <td><div class="difficulty">{stars}</div></td>
                     <td class="date">{tune['modified'].strftime('%Y-%m-%d')}</td>
