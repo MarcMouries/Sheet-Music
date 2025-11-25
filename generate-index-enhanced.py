@@ -1,0 +1,974 @@
+#!/usr/bin/env python3
+"""
+Generate an enhanced HTML index of all LilyPond sheet music files
+with difficulty ratings, tags, MIDI player, and thumbnails
+"""
+import os
+import re
+import json
+from pathlib import Path
+from datetime import datetime
+
+# Configuration
+REPO_ROOT = Path(__file__).parent
+OUTPUT_FILE = REPO_ROOT / "index.html"
+METADATA_FILE = REPO_ROOT / ".music-metadata.json"
+EXCLUDE_DIRS = {'.git', 'stylesheets', 'Lilypond_How-to', 'node_modules', '__pycache__'}
+
+# Difficulty estimation based on file characteristics
+def estimate_difficulty(ly_file):
+    """Estimate difficulty level (1-5) based on musical content"""
+    try:
+        with open(ly_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        score = 1  # Start at beginner
+
+        # Check for position shifts
+        if re.search(r'\\shift', content) or re.search(r'\\[0-9]', content):
+            score += 1
+
+        # Check for complex rhythms
+        if re.search(r'\\tuplet', content) or '128' in content:
+            score += 1
+
+        # Check for double stops
+        if '<' in content and '>' in content:
+            score += 0.5
+
+        # Check for high positions (very high notes)
+        if re.search(r"[a-g]'''", content):
+            score += 0.5
+
+        # Check for many accidentals
+        accidentals = len(re.findall(r'[is|es|sharp|flat]', content))
+        if accidentals > 20:
+            score += 0.5
+
+        # Check for vibrato/ornaments
+        if re.search(r'\\trill|\\mordent|\\turn', content):
+            score += 0.5
+
+        return min(5, int(round(score)))
+    except:
+        return 3  # Default to intermediate
+
+def parse_lilypond_header(ly_file):
+    """Extract metadata from LilyPond header"""
+    metadata = {
+        'title': ly_file.stem.replace('_', ' ').replace('-', ' '),
+        'composer': '',
+        'meter': '',
+        'key': '',
+        'subtitle': '',
+        'tempo': '',
+        'tags': []
+    }
+
+    try:
+        with open(ly_file, 'r', encoding='utf-8') as f:
+            content = f.read(3000)  # Read first 3000 chars
+
+            # Extract header section
+            header_match = re.search(r'\\header\s*\{([^}]*)\}', content, re.DOTALL)
+            if header_match:
+                header = header_match.group(1)
+
+                # Extract fields
+                for field in ['title', 'composer', 'meter', 'subtitle']:
+                    pattern = rf'{field}\s*=\s*"([^"]*)"'
+                    match = re.search(pattern, header)
+                    if match:
+                        metadata[field] = match.group(1)
+
+            # Extract key signature
+            key_match = re.search(r'\\key\s+([a-g][sf]*)\s+\\(major|minor|dorian|mixolydian|lydian|phrygian|locrian)', content)
+            if key_match:
+                note = key_match.group(1).replace('f', '♭').replace('s', '♯')
+                mode = key_match.group(2)
+                metadata['key'] = f"{note} {mode}"
+
+            # Extract tempo
+            tempo_match = re.search(r'\\tempo\s+.*?=\s*(\d+)', content)
+            if tempo_match:
+                metadata['tempo'] = tempo_match.group(1)
+
+            # Auto-detect tags from content
+            if 'jig' in content.lower() or metadata['meter'] == 'jig':
+                metadata['tags'].append('jig')
+            if 'reel' in content.lower() or metadata['meter'] == 'reel':
+                metadata['tags'].append('reel')
+            if 'waltz' in content.lower() or '3/4' in content:
+                metadata['tags'].append('waltz')
+            if 'swing' in content.lower():
+                metadata['tags'].append('swing')
+            if 'blues' in content.lower():
+                metadata['tags'].append('blues')
+
+    except Exception as e:
+        print(f"Warning: Could not parse {ly_file}: {e}")
+
+    return metadata
+
+def get_category_and_tags(file_path):
+    """Determine category and tags from folder structure"""
+    parts = file_path.parts
+    category = 'Other'
+    tags = []
+
+    if 'Celtic' in parts:
+        category = 'Celtic/Irish'
+        tags.append('traditional')
+        tags.append('celtic')
+    elif 'Classical' in parts:
+        category = 'Classical'
+        tags.append('classical')
+    elif 'Jazz' in parts:
+        category = 'Jazz'
+        tags.append('jazz')
+    elif 'Gypsy-Jazz' in parts:
+        category = 'Gypsy Jazz'
+        tags.append('jazz')
+        tags.append('gypsy')
+    elif 'Folk_USA' in parts or 'Folk_Canada' in parts or 'Folk_French' in parts:
+        if 'Folk_USA' in parts:
+            category = 'Folk/USA'
+            tags.append('american')
+        elif 'Folk_Canada' in parts:
+            category = 'Folk/Canada'
+            tags.append('canadian')
+        elif 'Folk_French' in parts:
+            category = 'Folk/French'
+            tags.append('french')
+        tags.append('folk')
+        tags.append('traditional')
+    elif any('Trad_' in str(p) for p in parts):
+        for p in parts:
+            if str(p).startswith('Trad_'):
+                country = str(p).replace('Trad_', '')
+                category = f'Traditional/{country}'
+                tags.append('traditional')
+                tags.append(country.lower())
+                break
+    elif 'Pop' in parts:
+        category = 'Pop/Modern'
+        tags.append('pop')
+    elif 'Latina' in parts:
+        category = 'Latin'
+        tags.append('latin')
+    elif 'Practice' in parts:
+        category = 'Practice/Exercises'
+        tags.append('practice')
+
+    return category, tags
+
+def load_custom_metadata():
+    """Load custom metadata from JSON file"""
+    if METADATA_FILE.exists():
+        with open(METADATA_FILE, 'r') as f:
+            return json.load(f)
+    return {}
+
+def save_metadata_template(tunes):
+    """Create a template metadata file for manual editing"""
+    template = {}
+    for tune in tunes[:5]:  # Just show first 5 as examples
+        template[tune['ly_path']] = {
+            'difficulty': tune.get('difficulty', 3),
+            'tags': tune.get('tags', []),
+            'notes': 'Add your notes here'
+        }
+
+    template_file = REPO_ROOT / '.music-metadata-template.json'
+    with open(template_file, 'w') as f:
+        json.dump(template, f, indent=2)
+    print(f"  Template created: {template_file}")
+
+def scan_repository():
+    """Scan repository for all .ly files"""
+    tunes = []
+    custom_metadata = load_custom_metadata()
+
+    for ly_file in REPO_ROOT.rglob('*.ly'):
+        # Skip excluded directories
+        if any(excluded in ly_file.parts for excluded in EXCLUDE_DIRS):
+            continue
+
+        # Get file stats
+        stat = ly_file.stat()
+        modified = datetime.fromtimestamp(stat.st_mtime)
+
+        # Parse metadata
+        metadata = parse_lilypond_header(ly_file)
+
+        # Get relative path for links
+        rel_path = ly_file.relative_to(REPO_ROOT)
+        pdf_path = ly_file.with_suffix('.pdf')
+        midi_path = ly_file.with_suffix('.midi')
+        png_path = ly_file.parent / (ly_file.stem + '-preview.png')
+
+        # Get category and auto-tags
+        category, auto_tags = get_category_and_tags(rel_path)
+
+        # Combine auto-detected tags with header tags
+        all_tags = list(set(metadata['tags'] + auto_tags))
+
+        # Get custom metadata if exists
+        custom = custom_metadata.get(str(rel_path), {})
+
+        # Estimate difficulty
+        difficulty = custom.get('difficulty', estimate_difficulty(ly_file))
+
+        tune_info = {
+            'title': metadata['title'],
+            'composer': metadata['composer'],
+            'category': category,
+            'meter': metadata['meter'],
+            'key': metadata['key'],
+            'tempo': metadata['tempo'],
+            'subtitle': metadata['subtitle'],
+            'difficulty': difficulty,
+            'tags': custom.get('tags', all_tags),
+            'notes': custom.get('notes', ''),
+            'modified': modified,
+            'ly_path': str(rel_path),
+            'pdf_exists': pdf_path.exists(),
+            'midi_exists': midi_path.exists(),
+            'thumbnail_exists': png_path.exists(),
+            'pdf_path': str(rel_path.with_suffix('.pdf')),
+            'midi_path': str(rel_path.with_suffix('.midi')),
+            'thumbnail_path': str(rel_path.parent / (ly_file.stem + '-preview.png'))
+        }
+
+        tunes.append(tune_info)
+
+    return sorted(tunes, key=lambda x: (x['category'], x['title']))
+
+def generate_html(tunes):
+    """Generate enhanced HTML index with MIDI player and features"""
+
+    # Get unique tags for filter
+    all_tags = sorted(set(tag for tune in tunes for tag in tune['tags']))
+
+    html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheet Music Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            font-size: 2.5em;
+        }
+
+        .stats {
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .filters {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filters input, .filters select {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .filters input {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .filters input:focus, .filters select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .view-toggle button {
+            padding: 10px 15px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-toggle button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .view-toggle button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Table View */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background: #34495e;
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+            user-select: none;
+            z-index: 10;
+        }
+
+        th:hover {
+            background: #2c3e50;
+        }
+
+        th::after {
+            content: ' ⇅';
+            opacity: 0.5;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+            vertical-align: middle;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Card View */
+        .cards-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .cards-grid.active {
+            display: grid;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            border-color: #667eea;
+        }
+
+        .card-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #ddd;
+        }
+
+        .card-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .card-composer {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .category {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #3498db;
+            color: white;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category.classical { background: #9b59b6; }
+        .category.jazz { background: #e67e22; }
+        .category.folk, .category.celtic { background: #27ae60; }
+        .category.traditional { background: #16a085; }
+        .category.pop { background: #e74c3c; }
+        .category.practice { background: #95a5a6; }
+        .category.latin { background: #c0392b; }
+
+        .difficulty {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 14px;
+        }
+
+        .difficulty-star {
+            color: #f39c12;
+        }
+
+        .difficulty-star.empty {
+            color: #ddd;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 8px 0;
+        }
+
+        .tag {
+            padding: 3px 8px;
+            background: #ecf0f1;
+            color: #555;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+
+        .links {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .links a, .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            background: #ecf0f1;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .links a:hover, .btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+
+        /* MIDI Player Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            background: none;
+            border: none;
+            padding: 5px 10px;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .midi-player {
+            margin-top: 20px;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px 4px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Sheet Music Collection</h1>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="total-count">""" + str(len(tunes)) + """</span>
+                <span>Total Tunes</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">""" + str(len(set(t['category'] for t in tunes))) + """</span>
+                <span>Categories</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">""" + str(sum(1 for t in tunes if t['pdf_exists'])) + """</span>
+                <span>PDFs Available</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">""" + str(sum(1 for t in tunes if t['midi_exists'])) + """</span>
+                <span>MIDI Files</span>
+            </div>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="search" placeholder="🔍 Search by title, composer, key, or tag..." onkeyup="filterItems()">
+
+            <select id="category-filter" onchange="filterItems()">
+                <option value="">All Categories</option>
+"""
+
+    # Add categories
+    categories = sorted(set(t['category'] for t in tunes))
+    for cat in categories:
+        html += f'                <option value="{cat}">{cat}</option>\n'
+
+    html += """            </select>
+
+            <select id="difficulty-filter" onchange="filterItems()">
+                <option value="">All Difficulties</option>
+                <option value="1">⭐ Beginner</option>
+                <option value="2">⭐⭐ Easy</option>
+                <option value="3">⭐⭐⭐ Intermediate</option>
+                <option value="4">⭐⭐⭐⭐ Advanced</option>
+                <option value="5">⭐⭐⭐⭐⭐ Expert</option>
+            </select>
+
+            <select id="tag-filter" onchange="filterItems()">
+                <option value="">All Tags</option>
+"""
+
+    for tag in all_tags:
+        html += f'                <option value="{tag}">{tag}</option>\n'
+
+    html += """            </select>
+
+            <div class="view-toggle">
+                <button id="table-view" class="active" onclick="switchView('table')">📋 Table</button>
+                <button id="card-view" onclick="switchView('cards')">🎴 Cards</button>
+            </div>
+        </div>
+
+        <div id="table-container">
+            <table id="music-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Title</th>
+                        <th onclick="sortTable(1)">Composer</th>
+                        <th onclick="sortTable(2)">Category</th>
+                        <th onclick="sortTable(3)">Type</th>
+                        <th onclick="sortTable(4)">Key</th>
+                        <th onclick="sortTable(5)">Difficulty</th>
+                        <th onclick="sortTable(6)">Modified</th>
+                        <th>Files</th>
+                    </tr>
+                </thead>
+                <tbody>
+"""
+
+    # Generate table rows
+    for tune in tunes:
+        category_class = tune['category'].split('/')[0].lower().replace(' ', '-')
+
+        # Generate difficulty stars
+        stars = ''.join(['<span class="difficulty-star">★</span>' for _ in range(tune['difficulty'])])
+        stars += ''.join(['<span class="difficulty-star empty">★</span>' for _ in range(5 - tune['difficulty'])])
+
+        # Generate tags
+        tags_html = ''.join([f'<span class="tag">{tag}</span>' for tag in tune['tags'][:3]])
+
+        html += f"""                <tr data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}">
+                    <td>
+                        <strong>{tune['title']}</strong>"""
+        if tune['subtitle']:
+            html += f"""<br><small style="color: #7f8c8d;">{tune['subtitle']}</small>"""
+        if tune['tags']:
+            html += f"""<br><div class="tags">{tags_html}</div>"""
+        html += f"""</td>
+                    <td>{tune['composer'] or '—'}</td>
+                    <td><span class="category {category_class}">{tune['category']}</span></td>
+                    <td>{tune['meter'] or '—'}</td>
+                    <td>{tune['key'] or '—'}</td>
+                    <td><div class="difficulty">{stars}</div></td>
+                    <td class="date">{tune['modified'].strftime('%Y-%m-%d')}</td>
+                    <td class="links">
+                        <a href="{tune['ly_path']}" title="View LilyPond source">📝 .ly</a>
+"""
+        if tune['pdf_exists']:
+            html += f"""                        <a href="{tune['pdf_path']}" title="View PDF" target="_blank">📄 PDF</a>
+"""
+        if tune['midi_exists']:
+            html += f"""                        <button class="btn" onclick="playMidi('{tune['midi_path']}', '{tune['title']}')" title="Play MIDI">🎵 Play</button>
+"""
+        html += """                    </td>
+                </tr>
+"""
+
+    html += """                </tbody>
+            </table>
+        </div>
+
+        <div id="cards-container" class="cards-grid">
+"""
+
+    # Generate cards
+    for tune in tunes:
+        category_class = tune['category'].split('/')[0].lower().replace(' ', '-')
+        stars = ''.join(['<span class="difficulty-star">★</span>' for _ in range(tune['difficulty'])])
+        stars += ''.join(['<span class="difficulty-star empty">★</span>' for _ in range(5 - tune['difficulty'])])
+
+        html += f"""            <div class="card" data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}">
+                <div class="card-thumbnail">
+"""
+        if tune['thumbnail_exists']:
+            html += f"""                    <img src="{tune['thumbnail_path']}" alt="{tune['title']}">
+"""
+        else:
+            html += """                    🎼
+"""
+        html += f"""                </div>
+                <div class="card-title">{tune['title']}</div>
+                <div class="card-composer">{tune['composer'] or 'Traditional'}</div>
+                <div class="card-meta">
+                    <span class="category {category_class}">{tune['category']}</span>
+                    <div class="difficulty">{stars}</div>
+                </div>
+"""
+        if tune['tags']:
+            tags_html = ''.join([f'<span class="tag">{tag}</span>' for tag in tune['tags'][:5]])
+            html += f"""                <div class="tags">{tags_html}</div>
+"""
+        html += """                <div class="links">
+"""
+        if tune['pdf_exists']:
+            html += f"""                    <a href="{tune['pdf_path']}" target="_blank">📄 PDF</a>
+"""
+        if tune['midi_exists']:
+            html += f"""                    <button class="btn" onclick="playMidi('{tune['midi_path']}', '{tune['title']}')">🎵 Play</button>
+"""
+        html += f"""                    <a href="{tune['ly_path']}">📝 Source</a>
+                </div>
+            </div>
+"""
+
+    html += """        </div>
+
+        <div id="no-results" class="no-results" style="display: none;">
+            <div style="font-size: 3em; margin-bottom: 20px;">🎻</div>
+            No tunes found matching your filters.
+        </div>
+    </div>
+
+    <!-- MIDI Player Modal -->
+    <div id="midi-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeMidiPlayer()">&times;</button>
+            <h2 id="midi-title">Now Playing</h2>
+            <div class="midi-player">
+                <audio id="midi-audio" controls>
+                    <source id="midi-source" type="audio/midi">
+                    Your browser does not support MIDI playback.
+                </audio>
+                <p style="color: #7f8c8d; font-size: 12px; margin-top: 10px;">
+                    Note: MIDI playback quality depends on your browser. For best results, download the MIDI file and play it in a dedicated player.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentView = 'table';
+
+        function filterItems() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const categoryFilter = document.getElementById('category-filter').value;
+            const difficultyFilter = document.getElementById('difficulty-filter').value;
+            const tagFilter = document.getElementById('tag-filter').value;
+
+            const items = currentView === 'table'
+                ? document.querySelectorAll('#music-table tbody tr')
+                : document.querySelectorAll('.card');
+
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const title = item.querySelector(currentView === 'table' ? 'td:first-child' : '.card-title').textContent.toLowerCase();
+                const composer = currentView === 'table'
+                    ? item.querySelector('td:nth-child(2)').textContent.toLowerCase()
+                    : item.querySelector('.card-composer').textContent.toLowerCase();
+                const category = item.dataset.category;
+                const difficulty = item.dataset.difficulty;
+                const tags = item.dataset.tags.toLowerCase();
+
+                const matchesSearch = title.includes(searchInput) ||
+                                    composer.includes(searchInput) ||
+                                    tags.includes(searchInput);
+                const matchesCategory = !categoryFilter || category === categoryFilter;
+                const matchesDifficulty = !difficultyFilter || difficulty === difficultyFilter;
+                const matchesTag = !tagFilter || tags.includes(tagFilter.toLowerCase());
+
+                if (matchesSearch && matchesCategory && matchesDifficulty && matchesTag) {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.getElementById('total-count').textContent = visibleCount;
+            document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+
+            if (currentView === 'table') {
+                document.getElementById('table-container').style.display = visibleCount === 0 ? 'none' : 'block';
+            } else {
+                document.getElementById('cards-container').style.display = visibleCount === 0 ? 'none' : 'grid';
+            }
+        }
+
+        function sortTable(columnIndex) {
+            const table = document.getElementById('music-table');
+            const tbody = table.tBodies[0];
+            const rows = Array.from(tbody.rows).filter(row => row.style.display !== 'none');
+
+            rows.sort((a, b) => {
+                let aVal = a.cells[columnIndex].textContent.trim();
+                let bVal = b.cells[columnIndex].textContent.trim();
+
+                // Handle difficulty stars specially
+                if (columnIndex === 5) {
+                    aVal = a.dataset.difficulty;
+                    bVal = b.dataset.difficulty;
+                    return parseInt(aVal) - parseInt(bVal);
+                }
+
+                return aVal.localeCompare(bVal);
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        function switchView(view) {
+            currentView = view;
+
+            if (view === 'table') {
+                document.getElementById('table-container').style.display = 'block';
+                document.getElementById('cards-container').style.display = 'none';
+                document.getElementById('table-view').classList.add('active');
+                document.getElementById('card-view').classList.remove('active');
+            } else {
+                document.getElementById('table-container').style.display = 'none';
+                document.getElementById('cards-container').style.display = 'grid';
+                document.getElementById('cards-container').classList.add('active');
+                document.getElementById('table-view').classList.remove('active');
+                document.getElementById('card-view').classList.add('active');
+            }
+
+            filterItems(); // Reapply filters
+        }
+
+        function playMidi(midiPath, title) {
+            const modal = document.getElementById('midi-modal');
+            const audio = document.getElementById('midi-audio');
+            const source = document.getElementById('midi-source');
+            const titleEl = document.getElementById('midi-title');
+
+            titleEl.textContent = 'Now Playing: ' + title;
+            source.src = midiPath;
+            audio.load();
+            audio.play();
+            modal.classList.add('active');
+        }
+
+        function closeMidiPlayer() {
+            const modal = document.getElementById('midi-modal');
+            const audio = document.getElementById('midi-audio');
+            audio.pause();
+            modal.classList.remove('active');
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMidiPlayer();
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('midi-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'midi-modal') {
+                closeMidiPlayer();
+            }
+        });
+    </script>
+</body>
+</html>
+"""
+
+    return html
+
+def main():
+    print("🎵 Scanning repository for sheet music files...")
+    tunes = scan_repository()
+    print(f"   Found {len(tunes)} tunes")
+
+    print("📊 Generating enhanced HTML index...")
+    html = generate_html(tunes)
+
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        f.write(html)
+
+    print(f"✓ Enhanced index generated: {OUTPUT_FILE}")
+    print(f"  Open file://{OUTPUT_FILE.absolute()} in your browser")
+
+    # Create metadata template
+    save_metadata_template(tunes)
+
+if __name__ == '__main__':
+    main()
