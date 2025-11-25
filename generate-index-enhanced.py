@@ -255,7 +255,7 @@ def generate_html(tunes):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheet Music Collection</title>
+    <title>Marc's Sheet Music Collection 🎵</title>
     <style>
         * {
             margin: 0;
@@ -637,7 +637,7 @@ def generate_html(tunes):
 </head>
 <body>
     <div class="container">
-        <h1>🎵 Sheet Music Collection</h1>
+        <h1>Marc's Sheet Music Collection 🎵</h1>
 
         <div class="stats">
             <div class="stat-item">
@@ -702,8 +702,8 @@ def generate_html(tunes):
                     <tr>
                         <th onclick="sortTable(0)">Title</th>
                         <th onclick="sortTable(1)">Composer</th>
-                        <th onclick="sortTable(2)">Category</th>
-                        <th onclick="sortTable(3)">Type</th>
+                        <th onclick="sortTable(2)">Collection</th>
+                        <th onclick="sortTable(3)">Style</th>
                         <th onclick="sortTable(4)">Key</th>
                         <th onclick="sortTable(5)">Difficulty</th>
                         <th onclick="sortTable(6)">Modified</th>
@@ -724,13 +724,11 @@ def generate_html(tunes):
         # Generate tags
         tags_html = ''.join([f'<span class="tag">{tag}</span>' for tag in tune['tags'][:3]])
 
-        html += f"""                <tr data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}">
+        html += f"""                <tr data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}" data-style="{tune['style']}">
                     <td>
                         <strong>{tune['title']}</strong>"""
         if tune['subtitle']:
             html += f"""<br><small style="color: #7f8c8d;">{tune['subtitle']}</small>"""
-        if tune['tags']:
-            html += f"""<br><div class="tags">{tags_html}</div>"""
         html += f"""</td>
                     <td>{tune['composer'] or '—'}</td>
                     <td><span class="category {category_class}">{tune['category']}</span></td>

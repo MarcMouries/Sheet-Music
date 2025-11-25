@@ -2,11 +2,12 @@
 \language "english"
 
 \header {
-  title    = "Badinerie"
+  title = "Badinerie"
   subtitle = "Orchestral Suite No. 2 in B minor"
-  composer = "Johann Sebastian Bach"
+  composer = "Johann Sebastian Bach (1685--1750)"
   opus = "BWV 1067"
-  tagline  = ""
+  style = "baroque"
+  tagline = ""
 }
 
 melody = {

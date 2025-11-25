@@ -3,7 +3,9 @@
 
 \header {
   title = "Can she excuse my wrongs"
-  composer = "John Dowland"
+  composer = "John Dowland (1563--1626)"
+  style = "renaissance"
+  tagline = ""
 }
 
 global = {

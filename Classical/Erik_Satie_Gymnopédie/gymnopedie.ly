@@ -2,10 +2,11 @@
 \version "2.24.3"
 
 \header{
-  tagline = ""
   title = "1ere. Gymnopédie"
-  composer = "Erik Satie"
+  composer = "Erik Satie (1866--1925)"
   arranger = "arr. Toshihiko Kawano"
+  style = "classical"
+  tagline = ""
 }
 
 melody = {
