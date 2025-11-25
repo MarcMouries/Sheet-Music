@@ -1,4 +1,5 @@
 %\version "2.12"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \include "english.ly"
 \header {
 	title     = "Trip To Pakistan, The"

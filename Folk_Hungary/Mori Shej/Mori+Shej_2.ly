@@ -1,4 +1,5 @@
 \version "2.19.32"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
   title = "Mori Shej"
   subtitle = "Mori Shej, Szabina (My Daughter Sabina)"

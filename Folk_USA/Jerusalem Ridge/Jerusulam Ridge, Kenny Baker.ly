@@ -1,5 +1,6 @@
 \version "2.19.53"
 
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
   title = "Jerusalem Ridge"
   subtitle = "https://youtu.be/JWySDSagHGU"

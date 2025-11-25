@@ -1,4 +1,5 @@
 \version "2.14.0"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
 	footnotes = "Traditional Irish Fiddle Tunes. Randy Miller and Jack Perron."
 	tagline = "Lily was here 2.13.43 -- automatically converted from ABC"

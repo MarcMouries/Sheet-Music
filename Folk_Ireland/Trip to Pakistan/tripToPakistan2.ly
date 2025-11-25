@@ -1,4 +1,5 @@
 \version "2.14.0"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
 	crossRefNumber = "1"
 	footnotes = ""

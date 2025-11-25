@@ -1,4 +1,5 @@
 \version "2.24.0"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \language "english"
 
 \header {

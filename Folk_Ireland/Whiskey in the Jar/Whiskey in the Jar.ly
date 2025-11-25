@@ -1,5 +1,6 @@
 \version "2.12.3"
 
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
   title = "Kilgary Mountain"
   composer = "Ireland, ca. 1870"

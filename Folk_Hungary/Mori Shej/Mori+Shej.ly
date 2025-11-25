@@ -1,5 +1,6 @@
 \version "2.19.7"
 
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \paper{
   print-all-headers = ##t
 }

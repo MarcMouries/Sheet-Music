@@ -9,6 +9,7 @@
 
 
 \version "2.14.0"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \language "english"
 \header {
   title = "Dr. Gilbert's"
