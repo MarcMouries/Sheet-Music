@@ -70,11 +70,11 @@ melody_in_D = \relative d'' {
 
 
 
-melody_in_D_ds = \relative d'' {
+melody_in_D_ds = \relative d' {
   \global
-  r2. a4^\p |
+  r2. <d a'>4 |
 
-  d4. d8  d4 fs |
+  <fs d'>4. d8  d4 fs |
    \appoggiatura {fs8 } e4.  d8  e4 fs8 ( \appoggiatura {g8 fs8 } e ) |
   d4. d8  fs4 a |
   \appoggiatura {a8 } b2. b4 |
