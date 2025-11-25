@@ -3,7 +3,7 @@
 \include "english.ly"
 \header {
   footnotes = ""
-  meter = "reel"
+  style = "reel"
   tagline = "Lily was here 2.24.4 -- automatically converted from ABC"
   title = "Dr. Gilbert's"
 }

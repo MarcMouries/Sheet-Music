@@ -5,7 +5,7 @@ tagline = ""
   \header {
     title = "(On the) Sunny Side of the Street"
     composer = "Jimmy McHugh"
-    meter = "Medium Swing"
+    style = "Medium Swing"
   }
 
 \score {
@@ -13,7 +13,7 @@ tagline = ""
   \header {
     title = "(On the) Sunny Side of the Street"
     composer = "Jimmy McHugh"
-    meter = "Medium Swing"
+    style = "Medium Swing"
   }
   <<
     \new ChordNames \chordmode {

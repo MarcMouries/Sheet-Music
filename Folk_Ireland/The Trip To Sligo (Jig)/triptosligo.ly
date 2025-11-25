@@ -4,7 +4,7 @@
 \header {
   crossRefNumber = "18"
   footnotes = ""
-  meter = "jig"
+  style = "jig"
   subtitle = "https://thesession.org/tunes/397#setting54304"
   tagline = "Lily was here 2.24.4 -- automatically converted from ABC"
   title = "Trip To Sligo"

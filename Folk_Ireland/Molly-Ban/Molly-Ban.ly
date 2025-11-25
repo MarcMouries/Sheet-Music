@@ -7,7 +7,7 @@
   subtitle = "aka Fair-Haired Molly"
   crossRefNumber = "1"
   footnotes = ""
-  meter = "reel"
+  style = "reel"
   session = "https://thesession.org/tunes/1637#setting1637"
   tagline = ""
   video = "https://www.youtube.com/watch?v=29AUiWEPs3o"
