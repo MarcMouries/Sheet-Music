@@ -1,7 +1,7 @@
 \version "2.19.11"
 % #(set-default-paper-size "letter")
 \header {
-	title = "The First Noel"
+	title = "The First Noel (Duet)"
 	composer = "Traditional; English carol, c. 13th century, arr. first published 1833"
 	mutopiatitle = "The First Noel (hymntune)"
 	mutopiacomposer = "Traditional"

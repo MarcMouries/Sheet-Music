@@ -9,6 +9,7 @@ import json
 import html
 from pathlib import Path
 from datetime import datetime
+from urllib.parse import quote
 
 # Configuration
 REPO_ROOT = Path(__file__).parent
@@ -139,7 +140,11 @@ def get_category_and_tags(file_path):
     category = 'Other'
     tags = []
 
-    if 'Celtic' in parts:
+    if 'Christmas' in parts:
+        category = 'Christmas'
+        tags.append('christmas')
+        tags.append('traditional')
+    elif 'Celtic' in parts:
         category = 'Celtic/Irish'
         tags.append('traditional')
         tags.append('celtic')
@@ -265,13 +270,13 @@ def scan_repository():
             'tags': custom.get('tags', all_tags),
             'notes': custom.get('notes', ''),
             'modified': modified,
-            'ly_path': '../' + str(rel_path),
+            'ly_path': '../' + quote(str(rel_path)),
             'pdf_exists': pdf_path.exists(),
             'midi_exists': midi_path.exists(),
             'thumbnail_exists': png_path.exists(),
-            'pdf_path': '../' + str(rel_path.with_suffix('.pdf')),
-            'midi_path': '../' + str(rel_path.with_suffix('.midi')),
-            'thumbnail_path': '../' + str(rel_path.parent / (ly_file.stem + '-preview.png'))
+            'pdf_path': '../' + quote(str(rel_path.with_suffix('.pdf'))),
+            'midi_path': '../' + quote(str(rel_path.with_suffix('.midi'))),
+            'thumbnail_path': '../' + quote(str(rel_path.parent / (ly_file.stem + '-preview.png')))
         }
 
         tunes.append(tune_info)
