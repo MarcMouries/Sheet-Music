@@ -20,9 +20,9 @@ dropLyricsIV = {}
       (interpret-markup layout props (markup arg))))
 
 \header {
-  title = \markup{\override #'(font-name . "Garamond Premier Pro Semibold"){ \abs-fontsize #15 \smallCapsOldStyle"The First Noël"}}
-  poet = \markup\oldStyleNum"Traditional"
-  composer = \markup\oldStyleNum"18th Century French Melody"
+  title = "The First Noël"
+  poet = "Traditional"
+  composer = "18th Century French Melody"
   style = "christmas carol"
   tagline = \markup { "from" \italic {Christmas Carols, New and Old}}
 }

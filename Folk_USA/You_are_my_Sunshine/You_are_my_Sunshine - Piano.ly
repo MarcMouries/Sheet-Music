@@ -1,7 +1,7 @@
 \version "2.16.0"
 
 \header {
-  title = \markup \caps "You are my Sunshine"
+  title = "You are my Sunshine"
   composer = \markup \small \override #'(baseline-skip . 2.5) \center-column {
     \line { "Words and music by"
   style = "american folk"
