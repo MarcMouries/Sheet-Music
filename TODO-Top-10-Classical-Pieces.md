@@ -1,56 +1,231 @@
-# TODO: Top 10 Most Recognized Classical Music Pieces
+# TODO: Famous Classical Music Pieces & Passages
 
-## Missing from Collection
+A curated list of the most recognized classical melodies, focusing on pieces that are memorable, iconic, and suitable for violin. These range from short passages to complete movements.
+
+## Missing from Collection - Top Tier (Most Famous)
 
 1. **Beethoven: Symphony No. 9 "Ode to Joy"**
    - The fourth movement, "Ode to Joy," is a famous and powerful piece
    - Used as the anthem for the European Union
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Symphony_No.9,_Op.125_(Beethoven,_Ludwig_van))
+   - 🎬 Video: https://www.youtube.com/watch?v=ChygZLpJDNE
 
 2. **Mozart: "Eine kleine Nachtmusik"**
    - This serenade is instantly recognizable
    - Often used in commercials and film soundtracks
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Serenade_No.13,_K.525_(Mozart,_Wolfgang_Amadeus))
 
 3. **Vivaldi: "Spring" from The Four Seasons**
    - One of the most famous pieces of classical music
    - Frequently heard in advertisements
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/The_Four_Seasons,_Op.8_(Vivaldi,_Antonio))
 
 4. **Beethoven: "Für Elise"**
    - Short piano piece, staple for piano students
    - Universally known melody
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Bagatelle_No.25,_WoO_59_(Beethoven,_Ludwig_van))
 
 5. **Handel: "Hallelujah" Chorus from Messiah**
    - Monumental choral piece
    - Staple of holiday celebrations
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Messiah,_HWV_56_(Handel,_George_Frideric))
 
 6. **Beethoven: "Moonlight Sonata"**
    - The first movement's somber and beautiful melody
    - One of Beethoven's most popular works
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Piano_Sonata_No.14,_Op.27_No.2_(Beethoven,_Ludwig_van))
 
 7. **Grieg: "In the Hall of the Mountain King" from Peer Gynt**
    - Known for its gradual crescendo
    - Used in many films to build suspense or tension
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Peer_Gynt,_Op.23_(Grieg,_Edvard))
 
 8. **Rossini: "Barber of Seville" Overture**
    - Energetic and recognizable overture
    - Popular and frequently performed work
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Il_barbiere_di_Siviglia_(Rossini,_Gioacchino))
 
 9. **Wagner: "Ride of the Valkyries"**
    - Famously used in films
    - Often associated with intense or dramatic scenes
    - Status: ❌ Not in collection
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/Die_Walk%C3%BCre,_WWV_86B_(Wagner,_Richard))
 
 10. **Pachelbel: Canon in D**
     - Beloved and frequently performed piece
     - Known for its beautiful, layered structure
     - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Canon_and_Gigue_in_D_major_(Pachelbel,_Johann))
+
+---
+
+## Additional Famous Pieces (Highly Recognizable)
+
+11. **Bach: Air on the G String** (from Orchestral Suite No. 3)
+    - Beautiful, meditative melody
+    - Often used in weddings and films
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Orchestral_Suite_No.3,_BWV_1068_(Bach,_Johann_Sebastian))
+
+12. **Mozart: "Rondo alla Turca"** (from Piano Sonata No. 11)
+    - Instantly recognizable "Turkish March"
+    - Popular among students, catchy melody
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Piano_Sonata_No.11,_K.331/300i_(Mozart,_Wolfgang_Amadeus))
+
+13. **Schubert: Ave Maria**
+    - One of the most beloved sacred songs
+    - Popular at weddings and religious ceremonies
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Ave_Maria,_D.839_(Schubert,_Franz))
+
+14. **Brahms: Hungarian Dance No. 5**
+    - Energetic and fiery dance
+    - Often used in cartoons and films
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Hungarian_Dances,_WoO_1_(Brahms,_Johannes))
+
+15. **Bizet: "Habanera"** (from Carmen)
+    - Sultry, seductive melody
+    - One of opera's most famous arias
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Carmen_(Bizet,_Georges))
+
+16. **Strauss II: "The Blue Danube" Waltz**
+    - The "waltz king's" most famous piece
+    - Instantly recognizable Viennese waltz
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/An_der_sch%C3%B6nen_blauen_Donau,_Op.314_(Strauss_Jr.,_Johann))
+
+17. **Tchaikovsky: "Dance of the Sugar Plum Fairy"** (from The Nutcracker)
+    - Magical, delicate melody
+    - Holiday season favorite
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/The_Nutcracker,_Op.71_(Tchaikovsky,_Pyotr))
+
+18. **Rimsky-Korsakov: "Flight of the Bumblebee"**
+    - Virtuosic showcase piece
+    - Fast, buzzing chromatic runs
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/The_Tale_of_Tsar_Saltan_(Rimsky-Korsakov,_Nikolay))
+
+19. **Mendelssohn: "Wedding March"** (from A Midsummer Night's Dream)
+    - The classic wedding processional
+    - Instantly recognizable
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/A_Midsummer_Night's_Dream,_Op.61_(Mendelssohn,_Felix))
+
+20. **Dvořák: "Going Home"** (from Symphony No. 9 "New World")
+    - Beautiful, nostalgic melody
+    - Often adapted for songs
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Symphony_No.9,_Op.95_(Dvo%C5%99%C3%A1k,_Anton%C3%ADn))
+
+---
+
+## Short Famous Passages (Perfect for Quick Learning)
+
+21. **Mozart: "Queen of the Night" Aria** (from The Magic Flute)
+    - Famous coloratura soprano showcase
+    - Dramatic and virtuosic
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Die_Zauberfl%C3%B6te,_K.620_(Mozart,_Wolfgang_Amadeus))
+
+22. **Beethoven: "Ode to Joy" Theme** (just the melody)
+    - Simple, memorable 4-bar theme
+    - Perfect for beginners
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Symphony_No.9,_Op.125_(Beethoven,_Ludwig_van))
+
+23. **Paganini: Caprice No. 24**
+    - Famous virtuoso violin piece
+    - Theme and variations
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/24_Caprices,_Op.1_(Paganini,_Niccol%C3%B2))
+
+24. **Offenbach: "Can-Can"** (from Orpheus in the Underworld)
+    - High-energy dance music
+    - Instantly recognizable
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Orph%C3%A9e_aux_enfers_(Offenbach,_Jacques))
+
+25. **Verdi: "La donna è mobile"** (from Rigoletto)
+    - One of opera's most famous arias
+    - Catchy, singable melody
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Rigoletto_(Verdi,_Giuseppe))
+
+26. **Saint-Saëns: "The Swan"** (from Carnival of the Animals)
+    - Elegant, lyrical cello melody (adaptable for violin)
+    - Beautiful and meditative
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Le_carnaval_des_animaux_(Saint-Sa%C3%ABns,_Camille))
+
+27. **Debussy: "Clair de Lune"**
+    - Dreamy, impressionistic piano piece
+    - Very popular and recognizable
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Suite_bergamasque_(Debussy,_Claude))
+
+28. **Chopin: "Nocturne in E-flat Major, Op. 9 No. 2"**
+    - Romantic, lyrical piano piece
+    - Perfect for violin arrangement
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Nocturnes,_Op.9_(Chopin,_Fr%C3%A9d%C3%A9ric))
+
+29. **Liszt: "Hungarian Rhapsody No. 2"**
+    - Dramatic, virtuosic showpiece
+    - Famous for its friska (fast section)
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Hungarian_Rhapsody_No.2,_S.244/2_(Liszt,_Franz))
+
+30. **Albinoni: Adagio in G minor**
+    - Hauntingly beautiful (actually by Giazotto)
+    - Often used in films and ceremonies
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Adagio_in_G_minor_(Giazotto,_Remo))
+
+---
+
+## Opera & Ballet Highlights
+
+31. **Puccini: "O mio babbino caro"** (from Gianni Schicchi)
+    - Tender, beautiful aria
+    - Often used in films
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Gianni_Schicchi_(Puccini,_Giacomo))
+
+32. **Tchaikovsky: "Waltz of the Flowers"** (from The Nutcracker)
+    - Grand, sweeping waltz
+    - Christmas favorite
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/The_Nutcracker,_Op.71_(Tchaikovsky,_Pyotr))
+
+33. **Bizet: "Toreador Song"** (from Carmen)
+    - Bold, march-like melody
+    - Crowd favorite
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Carmen_(Bizet,_Georges))
+
+34. **Verdi: "Triumphal March"** (from Aida)
+    - Grand, majestic processional
+    - Often used at graduations
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Aida_(Verdi,_Giuseppe))
+
+35. **Tchaikovsky: "Swan Lake" Theme**
+    - Romantic, sweeping melody
+    - One of ballet's most famous tunes
+    - Status: ❌ Not in collection
+    - 🔗 [View on IMSLP](https://imslp.org/wiki/Swan_Lake,_Op.20_(Tchaikovsky,_Pyotr))
 
 ---
 
