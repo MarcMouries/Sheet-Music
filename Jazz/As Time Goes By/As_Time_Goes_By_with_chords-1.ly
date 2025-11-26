@@ -5,7 +5,7 @@
 
 \header {
  title="As Time Goes By"
- composer = ""
+ composer = "Herman Hupfeld"
   style = "jazz"
 }
 

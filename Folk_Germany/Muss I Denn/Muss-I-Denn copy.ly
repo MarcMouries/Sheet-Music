@@ -2,6 +2,7 @@
 \language "english"
 \header {
   title = "Muss I Denn"
+  composer = "Traditional"
   style = "german traditional"
 }
 

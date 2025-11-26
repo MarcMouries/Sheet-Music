@@ -2,6 +2,7 @@
 
 \header {
   title = "As Time Goes By"
+  composer = "Herman Hupfeld"
   video = ""
   style = "jazz"
 }

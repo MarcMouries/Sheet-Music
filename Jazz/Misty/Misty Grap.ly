@@ -7,10 +7,11 @@
 
 
 \header {
-  title = "Misty "
-  subtitle = "Stéphane Grappelli"
+  title = "Misty"
+  composer = "Erroll Garner"
+  subtitle = "Stéphane Grappelli arrangement"
   opus = "transcribed by Marc Mouries"
-    style = "jazz"
+  style = "jazz"
   tagline = ""
 }
 #(set-global-staff-size 20)
