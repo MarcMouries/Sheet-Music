@@ -11,7 +11,7 @@ from datetime import datetime
 
 # Configuration
 REPO_ROOT = Path(__file__).parent
-OUTPUT_FILE = REPO_ROOT / "index.html"
+OUTPUT_FILE = REPO_ROOT / "docs" / "index.html"
 METADATA_FILE = REPO_ROOT / ".music-metadata.json"
 EXCLUDE_DIRS = {'.git', 'stylesheets', 'Lilypond_How-to', 'node_modules', '__pycache__'}
 
@@ -53,6 +53,20 @@ def estimate_difficulty(ly_file):
     except:
         return 3  # Default to intermediate
 
+def convert_key_to_standard(note, mode):
+    """Convert LilyPond key notation to standard notation (e.g., 'C', 'Dm', 'F#')"""
+    # Capitalize note and replace sharps/flats
+    note = note.capitalize().replace('f', '♭').replace('s', '♯')
+
+    # Convert mode to standard notation
+    if mode == 'major':
+        return note  # Just the note for major keys
+    elif mode == 'minor':
+        return note + 'm'  # Add 'm' for minor
+    else:
+        # For modal keys (dorian, mixolydian, etc.), include the mode
+        return f"{note} {mode}"
+
 def parse_lilypond_header(ly_file):
     """Extract metadata from LilyPond header"""
     metadata = {
@@ -75,19 +89,26 @@ def parse_lilypond_header(ly_file):
             if header_match:
                 header = header_match.group(1)
 
-                # Extract fields
+                # Extract fields - try both simple string and \markup formats
                 for field in ['title', 'composer', 'style', 'subtitle', 'video']:
+                    # Try simple string format first: field = "value"
                     pattern = rf'{field}\s*=\s*"([^"]*)"'
                     match = re.search(pattern, header)
                     if match:
                         metadata[field] = match.group(1)
+                    else:
+                        # Try \markup format: field = \markup ... "value"
+                        markup_pattern = rf'{field}\s*=\s*\\markup[^"]*"([^"]*)"'
+                        markup_match = re.search(markup_pattern, header)
+                        if markup_match:
+                            metadata[field] = markup_match.group(1)
 
             # Extract key signature
             key_match = re.search(r'\\key\s+([a-g][sf]*)\s+\\(major|minor|dorian|mixolydian|lydian|phrygian|locrian)', content)
             if key_match:
-                note = key_match.group(1).replace('f', '♭').replace('s', '♯')
+                note = key_match.group(1)
                 mode = key_match.group(2)
-                metadata['key'] = f"{note} {mode}"
+                metadata['key'] = convert_key_to_standard(note, mode)
 
             # Extract tempo
             tempo_match = re.search(r'\\tempo\s+.*?=\s*(\d+)', content)
@@ -190,9 +211,18 @@ def scan_repository():
     tunes = []
     custom_metadata = load_custom_metadata()
 
+    # Component files to exclude (not standalone pieces)
+    EXCLUDE_FILENAMES = {'book.ly', 'book-1.ly', 'guitar1.ly', 'guitar2.ly', 'guitar3.ly',
+                         'guitar4.ly', 'dynamicsa.ly', 'dynamicsb.ly', 'dynamicsc.ly',
+                         'blank.ly', 'blank1.ly'}
+
     for ly_file in REPO_ROOT.rglob('*.ly'):
         # Skip excluded directories
         if any(excluded in ly_file.parts for excluded in EXCLUDE_DIRS):
+            continue
+
+        # Skip component files
+        if ly_file.name in EXCLUDE_FILENAMES:
             continue
 
         # Get file stats
@@ -233,13 +263,13 @@ def scan_repository():
             'tags': custom.get('tags', all_tags),
             'notes': custom.get('notes', ''),
             'modified': modified,
-            'ly_path': str(rel_path),
+            'ly_path': '../' + str(rel_path),
             'pdf_exists': pdf_path.exists(),
             'midi_exists': midi_path.exists(),
             'thumbnail_exists': png_path.exists(),
-            'pdf_path': str(rel_path.with_suffix('.pdf')),
-            'midi_path': str(rel_path.with_suffix('.midi')),
-            'thumbnail_path': str(rel_path.parent / (ly_file.stem + '-preview.png'))
+            'pdf_path': '../' + str(rel_path.with_suffix('.pdf')),
+            'midi_path': '../' + str(rel_path.with_suffix('.midi')),
+            'thumbnail_path': '../' + str(rel_path.parent / (ly_file.stem + '-preview.png'))
         }
 
         tunes.append(tune_info)
@@ -248,6 +278,20 @@ def scan_repository():
 
 def generate_html(tunes):
     """Generate enhanced HTML index with MIDI player and features"""
+
+    # Define top 10 most famous tunes (by title for matching)
+    top_10_titles = {
+        "1ere. Gymnopédie",
+        "Badinerie",
+        "Minor Swing",
+        "The Butterfly",
+        "Wiegenlied (Lullaby / Berceuse)",
+        "Swallowtail Jig",
+        "Greensleeves Jig",
+        "The First Noel",
+        "Happy Birthday",
+        "Sous le ciel de Paris"
+    }
 
     # Get unique tags for filter
     all_tags = sorted(set(tag for tune in tunes for tag in tune['tags']))
@@ -346,6 +390,36 @@ def generate_html(tunes):
         .view-toggle {
             display: flex;
             gap: 5px;
+        }
+
+        .quick-filters {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .quick-filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .quick-filter-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .quick-filter-btn.active {
+            background: #667eea;
+            color: white;
         }
 
         .view-toggle button {
@@ -696,6 +770,12 @@ def generate_html(tunes):
                 <button id="table-view" class="active" onclick="switchView('table')">📋 Table</button>
                 <button id="card-view" onclick="switchView('cards')">🎴 Cards</button>
             </div>
+
+            <div class="quick-filters">
+                <button class="quick-filter-btn" onclick="showTop10()">⭐ Top 10</button>
+                <button class="quick-filter-btn" onclick="showChristmas()">🎄 Christmas</button>
+                <button class="quick-filter-btn" onclick="clearQuickFilters()">🔄 Show All</button>
+            </div>
         </div>
 
         <div id="table-container">
@@ -726,7 +806,11 @@ def generate_html(tunes):
         # Generate tags
         tags_html = ''.join([f'<span class="tag">{tag}</span>' for tag in tune['tags'][:3]])
 
-        html += f"""                <tr data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}" data-style="{tune['style']}">
+        # Check if this tune is in top 10 or is Christmas music
+        is_top10 = tune['title'] in top_10_titles
+        is_christmas = 'Christmas' in tune['category']
+
+        html += f"""                <tr data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}" data-style="{tune['style']}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
                     <td>
                         <strong>{tune['title']}</strong>"""
         if tune['subtitle']:
@@ -769,7 +853,11 @@ def generate_html(tunes):
         stars = ''.join(['<span class="difficulty-star">★</span>' for _ in range(tune['difficulty'])])
         stars += ''.join(['<span class="difficulty-star empty">★</span>' for _ in range(5 - tune['difficulty'])])
 
-        html += f"""            <div class="card" data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}">
+        # Check if this tune is in top 10 or is Christmas music
+        is_top10 = tune['title'] in top_10_titles
+        is_christmas = 'Christmas' in tune['category']
+
+        html += f"""            <div class="card" data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
                 <div class="card-thumbnail">
 """
         if tune['thumbnail_exists']:
@@ -921,6 +1009,94 @@ def generate_html(tunes):
             }
 
             filterItems(); // Reapply filters
+        }
+
+        function showTop10() {
+            // Clear other filters
+            document.getElementById('search').value = '';
+            document.getElementById('category-filter').value = '';
+            document.getElementById('difficulty-filter').value = '';
+            document.getElementById('tag-filter').value = '';
+
+            // Highlight active button
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter items
+            const items = currentView === 'table'
+                ? document.querySelectorAll('#music-table tbody tr')
+                : document.querySelectorAll('.card');
+
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                if (item.dataset.top10 === 'true') {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.getElementById('total-count').textContent = visibleCount;
+            document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+
+            if (currentView === 'table') {
+                document.getElementById('table-container').style.display = visibleCount === 0 ? 'none' : 'block';
+            } else {
+                document.getElementById('cards-container').style.display = visibleCount === 0 ? 'none' : 'grid';
+            }
+        }
+
+        function showChristmas() {
+            // Clear other filters
+            document.getElementById('search').value = '';
+            document.getElementById('category-filter').value = '';
+            document.getElementById('difficulty-filter').value = '';
+            document.getElementById('tag-filter').value = '';
+
+            // Highlight active button
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter items
+            const items = currentView === 'table'
+                ? document.querySelectorAll('#music-table tbody tr')
+                : document.querySelectorAll('.card');
+
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                if (item.dataset.christmas === 'true') {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.getElementById('total-count').textContent = visibleCount;
+            document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+
+            if (currentView === 'table') {
+                document.getElementById('table-container').style.display = visibleCount === 0 ? 'none' : 'block';
+            } else {
+                document.getElementById('cards-container').style.display = visibleCount === 0 ? 'none' : 'grid';
+            }
+        }
+
+        function clearQuickFilters() {
+            // Remove active state from quick filter buttons
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Clear all filters
+            document.getElementById('search').value = '';
+            document.getElementById('category-filter').value = '';
+            document.getElementById('difficulty-filter').value = '';
+            document.getElementById('tag-filter').value = '';
+
+            // Show all items
+            filterItems();
         }
 
         function playMidi(midiPath, title) {

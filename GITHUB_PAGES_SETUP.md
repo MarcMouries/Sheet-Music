@@ -7,12 +7,24 @@
 
 GitHub Pages can host your index.html directly from your repository. Since your repo is already on GitHub, we just need to configure it properly.
 
+**✅ CURRENT SETUP: Using `docs/` folder** (Option 2 implemented)
+
 ---
 
-## 🎯 Option 1: Host from Root (Simplest)
+## 🎯 Option 2: Use `docs/` Folder ✅ (IMPLEMENTED)
+
+Your setup now uses the `docs/` folder, which keeps web files separate from music source files.
 
 ### Current Structure:
-Your `index.html` is already in the root directory ✅
+```
+Sheet-Music/
+├── docs/                    # ✅ GitHub Pages content
+│   └── index.html          # ✅ Generated here
+├── generate-index-page.py  # ✅ Generates to docs/
+├── Classical/              # Music source files
+├── Folk_Ireland/
+└── ... (all other music folders)
+```
 
 ### Steps:
 
@@ -46,50 +58,18 @@ Your `index.html` is already in the root directory ✅
 
 ---
 
-## 🎯 Option 2: Use `docs/` Folder (Recommended for Organization)
+## 🎯 Option 1: Host from Root (Alternative)
 
-This keeps your web files separate from your music source files.
+If you prefer to host from root instead:
 
 ### Steps:
-
-#### 1. **Create Folder Structure**
-```bash
-Sheet-Music/
-├── docs/                    # GitHub Pages content
-│   ├── index.html          # Move here
-│   ├── assets/             # Optional: for images, CSS, JS
-│   └── previews/           # Optional: PDF previews, thumbnails
-├── Classical/              # Keep music files here
-├── Folk_Ireland/
-└── ... (all other music folders)
-```
-
-#### 2. **Move index.html to docs/**
-```bash
-mkdir docs
-mv index.html docs/
-```
-
-#### 3. **Update generate-index-enhanced.py**
-Change the output path:
-```python
-OUTPUT_FILE = REPO_ROOT / "docs" / "index.html"
-```
-
-#### 4. **Update File Paths in index.html**
-Since index.html is now in `docs/`, update all file references:
-- From: `Classical/Bach/file.pdf`
-- To: `../Classical/Bach/file.pdf`
-
-Or use absolute GitHub raw URLs:
-- `https://raw.githubusercontent.com/[user]/Sheet-Music/main/Classical/Bach/file.pdf`
-
-#### 5. **Configure GitHub Pages**
-1. Go to repository Settings → Pages
-2. Select:
-   - **Branch:** `main`
-   - **Folder:** `/docs`
-3. Save
+1. Move index.html back to root
+2. Update `generate-index-page.py`:
+   ```python
+   OUTPUT_FILE = REPO_ROOT / "index.html"
+   ```
+3. Remove `../` prefixes from file paths
+4. Configure Pages: Branch `main`, Folder `/ (root)`
 
 ### ✅ **Advantages:**
 - Clean separation of web content and source files
@@ -135,33 +115,33 @@ git push origin gh-pages
 
 ---
 
-## 🎯 **Recommended Approach**
+## 🎯 **Current Setup (IMPLEMENTED)**
 
-### **For Your Use Case: Option 1 (Root)**
+### **Using: `docs/` Folder (Option 2)**
 
-**Why:**
-1. Your repo is already public (or will be)
-2. index.html is already in root
-3. PDF/MIDI files should be accessible
-4. Simplest to maintain
+**Structure:**
+- ✅ `docs/index.html` - Generated web page
+- ✅ `generate-index-page.py` - Outputs to docs/
+- ✅ All file paths use `../` prefix to access music files
+- ✅ Clean separation between web and source files
 
 **Action Plan:**
 1. Commit current changes
 2. Push to GitHub
-3. Enable Pages in Settings
+3. Enable Pages in Settings (Branch: main, Folder: /docs)
 4. Access at: `https://[your-username].github.io/Sheet-Music/`
 
 ---
 
 ## 📝 Step-by-Step Implementation
 
-### **Option 1 Implementation (Recommended)**
+### **Implementation Steps (Current Setup)**
 
 #### Step 1: Ensure Everything is Committed
 ```bash
 cd /Users/marc.mouries/projects/Sheet-Music
 git add .
-git commit -m "Reorganize files and update index for GitHub Pages"
+git commit -m "Move to docs/ folder for GitHub Pages"
 git push origin main
 ```
 
@@ -169,7 +149,8 @@ git push origin main
 1. Go to: `https://github.com/[your-username]/Sheet-Music/settings/pages`
 2. Under "Build and deployment":
    - Source: **Deploy from a branch**
-   - Branch: **main** / **/ (root)**
+   - Branch: **main**
+   - Folder: **/docs**  ⚠️ Important: Select /docs not / (root)
    - Click **Save**
 
 #### Step 3: Wait for Deployment
@@ -178,7 +159,7 @@ git push origin main
 
 #### Step 4: Test Your Site
 - Visit: `https://[your-username].github.io/Sheet-Music/`
-- Verify all links work
+- Verify all links work (PDFs, MIDIs should load via ../ paths)
 
 ---
 
@@ -252,9 +233,9 @@ git push origin main
 
 1. Update `TODO.md` with GitHub Pages URL
 2. Add `README.md` with link to live site
-3. Consider adding `.nojekyll` file (tells GitHub Pages not to process with Jekyll)
-4. Update `generate-index-enhanced.py` to include GitHub Pages URL in output
+3. Consider adding `.nojekyll` file to docs/ (tells GitHub Pages not to process with Jekyll)
+4. Regenerate index when adding new music: `python3 generate-index-page.py`
 
 ---
 
-**Let me know which option you prefer, and I'll help implement it!**
+**✅ Setup Complete! Follow the implementation steps above to go live.**
