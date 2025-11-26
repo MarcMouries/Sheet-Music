@@ -100,10 +100,12 @@ def parse_lilypond_header(ly_file):
                         metadata[field] = match.group(1)
                     else:
                         # Try \markup format: field = \markup ... "value"
-                        markup_pattern = rf'{field}\s*=\s*\\markup[^"]*"([^"]*)"'
-                        markup_match = re.search(markup_pattern, header)
-                        if markup_match:
-                            metadata[field] = markup_match.group(1)
+                        # Find the last quoted string in the markup (handles complex nested markup)
+                        markup_pattern = rf'{field}\s*=\s*\\markup.*?"([^"]*)"'
+                        markup_matches = re.findall(markup_pattern, header, re.DOTALL)
+                        if markup_matches:
+                            # Take the last match (usually the actual content)
+                            metadata[field] = markup_matches[-1]
 
             # Extract key signature
             key_match = re.search(r'\\key\s+([a-g][sf]*)\s+\\(major|minor|dorian|mixolydian|lydian|phrygian|locrian)', content)
@@ -278,6 +280,11 @@ def scan_repository():
             'midi_path': quote(str(rel_path.with_suffix('.midi'))),
             'thumbnail_path': quote(str(rel_path.parent / (ly_file.stem + '-preview.png')))
         }
+
+        # Skip files without proper title or composer
+        if not metadata['title'] or not metadata['composer']:
+            print(f"  Skipping (missing metadata): {rel_path}")
+            continue
 
         tunes.append(tune_info)
 
