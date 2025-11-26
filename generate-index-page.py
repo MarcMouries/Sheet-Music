@@ -692,24 +692,160 @@ def generate_html(tunes):
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
             .container {
                 padding: 15px;
+                border-radius: 8px;
             }
 
             h1 {
-                font-size: 1.8em;
+                font-size: 1.5em;
+                margin-bottom: 15px;
             }
 
+            .stats {
+                flex-direction: column;
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .stat-item {
+                padding: 8px 10px;
+            }
+
+            .stat-number {
+                font-size: 1.5em;
+            }
+
+            .filters {
+                flex-direction: column;
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .filters input {
+                min-width: 100%;
+                width: 100%;
+            }
+
+            .filters select {
+                width: 100%;
+            }
+
+            .view-toggle {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .view-toggle .btn {
+                flex: 1;
+            }
+
+            .quick-filters {
+                width: 100%;
+                margin-left: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .quick-filter-btn {
+                flex: 1;
+                min-width: 120px;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            /* Hide table view on mobile - force card view */
             table {
-                font-size: 12px;
-            }
-
-            th, td {
-                padding: 8px 4px;
+                display: none !important;
             }
 
             .cards-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .card-title {
+                font-size: 1.1em;
+            }
+
+            .card-info {
+                font-size: 0.9em;
+            }
+
+            .links {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .links .btn,
+            .links a {
+                flex: 1;
+                min-width: calc(50% - 4px);
+                font-size: 13px;
+                padding: 8px;
+                text-align: center;
+            }
+
+            .difficulty-stars {
+                transform: scale(0.9);
+            }
+
+            .tags {
+                flex-wrap: wrap;
+            }
+
+            .tag {
+                font-size: 11px;
+                padding: 3px 8px;
+            }
+
+            /* Modal improvements for mobile */
+            .modal-content {
+                width: 95%;
+                max-width: 95%;
+                padding: 20px;
+                margin: 20px auto;
+            }
+
+            .modal-close {
+                font-size: 32px;
+            }
+
+            /* Make sure viewport is properly set */
+            #music-count {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Extra small devices (phones in portrait) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            .stat-number {
+                font-size: 1.3em;
+            }
+
+            .quick-filter-btn {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            .card-title {
+                font-size: 1em;
+            }
+
+            .card-info {
+                font-size: 0.85em;
             }
         }
     </style>
@@ -1142,6 +1278,17 @@ def generate_html(tunes):
                 closeMidiPlayer();
             }
         });
+
+        // Auto-switch to card view on mobile
+        function checkMobileView() {
+            if (window.innerWidth <= 768) {
+                showCards();
+            }
+        }
+
+        // Check on load and on resize
+        checkMobileView();
+        window.addEventListener('resize', checkMobileView);
     </script>
 </body>
 </html>
