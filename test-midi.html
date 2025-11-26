@@ -188,7 +188,7 @@
 
     <script>
         // Test MIDI file - replace with actual path
-        const MIDI_FILE = 'Classical/Erik_Satie_Gymnopédie/gymnopedie_1_Violin.midi';
+        const MIDI_FILE = 'Wedding/Mendelssohn_Wedding-March/Mendelssohn_Wedding-March (For Organ).midi';
 
         // Option 2: HTML5 Audio Element
         function tryAudioElement() {
@@ -250,6 +250,7 @@
 
         // Option 5: Tone.js + @tonejs/midi (Working Implementation)
         let part = null;
+        let synth = null;
         let isPlaying = false;
         let midiLoaded = false;
 
@@ -277,8 +278,19 @@
                 // Load MIDI from the test file
                 const midi = await Midi.fromUrl(MIDI_FILE);
 
-                // Simple polysynth to play notes
-                const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+                status.textContent = '⏳ Preparing synthesizer...';
+
+                // Create and prepare the synth (this takes time)
+                synth = new Tone.PolySynth(Tone.Synth, {
+                    volume: -8,
+                    oscillator: { type: 'sine' },
+                    envelope: {
+                        attack: 0.005,
+                        decay: 0.1,
+                        sustain: 0.3,
+                        release: 1
+                    }
+                }).toDestination();
 
                 // Use the first track's notes
                 const notes = midi.tracks[0].notes;
@@ -305,7 +317,8 @@
                 midiLoaded = true;
 
                 status.className = 'status success';
-                status.textContent = '✅ MIDI loaded successfully! ' + notes.length + ' notes found.';
+                status.textContent = '✅ Ready to play! ' + notes.length + ' notes loaded. Click Play to start.';
+                playBtn.disabled = false;
             } catch (err) {
                 status.className = 'status error';
                 status.textContent = '❌ Error loading MIDI: ' + err.message;
@@ -315,14 +328,16 @@
         playBtn.addEventListener("click", async () => {
             const status = document.getElementById('status5');
 
+            if (!midiLoaded) {
+                status.className = 'status error';
+                status.textContent = '❌ MIDI not loaded yet. Please wait...';
+                status.style.display = 'block';
+                return;
+            }
+
             try {
                 // Required by browsers: only start audio after a user gesture
                 await Tone.start();
-
-                if (!midiLoaded) {
-                    await loadMidi();
-                    if (!midiLoaded) return; // Failed to load
-                }
 
                 if (!isPlaying) {
                     // Start playback from current position
@@ -339,7 +354,7 @@
                     isPlaying = false;
                     playBtn.textContent = "▶️ Play";
                     status.className = 'status info';
-                    status.textContent = '⏸️ Stopped';
+                    status.textContent = '⏸️ Stopped. Ready to play again.';
                 }
             } catch (err) {
                 status.className = 'status error';
@@ -348,8 +363,14 @@
             }
         });
 
-        // Show browser info
+        // Preload MIDI on page load and show browser info
         window.addEventListener('load', () => {
+            // Preload the MIDI file
+            playBtn.disabled = true;
+            playBtn.textContent = '⏳ Loading...';
+            loadMidi();
+
+            // Show browser info in console
             console.log('Browser:', navigator.userAgent);
             console.log('MIDI Support:', navigator.requestMIDIAccess ? 'Yes' : 'No');
             console.log('Tone.js loaded:', typeof Tone !== 'undefined');
