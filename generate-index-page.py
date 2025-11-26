@@ -6,6 +6,7 @@ with difficulty ratings, tags, MIDI player, and thumbnails
 import os
 import re
 import json
+import html
 from pathlib import Path
 from datetime import datetime
 
@@ -13,7 +14,7 @@ from datetime import datetime
 REPO_ROOT = Path(__file__).parent
 OUTPUT_FILE = REPO_ROOT / "docs" / "index.html"
 METADATA_FILE = REPO_ROOT / ".music-metadata.json"
-EXCLUDE_DIRS = {'.git', 'stylesheets', 'Lilypond_How-to', 'node_modules', '__pycache__'}
+EXCLUDE_DIRS = {'.git', 'stylesheets', 'Lilypond_How-to', 'node_modules', '__pycache__', 'Scales', 'Practice'}
 
 # Difficulty estimation based on file characteristics
 def estimate_difficulty(ly_file):
@@ -297,12 +298,13 @@ def generate_html(tunes):
     # Get unique tags for filter
     all_tags = sorted(set(tag for tune in tunes for tag in tune['tags']))
 
-    html = """<!DOCTYPE html>
+    html_output = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marc's Sheet Music Collection 🎵</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
     <style>
         * {
             margin: 0;
@@ -745,9 +747,9 @@ def generate_html(tunes):
     # Add categories
     categories = sorted(set(t['category'] for t in tunes))
     for cat in categories:
-        html += f'                <option value="{cat}">{cat}</option>\n'
+        html_output += f'                <option value="{cat}">{cat}</option>\n'
 
-    html += """            </select>
+    html_output += """            </select>
 
             <select id="difficulty-filter" onchange="filterItems()">
                 <option value="">All Difficulties</option>
@@ -763,9 +765,9 @@ def generate_html(tunes):
 """
 
     for tag in all_tags:
-        html += f'                <option value="{tag}">{tag}</option>\n'
+        html_output += f'                <option value="{tag}">{tag}</option>\n'
 
-    html += """            </select>
+    html_output += """            </select>
 
             <div class="view-toggle">
                 <button id="table-view" class="active" onclick="switchView('table')">📋 Table</button>
@@ -809,39 +811,43 @@ def generate_html(tunes):
 
         # Check if this tune is in top 10 or is Christmas music
         is_top10 = tune['title'] in top_10_titles
-        is_christmas = 'Christmas' in tune['category']
+        is_christmas = ('Christmas' in tune['category'] or
+                       'christmas' in tune['style'].lower() or
+                       any('christmas' in tag.lower() for tag in tune['tags']))
 
-        html += f"""                <tr data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}" data-style="{tune['style']}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
+        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
                     <td>
-                        <strong>{tune['title']}</strong>"""
+                        <strong>{html.escape(tune['title'])}</strong>"""
         if tune['subtitle']:
-            html += f"""<br><small style="color: #7f8c8d;">{tune['subtitle']}</small>"""
-        html += f"""</td>
-                    <td>{tune['composer'] or '—'}</td>
-                    <td><span class="category {category_class}">{tune['category']}</span></td>
-                    <td>{tune['style'] or '—'}</td>
-                    <td>{tune['key'] or '—'}</td>
+            html_output += f"""<br><small style="color: #7f8c8d;">{html.escape(tune['subtitle'])}</small>"""
+        html_output += f"""</td>
+                    <td>{html.escape(tune['composer']) if tune['composer'] else '—'}</td>
+                    <td><span class="category {category_class}">{html.escape(tune['category'])}</span></td>
+                    <td>{html.escape(tune['style']) if tune['style'] else '—'}</td>
+                    <td>{html.escape(tune['key']) if tune['key'] else '—'}</td>
                     <td><div class="difficulty">{stars}</div></td>
                     <td class="date">{tune['modified'].strftime('%Y-%m-%d')}</td>
                     <td class="links">"""
         # Add video link if available
         if tune['video']:
-            html += f"""
+            html_output += f"""
                         <a href="{tune['video']}" title="Watch video" target="_blank">🎥 Video</a>"""
         # Add PDF link
         if tune['pdf_exists']:
-            html += f"""
+            html_output += f"""
                         <a href="{tune['pdf_path']}" title="View PDF" target="_blank">📄 PDF</a>"""
         # Add MIDI player
         if tune['midi_exists']:
-            html += f"""
-                        <button class="btn" onclick="playMidi('{tune['midi_path']}', '{tune['title']}')" title="Play MIDI">🎵 Play</button>"""
-        html += """
+            # Escape title for JavaScript string (use JSON encoding to handle quotes properly)
+            safe_title = json.dumps(tune['title'])
+            html_output += f"""
+                        <button class="btn" onclick="playMidi('{tune['midi_path']}', {safe_title})" title="Play MIDI">🎵 Play</button>"""
+        html_output += """
                     </td>
                 </tr>
 """
 
-    html += """                </tbody>
+    html_output += """                </tbody>
             </table>
         </div>
 
@@ -856,48 +862,51 @@ def generate_html(tunes):
 
         # Check if this tune is in top 10 or is Christmas music
         is_top10 = tune['title'] in top_10_titles
-        is_christmas = 'Christmas' in tune['category']
+        is_christmas = ('Christmas' in tune['category'] or
+                       'christmas' in tune['style'].lower() or
+                       any('christmas' in tag.lower() for tag in tune['tags']))
 
-        html += f"""            <div class="card" data-category="{tune['category']}" data-difficulty="{tune['difficulty']}" data-tags="{','.join(tune['tags'])}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
+        html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
                 <div class="card-thumbnail">
 """
         if tune['thumbnail_exists']:
-            html += f"""                    <img src="{tune['thumbnail_path']}" alt="{tune['title']}">
+            html_output += f"""                    <img src="{html.escape(tune['thumbnail_path'])}" alt="{html.escape(tune['title'])}">
 """
         else:
-            html += """                    🎼
+            html_output += """                    🎼
 """
-        html += f"""                </div>
-                <div class="card-title">{tune['title']}</div>
-                <div class="card-composer">{tune['composer'] or 'Traditional'}</div>
+        html_output += f"""                </div>
+                <div class="card-title">{html.escape(tune['title'])}</div>
+                <div class="card-composer">{html.escape(tune['composer']) if tune['composer'] else 'Traditional'}</div>
                 <div class="card-meta">
-                    <span class="category {category_class}">{tune['category']}</span>
+                    <span class="category {category_class}">{html.escape(tune['category'])}</span>
                     <div class="difficulty">{stars}</div>
                 </div>
 """
         if tune['tags']:
-            tags_html = ''.join([f'<span class="tag">{tag}</span>' for tag in tune['tags'][:5]])
-            html += f"""                <div class="tags">{tags_html}</div>
+            tags_html = ''.join([f'<span class="tag">{html.escape(tag)}</span>' for tag in tune['tags'][:5]])
+            html_output += f"""                <div class="tags">{tags_html}</div>
 """
-        html += """                <div class="links">
+        html_output += """                <div class="links">
 """
         # Add video link if available
         if tune['video']:
-            html += f"""                    <a href="{tune['video']}" title="Watch video" target="_blank">🎥 Video</a>
+            html_output += f"""                    <a href="{tune['video']}" title="Watch video" target="_blank">🎥 Video</a>
 """
         # Add PDF link
         if tune['pdf_exists']:
-            html += f"""                    <a href="{tune['pdf_path']}" target="_blank">📄 PDF</a>
+            html_output += f"""                    <a href="{tune['pdf_path']}" target="_blank">📄 PDF</a>
 """
         # Add MIDI player
         if tune['midi_exists']:
-            html += f"""                    <button class="btn" onclick="playMidi('{tune['midi_path']}', '{tune['title']}')">🎵 Play</button>
+            safe_title = json.dumps(tune['title'])
+            html_output += f"""                    <button class="btn" onclick="playMidi('{tune['midi_path']}', {safe_title})">🎵 Play</button>
 """
-        html += """                </div>
+        html_output += """                </div>
             </div>
 """
 
-    html += """        </div>
+    html_output += """        </div>
 
         <div id="no-results" class="no-results" style="display: none;">
             <div style="font-size: 3em; margin-bottom: 20px;">🎻</div>
@@ -1138,7 +1147,7 @@ def generate_html(tunes):
 </html>
 """
 
-    return html
+    return html_output
 
 def main():
     print("🎵 Scanning repository for sheet music files...")

@@ -4,16 +4,13 @@
 
 
 \header {
-  subtitle =  "From \"Midnight in Paris\""
   title =  "Bistro Fada"
+  subtitle =  "From \"Midnight in Paris\""
   encodingdate =  "2018-10-19"
-  composer =  \markup \column {
-    \line { "Stephane Wrembel"
+  composer =  "Stephane Wrembel"
   video = ""
   style = "gypsy jazz"
-}
-    \line { ""}
-  }
+  tagline = ""
 }
 
 global = {

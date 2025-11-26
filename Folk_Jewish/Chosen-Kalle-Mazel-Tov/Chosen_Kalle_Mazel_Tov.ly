@@ -4,6 +4,7 @@
 
 \header {
   title = "Chosen Kalle Mazel Tov"
+  composer = "Traditional"
   subtitle = "Traditional Yiddish/Klezmer"
   style = "klezmer"
 }

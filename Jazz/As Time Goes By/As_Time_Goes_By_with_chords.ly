@@ -3,6 +3,9 @@
 \pointAndClickOff
 
 \header {
+  title = "As Time Goes By"
+  composer = "Herman Hupfeld"
+
   style = "jazz"
 }
 

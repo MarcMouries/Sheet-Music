@@ -3,6 +3,8 @@
 % automatically converted by musicxml2ly from /Users/Marc/OneDrive/sheet_Music_Violin/Violin Solo fm Sheherazade_Rimsky-Korsakov.xml
 
 \header {
+  title = "Violin Solo from Sheherazade"
+  composer = "Nikolai Rimsky-Korsakov (1844 – 1908)"
   encodingsoftware = "MuseScore 2.0.1"
   encodingdate = "2015-10-24"
   style = "classical"

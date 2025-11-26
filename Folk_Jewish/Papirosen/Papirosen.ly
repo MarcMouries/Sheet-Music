@@ -6,6 +6,7 @@
   title = "Papirosen"
   instrument = "Violin"
     style = "klezmer"
+  composer = "Traditional"
   tagline = ##f  % Remove default LilyPond tagline
 }
 

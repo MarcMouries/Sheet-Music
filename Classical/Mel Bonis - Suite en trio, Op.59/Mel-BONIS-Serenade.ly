@@ -1,10 +1,9 @@
 \version "2.19.32"
 \language "english"
 \header {
-  title = \markup { "Sérénade"
+  title = "Sérénade"
+  composer = "Mel Bonis (1858 – 1937)"
   style = "classical"
-}
-  composer = "Mel BONIS"
 }
 
 global = {

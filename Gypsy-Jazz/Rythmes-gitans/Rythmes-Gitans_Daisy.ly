@@ -20,7 +20,9 @@
                   #:factor (/ staff-height pt 20)
                   ))
 }
-\header {  tagline = ##f }
+\header {  title = "Rythmes Gitans (Daisy)"
+  composer = "Traditional"
+  tagline = ##f }
 
 
 \layout{

@@ -3,7 +3,9 @@
 
 \header {
   title = "Contraband Police"
+  composer = "Lukasz Kapuscinski"
   subtitle = "Official Gameplay Trailer Police"
+  style = "soundtrack"
 }
 
 global = {

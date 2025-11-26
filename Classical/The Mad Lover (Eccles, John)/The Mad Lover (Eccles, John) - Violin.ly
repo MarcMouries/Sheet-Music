@@ -6,8 +6,9 @@
 
 
 \header {
-
-    style = "classical"
+  title = "The Mad Lover"
+  composer = "John Eccles (1668 – 1735)"
+  style = "classical"
   tagline = ""
 }
 
