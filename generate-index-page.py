@@ -383,8 +383,6 @@ def generate_html(tunes):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marc's Sheet Music Collection 🎵</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
-    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/music_vae.js"></script>
     <style>
         * {
             margin: 0;
@@ -1161,31 +1159,6 @@ def generate_html(tunes):
         </div>
     </div>
 
-    <!-- MIDI Player Modal -->
-    <div id="midi-modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeMidiPlayer()">&times;</button>
-            <h2 id="midi-title">Now Playing</h2>
-            <div class="midi-player">
-                <div id="midi-loading" style="display: none; text-align: center; padding: 20px;">
-                    <p>Loading MIDI file...</p>
-                </div>
-                <div id="midi-controls" style="display: none; text-align: center;">
-                    <button id="play-btn" onclick="togglePlayPause()" style="padding: 15px 30px; font-size: 18px; margin: 10px; cursor: pointer; border-radius: 8px; border: 2px solid #667eea; background: #667eea; color: white;">▶️ Play</button>
-                    <button onclick="stopMidi()" style="padding: 15px 30px; font-size: 18px; margin: 10px; cursor: pointer; border-radius: 8px; border: 2px solid #e74c3c; background: #e74c3c; color: white;">⏹ Stop</button>
-                    <br>
-                    <div style="margin: 20px 0;">
-                        <label>Volume: </label>
-                        <input type="range" id="volume-slider" min="0" max="100" value="80" oninput="updateVolume(this.value)" style="width: 200px;">
-                    </div>
-                </div>
-                <div id="midi-error" style="display: none; color: #e74c3c; padding: 20px; text-align: center;">
-                    <p>Unable to load MIDI file. You can <a id="download-link" href="#" download style="color: #667eea; text-decoration: underline;">download it here</a> to play in a MIDI player.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         let currentView = 'table';
 
@@ -1401,100 +1374,21 @@ def generate_html(tunes):
             filterItems();
         }
 
-        let midiPlayer = null;
-        let isPlaying = false;
-        let currentMidiUrl = '';
+        function playMidi(midiPath, title) {
+            // Download the MIDI file for playback in external player
+            const link = document.createElement('a');
+            link.href = midiPath;
+            link.download = midiPath.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
-        async function playMidi(midiPath, title) {
-            const modal = document.getElementById('midi-modal');
-            const titleEl = document.getElementById('midi-title');
-            const loadingEl = document.getElementById('midi-loading');
-            const controlsEl = document.getElementById('midi-controls');
-            const errorEl = document.getElementById('midi-error');
-            const downloadLink = document.getElementById('download-link');
-
-            // Reset UI
-            loadingEl.style.display = 'block';
-            controlsEl.style.display = 'none';
-            errorEl.style.display = 'none';
-            titleEl.textContent = 'Loading: ' + title;
-            currentMidiUrl = midiPath;
-            downloadLink.href = midiPath;
-
-            modal.classList.add('active');
-
-            try {
-                // Stop any existing playback
-                if (midiPlayer) {
-                    midiPlayer.stop();
-                }
-
-                // Initialize player with Magenta.js
-                if (!window.core || !window.core.Player) {
-                    throw new Error('Magenta.js not loaded');
-                }
-
-                midiPlayer = new core.Player();
-
-                // Fetch and parse MIDI file
-                const response = await fetch(midiPath);
-                const arrayBuffer = await response.arrayBuffer();
-                const midi = await core.urlToNoteSequence(midiPath);
-
-                titleEl.textContent = 'Now Playing: ' + title;
-                loadingEl.style.display = 'none';
-                controlsEl.style.display = 'block';
-
-                // Auto-play
-                await midiPlayer.start(midi);
-                isPlaying = true;
-                document.getElementById('play-btn').textContent = '⏸ Pause';
-
-            } catch (error) {
-                console.error('MIDI playback error:', error);
-                loadingEl.style.display = 'none';
-                errorEl.style.display = 'block';
-                titleEl.textContent = 'Playback Error: ' + title;
-            }
-        }
-
-        function togglePlayPause() {
-            if (!midiPlayer) return;
-
-            const playBtn = document.getElementById('play-btn');
-
-            if (isPlaying) {
-                midiPlayer.pause();
-                playBtn.textContent = '▶️ Play';
-                isPlaying = false;
-            } else {
-                midiPlayer.resume();
-                playBtn.textContent = '⏸ Pause';
-                isPlaying = true;
-            }
-        }
-
-        function stopMidi() {
-            if (midiPlayer) {
-                midiPlayer.stop();
-                isPlaying = false;
-                document.getElementById('play-btn').textContent = '▶️ Play';
-            }
-        }
-
-        function updateVolume(value) {
-            // Magenta Player doesn't have direct volume control
-            // This is a placeholder for future implementation
-            console.log('Volume:', value);
+            // Show notification
+            alert('Downloading MIDI file: ' + title + '\\n\\nBrowsers cannot play MIDI files natively. The file will be downloaded so you can play it in your preferred MIDI player (like GarageBand, MuseScore, or any MIDI player app).');
         }
 
         function closeMidiPlayer() {
-            const modal = document.getElementById('midi-modal');
-            if (midiPlayer) {
-                midiPlayer.stop();
-                isPlaying = false;
-            }
-            modal.classList.remove('active');
+            // Not needed anymore
         }
 
         // Close modal on escape key

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIDI Playback Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .option {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 5px 10px 0;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>🎵 MIDI Playback Test Page</h1>
+    <p>Testing different methods to play MIDI files in the browser</p>
+
+    <div class="option">
+        <h2>Option 1: Simple Download (Always Works)</h2>
+        <p>Trigger a download when user clicks. Most reliable but requires external player.</p>
+        <button onclick="downloadMidi()">📥 Download MIDI</button>
+        <div id="status1" class="status info" style="display:none;"></div>
+    </div>
+
+    <div class="option">
+        <h2>Option 2: HTML5 Audio Element (Won't Work)</h2>
+        <p>Try using &lt;audio&gt; element with MIDI type (browsers don't support this)</p>
+        <audio id="audio-player" controls style="width: 100%; margin: 10px 0;">
+            <source id="audio-source" type="audio/midi">
+            Your browser does not support audio playback
+        </audio>
+        <button onclick="tryAudioElement()">▶️ Try Audio Element</button>
+        <div id="status2" class="status" style="display:none;"></div>
+    </div>
+
+    <div class="option">
+        <h2>Option 3: MIDI.js Library</h2>
+        <p>Use MIDI.js to convert MIDI to audio on-the-fly (requires loading library)</p>
+        <button onclick="tryMidiJs()">▶️ Try MIDI.js</button>
+        <div id="status3" class="status" style="display:none;"></div>
+        <div id="midijs-status"></div>
+    </div>
+
+    <div class="option">
+        <h2>Option 4: Web MIDI API (Chrome Only)</h2>
+        <p>Use browser's built-in Web MIDI API (requires MIDI hardware or software synth)</p>
+        <button onclick="tryWebMidiApi()">▶️ Try Web MIDI API</button>
+        <div id="status4" class="status" style="display:none;"></div>
+    </div>
+
+    <div class="option">
+        <h2>Option 5: Tone.js + MIDI Parser</h2>
+        <p>Parse MIDI and play using Tone.js audio library</p>
+        <button onclick="tryToneJs()">▶️ Try Tone.js</button>
+        <div id="status5" class="status" style="display:none;"></div>
+    </div>
+
+    <div class="option">
+        <h2>Current Best Solution</h2>
+        <p><strong>Recommendation:</strong> Since MIDI playback in browsers is unreliable, the best approach is:</p>
+        <ol>
+            <li>Provide a clear download button with messaging</li>
+            <li>Optionally: Embed MP3/OGG conversions alongside MIDI files</li>
+            <li>Or: Link to YouTube videos if available</li>
+        </ol>
+        <p>MIDI files are designed for musical notation software, not web playback.</p>
+    </div>
+
+    <script>
+        // Test MIDI file - replace with actual path
+        const MIDI_FILE = 'Classical/Erik_Satie_Gymnopédie/gymnopedie_1_Violin.midi';
+
+        // Option 1: Simple Download
+        function downloadMidi() {
+            const status = document.getElementById('status1');
+            const link = document.createElement('a');
+            link.href = MIDI_FILE;
+            link.download = MIDI_FILE.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            status.className = 'status success';
+            status.textContent = '✅ Download triggered! File will be saved to your Downloads folder.';
+            status.style.display = 'block';
+        }
+
+        // Option 2: HTML5 Audio Element
+        function tryAudioElement() {
+            const status = document.getElementById('status2');
+            const audio = document.getElementById('audio-player');
+            const source = document.getElementById('audio-source');
+
+            source.src = MIDI_FILE;
+            audio.load();
+
+            audio.play().then(() => {
+                status.className = 'status success';
+                status.textContent = '✅ Playing! (Surprising - your browser supports MIDI!)';
+                status.style.display = 'block';
+            }).catch(err => {
+                status.className = 'status error';
+                status.textContent = '❌ Failed: ' + err.message + ' - Browsers do not natively support MIDI playback.';
+                status.style.display = 'block';
+            });
+        }
+
+        // Option 3: MIDI.js
+        function tryMidiJs() {
+            const status = document.getElementById('status3');
+            status.className = 'status info';
+            status.textContent = '⚠️ MIDI.js library not loaded. Would require: <script src="https://cdn.jsdelivr.net/npm/midi.js@..."></script>';
+            status.style.display = 'block';
+        }
+
+        // Option 4: Web MIDI API
+        async function tryWebMidiApi() {
+            const status = document.getElementById('status4');
+
+            if (!navigator.requestMIDIAccess) {
+                status.className = 'status error';
+                status.textContent = '❌ Web MIDI API not supported in this browser (only Chrome/Edge)';
+                status.style.display = 'block';
+                return;
+            }
+
+            try {
+                const midiAccess = await navigator.requestMIDIAccess();
+                const outputs = Array.from(midiAccess.outputs.values());
+
+                if (outputs.length === 0) {
+                    status.className = 'status error';
+                    status.textContent = '❌ No MIDI output devices found. You need a hardware/software MIDI synth.';
+                } else {
+                    status.className = 'status success';
+                    status.textContent = '✅ Found ' + outputs.length + ' MIDI device(s). Playback possible but requires parsing MIDI file.';
+                }
+                status.style.display = 'block';
+            } catch (err) {
+                status.className = 'status error';
+                status.textContent = '❌ Error: ' + err.message;
+                status.style.display = 'block';
+            }
+        }
+
+        // Option 5: Tone.js
+        function tryToneJs() {
+            const status = document.getElementById('status5');
+            status.className = 'status info';
+            status.textContent = '⚠️ Tone.js library not loaded. Would require parsing MIDI and scheduling notes manually.';
+            status.style.display = 'block';
+        }
+
+        // Show browser info
+        window.addEventListener('load', () => {
+            console.log('Browser:', navigator.userAgent);
+            console.log('MIDI Support:', navigator.requestMIDIAccess ? 'Yes' : 'No');
+        });
+    </script>
+</body>
+</html>
