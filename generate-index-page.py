@@ -323,6 +323,39 @@ def is_christmas_song(title, category, style, tags):
 
     return False
 
+def is_wedding_song(title, category, style, tags):
+    """Smart Wedding song detection"""
+    # Known wedding song titles and keywords
+    wedding_keywords = {
+        'wedding', 'bridal', 'bride', 'marriage', 'married',
+        'canon in d', 'pachelbel', 'wedding march', 'mendelssohn',
+        'ave maria', 'schubert', 'hallelujah', 'cohen',
+        'a thousand years', 'all of me', 'at last',
+        'can\'t help falling', 'elvis', 'unforgettable',
+        'wonderful tonight', 'clapton', 'thinking out loud',
+        'perfect', 'ed sheeran', 'marry you', 'bruno mars',
+        'bridal chorus', 'wagner', 'here comes the bride',
+        'jesu joy', 'bach', 'air on g string',
+        'clair de lune', 'debussy', 'moonlight sonata',
+        'trumpet voluntary', 'clarke', 'ode to joy'
+    }
+
+    title_lower = title.lower()
+
+    # Check style
+    if 'wedding' in style.lower():
+        return True
+
+    # Check tags
+    if any('wedding' in tag.lower() for tag in tags):
+        return True
+
+    # Check title against known wedding keywords
+    if any(keyword in title_lower for keyword in wedding_keywords):
+        return True
+
+    return False
+
 def generate_html(tunes):
     """Generate enhanced HTML index with MIDI player and features"""
 
@@ -992,6 +1025,7 @@ def generate_html(tunes):
             <div class="quick-filters">
                 <button class="quick-filter-btn" onclick="showTop10()">⭐ Top 10</button>
                 <button class="quick-filter-btn" onclick="showChristmas()">🎄 Christmas</button>
+                <button class="quick-filter-btn" onclick="showWedding()">💍 Wedding</button>
                 <button class="quick-filter-btn" onclick="clearQuickFilters()">🔄 Show All</button>
             </div>
         </div>
@@ -1024,11 +1058,12 @@ def generate_html(tunes):
         # Generate tags
         tags_html = ''.join([f'<span class="tag">{tag}</span>' for tag in tune['tags'][:3]])
 
-        # Check if this tune is in top 10 or is Christmas music
+        # Check if this tune is in top 10, is Christmas music, or is Wedding music
         is_top10 = tune['title'] in top_10_titles
         is_christmas = is_christmas_song(tune['title'], tune['category'], tune['style'], tune['tags'])
+        is_wedding = is_wedding_song(tune['title'], tune['category'], tune['style'], tune['tags'])
 
-        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
+        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
                     <td>
                         <strong>{html.escape(tune['title'])}</strong>"""
         if tune['subtitle']:
@@ -1073,11 +1108,12 @@ def generate_html(tunes):
         stars = ''.join(['<span class="difficulty-star">★</span>' for _ in range(tune['difficulty'])])
         stars += ''.join(['<span class="difficulty-star empty">★</span>' for _ in range(5 - tune['difficulty'])])
 
-        # Check if this tune is in top 10 or is Christmas music
+        # Check if this tune is in top 10, is Christmas music, or is Wedding music
         is_top10 = tune['title'] in top_10_titles
         is_christmas = is_christmas_song(tune['title'], tune['category'], tune['style'], tune['tags'])
+        is_wedding = is_wedding_song(tune['title'], tune['category'], tune['style'], tune['tags'])
 
-        html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
+        html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
                 <div class="card-thumbnail">
 """
         if tune['thumbnail_exists']:
@@ -1297,6 +1333,43 @@ def generate_html(tunes):
 
             items.forEach(item => {
                 if (item.dataset.christmas === 'true') {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.getElementById('total-count').textContent = visibleCount;
+            document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+
+            if (currentView === 'table') {
+                document.getElementById('table-container').style.display = visibleCount === 0 ? 'none' : 'block';
+            } else {
+                document.getElementById('cards-container').style.display = visibleCount === 0 ? 'none' : 'grid';
+            }
+        }
+
+        function showWedding() {
+            // Clear other filters
+            document.getElementById('search').value = '';
+            document.getElementById('category-filter').value = '';
+            document.getElementById('difficulty-filter').value = '';
+            document.getElementById('tag-filter').value = '';
+
+            // Highlight active button
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) event.target.classList.add('active');
+
+            // Filter items
+            const items = currentView === 'table'
+                ? document.querySelectorAll('#music-table tbody tr')
+                : document.querySelectorAll('.card');
+
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                if (item.dataset.wedding === 'true') {
                     item.style.display = '';
                     visibleCount++;
                 } else {
