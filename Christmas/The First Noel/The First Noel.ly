@@ -1,5 +1,24 @@
 \version "2.19.11"
 
+% Define missing custom functions as simple text
+#(define-markup-command (smallCapsOldStyle layout props text) (markup?)
+  (interpret-markup layout props (markup #:smallCaps text)))
+
+#(define-markup-command (oldStyleNum layout props text) (markup?)
+  (interpret-markup layout props (markup text)))
+
+#(define-markup-command (oldStylePageNum layout props text) (markup?)
+  (interpret-markup layout props (markup text)))
+
+% Define drop lyrics commands for lyric mode
+dropLyricsVI = {}
+dropLyricsIV = {}
+
+#(define (print-page-number-check-first layout props arg)
+  (if (= (chain-assoc-get 'page:page-number props -1) 1)
+      empty-stencil
+      (interpret-markup layout props (markup arg))))
+
 \header {
   title = \markup{\override #'(font-name . "Garamond Premier Pro Semibold"){ \abs-fontsize #15 \smallCapsOldStyle"The First Noël"}}
   poet = \markup\oldStyleNum"Traditional"
