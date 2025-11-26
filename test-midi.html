@@ -39,6 +39,52 @@
         button:hover {
             background: #5568d3;
         }
+
+        /* MIDI Player Buttons - matching the design images */
+        #playPause {
+            background: linear-gradient(to bottom, #8B4513 0%, #5C2E0F 100%);
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px 40px;
+            border: 3px solid #3D1A0A;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            cursor: pointer;
+            min-width: 200px;
+        }
+        #playPause:hover {
+            background: linear-gradient(to bottom, #9B5523 0%, #6C3E1F 100%);
+        }
+        #playPause:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .controls {
+            background: linear-gradient(to bottom, #FFD700 0%, #FFA500 100%);
+            border: 3px solid #3D1A0A;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .controls label {
+            color: #3D1A0A;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .controls input[type="range"] {
+            flex: 1;
+            margin: 0 15px;
+        }
         pre {
             background: #f0f0f0;
             padding: 10px;
@@ -89,12 +135,12 @@
         <h2>Option 5: Tone.js + @tonejs/midi (WORKING EXAMPLE)</h2>
         <p>Full working implementation with tempo control using Tone.js and @tonejs/midi library</p>
 
-        <button id="playPause">▶️ Play</button>
+        <button id="playPause">▶ Play Audio</button>
 
-        <div class="controls" style="margin-top: 10px;">
+        <div class="controls">
             <label>
                 Tempo: <span id="tempoValue">120</span> BPM
-                <input id="tempo" type="range" min="40" max="200" value="120" step="1" style="width: 200px; margin-left: 10px;">
+                <input id="tempo" type="range" min="40" max="200" value="120" step="1">
             </label>
         </div>
 
@@ -280,44 +326,70 @@
 
                 status.textContent = '⏳ Preparing synthesizer...';
 
-                // Create and prepare the synth (this takes time)
-                synth = new Tone.PolySynth(Tone.Synth, {
-                    volume: -8,
-                    oscillator: { type: 'sine' },
-                    envelope: {
-                        attack: 0.005,
-                        decay: 0.1,
-                        sustain: 0.3,
-                        release: 1
-                    }
-                }).toDestination();
+                // Create multiple synths for different tracks/instruments
+                const synths = [];
+                const parts = [];
 
-                // Use the first track's notes
-                const notes = midi.tracks[0].notes;
+                // Process all tracks
+                for (let i = 0; i < midi.tracks.length; i++) {
+                    const track = midi.tracks[i];
+                    if (track.notes.length === 0) continue;
 
-                if (notes.length === 0) {
+                    // Create a better-sounding synth for each track
+                    // Using FMSynth for more complex, realistic tones
+                    const trackSynth = new Tone.PolySynth(Tone.FMSynth, {
+                        volume: -12,
+                        harmonicity: 3,
+                        modulationIndex: 10,
+                        oscillator: { type: 'sine' },
+                        envelope: {
+                            attack: 0.01,
+                            decay: 0.2,
+                            sustain: 0.3,
+                            release: 0.8
+                        },
+                        modulation: { type: 'square' },
+                        modulationEnvelope: {
+                            attack: 0.01,
+                            decay: 0.1,
+                            sustain: 0.5,
+                            release: 0.5
+                        }
+                    }).toDestination();
+
+                    synths.push(trackSynth);
+
+                    // Create a Part for this track
+                    const trackPart = new Tone.Part((time, note) => {
+                        trackSynth.triggerAttackRelease(
+                            note.name,
+                            note.duration,
+                            time,
+                            note.velocity
+                        );
+                    }, track.notes);
+
+                    trackPart.loop = false;
+                    trackPart.start(0);
+                    parts.push(trackPart);
+                }
+
+                // Store references
+                synth = synths;
+                part = parts;
+
+                const totalNotes = midi.tracks.reduce((sum, track) => sum + track.notes.length, 0);
+
+                if (totalNotes === 0) {
                     status.className = 'status error';
                     status.textContent = '❌ No notes found in MIDI file';
                     return;
                 }
 
-                // Create a Part that schedules each note on the Transport
-                part = new Tone.Part((time, note) => {
-                    synth.triggerAttackRelease(
-                        note.name,
-                        note.duration,
-                        time,
-                        note.velocity
-                    );
-                }, notes);
-
-                part.loop = false;
-                part.start(0);
-
                 midiLoaded = true;
 
                 status.className = 'status success';
-                status.textContent = '✅ Ready to play! ' + notes.length + ' notes loaded. Click Play to start.';
+                status.textContent = '✅ Ready to play! ' + totalNotes + ' notes loaded from ' + parts.length + ' tracks. Click Play to start.';
                 playBtn.disabled = false;
             } catch (err) {
                 status.className = 'status error';
@@ -343,7 +415,7 @@
                     // Start playback from current position
                     Tone.Transport.start();
                     isPlaying = true;
-                    playBtn.textContent = "⏸️ Stop";
+                    playBtn.textContent = "⏸ Pause Audio";
                     status.className = 'status success';
                     status.textContent = '▶️ Playing...';
                     status.style.display = 'block';
@@ -352,7 +424,7 @@
                     Tone.Transport.stop();
                     Tone.Transport.position = "0:0:0";
                     isPlaying = false;
-                    playBtn.textContent = "▶️ Play";
+                    playBtn.textContent = "▶ Play Audio";
                     status.className = 'status info';
                     status.textContent = '⏸️ Stopped. Ready to play again.';
                 }
