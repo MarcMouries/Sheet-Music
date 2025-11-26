@@ -278,6 +278,39 @@ def scan_repository():
 
     return sorted(tunes, key=lambda x: (x['category'], x['title']))
 
+def is_christmas_song(title, category, style, tags):
+    """Smart Christmas song detection"""
+    # Known Christmas song titles (case-insensitive partial matching)
+    christmas_keywords = {
+        'noel', 'noël', 'christmas', 'xmas', 'jingle', 'bells',
+        'silent night', 'holy night', 'deck the halls', 'joy to the world',
+        'hark', 'herald', 'angels', 'we wish you', 'merry christmas',
+        'santa', 'rudolph', 'frosty', 'snowman', 'sleigh', 'winter wonderland',
+        'let it snow', 'white christmas', 'little drummer', 'twelve days',
+        'carol', 'o come', 'adeste', 'away in a manger', 'good king wenceslas',
+        'god rest', 'first noel', 'o holy', 'o tannenbaum', 'stille nacht'
+    }
+
+    title_lower = title.lower()
+
+    # Check category
+    if 'Christmas' in category:
+        return True
+
+    # Check style
+    if 'christmas' in style.lower():
+        return True
+
+    # Check tags
+    if any('christmas' in tag.lower() for tag in tags):
+        return True
+
+    # Check title against known Christmas keywords
+    if any(keyword in title_lower for keyword in christmas_keywords):
+        return True
+
+    return False
+
 def generate_html(tunes):
     """Generate enhanced HTML index with MIDI player and features"""
 
@@ -947,9 +980,7 @@ def generate_html(tunes):
 
         # Check if this tune is in top 10 or is Christmas music
         is_top10 = tune['title'] in top_10_titles
-        is_christmas = ('Christmas' in tune['category'] or
-                       'christmas' in tune['style'].lower() or
-                       any('christmas' in tag.lower() for tag in tune['tags']))
+        is_christmas = is_christmas_song(tune['title'], tune['category'], tune['style'], tune['tags'])
 
         html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
                     <td>
@@ -998,9 +1029,7 @@ def generate_html(tunes):
 
         # Check if this tune is in top 10 or is Christmas music
         is_top10 = tune['title'] in top_10_titles
-        is_christmas = ('Christmas' in tune['category'] or
-                       'christmas' in tune['style'].lower() or
-                       any('christmas' in tag.lower() for tag in tune['tags']))
+        is_christmas = is_christmas_song(tune['title'], tune['category'], tune['style'], tune['tags'])
 
         html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}">
                 <div class="card-thumbnail">
@@ -1166,7 +1195,7 @@ def generate_html(tunes):
 
             // Highlight active button
             document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) event.target.classList.add('active');
 
             // Filter items
             const items = currentView === 'table'
@@ -1203,7 +1232,7 @@ def generate_html(tunes):
 
             // Highlight active button
             document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) event.target.classList.add('active');
 
             // Filter items
             const items = currentView === 'table'
@@ -1289,6 +1318,66 @@ def generate_html(tunes):
         // Check on load and on resize
         checkMobileView();
         window.addEventListener('resize', checkMobileView);
+
+        // URL parameter support for shareable filter links
+        function applyURLFilters() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+
+                if (params.has('filter')) {
+                    const filter = params.get('filter').toLowerCase();
+
+                    if (filter === 'christmas') {
+                        setTimeout(() => {
+                            try { showChristmas(); } catch(e) { console.error(e); }
+                        }, 200);
+                    } else if (filter === 'top10') {
+                        setTimeout(() => {
+                            try { showTop10(); } catch(e) { console.error(e); }
+                        }, 200);
+                    }
+                }
+
+                if (params.has('category')) {
+                    document.getElementById('category-filter').value = params.get('category');
+                    filterTunes();
+                }
+
+                if (params.has('search')) {
+                    document.getElementById('search').value = params.get('search');
+                    filterTunes();
+                }
+            } catch(e) {
+                console.error('Error applying URL filters:', e);
+            }
+        }
+
+        // Update URL when filters are applied
+        function updateURL(filterType) {
+            try {
+                const url = new URL(window.location);
+                url.searchParams.set('filter', filterType);
+                window.history.pushState({}, '', url);
+            } catch(e) {
+                console.error('Error updating URL:', e);
+            }
+        }
+
+        // Wrap functions to update URL
+        const _originalShowChristmas = showChristmas;
+        showChristmas = function() {
+            _originalShowChristmas.call(this);
+            updateURL('christmas');
+        };
+
+        const _originalShowTop10 = showTop10;
+        showTop10 = function() {
+            _originalShowTop10.call(this);
+            updateURL('top10');
+        };
+
+        // Apply URL filters on page load
+        setTimeout(applyURLFilters, 300);
     </script>
 </body>
 </html>
