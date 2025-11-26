@@ -2,42 +2,42 @@
   "Christmas/Let%20It%20Snow/Let%20It%20Snow.ly": {
     "difficulty": 2,
     "tags": [
-      "traditional",
-      "christmas"
+      "christmas",
+      "traditional"
     ],
     "notes": "Add your notes here"
   },
   "Christmas/The%20First%20Noel/The%20First%20Noel_Duet.ly": {
     "difficulty": 2,
     "tags": [
+      "christmas",
       "traditional",
-      "waltz",
-      "christmas"
+      "waltz"
     ],
     "notes": "Add your notes here"
   },
   "Christmas/The%20First%20Noel/The%20First%20Noel.ly": {
     "difficulty": 2,
     "tags": [
+      "christmas",
       "traditional",
-      "waltz",
-      "christmas"
+      "waltz"
     ],
     "notes": "Add your notes here"
   },
   "Classical/Erik_Satie_Gymnop%C3%A9die/gymnopedie_1_Violin.ly": {
     "difficulty": 2,
     "tags": [
-      "waltz",
-      "classical"
+      "classical",
+      "waltz"
     ],
     "notes": "Add your notes here"
   },
   "Classical/Erik_Satie_Gymnop%C3%A9die/gymnopedie.ly": {
     "difficulty": 2,
     "tags": [
-      "waltz",
-      "classical"
+      "classical",
+      "waltz"
     ],
     "notes": "Add your notes here"
   }
