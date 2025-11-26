@@ -10,6 +10,7 @@
   composer = "Stephane Grappelli"
   opus = "1947 in Paris"
   % Stephane Grappelli 26.03.1947
+  style = "gypsy jazz"
 }
 
 chordNames = \chordmode {

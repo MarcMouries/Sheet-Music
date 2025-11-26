@@ -15,6 +15,9 @@
   \tocItem \markup { The second score }
   \score {
     { e'1 }
-    \header { piece = "Second score" }
+    \header { piece = "Second score"
+  composer = "Marc Mouries"
+  style = "practice exercise"
+}
   }
 }

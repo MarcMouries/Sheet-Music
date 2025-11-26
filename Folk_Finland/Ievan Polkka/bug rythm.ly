@@ -12,6 +12,7 @@
 
 \header {
   title = "bug repeat "
+  style = "finnish traditional"
 }
 
 melody = {

@@ -11,6 +11,7 @@
   indent = 0
 }
 \header {
+    style = "irish traditional"
   tagline = ##f       % Remove default LilyPond tagline
   title = "The Musical Priest"
   composer = "Trad. Celtic"

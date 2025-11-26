@@ -7,6 +7,7 @@
   subtitle = "HEVENU SHALOM ALEICHEM"
   composer = "chant juif, XIX"
   video = ""
+  style = "klezmer"
 }
 
 \paper{ #(define fonts

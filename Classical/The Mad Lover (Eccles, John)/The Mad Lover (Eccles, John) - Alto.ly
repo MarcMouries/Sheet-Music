@@ -6,6 +6,7 @@
   subtitle = "5. Aire"
   composer = "John Eccles"
   instrument = "Viola"
+    style = "classical"
   tagline = ##f
 }
 

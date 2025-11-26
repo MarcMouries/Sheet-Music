@@ -4,6 +4,7 @@
 \header {
   title = "SUITE I."
   composer = "J. S. Bach."
+  style = "jazz"
 }
 
 melody = \relative c' {

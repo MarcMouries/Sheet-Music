@@ -3,6 +3,8 @@
 
 \header {
   title = "hungarian minor (gipsy) Scale"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 global = {

@@ -12,7 +12,10 @@
   arranger = \markup
                { \column \right-align 
 	              { \line 
-	                 {\small "arr. Marc Mouries" } 
+	                 {\small "arr. Marc Mouries"
+  composer = "Marc Mouries"
+  style = "practice exercise"
+} 
 	                 {\teeny "PUT AS URL http://marcmouries.com/music"}
 	               }
 	            }

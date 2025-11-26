@@ -2,6 +2,8 @@
 \language "english"
 \header {
   title = "Blues Scale"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 global = {

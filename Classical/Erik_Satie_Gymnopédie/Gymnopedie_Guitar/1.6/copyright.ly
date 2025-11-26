@@ -4,7 +4,9 @@
 
     \paper { print-page-number = ##t }
 
-    \header { title = "Copyright" }
+    \header { title = "Copyright"
+  style = "classical"
+}
 
     \tocItem \markup { Copyright }
 

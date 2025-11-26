@@ -38,7 +38,9 @@
 
   \header {
     piece = "Rhythm Patterns"
-  }
+  composer = "Marc Mouries"
+  style = "practice exercise"
+}
   \layout {
     indent = 0\in
     ragged-right=##t

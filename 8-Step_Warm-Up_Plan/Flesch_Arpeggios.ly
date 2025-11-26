@@ -2,6 +2,8 @@
 \language "english"
 \header {
   title = "Flesch One-octave arpeggios 2"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 %{
            Page

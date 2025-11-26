@@ -3,6 +3,8 @@
 \header {
   title = "Eight-Step Warm-Up Plan"
   subtitle = "LilyPond markup version"
+    composer = "Marc Mouries"
+  style = "practice exercise"
   tagline = ##f
 }
 

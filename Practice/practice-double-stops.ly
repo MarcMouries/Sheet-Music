@@ -3,6 +3,8 @@
 \header {
   title = "Practice Double Stops"
   subtitle = "https://youtube.com/shorts/QYJfU_ZCEq0"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 global = {

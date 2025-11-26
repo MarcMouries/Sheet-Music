@@ -5,6 +5,7 @@
   title = "Siciliana"
   composer = "Matteo Carcassi"
   opus = "Opus 59, No. 22"
+  style = "classical"
 }
 
 global = {

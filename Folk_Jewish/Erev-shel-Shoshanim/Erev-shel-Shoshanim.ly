@@ -6,6 +6,7 @@
   title = "Erev shel Shoshanim"
   composer = "Yosef Hadar"
   poet = "Moshe Dor"
+    style = "klezmer"
   tagline = ""
 }
 

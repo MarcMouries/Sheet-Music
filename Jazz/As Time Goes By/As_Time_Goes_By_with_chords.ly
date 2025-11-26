@@ -3,6 +3,7 @@
 \pointAndClickOff
 
 \header {
+  style = "jazz"
 }
 
 PartPOneVoiceOne =  \relative a' {

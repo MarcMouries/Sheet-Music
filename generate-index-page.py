@@ -212,9 +212,10 @@ def scan_repository():
     custom_metadata = load_custom_metadata()
 
     # Component files to exclude (not standalone pieces)
-    EXCLUDE_FILENAMES = {'book.ly', 'book-1.ly', 'guitar1.ly', 'guitar2.ly', 'guitar3.ly',
+    EXCLUDE_FILENAMES = {'book.ly', 'book-1.ly', 'book-2.ly', 'guitar1.ly', 'guitar2.ly', 'guitar3.ly',
                          'guitar4.ly', 'dynamicsa.ly', 'dynamicsb.ly', 'dynamicsc.ly',
-                         'blank.ly', 'blank1.ly'}
+                         'blank.ly', 'blank1.ly', 'copyright.ly', 'spacing.ly',
+                         'gymnopedie-2.ly', 'gymnopedie-3.ly'}
 
     for ly_file in REPO_ROOT.rglob('*.ly'):
         # Skip excluded directories

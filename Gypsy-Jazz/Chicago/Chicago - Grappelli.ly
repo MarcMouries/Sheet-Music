@@ -5,6 +5,7 @@
   title = "Chicago"
   subtitle = "Grappelli"
   composer = "Fred Fisher"
+  style = "gypsy jazz"
 }
 
 global = {

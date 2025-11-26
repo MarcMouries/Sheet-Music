@@ -2,6 +2,7 @@
 \language "english"
 \header {
   title = "Muss I Denn"
+  style = "german traditional"
 }
 
 global = {

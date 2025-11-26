@@ -6,6 +6,7 @@
 \header {
  title="As Time Goes By"
  composer = ""
+  style = "jazz"
 }
 
 melody =  \relative a' {

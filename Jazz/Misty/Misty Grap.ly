@@ -10,6 +10,7 @@
   title = "Misty "
   subtitle = "Stéphane Grappelli"
   opus = "transcribed by Marc Mouries"
+    style = "jazz"
   tagline = ""
 }
 #(set-global-staff-size 20)

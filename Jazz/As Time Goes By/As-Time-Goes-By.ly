@@ -3,6 +3,7 @@
 \header {
   title = "As Time Goes By"
   video = ""
+  style = "jazz"
 }
 
 global = {

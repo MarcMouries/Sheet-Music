@@ -3,6 +3,7 @@
 \header {
   title = "Swallowtail Jig"
   video = ""
+  style = "jig"
 }
 
 global = {

@@ -7,6 +7,7 @@
   subtitle = "Psalm 127:1"
   composer = "Traditional"
   arranger = "A minor"
+    style = "klezmer"
   tagline = ""
 }
 

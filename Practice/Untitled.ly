@@ -2,6 +2,8 @@
 
 \header {
   title = ""
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 global = {

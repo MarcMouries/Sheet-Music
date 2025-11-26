@@ -9,6 +9,8 @@
 \header{
   title = "Gammes de La dièse"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

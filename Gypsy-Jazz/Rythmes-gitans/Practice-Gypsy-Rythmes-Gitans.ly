@@ -3,6 +3,7 @@
 
 \header {
   title = "Practice Gypsy - Rythmes Gitans"
+  style = "gypsy jazz"
 }
 
 

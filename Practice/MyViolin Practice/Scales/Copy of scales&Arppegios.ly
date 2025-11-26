@@ -2,7 +2,10 @@
 
 \header{
   title = "Scales"
-  arranger = \markup { \small "arr. Marc Mouries" \teeny "marc@mouries.net" }
+  arranger = \markup { \small "arr. Marc Mouries" \teeny "marc@mouries.net"
+  composer = "Marc Mouries"
+  style = "practice exercise"
+}
   instrument = "Violin"
   meter = "1) détaché 2) slurred 3) Staccato"
   tagline = ""

@@ -434,6 +434,8 @@ dLocrian = {
 \header{
   title = "Gammes de Ré"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

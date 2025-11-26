@@ -9,7 +9,8 @@
 \header {
     title = "Ievan polkka"
     composer = "Trad. Finish Folk Song"
-  }
+  style = "finnish traditional"
+}
 
 global = {
   \tempo 4 = 120

@@ -5,6 +5,8 @@
   title = "Charlie Parker Minor Lick"
   subtitle = "Around the Circle of Fourths"
   subsubtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 \layout { indent = 0}

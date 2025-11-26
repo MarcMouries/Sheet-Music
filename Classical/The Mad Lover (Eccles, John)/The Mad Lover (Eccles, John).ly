@@ -87,7 +87,9 @@ melody = \relative c'' {
 %       title = "The Mad Lover"
 %       composer = "John Eccles"
 %       piece = "Original in F minor"
-%     }
+%
+  style = "classical"
+}
 %     \score {
 %       <<
 %         \new ChordNames \chordNames

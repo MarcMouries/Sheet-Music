@@ -4,6 +4,7 @@
   crossRefNumber = "1"
   footnotes = ""
  % subtitle = "https://thesession.org/tunes/537#setting537"
+    style = "irish traditional"
   tagline = "L"
 }
 voicedefault =  {

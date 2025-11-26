@@ -3,6 +3,8 @@
 \include "./stylesheets/markups.ly"
 \header {
   title = "Practice"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 \include "./Practice_Arpeggios_Major 7th_Arpegios_ Circle_of_Fifth.ly"
 

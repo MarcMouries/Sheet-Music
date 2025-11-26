@@ -3,7 +3,9 @@
 \include "english.ly"
 \header {
 	title     = "Trip To Pakistan, The"
-	%composer  =  \markup \right-align {"by Niall Kenny" 		\fontsize #-3 "arr. Sarah Burnell" 		\fontsize #-6 "tr. Maxence Mouries"		}}
+	%composer  =  \markup \right-align {"by Niall Kenny" 		\fontsize #-3 "arr. Sarah Burnell" 		\fontsize #-6 "tr. Maxence Mouries"
+  style = "irish traditional"
+}}
 	composer  =  "by Niall Kenny"
 	arranger  =  "arr. Sarah Burnell"
 	opus      =	"tr. Maxence Mouriès"

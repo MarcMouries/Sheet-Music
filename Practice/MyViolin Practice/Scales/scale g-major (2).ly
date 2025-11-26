@@ -6,7 +6,9 @@
 \header
 {
   title = "Scale of G Major"
-  %arranger = 
+  %arranger =
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 violin = \relative c''

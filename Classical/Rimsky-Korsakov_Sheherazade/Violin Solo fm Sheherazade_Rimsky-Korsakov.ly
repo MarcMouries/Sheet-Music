@@ -5,6 +5,7 @@
 \header {
   encodingsoftware = "MuseScore 2.0.1"
   encodingdate = "2015-10-24"
+  style = "classical"
 }
 
 #(set-global-staff-size 20.0762645669)

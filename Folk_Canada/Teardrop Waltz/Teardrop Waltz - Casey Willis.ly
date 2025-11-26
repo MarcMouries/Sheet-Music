@@ -6,7 +6,8 @@
 	title    = "Teardrop Waltz"
         composer = "Reg Bouvette"
 	arranger = "Casey Willis"
-	tagline  = ""
+	  style = "waltz"
+  tagline  = ""
 }
 
 \paper {

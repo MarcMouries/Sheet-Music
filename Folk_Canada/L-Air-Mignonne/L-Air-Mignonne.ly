@@ -6,6 +6,7 @@
   title = "L'Air Mignonne"
   subtitle = "barndance"
   composer = "Simon Riopel"
+  style = "canadian traditional"
 }
 
 \layout {   indent =  0}

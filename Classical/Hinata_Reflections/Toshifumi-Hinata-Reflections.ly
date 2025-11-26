@@ -8,7 +8,8 @@
     "Youtube: "
     \underline
     \with-url #"https://www.youtube.com/watch?v=MJenceQ9IEw" "Toshifumi Hinata-Reflections"
-  }
+  style = "classical"
+}
   % Do not display the default LilyPond footer for this book
 }
 

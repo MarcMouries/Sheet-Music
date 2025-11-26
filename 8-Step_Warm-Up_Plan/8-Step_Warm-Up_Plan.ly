@@ -4,6 +4,8 @@
 
 \header {
   title = "8-Step Warm-Up Plan"
+    composer = "Marc Mouries"
+  style = "practice exercise"
   tagline = ""
 }
 

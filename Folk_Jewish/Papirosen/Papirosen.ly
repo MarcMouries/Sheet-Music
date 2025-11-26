@@ -5,6 +5,7 @@
 \header {
   title = "Papirosen"
   instrument = "Violin"
+    style = "klezmer"
   tagline = ##f  % Remove default LilyPond tagline
 }
 

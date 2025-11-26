@@ -434,6 +434,8 @@ desLocrian = {
 \header{
   title = "Gammes de Ré bémol"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

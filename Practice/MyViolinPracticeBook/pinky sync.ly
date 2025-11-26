@@ -2,6 +2,8 @@
 \language "english"
 \header {
   title = ""
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 chordNames = \chordmode {

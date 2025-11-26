@@ -9,6 +9,7 @@
 \header {
   title    = "Teardrop Waltz"
   composer = "Reg Bouvette"
+    style = "waltz"
   tagline  = ""
 }
 

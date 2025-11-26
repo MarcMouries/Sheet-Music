@@ -434,6 +434,8 @@ gisLocrian = {
 \header{
   title = "Gammes de Sol dièse"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

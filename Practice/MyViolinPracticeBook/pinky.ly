@@ -3,6 +3,8 @@
 
 \header {
   title = "4th Finger Exercises"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 global = {

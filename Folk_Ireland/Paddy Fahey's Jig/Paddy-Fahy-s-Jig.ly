@@ -6,6 +6,7 @@
 }
 \header {
   title = "Paddy Fahey's Jig"
+  style = "jig"
 }
 
 

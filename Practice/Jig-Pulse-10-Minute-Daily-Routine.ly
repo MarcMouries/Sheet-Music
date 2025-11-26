@@ -4,6 +4,8 @@
 \header {
   title = "Jig Rhythm: 10-Minute Daily Routine"
   subtitle = ""
+    composer = "Marc Mouries"
+  style = "practice exercise"
   tagline = ""
 }
 

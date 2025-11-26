@@ -32,7 +32,9 @@
   \header {
     title = "Scales & Arpeggios"
     copyright = "Copyright line on book first page"
-    parttagline = "Part tagline"
+    part  composer = "Marc Mouries"
+  style = "practice exercise"
+  tagline = "Part tagline"
     tagline = "Book tagline"
   }
 

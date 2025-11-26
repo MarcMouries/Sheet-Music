@@ -7,7 +7,8 @@
 	poet = "Nikolaï Alekseïevitch Nekrassov"
 	composer = "Trad. Russe"
 	arranger = ""
-	tagline = ""
+	  style = "russian traditional"
+  tagline = ""
 }
 
 melody = \relative si' {

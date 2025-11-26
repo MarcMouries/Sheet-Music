@@ -2,7 +2,8 @@
 
 \paper { print-page-number = ##t }
 
-\header { tagline = "" }
+\header {   style = "classical"
+  tagline = "" }
 
 %\pointAndClickOff
 

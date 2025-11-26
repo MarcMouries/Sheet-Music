@@ -5,6 +5,7 @@
   title = "Blue Lou Lick"
   subtitle = \markup \small "transcribed by Marc"
   composer = "Stephane Grappelli"
+  style = "gypsy jazz"
 }
 
 

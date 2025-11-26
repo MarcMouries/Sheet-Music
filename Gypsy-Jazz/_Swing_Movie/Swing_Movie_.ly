@@ -11,6 +11,7 @@
 \header {
   title = "from the Movie Swing (2002)"
   composer = ""
+  style = "gypsy jazz"
 }
 
 global = {

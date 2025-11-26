@@ -252,6 +252,8 @@ eesLocrian = {
 \header{
   title = "Gammes de Mi bémol"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

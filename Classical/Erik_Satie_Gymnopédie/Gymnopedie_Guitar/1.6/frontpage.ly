@@ -7,7 +7,8 @@
 	#(set-paper-size "arch a")
     }
 
-    \header { tagline = "" }
+    \header {   style = "classical"
+  tagline = "" }
 
 %\pointAndClickOff
 

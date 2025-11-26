@@ -2,7 +2,9 @@
 \language "english"
 \include "violin-functions.ly"
 
-\header {  tagline = ""}
+\header {    composer = "Marc Mouries"
+  style = "practice exercise"
+  tagline = ""}
 Title =  "Bach Double Violin Concerto in Dm"
 \include "practice-points-header.ly"
 

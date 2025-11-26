@@ -4,6 +4,7 @@
   title = "Summertime"
   composer = "G. Gershwin"
   subtitle = "(from Porgy and Bess)"
+    style = "jazz"
   tagline = ""
 }
 

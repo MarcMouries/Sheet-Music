@@ -252,6 +252,8 @@ __PITCH_FILENAME_FRAGMENT__Locrian = {
 \header{
   title = "Gammes de __FRENCH_PITCH_NAME__"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

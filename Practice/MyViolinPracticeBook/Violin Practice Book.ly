@@ -4,7 +4,9 @@
 \include "../../stylesheets/markups.ly"
 
 
-\header { tagline = ##f }
+\header {   composer = "Marc Mouries"
+  style = "practice exercise"
+  tagline = ##f }
 \paper {
   tocItemMarkup = \tocItemWithDotsMarkup
 }

@@ -1,7 +1,9 @@
 \version "2.19.32"
 \language "english"
 \header {
-  title = \markup { "Sérénade"}
+  title = \markup { "Sérénade"
+  style = "classical"
+}
   composer = "Mel BONIS"
 }
 

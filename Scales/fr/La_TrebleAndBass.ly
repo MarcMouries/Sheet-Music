@@ -434,6 +434,8 @@ aLocrian = {
 \header{
   title = "Gammes de La"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

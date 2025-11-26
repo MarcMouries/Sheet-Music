@@ -4,6 +4,8 @@
 
 \header {
   title = "My Gypsy Jazz Practice"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 \paper {
   indent = 0\mm

@@ -2,6 +2,7 @@
 \language "english"
 \header {
   title = "Violin licks from Stephane Grappelli"
+  style = "gypsy jazz"
 }
 
 global = {

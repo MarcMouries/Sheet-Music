@@ -5,6 +5,7 @@
   title = "Blue Lou – Arpeggio Practice"
   subtitle = "Practice"
   composer = "practice etude"
+  style = "gypsy jazz"
 }
 
 global = {

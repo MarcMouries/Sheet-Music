@@ -5,6 +5,7 @@
   title = "Odissea veneziana"
   subtitle = "Rondo Veneziano"
   composer = "G. P. Reverberi & D. Farina"
+    style = "classical"
   tagline = ""
 }
 %#(set-global-staff-size 16) % Default is usually 20.

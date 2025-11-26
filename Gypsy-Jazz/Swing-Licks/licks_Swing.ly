@@ -3,6 +3,7 @@
 
 \header {
   title = ""
+  style = "gypsy jazz"
 }
 
 global = {

@@ -5,6 +5,7 @@
   title = "The Mad Lover"
   subtitle = "5. Aire (Bass)"
   composer = "John Eccles (1668–1735)"
+    style = "classical"
   tagline = ""
 }
 

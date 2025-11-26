@@ -6,6 +6,7 @@
   subtitle = "dall'opera \"Turandot\""
   composer = "Giacomo Puccini"
   poet     = "Giuseppe Adami, Renato Simoni"
+    style = "classical"
   tagline  = ""
 }
 

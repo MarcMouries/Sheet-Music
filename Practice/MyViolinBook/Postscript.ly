@@ -3,6 +3,8 @@
 
 \header {
  title = "Postscript"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 ringsps = #"

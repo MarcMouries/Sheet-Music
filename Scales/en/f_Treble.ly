@@ -9,6 +9,8 @@
 \header{
   title = "Gammes de Fa"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

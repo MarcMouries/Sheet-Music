@@ -10,6 +10,7 @@
   composer =  \markup \column {
     \line { "Stephane Wrembel"
   video = ""
+  style = "gypsy jazz"
 }
     \line { ""}
   }

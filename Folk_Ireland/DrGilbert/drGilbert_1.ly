@@ -13,6 +13,7 @@
 \language "english"
 \header {
   title = "Dr. Gilbert's"
+    style = "irish traditional"
   tagline = ""
 }
 %#(set-global-staff-size 20)

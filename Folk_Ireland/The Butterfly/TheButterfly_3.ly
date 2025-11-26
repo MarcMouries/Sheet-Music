@@ -7,6 +7,7 @@
   title = "The Butterfly"
   composer = "Tommy Potts"
   footnotes = ""
+    style = "irish traditional"
   tagline = ""
 }
 violin =  \relative c'' {

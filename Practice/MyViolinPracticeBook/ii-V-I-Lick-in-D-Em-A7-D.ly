@@ -4,6 +4,8 @@
 
 \header {
   title = "ii-V-I Lick in D. Em A7 D"
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 startParenthesis = {

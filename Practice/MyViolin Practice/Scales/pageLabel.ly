@@ -39,6 +39,9 @@
         #begin-of-line-invisible
       \mark "C" \label #'markC
     }
-    \header { piece = "First score" }
+    \header { piece = "First score"
+  composer = "Marc Mouries"
+  style = "practice exercise"
+}
   }
 }

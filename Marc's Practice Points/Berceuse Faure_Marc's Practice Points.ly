@@ -1,6 +1,8 @@
 \version "2.19.31"
 \language "english"
-\header {  tagline = ""}
+\header {    composer = "Marc Mouries"
+  style = "practice exercise"
+  tagline = ""}
 Title =  "Berceuse de Faure"
 \include "practice-points-header.ly"
 

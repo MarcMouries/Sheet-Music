@@ -2,7 +2,8 @@
 \include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
 	footnotes = "Traditional Irish Fiddle Tunes. Randy Miller and Jack Perron."
-	tagline = "Lily was here 2.13.43 -- automatically converted from ABC"
+	  style = "irish traditional"
+  tagline = "Lily was here 2.13.43 -- automatically converted from ABC"
 	title = "Dr. Gilbert"
 }
 

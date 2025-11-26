@@ -252,6 +252,8 @@ fisLocrian = {
 \header{
   title = "Gammes de Fa dièse"
   subtitle = " "
+  composer = "Marc Mouries"
+  style = "practice exercise"
 }
 
 

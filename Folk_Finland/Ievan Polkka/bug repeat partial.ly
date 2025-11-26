@@ -2,6 +2,7 @@
 \language "english"
 \header {
   title = "bug repeat & partial"
+  style = "finnish traditional"
 }
 
 melody = {

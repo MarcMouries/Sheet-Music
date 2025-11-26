@@ -1,7 +1,10 @@
 \version "2.5.25"  % necessary for upgrading to future LilyPond versions.
 \header{
   title = "ABRSM Grade 1 Scales"
-  arranger = \markup { \small "arr. Paul Makepeace" \teeny "http://paulm.com/music" }
+  arranger = \markup { \small "arr. Paul Makepeace" \teeny "http://paulm.com/music"
+  composer = "Marc Mouries"
+  style = "practice exercise"
+}
   instrument = "Flute"
   meter = "slurred and tongued"
 }

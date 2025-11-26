@@ -3,7 +3,9 @@
 \header {
   title = \markup \caps "You are my Sunshine"
   composer = \markup \small \override #'(baseline-skip . 2.5) \center-column {
-    \line { "Words and music by" }
+    \line { "Words and music by"
+  style = "american folk"
+}
     \line { \caps "Jimmie Davis" "and" }
     \line { \caps "Charles Mitchell" }
   }

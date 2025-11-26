@@ -3,7 +3,8 @@
 \header {
 	crossRefNumber = "1"
 	footnotes = ""
-	tagline = "Lily was here 2.12.3 -- automatically converted from ABC"
+	  style = "irish traditional"
+  tagline = "Lily was here 2.12.3 -- automatically converted from ABC"
 	title = "Trip To Pakistan, The"
 }
 voicedefault =  {

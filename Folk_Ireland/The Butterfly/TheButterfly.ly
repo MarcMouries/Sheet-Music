@@ -10,6 +10,7 @@
     composer = "Tommy Potts"
     enteredBy = "Marc"
   video = ""
+  style = "irish traditional"
 }
 
 melody =  {

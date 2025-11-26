@@ -3,6 +3,7 @@
 
 \header {
  title = "Si Tu Savais"
+  style = "gypsy jazz"
 }
 
 global = {

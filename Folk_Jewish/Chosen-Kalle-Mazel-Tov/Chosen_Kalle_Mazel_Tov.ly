@@ -5,7 +5,7 @@
 \header {
   title = "Chosen Kalle Mazel Tov"
   subtitle = "Traditional Yiddish/Klezmer"
-
+  style = "klezmer"
 }
 
 global = { \time 4/4 \key g \minor }

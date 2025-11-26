@@ -12,6 +12,7 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
 
 
   composer = "G. Gershwin"
+    style = "jazz"
   tagline = ##f     % Remove default LilyPond tagline
   poet =  "Transcribed by Marc Mouries"
   tagline = \markup 

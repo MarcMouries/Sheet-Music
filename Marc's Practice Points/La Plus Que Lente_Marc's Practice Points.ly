@@ -1,7 +1,9 @@
 \language "english"
 \version "2.16.0"
 \include "violin-functions.ly"
-\header {  tagline = ""}
+\header {    composer = "Marc Mouries"
+  style = "practice exercise"
+  tagline = ""}
 Title =  "Debussy's Plus que Lente"
 \include "practice-points-header.ly"
 

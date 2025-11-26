@@ -9,6 +9,7 @@
   % 
   
   poet =  "Fingerings by Ivry Gitlis"
+    style = "classical"
   tagline = ##f
 }
 

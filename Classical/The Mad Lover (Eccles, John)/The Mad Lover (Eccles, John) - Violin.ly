@@ -7,6 +7,7 @@
 
 \header {
 
+    style = "classical"
   tagline = ""
 }
 

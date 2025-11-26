@@ -12,7 +12,9 @@
 	oddFooterMarkup = \markup \column { \null \null \fromproperty #'header:copyright }
 }
 
-\header { }
+\header {
+  style = "classical"
+}
 
 global = {
 	\key a \minor

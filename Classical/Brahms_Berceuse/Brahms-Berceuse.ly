@@ -7,6 +7,7 @@
   composer = "Johannes Brahms (1833–1897)"
   poet = "Volkslied"
     video = ""
+    style = "classical"
   tagline = ##f
 }
 
