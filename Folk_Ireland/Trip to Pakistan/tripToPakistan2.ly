@@ -3,9 +3,10 @@
 \header {
 	crossRefNumber = "1"
 	footnotes = ""
-	  style = "irish traditional"
-  tagline = "Lily was here 2.12.3 -- automatically converted from ABC"
 	title = "Trip To Pakistan, The"
+	composer = "Niall Kenny"
+	style = "irish traditional"
+	tagline = ""
 }
 voicedefault =  {
 \set Score.defaultBarType = "empty"

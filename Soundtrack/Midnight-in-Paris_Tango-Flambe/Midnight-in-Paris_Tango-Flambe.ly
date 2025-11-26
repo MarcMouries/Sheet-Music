@@ -3,7 +3,11 @@
 \include "../common/bars-per-line-engraver.ly"
 
 \header {
-  title = "Midnight in Paris - Tango Flambe B"
+  title = "Tango Flambe"
+  subtitle = "from Midnight in Paris"
+  composer = "Novi Novog"
+  style = "tango"
+  tagline = ""
 }
 
 

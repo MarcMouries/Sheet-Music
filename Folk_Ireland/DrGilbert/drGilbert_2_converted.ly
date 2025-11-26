@@ -1,10 +1,11 @@
 \version "2.14.0"
 \include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
-	footnotes = "Traditional Irish Fiddle Tunes. Randy Miller and Jack Perron."
-	  style = "irish traditional"
-  tagline = "Lily was here 2.13.43 -- automatically converted from ABC"
 	title = "Dr. Gilbert"
+	composer = "Traditional"
+	footnotes = "Traditional Irish Fiddle Tunes. Randy Miller and Jack Perron."
+	style = "irish traditional"
+	tagline = ""
 }
 
 melody =  {

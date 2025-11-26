@@ -129,7 +129,35 @@ python3 fix-markup-headers.py
 python3 fix-markup-headers.py --apply
 ```
 
+## Reusable Title Formatting
+
+For convenience, we've created a reusable include file with pre-defined title styles:
+
+```lilypond
+\include "common/title-formatting.ly"
+
+\header {
+  title = "My Song"
+  composer = "Composer Name"
+  arranger = "Arranger Name"
+  style = "genre"
+  tagline = ""
+}
+
+\paper {
+  % Choose one of these styles:
+  \simpleTitle       % Simple centered title
+  \realBookStyle     % Three-column real book style
+  \classicalStyle    % Classical centered with subtitle
+  \minimalStyle      % Small, unobtrusive
+}
+```
+
+See [common/title-formatting-examples.ly](common/title-formatting-examples.ly) for complete examples.
+
 ## References
 
 - [LilyPond Documentation: Custom titles headers and footers](http://lilypond.org/doc/v2.24/Documentation/notation/custom-titles-headers-and-footers)
 - [LilyPond Snippet Repository: Titles](http://lsr.di.unimi.it/LSR/Search?q=title)
+- [common/title-formatting.ly](common/title-formatting.ly) - Reusable title styles
+- [common/title-formatting-examples.ly](common/title-formatting-examples.ly) - Usage examples

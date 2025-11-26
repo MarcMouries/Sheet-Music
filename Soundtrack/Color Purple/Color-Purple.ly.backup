@@ -23,15 +23,6 @@ triplet =
 %   ))
 % }
 
-\header {
-  title = "Color Purple"
-  subtitle = "from The Color Purple (1985)"
-  composer = "Quincy Jones"
-  arranger = "transcription by Maxence Mouriès"
-  style = "soundtrack"
-  tagline = ""
-}
-
 \paper {
   #(set-paper-size "letter")
   indent = 0\mm
@@ -43,32 +34,54 @@ triplet =
   markup-system-spacing = #'((basic-distance . 0)
                              (minimum-distance . 8)
                              (padding . 10))
- % vertical spacing
- system-system-spacing =
-    #'((basic-distance . 16)
-       (minimum-distance . 12)
-       (padding . 1)
-       (stretchability . 60))
+ % vertical spacing  
+ system-system-spacing = 
+    #'((basic-distance . 16) 
+       (minimum-distance . 12) 
+       (padding . 1) 
+       (stretchability . 60))   
+  
+}
 
-  % Custom title formatting - pulls from header fields above
-  bookTitleMarkup = \markup {
-    \fill-line {
-      \fontsize #-5
-      \column {
-        \line { "Transcription" }
-        \line { "by Maxence Mouriès" }
+
+  style = "soundtrack"
+  title = "Color Purple"
+  subtitle = "from The Color Purple"
+  poet = ""
+  composer = "Quincy Jones"
+  arranger = "transcription by Maxence Mouriès" 
+  
+
+realBookTitle = \markup {
+       %\override TextScript.font-name = #"Pea Missy with a Marker"
+
+        \fill-line {
+           \fontsize #-5
+            \column {
+              \concat { "Transcription "}          
+              \concat { "by Maxence Mouriès" }          
+            }
+             \center-column {
+                \fontsize #1     #title
+               \fontsize #-5     "As played by Itzhak Perlman"
+            }
+            \fontsize #-5
+            \column {             
+                   #composer
+                   \concat { "arr. " #arranger " " }
+            }          
+          }
+%        \fill-line {          "sub title"        }
       }
-      \center-column {
-        \fontsize #1 \fromproperty #'header:title
-        \fontsize #-5 "As played by Itzhak Perlman"
-      }
-      \fontsize #-5
-      \column {
-        \fromproperty #'header:composer
-        \line { "arr. " \fromproperty #'header:arranger }
-      }
-    }
-  }
+
+
+\header {
+  title = "Color Purple"
+  subtitle = "from The Color Purple (1985)"
+  composer = "Quincy Jones"
+  arranger = "transcription by Maxence Mouriès"
+  style = "soundtrack"
+  tagline = ""
 }
 
 

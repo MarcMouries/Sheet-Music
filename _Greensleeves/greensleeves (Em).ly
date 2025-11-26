@@ -2,6 +2,8 @@
 \include "italiano.ly"
 \header {
 	title = "Greensleeves"
+	composer = "Traditional English"
+	style = "folk"
 	tagline = ""
 }
 words = \lyricmode {
@@ -16,7 +18,7 @@ words = \lyricmode {
 }
 melody =  {
  \time 6/8
- \key sol \major
+ \key e \minor
  \partial 8
     mi'8
 |   sol'4    la'8    si'8. ( dod''16 )   si'8

@@ -19,16 +19,8 @@
         \smallCaps \fromproperty #'header:title
       }
       \fill-line {
-        \large \fromproperty #'header:composer
+        \medium \fromproperty #'header:composer
       }
-    }
-  }
-
-  % Optional: Format the header on subsequent pages
-  oddHeaderMarkup = \markup {
-    \fill-line {
-      \fromproperty #'page:page-number-string
-      \smallCaps \fromproperty #'header:title
     }
   }
 }

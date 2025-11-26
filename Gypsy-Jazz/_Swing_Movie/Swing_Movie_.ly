@@ -10,8 +10,9 @@
 
 \header {
   title = "from the Movie Swing (2002)"
-  composer = ""
+  composer = "Mandino Reinhardt & Tchavolo Schmitt"
   style = "gypsy jazz"
+  tagline = ""
 }
 
 global = {

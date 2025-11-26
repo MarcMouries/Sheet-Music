@@ -3,9 +3,11 @@
 
 \header {
   title = "Io Ti Penso Amore"
-  subtitle = "From the movie The Devil's Violinist(2013)"
+  subtitle = "From the movie The Devil's Violinist (2013)"
   subsubtitle = "from the 2nd movement of Paganini 4th violin concerto"
+  composer = "Niccolò Paganini"
   style = "classical"
+  tagline = ""
 }
 
 global = {
