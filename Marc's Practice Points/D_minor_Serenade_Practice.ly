@@ -2,10 +2,10 @@
 %\language "english"
 
 \header {
-  title = "Schubert “Serenade” — D minor Technical Pack (Violin)"
+  title = "Schubert Serenade (Practice)"
   subtitle = "Fingered & positioned • Quarter‑note studies • Practical range"
-  composer = "Practice design by your violin coach"
-    style = "practice exercise"
+  composer = "Marc Mouries"
+  style = "practice exercise"
   tagline = ##f
 }
 

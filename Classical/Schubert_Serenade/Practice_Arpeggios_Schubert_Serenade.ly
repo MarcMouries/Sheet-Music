@@ -3,7 +3,7 @@
 \language "english"
 
 \header {
-  title = "Practice Arpeggios - Schubert Serenade"
+  title = "Schubert Serenade (Practice Arpeggios)"
   composer = "Marc Mouries"
   style = "practice exercise"
   tagline = ""

@@ -325,22 +325,36 @@ def is_christmas_song(title, category, style, tags):
 
 def is_wedding_song(title, category, style, tags):
     """Smart Wedding song detection"""
+    # Exclusion keywords - not wedding appropriate
+    exclusion_keywords = {
+        'exercise', 'drill', 'study', 'etude',
+        'bach double', 'practice points', 'technical pack',
+        'arpeggio', 'scale'
+    }
+
+    title_lower = title.lower()
+
+    # Exclude practice exercises and technical studies
+    if any(keyword in title_lower for keyword in exclusion_keywords):
+        return False
+
+    if 'practice exercise' in style.lower():
+        return False
+
     # Known wedding song titles and keywords
     wedding_keywords = {
         'wedding', 'bridal', 'bride', 'marriage', 'married',
         'canon in d', 'pachelbel', 'wedding march', 'mendelssohn',
-        'ave maria', 'schubert', 'hallelujah', 'cohen',
+        'ave maria', 'hallelujah', 'cohen',
         'a thousand years', 'all of me', 'at last',
         'can\'t help falling', 'elvis', 'unforgettable',
         'wonderful tonight', 'clapton', 'thinking out loud',
         'perfect', 'ed sheeran', 'marry you', 'bruno mars',
         'bridal chorus', 'wagner', 'here comes the bride',
-        'jesu joy', 'bach', 'air on g string',
+        'jesu joy', 'air on g string',
         'clair de lune', 'debussy', 'moonlight sonata',
         'trumpet voluntary', 'clarke', 'ode to joy'
     }
-
-    title_lower = title.lower()
 
     # Check style
     if 'wedding' in style.lower():
@@ -1069,7 +1083,7 @@ def generate_html(tunes):
         html_output += f"""</td>
                     <td>{html.escape(tune['composer']) if tune['composer'] else '—'}</td>
                     <td><span class="category {category_class}">{html.escape(tune['category'])}</span></td>
-                    <td>{html.escape(tune['style']) if tune['style'] else '—'}</td>
+                    <td>{html.escape(tune['style'].title()) if tune['style'] else '—'}</td>
                     <td>{html.escape(tune['key']) if tune['key'] else '—'}</td>
                     <td><div class="difficulty">{stars}</div></td>
                     <td class="date">{tune['modified'].strftime('%Y-%m-%d')}</td>
