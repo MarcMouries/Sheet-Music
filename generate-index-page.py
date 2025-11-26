@@ -13,7 +13,7 @@ from urllib.parse import quote
 
 # Configuration
 REPO_ROOT = Path(__file__).parent
-OUTPUT_FILE = REPO_ROOT / "docs" / "index.html"
+OUTPUT_FILE = REPO_ROOT / "index.html"
 METADATA_FILE = REPO_ROOT / ".music-metadata.json"
 EXCLUDE_DIRS = {'.git', 'stylesheets', 'Lilypond_How-to', 'node_modules', '__pycache__', 'Scales', 'Practice'}
 
@@ -270,13 +270,13 @@ def scan_repository():
             'tags': custom.get('tags', all_tags),
             'notes': custom.get('notes', ''),
             'modified': modified,
-            'ly_path': '../' + quote(str(rel_path)),
+            'ly_path': quote(str(rel_path)),
             'pdf_exists': pdf_path.exists(),
             'midi_exists': midi_path.exists(),
             'thumbnail_exists': png_path.exists(),
-            'pdf_path': '../' + quote(str(rel_path.with_suffix('.pdf'))),
-            'midi_path': '../' + quote(str(rel_path.with_suffix('.midi'))),
-            'thumbnail_path': '../' + quote(str(rel_path.parent / (ly_file.stem + '-preview.png')))
+            'pdf_path': quote(str(rel_path.with_suffix('.pdf'))),
+            'midi_path': quote(str(rel_path.with_suffix('.midi'))),
+            'thumbnail_path': quote(str(rel_path.parent / (ly_file.stem + '-preview.png')))
         }
 
         tunes.append(tune_info)
