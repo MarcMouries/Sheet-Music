@@ -83,6 +83,6 @@ Melodie = \relative c' {
 
   >>
   \layout { }
-%  \midi { }
+  \midi { }
 }
 
