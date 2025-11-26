@@ -13,17 +13,17 @@
 #(set-global-staff-size 19)
 
 \header {
-        title = \markup{\smallCaps{"Marche Nuptiale"}}
-        subtitle = "du Songe d' une nuit d' Été"
-%        piece = "1. Adagio"
+        title = "Wedding March (For Organ)"
+        subtitle = "From \"A Midsummer Night's Dream\""
+        composer = "Felix Mendelssohn-Bartholdy"
+        style = "wedding"
+        tagline = ""
+
+        % Original metadata preserved
         mutopiatitle = "MARCHE NUPTIALE (Wedding march)"
-composer =	 "Felix Mendelssohn-Bartholdy (1809-1847)"
-mutopiacomposer= "Mendelssohn-BartholdyF"
-%opus =	 	 "Op. 61"
-mutopiaopus =	 "O 61"
-%        date = "1720"
+        mutopiacomposer = "Mendelssohn-BartholdyF"
+        mutopiaopus = "O 61"
         mutopiainstrument = "Organ"
-style	= "Romantic"
         source = "IMSLP"
         copyright = "Creative Commons Attribution-ShareAlike 4.0"
         maintainer = "Alexander Brock"

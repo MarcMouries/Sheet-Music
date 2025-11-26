@@ -10,34 +10,34 @@
   "Christmas/The%20First%20Noel/The%20First%20Noel_Duet.ly": {
     "difficulty": 2,
     "tags": [
+      "waltz",
       "christmas",
-      "traditional",
-      "waltz"
+      "traditional"
     ],
     "notes": "Add your notes here"
   },
   "Christmas/The%20First%20Noel/The%20First%20Noel.ly": {
     "difficulty": 2,
     "tags": [
+      "waltz",
       "christmas",
-      "traditional",
-      "waltz"
+      "traditional"
     ],
     "notes": "Add your notes here"
   },
   "Classical/Erik_Satie_Gymnop%C3%A9die/gymnopedie_1_Violin.ly": {
     "difficulty": 2,
     "tags": [
-      "classical",
-      "waltz"
+      "waltz",
+      "classical"
     ],
     "notes": "Add your notes here"
   },
   "Classical/Erik_Satie_Gymnop%C3%A9die/gymnopedie.ly": {
     "difficulty": 2,
     "tags": [
-      "classical",
-      "waltz"
+      "waltz",
+      "classical"
     ],
     "notes": "Add your notes here"
   }

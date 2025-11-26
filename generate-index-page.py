@@ -186,6 +186,9 @@ def get_category_and_tags(file_path):
     elif 'Latina' in parts:
         category = 'Latin'
         tags.append('latin')
+    elif 'Wedding' in parts:
+        category = 'Wedding'
+        tags.append('wedding')
     elif 'Practice' in parts:
         category = 'Practice/Exercises'
         tags.append('practice')
@@ -397,6 +400,9 @@ def generate_html(tunes):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marc's Sheet Music Collection 🎵</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
+    <!-- Tone.js libraries for MIDI playback -->
+    <script src="https://unpkg.com/tone"></script>
+    <script src="https://unpkg.com/@tonejs/midi"></script>
     <style>
         * {
             margin: 0;
@@ -1388,21 +1394,93 @@ def generate_html(tunes):
             filterItems();
         }
 
-        function playMidi(midiPath, title) {
-            // Download the MIDI file for playback in external player
-            const link = document.createElement('a');
-            link.href = midiPath;
-            link.download = midiPath.split('/').pop();
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        // MIDI Player using Tone.js + @tonejs/midi
+        let midiPlayer = {
+            part: null,
+            synth: null,
+            isPlaying: false,
+            currentFile: null,
+            currentTitle: null
+        };
 
-            // Show notification
-            alert('Downloading MIDI file: ' + title + '\\n\\nBrowsers cannot play MIDI files natively. The file will be downloaded so you can play it in your preferred MIDI player (like GarageBand, MuseScore, or any MIDI player app).');
+        async function playMidi(midiPath, title) {
+            try {
+                // Start audio context (required by browsers)
+                await Tone.start();
+
+                // Stop current playback if any
+                if (midiPlayer.isPlaying) {
+                    Tone.Transport.stop();
+                    Tone.Transport.position = "0:0:0";
+                    midiPlayer.isPlaying = false;
+                }
+
+                // Load new MIDI if different file
+                if (midiPlayer.currentFile !== midiPath) {
+                    console.log('Loading MIDI:', title);
+
+                    // Load MIDI file
+                    const midi = await Midi.fromUrl(midiPath);
+
+                    // Create synth if not exists
+                    if (!midiPlayer.synth) {
+                        midiPlayer.synth = new Tone.PolySynth(Tone.Synth, {
+                            volume: -8,
+                            oscillator: { type: 'sine' },
+                            envelope: {
+                                attack: 0.005,
+                                decay: 0.1,
+                                sustain: 0.3,
+                                release: 1
+                            }
+                        }).toDestination();
+                    }
+
+                    // Get notes from first track
+                    const notes = midi.tracks[0].notes;
+
+                    if (notes.length === 0) {
+                        alert('No notes found in MIDI file');
+                        return;
+                    }
+
+                    // Create part
+                    midiPlayer.part = new Tone.Part((time, note) => {
+                        midiPlayer.synth.triggerAttackRelease(
+                            note.name,
+                            note.duration,
+                            time,
+                            note.velocity
+                        );
+                    }, notes);
+
+                    midiPlayer.part.loop = false;
+                    midiPlayer.part.start(0);
+
+                    midiPlayer.currentFile = midiPath;
+                    midiPlayer.currentTitle = title;
+
+                    console.log('MIDI loaded:', notes.length, 'notes');
+                }
+
+                // Start playback
+                Tone.Transport.start();
+                midiPlayer.isPlaying = true;
+                console.log('Playing:', title);
+
+            } catch (err) {
+                console.error('MIDI playback error:', err);
+                alert('Error playing MIDI: ' + err.message);
+            }
         }
 
         function closeMidiPlayer() {
-            // Not needed anymore
+            // Stop playback
+            if (midiPlayer.isPlaying) {
+                Tone.Transport.stop();
+                Tone.Transport.position = "0:0:0";
+                midiPlayer.isPlaying = false;
+            }
         }
 
         // Close modal on escape key
