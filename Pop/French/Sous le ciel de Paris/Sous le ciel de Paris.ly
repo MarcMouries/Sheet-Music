@@ -6,6 +6,7 @@
   composer = "Hubert Giraud"
   poet = "Jean Dréjac"
   style = "french chanson"
+    video = ""
   tagline = ""
 }
 

@@ -10,6 +10,7 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
   title = "Minor Swing"
   subtitle = "Christiaan van Hemert"
   composer = "Django Reinhardt & Stéphane Grappelli"
+    video = ""
   tagline = ##f     % Remove default LilyPond tagline
   poet =  "Transcribed by Marc & Maxence Mouries"
   % tagline = \markup

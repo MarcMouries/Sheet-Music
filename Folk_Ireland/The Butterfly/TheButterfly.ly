@@ -9,6 +9,7 @@
     title = "The Butterfly"
     composer = "Tommy Potts"
     enteredBy = "Marc"
+  video = ""
 }
 
 melody =  {

@@ -62,6 +62,7 @@ def parse_lilypond_header(ly_file):
         'key': '',
         'subtitle': '',
         'tempo': '',
+        'video': '',
         'tags': []
     }
 
@@ -75,7 +76,7 @@ def parse_lilypond_header(ly_file):
                 header = header_match.group(1)
 
                 # Extract fields
-                for field in ['title', 'composer', 'style', 'subtitle']:
+                for field in ['title', 'composer', 'style', 'subtitle', 'video']:
                     pattern = rf'{field}\s*=\s*"([^"]*)"'
                     match = re.search(pattern, header)
                     if match:
@@ -227,6 +228,7 @@ def scan_repository():
             'key': metadata['key'],
             'tempo': metadata['tempo'],
             'subtitle': metadata['subtitle'],
+            'video': metadata['video'],
             'difficulty': difficulty,
             'tags': custom.get('tags', all_tags),
             'notes': custom.get('notes', ''),
@@ -736,16 +738,21 @@ def generate_html(tunes):
                     <td>{tune['key'] or '—'}</td>
                     <td><div class="difficulty">{stars}</div></td>
                     <td class="date">{tune['modified'].strftime('%Y-%m-%d')}</td>
-                    <td class="links">
-                        <a href="{tune['ly_path']}" title="View LilyPond source">📝 .ly</a>
-"""
+                    <td class="links">"""
+        # Add video link if available
+        if tune['video']:
+            html += f"""
+                        <a href="{tune['video']}" title="Watch video" target="_blank">🎥 Video</a>"""
+        # Add PDF link
         if tune['pdf_exists']:
-            html += f"""                        <a href="{tune['pdf_path']}" title="View PDF" target="_blank">📄 PDF</a>
-"""
+            html += f"""
+                        <a href="{tune['pdf_path']}" title="View PDF" target="_blank">📄 PDF</a>"""
+        # Add MIDI player
         if tune['midi_exists']:
-            html += f"""                        <button class="btn" onclick="playMidi('{tune['midi_path']}', '{tune['title']}')" title="Play MIDI">🎵 Play</button>
-"""
-        html += """                    </td>
+            html += f"""
+                        <button class="btn" onclick="playMidi('{tune['midi_path']}', '{tune['title']}')" title="Play MIDI">🎵 Play</button>"""
+        html += """
+                    </td>
                 </tr>
 """
 
@@ -785,14 +792,19 @@ def generate_html(tunes):
 """
         html += """                <div class="links">
 """
+        # Add video link if available
+        if tune['video']:
+            html += f"""                    <a href="{tune['video']}" title="Watch video" target="_blank">🎥 Video</a>
+"""
+        # Add PDF link
         if tune['pdf_exists']:
             html += f"""                    <a href="{tune['pdf_path']}" target="_blank">📄 PDF</a>
 """
+        # Add MIDI player
         if tune['midi_exists']:
             html += f"""                    <button class="btn" onclick="playMidi('{tune['midi_path']}', '{tune['title']}')">🎵 Play</button>
 """
-        html += f"""                    <a href="{tune['ly_path']}">📝 Source</a>
-                </div>
+        html += """                </div>
             </div>
 """
 

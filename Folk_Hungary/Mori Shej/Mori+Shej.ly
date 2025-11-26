@@ -23,7 +23,8 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
           Engraved on \date using \with-url #"http://lilypond.org/"
           \line {
             LilyPond \simple #(lilypond-version) (http://lilypond.org/)
-          }
+  video = ""
+}
         }
       }
     }

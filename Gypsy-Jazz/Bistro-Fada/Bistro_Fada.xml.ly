@@ -8,7 +8,9 @@
   title =  "Bistro Fada"
   encodingdate =  "2018-10-19"
   composer =  \markup \column {
-    \line { "Stephane Wrembel"}
+    \line { "Stephane Wrembel"
+  video = ""
+}
     \line { ""}
   }
 }

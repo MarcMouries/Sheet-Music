@@ -6,6 +6,7 @@
   title = "הבאנו שלום עליכם"
   subtitle = "HEVENU SHALOM ALEICHEM"
   composer = "chant juif, XIX"
+  video = ""
 }
 
 \paper{ #(define fonts

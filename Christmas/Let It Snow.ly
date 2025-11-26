@@ -5,6 +5,7 @@
   composer = "Jule Styne"
   poet = "Sammy Cahn"
   style = "christmas song"
+    video = ""
   tagline = ""
 }
 Strophe = \relative c' {

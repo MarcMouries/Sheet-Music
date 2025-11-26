@@ -6,6 +6,7 @@
   subtitle = "aus \"Des Knaben Wunderhorn\""
   composer = "Johannes Brahms (1833–1897)"
   poet = "Volkslied"
+    video = ""
   tagline = ##f
 }
 
