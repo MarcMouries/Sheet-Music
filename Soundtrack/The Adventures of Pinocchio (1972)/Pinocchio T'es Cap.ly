@@ -3,6 +3,9 @@
 
 \header {
   title = "Pinocchio - T'es Cap"
+  subtitle = "from The Adventures of Pinocchio (1972)"
+  composer = "Fiorenzo Carpi"
+  style = "soundtrack"
   tagline = ""
 }
 

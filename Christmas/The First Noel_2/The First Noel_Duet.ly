@@ -11,7 +11,7 @@
 	maintainer = "Steve Dunlop"
 	maintainerWeb = "http://www.nerstrand.net"
 	maintainerEmail = "music@nerstrand.net"
-	style = "Hymn"
+	style = "christmas carol"
 	source = "www.cyberhymnal.org"
 	lastupdated = "2008/1/12"
  footer = "Mutopia-2008/01/13-1243"

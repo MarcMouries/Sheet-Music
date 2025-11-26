@@ -5,10 +5,12 @@
 }
 #(set-global-staff-size 24)
 
- \header {
-    title = "Happy Birthday"
-    
-  }
+\header {
+  title = "Happy Birthday"
+  composer = "Patty Hill and Mildred J. Hill (1893)"
+  style = "traditional"
+  tagline = ""
+}
 
 violinOne =    \relative d'{
   \key d \major

@@ -3,6 +3,9 @@
 \header {
   title = "Let It Snow, Let It Snow, Let It Snow!"
   composer = "Jule Styne"
+  poet = "Sammy Cahn"
+  style = "christmas song"
+  tagline = ""
 }
 Strophe = \relative c' {
   c'8 c bes4 a g

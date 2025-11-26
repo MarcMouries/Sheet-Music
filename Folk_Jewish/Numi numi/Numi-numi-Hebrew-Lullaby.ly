@@ -3,6 +3,9 @@
 
 \header {
   title = "Numi numi - Hebrew Lullaby"
+  composer = "Traditional Hebrew"
+  style = "lullaby"
+  tagline = ""
 }
 
 global = {

@@ -1,7 +1,10 @@
 \version "2.19.2"
 \header {
-    title = "Happy Birthday"
-    tagline = "The melody to Happy Birthdy (although possibly not the words) is public domain. This arrangement is (c) 2004 Benjamin Crowell, and is available for free copying under the Creative Commons Attribution-ShareAlike license, http://creativecommons.org/licenses/by-sa/1.0/."
+  title = "Happy Birthday"
+  composer = "Patty Hill and Mildred J. Hill (1893)"
+  arranger = "arr. Benjamin Crowell"
+  style = "traditional"
+  tagline = "The melody to Happy Birthday (although possibly not the words) is public domain. This arrangement is (c) 2004 Benjamin Crowell, and is available for free copying under the Creative Commons Attribution-ShareAlike license, http://creativecommons.org/licenses/by-sa/1.0/."
 }
 
 

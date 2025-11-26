@@ -2,8 +2,11 @@
 
 \header {
   title = "The Gift Of Falling"
-  subtitle = "Liz Knowles"
+  subtitle = "from The Celtic Fiddle of Liz Knowles"
+  composer = "Liz Knowles"
+  style = "slow air"
   subsubtitle = "transcribed by Marc"
+  tagline = ""
 }
 
 global = {

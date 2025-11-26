@@ -3,6 +3,10 @@
 
 \header {
   title = "Sous le ciel de Paris"
+  composer = "Hubert Giraud"
+  poet = "Jean Dréjac"
+  style = "french chanson"
+  tagline = ""
 }
 
 global = {

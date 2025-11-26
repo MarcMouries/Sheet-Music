@@ -2,6 +2,9 @@
 \language "english"
 \header {
   title = "Muss I Denn"
+  composer = "Traditional German"
+  style = "folk song"
+  tagline = ""
 }
 
 global = {

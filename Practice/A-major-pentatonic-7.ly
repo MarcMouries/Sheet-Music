@@ -3,6 +3,8 @@
 
 \header {
   title = \markup \concat {"A-major pentatonic  " \flat "7"}
+  composer = "Marc Mouries"
+  style = "practice exercise"
   tagline = ""
 }
 

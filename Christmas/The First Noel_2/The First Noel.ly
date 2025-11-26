@@ -4,6 +4,7 @@
   title = \markup{\override #'(font-name . "Garamond Premier Pro Semibold"){ \abs-fontsize #15 \smallCapsOldStyle"The First Noël"}}
   poet = \markup\oldStyleNum"Traditional"
   composer = \markup\oldStyleNum"18th Century French Melody"
+  style = "christmas carol"
   tagline = \markup { "from" \italic {Christmas Carols, New and Old}}
 }
 \paper {
