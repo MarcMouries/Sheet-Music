@@ -5,6 +5,7 @@
 
 \header {
   title = "Darby O' Gill - Fox Chase"
+  composer = "Traditional"
   style = "irish traditional"
 }
 

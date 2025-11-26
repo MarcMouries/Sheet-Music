@@ -6,6 +6,7 @@
   subtitle = "https://thesession.org/tunes/397#setting13238"
   tagline = "Lily was here 2.24.4 -- automatically converted from ABC"
   title = "Trip To Sligo, The"
+  composer = "Traditional"
   transcription = "spindizzy"
 }
 voicedefault =  {

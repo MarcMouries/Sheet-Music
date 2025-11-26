@@ -2,6 +2,7 @@
 \include "english.ly"
 \header {
   title = "The Trip To Sligo"
+  composer = "Traditional"
   style = "Jig"
   %subtitle = "https://thesession.org/tunes/397#setting13238"
   tagline = ""

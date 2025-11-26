@@ -2,6 +2,7 @@
 \language "english"
 \header {
   title = "Swallowtail Jig"
+  composer = "Traditional"
   video = ""
   style = "jig"
 }

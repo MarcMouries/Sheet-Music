@@ -3,6 +3,7 @@
 
 \header {
   title = "Greensleeves Jig"
+  composer = "Traditional"
     style = "jig"
   tagline = ""
 }

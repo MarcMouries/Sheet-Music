@@ -4,6 +4,7 @@
 
 \header {
   title = "Molly Bán"
+  composer = "Traditional"
   subtitle = "aka Fair-Haired Molly"
   crossRefNumber = "1"
   footnotes = ""

@@ -1,6 +1,7 @@
 \version "2.7.40"
 \header {
   title = "Up Sligo"
+  composer = "Traditional"
   footnotes = ""
   %subtitle = "https://thesession.org/tunes/537#setting13483"
     style = "irish traditional"

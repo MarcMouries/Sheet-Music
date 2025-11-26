@@ -348,4 +348,5 @@ bassWords = \lyricmode {
       % \Staff \RemoveEmptyStaves \override VerticalAxisGroup.remove-first = ##t
     }
   }
+  \midi {}
 }

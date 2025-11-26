@@ -6,6 +6,7 @@
     style = "irish traditional"
   tagline = "Lily was here 2.19.15 -- automatically converted from ABC"
   title = "Up Sligo"
+  composer = "Traditional"
 }
 voicedefault =  {
   \set Score.defaultBarType = ""

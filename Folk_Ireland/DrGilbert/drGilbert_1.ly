@@ -13,6 +13,7 @@
 \language "english"
 \header {
   title = "Dr. Gilbert's"
+  composer = "Traditional"
     style = "irish traditional"
   tagline = ""
 }
