@@ -1,0 +1,307 @@
+Preview Generation - Failed Files Report
+Generated: 2025-11-27
+============================================
+
+Total Failed: 195 files
+
+CATEGORY: Classical (9 files)
+----------------------------------------
+Classical/Bach_Badinerie/Bach-Badinerie.ly
+Classical/Brahms_Berceuse/Brahms-Berceuse.ly
+Classical/Mel Bonis - Suite en trio, Op.59/Mel-BONIS-Serenade.ly
+Classical/Paganini_Concerto-4/Paganini-Concerto-4.ly
+Classical/Paradis - Sicilienne/Paradis-Sicilienne.ly
+Classical/The Mad Lover (Eccles, John)/The Mad Lover (Eccles, John) - Violin.ly
+Classical/The Mad Lover (Eccles, John)/The Mad Lover (Eccles, John).ly
+Classical/The Mad Lover (Eccles, John)/The Mad Lover - Full Score (fixed).ly
+Classical/The Mad Lover (Eccles, John)/The Mad Lover - Full Score.ly
+
+CATEGORY: Folk_Canada (1 file)
+----------------------------------------
+Folk_Canada/Teardrop Waltz/Teardrop Waltz_Marc.ly
+
+CATEGORY: Folk_Finland (1 file)
+----------------------------------------
+Folk_Finland/Emma_(Waltz)/Emma_(Waltz).ly
+
+CATEGORY: Folk_Hungary (2 files)
+----------------------------------------
+Folk_Hungary/Basso/the Basso Gypsy - Duet - Preview.ly
+Folk_Hungary/Mori Shej/Mori+Shej.ly
+
+CATEGORY: Folk_Ireland (4 files)
+----------------------------------------
+Folk_Ireland/DrGilbert/drGilbert_2_converted.ly
+Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase.ly
+Folk_Ireland/The Trip To Sligo (Jig)/triptosligo.ly
+Folk_Ireland/Trip to Pakistan/tripToPakistan.ly
+
+CATEGORY: Folk_Jewish (4 files)
+----------------------------------------
+Folk_Jewish/Chosen-Kalle-Mazel-Tov/Chosen_Kalle_Mazel_Tov.ly
+Folk_Jewish/Papirosen/Papirosen.ly
+Folk_Jewish/Erev-shel-Shoshanim/Erev-shel-Shoshanim.ly
+
+CATEGORY: Folk_Russia (1 file)
+----------------------------------------
+Folk_Russia/Korobeiniki_Tetris/korobeiniki.ly
+
+CATEGORY: Folk_USA (5 files)
+----------------------------------------
+Folk_USA/Devils Dream/Devil's Dream.ly
+Folk_USA/Gary Owen/Gary-Owen.ly
+Folk_USA/The-Star-Spangled-Banner/The-Star Spangled Banner.ly
+Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine - Piano.ly
+
+CATEGORY: Gypsy-Jazz (4 files)
+----------------------------------------
+Gypsy-Jazz/Minor-Swing/Minor Swing - van Hemert.ly
+Gypsy-Jazz/Daphné/Daphne - Grappelli+Taylor.ly
+Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml.ly
+Gypsy-Jazz/Blue-Lou/Blue-Lou_Chords.ly
+
+CATEGORY: Jazz (6 files)
+----------------------------------------
+Jazz/As Time Goes By/As_Time_Goes_By_with_chords.ly
+Jazz/As Time Goes By/As-Time-Goes-By.ly
+Jazz/Misty/Misty Grap.ly
+Jazz/Misty/Misty_Piano.ly
+Jazz/Misty/Misty-LMOURMW7US.ly
+Jazz/Misty/Misty.ly
+
+CATEGORY: Lilypond_How-to (5 files)
+----------------------------------------
+Lilypond_How-to/dark-mode-sheet-music.ly
+Lilypond_How-to/Untitled.ly
+Lilypond_How-to/count-in.ly
+Lilypond_How-to/lilypond-violin-guide.ly
+Lilypond_How-to/Swing-Bowing-for-Classical-Players.ly
+
+CATEGORY: Practice (19 files)
+----------------------------------------
+Practice/Charlie-Parker-Minor-Lick.ly
+Practice/MyViolin Practice/Scales/book_Scales+Arpeggios.ly
+Practice/Jig-Pulse-10-Minute-Daily-Routine.ly
+Practice/Kreutzer/Kreutzer Etude #2.ly
+Practice/MyViolin Practice/Scales/pageLabel.ly
+Practice/MyViolin Practice/Scales/scale g-major (2).ly
+Practice/My Gypsy Jazz Practice.ly
+Practice/MyViolinBook/BasicScales.ly
+Practice/MyViolin Practice/rythm-patterns.ly
+Practice/MyViolinBook/bend.ly
+Practice/MyViolin Practice/Scales/scalesArpeggios.ly
+Practice/MyViolinBook/bend test.ly
+Practice/MyViolinBook/myStaffAndTimeSettings.ly
+Practice/MyViolinBook/book-lily.ly
+Practice/MyViolinBook/book-with TOC_content.ly
+Practice/MyViolinBook/modes.ly
+Practice/MyViolinPracticeBook/Formatting-of-piece-headers.ly
+Practice/MyViolinPracticeBook/Hungarian Gypsy Scale.ly
+Practice/MyViolinPracticeBook/ii-V-I-Lick-in-D-Em-A7-D.ly
+Practice/MyViolinPracticeBook/notes.ly
+Practice/Practice_All.ly
+Practice/Practice_Shifts.ly
+Practice/Untitled.ly
+Practice/MyViolinPracticeBook/Violin Practice Book.ly
+Practice/MyViolinPractice_Warm-up Violin/warm-up Violin.ly
+
+CATEGORY: Scales (105 files - English and French scale templates)
+----------------------------------------
+Scales/BasicScales.ly
+Scales/CScales.ly
+Scales/CommonSettings.ly
+Scales/BassScalesTemplate.ly
+Scales/TrebleAndBassScalesTemplate.ly
+Scales/TrebleScalesTemplate.ly
+
+English Scales (36 files):
+Scales/en/a_Bass.ly
+Scales/en/a_Treble.ly
+Scales/en/aes_Bass.ly
+Scales/en/aes_Treble.ly
+Scales/en/ais_Bass.ly
+Scales/en/aes_TrebleAndBass.ly
+Scales/en/ais_Treble.ly
+Scales/en/ais_TrebleAndBass.ly
+Scales/en/b_Bass.ly
+Scales/en/b_Treble.ly
+Scales/en/c_Bass.ly
+Scales/en/b_TrebleAndBass.ly
+Scales/en/c_Treble.ly
+Scales/en/d_Bass.ly
+Scales/en/d_Treble.ly
+Scales/en/c_TrebleAndBass.ly
+Scales/en/des_Bass.ly
+Scales/en/des_Treble.ly
+Scales/en/d_TrebleAndBass.ly
+Scales/en/dis_Bass.ly
+Scales/en/dis_Treble.ly
+Scales/en/des_TrebleAndBass.ly
+Scales/en/ees_Bass.ly
+Scales/en/ees_Treble.ly
+Scales/en/dis_TrebleAndBass.ly
+Scales/en/f_Bass.ly
+Scales/en/f_Treble.ly
+Scales/en/ees_TrebleAndBass.ly
+Scales/en/fes_Bass.ly
+Scales/en/f_TrebleAndBass.ly
+Scales/en/fes_Treble.ly
+Scales/en/fis_Bass.ly
+Scales/en/fes_TrebleAndBass.ly
+Scales/en/fis_Treble.ly
+Scales/en/g_Treble.ly
+Scales/en/g_Bass.ly
+Scales/en/fis_TrebleAndBass.ly
+Scales/en/ges_Bass.ly
+Scales/en/ges_Treble.ly
+Scales/en/g_TrebleAndBass.ly
+Scales/en/gis_Bass.ly
+Scales/en/gis_Treble.ly
+Scales/en/ges_TrebleAndBass.ly
+Scales/en/gis_TrebleAndBass.ly
+
+French Scales (63 files):
+Scales/fr/DoBemol_Bass.ly
+Scales/fr/DoBemol_Treble.ly
+Scales/fr/DoDiese_Bass.ly
+Scales/fr/DoDiese_Treble.ly
+Scales/fr/DoBemol_TrebleAndBass.ly
+Scales/fr/Do_Bass.ly
+Scales/fr/Do_Treble.ly
+Scales/fr/DoDiese_TrebleAndBass.ly
+Scales/fr/FaBemol_Bass.ly
+Scales/fr/FaBemol_Treble.ly
+Scales/fr/Do_TrebleAndBass.ly
+Scales/fr/FaDiese_Bass.ly
+Scales/fr/FaBemol_TrebleAndBass.ly
+Scales/fr/FaDiese_Treble.ly
+Scales/fr/Fa_Bass.ly
+Scales/fr/Fa_Treble.ly
+Scales/fr/FaDiese_TrebleAndBass.ly
+Scales/fr/LaBemol_Bass.ly
+Scales/fr/Fa_TrebleAndBass.ly
+Scales/fr/LaBemol_Treble.ly
+Scales/fr/LaDiese_Bass.ly
+Scales/fr/LaDiese_Treble.ly
+Scales/fr/LaBemol_TrebleAndBass.ly
+Scales/fr/La_Bass.ly
+Scales/fr/La_Treble.ly
+Scales/fr/LaDiese_TrebleAndBass.ly
+Scales/fr/MiBemol_Bass.ly
+Scales/fr/MiBemol_Treble.ly
+Scales/fr/La_TrebleAndBass.ly
+Scales/fr/ReBemol_Treble.ly
+Scales/fr/ReBemol_Bass.ly
+Scales/fr/MiBemol_TrebleAndBass.ly
+Scales/fr/ReDiese_Bass.ly
+Scales/fr/ReDiese_Treble.ly
+Scales/fr/ReBemol_TrebleAndBass.ly
+Scales/fr/Re_Bass.ly
+Scales/fr/Re_Treble.ly
+Scales/fr/ReDiese_TrebleAndBass.ly
+Scales/fr/SiBemol_Bass.ly
+Scales/fr/SiBemol_Treble.ly
+Scales/fr/Re_TrebleAndBass.ly
+Scales/fr/SiBemol_TrebleAndBass.ly
+Scales/fr/SiDiese_Bass.ly
+Scales/fr/SiDiese_Treble.ly
+Scales/fr/Si_Bass.ly
+Scales/fr/SiDiese_TrebleAndBass.ly
+Scales/fr/Si_Treble.ly
+Scales/fr/SolBemol_Bass.ly
+Scales/fr/Si_TrebleAndBass.ly
+Scales/fr/SolBemol_Treble.ly
+Scales/fr/SolDiese_Bass.ly
+Scales/fr/SolDiese_Treble.ly
+Scales/fr/SolBemol_TrebleAndBass.ly
+Scales/fr/Sol_Bass.ly
+Scales/fr/Sol_Treble.ly
+Scales/fr/SolDiese_TrebleAndBass.ly
+Scales/fr/Sol_TrebleAndBass.ly
+
+CATEGORY: Soundtrack (6 files)
+----------------------------------------
+Soundtrack/Color Purple/Color-Purple.ly
+Soundtrack/In the Mood for Love/In the Mood for Love_lily.ly
+Soundtrack/Midnight-in-Paris_Tango-Flambe/Midnight-in-Paris_Tango-Flambe.ly
+Soundtrack/Schindler's List/Schindlers_List_Theme_Solo_Violin.ly
+Soundtrack/Schindler's List/Schindler's list Quartet.ly
+Soundtrack/The Adventures of Pinocchio (1972)/Pinocchio T'es Cap.ly
+Soundtrack/Schindler's List/Schindlers_List_Theme_for_Strings_and_Solo_Violin.ly
+
+CATEGORY: Greensleeves (4 files)
+----------------------------------------
+_Greensleeves/greensleeves (Em).ly
+_Greensleeves/greensleeves_landscape.ly
+_Greensleeves/greensleeves_guitar.ly
+_Greensleeves/greensleeves_melody.ly
+
+CATEGORY: Common/Stylesheets (11 files - Include/template files)
+----------------------------------------
+common/title-formatting.ly
+common/title-formatting-examples.ly
+stylesheets/bars-per-line-engraver.ly
+stylesheets/fingering-slide-engraver.ly
+stylesheets/includes.ly
+stylesheets/markups.ly
+stylesheets/score.ly
+stylesheets/stylesheet_fiddle.ly
+stylesheets/stylesheet_lighter.ly
+stylesheets/twoByTwoBeaming.ly
+stylesheets/violin-functions.ly
+
+CATEGORY: Wedding (1 file)
+----------------------------------------
+Wedding/Mendelssohn_Wedding-March/Mendelssohn_Wedding-March (For Organ).ly
+
+============================================
+SUMMARY BY TYPE OF ISSUE:
+============================================
+
+1. Template/Include Files (117 files):
+   - Scales/en/* (36 files)
+   - Scales/fr/* (63 files)
+   - Scales templates (6 files)
+   - common/* (2 files)
+   - stylesheets/* (10 files)
+   These are library/template files that are not meant to be compiled standalone.
+
+2. Missing Dependencies (estimated ~30 files):
+   - Missing include files (violin-functions.ly, stylesheet files, etc.)
+   - Files that reference external includes
+
+3. Compilation Errors (estimated ~40 files):
+   - Syntax errors
+   - Deprecated LilyPond syntax
+   - Version compatibility issues
+   - Unfinished/work-in-progress files
+
+4. Files That May Need Attention (~8 soundtrack files):
+   - Color Purple (has violin-functions.ly dependency)
+   - Schindler's List files
+   - Midnight in Paris
+   - In the Mood for Love
+
+============================================
+RECOMMENDATIONS:
+============================================
+
+1. IGNORE: Template/Include files (117 files)
+   These files are not meant to generate standalone PDFs.
+   They should be excluded from preview generation.
+
+2. FIX DEPENDENCIES: High-priority performance pieces (~10 files)
+   - Color Purple
+   - Schindler's List files
+   - Wedding March (Organ)
+   These appear to be important pieces that might just need dependency fixes.
+
+3. REVIEW: Practice and how-to files (~25 files)
+   Many are work-in-progress or have known issues.
+   Decide if these need fixing or should be excluded.
+
+4. LOW PRIORITY: Deprecated/broken files (~40 files)
+   Files with syntax errors or deprecated LilyPond features.
+   Fix only if the music is important to you.
+
+============================================

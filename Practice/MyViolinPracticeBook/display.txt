@@ -5,10 +5,7 @@
   (list (make-music
           'NoteEvent
           'articulations
-          (list (make-music
-                  'AbsoluteDynamicEvent
-                  'text
-                  "f"))
+          (list (make-music 'AbsoluteDynamicEvent 'text "f"))
           'duration
           (ly:make-duration 2)
           'pitch

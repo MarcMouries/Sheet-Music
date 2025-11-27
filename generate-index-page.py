@@ -620,6 +620,8 @@ def generate_html(tunes):
             justify-content: center;
             font-size: 3em;
             color: #ddd;
+            position: relative;
+            overflow: hidden;
         }
 
         .card-thumbnail img {
@@ -627,6 +629,31 @@ def generate_html(tunes):
             height: 100%;
             object-fit: cover;
             border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .card-thumbnail img:hover {
+            transform: scale(1.05);
+        }
+
+        .card-thumbnail::after {
+            content: '🔍';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .card-thumbnail:hover::after {
+            opacity: 1;
         }
 
         .card-title {
@@ -794,6 +821,73 @@ def generate_html(tunes):
             width: 100%;
         }
 
+        /* Image Lightbox Modal */
+        #lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #lightbox-modal.active {
+            display: flex;
+        }
+
+        #lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        #lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+        }
+
+        #lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 36px;
+            cursor: pointer;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        #lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        #lightbox-title {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
         @media (max-width: 768px) {
             .modal-content {
                 width: 95%;
@@ -807,6 +901,19 @@ def generate_html(tunes):
                 padding: 10px;
                 top: 5px;
                 right: 5px;
+            }
+
+            #lightbox-close {
+                top: 10px;
+                right: 10px;
+                width: 44px;
+                height: 44px;
+                font-size: 28px;
+            }
+
+            #lightbox-title {
+                bottom: 10px;
+                font-size: 1em;
             }
 
             .midi-player button {
@@ -1135,7 +1242,7 @@ def generate_html(tunes):
                 <div class="card-thumbnail">
 """
         if tune['thumbnail_exists']:
-            html_output += f"""                    <img src="{html.escape(tune['thumbnail_path'])}" alt="{html.escape(tune['title'])}">
+            html_output += f"""                    <img src="{html.escape(tune['thumbnail_path'])}" alt="{html.escape(tune['title'])}" onclick="openLightbox('{html.escape(tune['thumbnail_path'], quote=True)}', '{html.escape(tune['title'], quote=True)}')">
 """
         else:
             html_output += """                    🎼
@@ -1176,6 +1283,15 @@ def generate_html(tunes):
         <div id="no-results" class="no-results" style="display: none;">
             <div style="font-size: 3em; margin-bottom: 20px;">🎻</div>
             No tunes found matching your filters.
+        </div>
+
+        <!-- Image Lightbox Modal -->
+        <div id="lightbox-modal">
+            <div id="lightbox-content">
+                <button id="lightbox-close" onclick="closeLightbox()">&times;</button>
+                <img id="lightbox-image" src="" alt="">
+                <div id="lightbox-title"></div>
+            </div>
         </div>
     </div>
 
@@ -1567,6 +1683,46 @@ def generate_html(tunes):
 
         // Apply URL filters on page load
         setTimeout(applyURLFilters, 300);
+
+        // Image Lightbox Functions
+        function openLightbox(imageSrc, title) {
+            const lightbox = document.getElementById('lightbox-modal');
+            const image = document.getElementById('lightbox-image');
+            const titleEl = document.getElementById('lightbox-title');
+
+            image.src = imageSrc;
+            image.alt = title;
+            titleEl.textContent = title;
+            lightbox.classList.add('active');
+
+            // Prevent body scroll when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox-modal');
+            lightbox.classList.remove('active');
+
+            // Re-enable body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox-modal');
+                if (lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            }
+        });
     </script>
 </body>
 </html>
