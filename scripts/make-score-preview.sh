@@ -1,64 +1,64 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Render full-page PNG from a LilyPond file and crop the TOP portion
+# using macOS 'sips' (no ImageMagick needed).
+#
+# We crop from (offsetX=0, offsetY=0) downwards, so the result is the
+# top band of the page (title + first 1–2 staves depending on height).
+
 show_help() {
   cat <<EOF
 Usage: $(basename "$0") [OPTIONS] file.ly
 
-Generate a cropped preview image (PNG or SVG) of a tagged region
-in a LilyPond score.
-
-The LilyPond file should define preview regions with tags like:
-  \\tag #'preview { ... }
-  \\tag #'preview-4 { ... }
-  \\tag #'preview-8 { ... }
+Render a LilyPond score to PNG and crop a preview using 'sips'.
 
 Options:
-  -b, --bars N          Use tag 'preview-N' (e.g. N=4 -> preview-4).
-                        If omitted, uses tag 'preview'.
-  -s, --staff-size N    Override staff size via set-global-staff-size (e.g. 14, 16, 18).
-  -F, --format FORMAT   Output format: png (default) or svg.
-  -r, --resolution DPI  PNG resolution (DPI). Default: 300.
-  -h, --help            Show this help message.
+  -h, --height N      Crop height in pixels (overrides --percent).
+  -p, --percent N     Crop height as N%% of page height (default: 40).
+  -r, --resolution N  PNG resolution DPI for LilyPond (default: 300).
+  --help              Show this help.
+
+Notes:
+  - Chords/lyrics/multiple staves increase vertical space,
+    so you may want a larger --percent (e.g. 45–55).
 
 Examples:
-  $(basename "$0") make-score-preview-lilypond-example.ly
-  $(basename "$0") -b 4 -s 16 make-score-preview-lilypond-example.ly
-  $(basename "$0") -F svg make-score-preview-lilypond-example.ly
+  $(basename "$0") my-tune.ly
+  $(basename "$0") --percent 45 my-tune.ly
+  $(basename "$0") --height 650 my-tune.ly
+
+Requires:
+  - lilypond
+  - sips (built into macOS)
 EOF
 }
 
-# Defaults
-BARS=""
-STAFF_SIZE=""
-FORMAT="png"
+CROP_HEIGHT=""
+CROP_PERCENT=40     # start a bit conservative; adjust per taste
 RESOLUTION=300
 
-# Parse options
 if [ $# -eq 0 ]; then
   show_help
   exit 1
 fi
 
+# --- Parse options ---
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    -b|--bars)
-      BARS="$2"
+    -h|--height)
+      CROP_HEIGHT="$2"
       shift 2
       ;;
-    -s|--staff-size)
-      STAFF_SIZE="$2"
-      shift 2
-      ;;
-    -F|--format)
-      FORMAT="$2"
+    -p|--percent)
+      CROP_PERCENT="$2"
       shift 2
       ;;
     -r|--resolution)
       RESOLUTION="$2"
       shift 2
       ;;
-    -h|--help)
+    --help)
       show_help
       exit 0
       ;;
@@ -68,7 +68,6 @@ while [[ $# -gt 0 ]]; do
       exit 1
       ;;
     *)
-      # First non-option is the LilyPond file
       LY_FILE="$1"
       shift
       break
@@ -76,72 +75,65 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-# Sanity checks
 if [ -z "${LY_FILE:-}" ]; then
-  echo "Error: No LilyPond file provided." >&2
-  show_help
+  echo "Error: no .ly file provided." >&2
   exit 1
 fi
 
 if [ ! -f "$LY_FILE" ]; then
-  echo "Error: File not found: $LY_FILE" >&2
+  echo "Error: file not found: $LY_FILE" >&2
   exit 1
 fi
 
-if [[ "$FORMAT" != "png" && "$FORMAT" != "svg" ]]; then
-  echo "Error: FORMAT must be 'png' or 'svg', got '$FORMAT'." >&2
-  exit 1
-fi
+# --- Check dependencies ---
+command -v lilypond >/dev/null 2>&1 || { echo "Error: lilypond not found in PATH."; exit 1; }
+command -v sips     >/dev/null 2>&1 || { echo "Error: sips not found (should exist on macOS)."; exit 1; }
 
 BASENAME="$(basename "$LY_FILE" .ly)"
+FULL_OUT="${BASENAME}-full"
+PREVIEW_OUT="${BASENAME}-preview.png"
 
-# Determine tag name:
-#   no --bars      -> 'preview'
-#   --bars 4       -> 'preview-4'
-if [ -n "$BARS" ]; then
-  TAG_NAME="preview-$BARS"
+echo "Rendering full-page PNG with LilyPond..."
+lilypond -fpng -dresolution="$RESOLUTION" -o "$FULL_OUT" "$LY_FILE"
+
+FULL_PNG="${FULL_OUT}.png"
+
+if [ ! -f "$FULL_PNG" ]; then
+  echo "Error: expected output ${FULL_PNG} not found." >&2
+  exit 1
+fi
+
+# --- Get dimensions ---
+IMG_W=$(sips -g pixelWidth  "$FULL_PNG" | awk '/pixelWidth/  {print $2}')
+IMG_H=$(sips -g pixelHeight "$FULL_PNG" | awk '/pixelHeight/ {print $2}')
+
+
+# After computing IMG_W, IMG_H, and CROP_HEIGHT …
+
+
+# --- Determine crop height ---
+if [ -z "$CROP_HEIGHT" ]; then
+  CROP_HEIGHT=$(( IMG_H * CROP_PERCENT / 100 ))
+  echo "Image size: ${IMG_W}x${IMG_H}px → cropping TOP ${CROP_HEIGHT}px (${CROP_PERCENT}%)."
 else
-  TAG_NAME="preview"
+  echo "Image size: ${IMG_W}x${IMG_H}px → cropping TOP ${CROP_HEIGHT}px (explicit height)."
 fi
 
-# Build LilyPond options
-LILYPOND_OPTS=()
-
-# Cropping
-LILYPOND_OPTS+=("-dcrop")
-
-# Include only the preview tag
-LILYPOND_OPTS+=("-dinclude-tags=$TAG_NAME")
-
-# Output format
-if [ "$FORMAT" = "png" ]; then
-  LILYPOND_OPTS+=("-fpng")
-  LILYPOND_OPTS+=("-dresolution=$RESOLUTION")
-else
-  # SVG
-  LILYPOND_OPTS+=("-dbackend=svg")
-  LILYPOND_OPTS+=("-dno-point-and-click")
+# Safety: never exceed image height
+if [ "$CROP_HEIGHT" -gt "$IMG_H" ]; then
+  CROP_HEIGHT="$IMG_H"
 fi
 
-# Staff size (if given)
-if [ -n "$STAFF_SIZE" ]; then
-  # This runs before the file is processed and sets global staff size
-  LILYPOND_OPTS+=("-e" "(set-global-staff-size $STAFF_SIZE)")
-fi
 
-# Output prefix
-OUT_PREFIX="${BASENAME}-preview-${TAG_NAME}"
+# sips expects cropOffset offsetY offsetX
+OFFSET_Y=1   # start 1px below the very top
+OFFSET_X=0   # flush with the left edge
 
-echo "Generating score preview:"
-echo "  File:          $LY_FILE"
-echo "  Tag:           $TAG_NAME"
-echo "  Format:        $FORMAT"
-[ "$FORMAT" = "png" ] && echo "  Resolution:    ${RESOLUTION} DPI"
-[ -n "$STAFF_SIZE" ] && echo "  Staff size:    $STAFF_SIZE"
-echo "  Output prefix: $OUT_PREFIX"
-echo
+sips -c "$CROP_HEIGHT" "$IMG_W" \
+     --cropOffset "$OFFSET_Y" "$OFFSET_X" \
+     "$FULL_PNG" --out "$PREVIEW_OUT" >/dev/null
 
-lilypond \
-  "${LILYPOND_OPTS[@]}" \
-  -o "$OUT_PREFIX" \
-  "$LY_FILE"
+
+echo "Done:"
+echo "  Full page : $FULL_PNG"
+echo "  Preview   : $PREVIEW_OUT"

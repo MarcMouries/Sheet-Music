@@ -3,66 +3,87 @@
 
 \header {
   title    = "Score Preview Example"
-  subtitle = "4-Bar Systems with Preview Tags"
+  subtitle = "a subtitle"
   composer = "Example Composer"
 }
 
-\paper {
-  indent = 0
-  top-margin = 0
-  bottom-margin = 0
-  left-margin = 0
-  right-margin = 0
-  ragged-bottom = ##t
-  ragged-last-bottom = ##t
-  ragged-right = ##t
-  tagline = ##f
-}
+
 
 global = {
   \key g \major
   \time 4/4
 }
 
-fullMusic = \relative c'' {
+fullMusic = \relative c' {
   \global
 
   % ============================================
   % PREVIEW: FIRST 4 BARS
   % ============================================
-  \tag #'preview
-  \tag #'preview-4 {
-    g4 g a b |          % bar 1
+  
+  
+    c4 e g b |          % bar 1
     c2 b4 a |           % bar 2
     d4 d e f |          % bar 3
     g1 |                % bar 4
-    \break               % force new system after 4 bars
-  }
-
-  % ============================================
-  % PREVIEW: FIRST 8 BARS
-  % ============================================
-  \tag #'preview-8 {
+    \break             
+  
     % Bars 1–4
-    g4 g a b |
+    d,4 fs a b |
     c2 b4 a |
     d4 d e f |
     g1 |
     \break
 
     % Bars 5–8
-    e4 d c b |
+    e,4 g b fs |
     a2 g4 a |
     b4 c d e |
     g1 |
-    \break
-  }
-
-  % OPTIONAL: untagged continuation of full score
-  e4 e d c |
+  \break
+  fs,4 a  c e |
   b2 g4 a |
   d4 c b a |
-  g1 \bar "|."
+  g1 
+  \break
+    g,4 b d f |          % bar 1
+    c2 b4 a |           % bar 2
+    d4 d e f |          % bar 3
+    g1 |                % bar 4
+    \break             
+  
+    % Bars 1–4
+    a,4 c e g |
+    c2 b4 a |
+    d4 d e f |
+    g1 |
+    \break
+
+    
+    b,,4 d fs a|  % Bars 25
+    a2 g4 a |
+    b4 c d e |
+    g1 |
+  \break
+  c,4 e g b |          % bar 1
+    c2 b4 a |           % bar 2
+    d4 d e f |          % bar 3
+    g1 |                % bar 4
+    \break             
+  
+    % Bars 1–4
+    d,4 fs a b |
+    c2 b4 a |
+    d4 d e f |
+    g1 |
+    \break
+
+    % Bars 5–8
+    e,4 g b fs |
+    a2 g4 a |
+    b4 c d e |
+    g1 
+  \bar "|."
 }
 
 \score {
