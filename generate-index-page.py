@@ -146,10 +146,11 @@ def get_category_and_tags(file_path):
         category = 'Christmas'
         tags.append('christmas')
         tags.append('traditional')
-    elif 'Celtic' in parts:
+    elif 'Celtic' in parts or 'Folk_Ireland' in parts:
         category = 'Celtic/Irish'
         tags.append('traditional')
         tags.append('celtic')
+        tags.append('irish')
     elif 'Classical' in parts:
         category = 'Classical'
         tags.append('classical')
@@ -226,7 +227,7 @@ def scan_repository():
     EXCLUDE_FILENAMES = {'book.ly', 'book-1.ly', 'book-2.ly', 'guitar1.ly', 'guitar2.ly', 'guitar3.ly',
                          'guitar4.ly', 'dynamicsa.ly', 'dynamicsb.ly', 'dynamicsc.ly',
                          'blank.ly', 'blank1.ly', 'copyright.ly', 'spacing.ly',
-                         'gymnopedie-2.ly', 'gymnopedie-3.ly'}
+                         'gymnopedie-2.ly', 'gymnopedie-3.ly', 'make-score-preview-lilypond-example.ly'}
 
     for ly_file in REPO_ROOT.rglob('*.ly'):
         # Skip excluded directories

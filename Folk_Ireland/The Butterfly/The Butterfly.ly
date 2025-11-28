@@ -1,4 +1,4 @@
-\version "2.19.49"
+\version "2.24.0"
 \language "english"
 %{
 \include "../../common/violin-functions.ly"
@@ -6,8 +6,8 @@
 \header {
   title = "The Butterfly"
   composer = "Tommy Potts"
-  footnotes = ""
-    style = "irish traditional"
+  style = "slip jig"
+  session = ""
   tagline = ""
 }
 violin =  \relative c'' {

@@ -1,43 +1,48 @@
 {
-  "Christmas/Let%20It%20Snow/Let%20It%20Snow.ly": {
+  "Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase.ly": {
+    "difficulty": 4,
+    "tags": [
+      "traditional",
+      "jig",
+      "irish",
+      "celtic"
+    ],
+    "notes": "Add your notes here"
+  },
+  "Folk_Ireland/Darby-O-Gill_Fox-Chase/darby.ly": {
     "difficulty": 2,
     "tags": [
       "traditional",
-      "christmas"
+      "celtic",
+      "irish"
     ],
     "notes": "Add your notes here"
   },
-  "Christmas/The%20First%20Noel/The%20First%20Noel_Duet.ly": {
+  "Folk_Ireland/DrGilbert/drGilbert_2_converted.ly": {
     "difficulty": 2,
     "tags": [
-      "waltz",
       "traditional",
-      "christmas"
+      "celtic",
+      "irish"
     ],
     "notes": "Add your notes here"
   },
-  "Christmas/The%20First%20Noel/The%20First%20Noel.ly": {
-    "difficulty": 2,
+  "Folk_Ireland/DrGilbert/drGilbert_1.ly": {
+    "difficulty": 4,
     "tags": [
-      "waltz",
       "traditional",
-      "christmas"
+      "celtic",
+      "irish"
     ],
     "notes": "Add your notes here"
   },
-  "Classical/Erik_Satie_Gymnop%C3%A9die/gymnopedie_1_Violin.ly": {
+  "Folk_Ireland/DrGilbert/drGilbert_1-1.ly": {
     "difficulty": 2,
     "tags": [
-      "waltz",
-      "classical"
-    ],
-    "notes": "Add your notes here"
-  },
-  "Classical/Erik_Satie_Gymnop%C3%A9die/gymnopedie.ly": {
-    "difficulty": 2,
-    "tags": [
-      "waltz",
-      "classical"
+      "traditional",
+      "celtic",
+      "irish",
+      "reel"
     ],
     "notes": "Add your notes here"
   }
