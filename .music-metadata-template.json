@@ -2,9 +2,9 @@
   "Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase.ly": {
     "difficulty": 4,
     "tags": [
-      "traditional",
       "celtic",
       "jig",
+      "traditional",
       "irish"
     ],
     "notes": "Add your notes here"
@@ -13,8 +13,8 @@
     "difficulty": 2,
     "tags": [
       "celtic",
-      "traditional",
-      "irish"
+      "irish",
+      "traditional"
     ],
     "notes": "Add your notes here"
   },
@@ -22,8 +22,8 @@
     "difficulty": 2,
     "tags": [
       "celtic",
-      "traditional",
-      "irish"
+      "irish",
+      "traditional"
     ],
     "notes": "Add your notes here"
   },
@@ -31,8 +31,8 @@
     "difficulty": 4,
     "tags": [
       "celtic",
-      "traditional",
-      "irish"
+      "irish",
+      "traditional"
     ],
     "notes": "Add your notes here"
   },
@@ -40,9 +40,9 @@
     "difficulty": 2,
     "tags": [
       "celtic",
+      "irish",
       "traditional",
-      "reel",
-      "irish"
+      "reel"
     ],
     "notes": "Add your notes here"
   }

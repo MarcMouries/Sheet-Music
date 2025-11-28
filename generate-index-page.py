@@ -17,6 +17,109 @@ OUTPUT_FILE = REPO_ROOT / "index.html"
 METADATA_FILE = REPO_ROOT / ".music-metadata.json"
 EXCLUDE_DIRS = {'.git', 'stylesheets', 'common', 'lilypong_how-to', 'Lilypond_How-to', 'node_modules', '__pycache__', 'Scales', 'Practice'}
 
+# Country-to-flag emoji mapping
+COUNTRY_FLAGS = {
+    'Austria': '🇦🇹',
+    'Brazil': '🇧🇷',
+    'Canada': '🇨🇦',
+    'Cuba': '🇨🇺',
+    'Czech Republic': '🇨🇿',
+    'England': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+    'Finland': '🇫🇮',
+    'France': '🇫🇷',
+    'Germany': '🇩🇪',
+    'Hungary': '🇭🇺',
+    'Ireland': '🇮🇪',
+    'Italy': '🇮🇹',
+    'Japan': '🇯🇵',
+    'Jewish': '✡️',
+    'Norway': '🇳🇴',
+    'Poland': '🇵🇱',
+    'Romania': '🇷🇴',
+    'Russia': '🇷🇺',
+    'Scotland': '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
+    'Spain': '🇪🇸',
+    'USA': '🇺🇸',
+}
+
+def get_country_display(country):
+    """Return country name with flag emoji"""
+    if not country:
+        return '—'
+    flag = COUNTRY_FLAGS.get(country, '🌍')
+    return f"{flag} {country}"
+
+# Dance type patterns
+DANCE_TYPES = {
+    'jig': ['jig', 'slip jig', 'hop jig'],
+    'reel': ['reel'],
+    'waltz': ['waltz', 'valse'],
+    'polka': ['polka'],
+    'march': ['march'],
+    'mazurka': ['mazurka'],
+    'tango': ['tango'],
+    'bolero': ['bolero'],
+    'swing': ['swing'],
+    'blues': ['blues'],
+    'ragtime': ['ragtime'],
+    'hornpipe': ['hornpipe'],
+    'strathspey': ['strathspey'],
+    'schottische': ['schottische'],
+}
+
+# Genre patterns
+GENRE_PATTERNS = {
+    'classical': ['classical', 'baroque', 'romantic', 'sonata', 'concerto', 'symphony'],
+    'folk': ['folk', 'traditional'],
+    'jazz': ['jazz', 'swing', 'blues', 'bebop'],
+    'gypsy jazz': ['gypsy jazz', 'gypsy'],
+    'pop': ['pop'],
+    'soundtrack': ['soundtrack', 'film', 'theme'],
+}
+
+# Occasion patterns
+OCCASION_PATTERNS = {
+    'christmas': ['christmas', 'noel', 'santa', 'jingle', 'silent night'],
+    'wedding': ['wedding', 'bridal', 'canon in d'],
+}
+
+def extract_dimensional_tags(tune_title, category, style, country, tags):
+    """Extract multi-dimensional tags: dance type, genre, occasion"""
+    dimensions = {
+        'dance_type': [],
+        'genre': [],
+        'occasion': []
+    }
+
+    # Combine search text
+    search_text = f"{tune_title} {category} {style}".lower()
+
+    # Extract dance types
+    for dance_type, patterns in DANCE_TYPES.items():
+        if any(pattern in search_text for pattern in patterns):
+            dimensions['dance_type'].append(dance_type)
+
+    # Extract genre
+    for genre, patterns in GENRE_PATTERNS.items():
+        if any(pattern in search_text for pattern in patterns):
+            dimensions['genre'].append(genre)
+
+    # Extract occasion
+    for occasion, patterns in OCCASION_PATTERNS.items():
+        if any(pattern in search_text for pattern in patterns):
+            dimensions['occasion'].append(occasion)
+
+    # Fallback: infer genre from category
+    if not dimensions['genre']:
+        if 'Classical' in category:
+            dimensions['genre'].append('classical')
+        elif 'Folk' in category or 'Celtic' in category:
+            dimensions['genre'].append('folk')
+        elif 'Jazz' in category or 'Gypsy' in category:
+            dimensions['genre'].append('jazz')
+
+    return dimensions
+
 # Difficulty estimation based on file characteristics
 def estimate_difficulty(ly_file):
     """Estimate difficulty level (1-5) based on musical content"""
@@ -264,6 +367,15 @@ def scan_repository():
         # Estimate difficulty
         difficulty = custom.get('difficulty', estimate_difficulty(ly_file))
 
+        # Extract dimensional tags
+        dimensions = extract_dimensional_tags(
+            metadata['title'],
+            category,
+            metadata['style'],
+            metadata['country'],
+            all_tags
+        )
+
         tune_info = {
             'title': metadata['title'],
             'composer': metadata['composer'],
@@ -284,7 +396,11 @@ def scan_repository():
             'thumbnail_exists': png_path.exists(),
             'pdf_path': quote(str(rel_path.with_suffix('.pdf'))),
             'midi_path': quote(str(rel_path.with_suffix('.midi'))),
-            'thumbnail_path': quote(str(rel_path.parent / (ly_file.stem + '-preview.png')))
+            'thumbnail_path': quote(str(rel_path.parent / (ly_file.stem + '-preview.png'))),
+            # Dimensional tags
+            'dance_types': dimensions['dance_type'],
+            'genres': dimensions['genre'],
+            'occasions': dimensions['occasion']
         }
 
         # Skip files without proper title or composer
@@ -1127,6 +1243,18 @@ def generate_html(tunes):
 
     html_output += """            </select>
 
+            <select id="country-filter" onchange="filterItems()">
+                <option value="">All Countries</option>
+"""
+
+    # Add countries
+    countries = sorted(set(t['country'] for t in tunes if t['country']))
+    for country in countries:
+        flag = COUNTRY_FLAGS.get(country, '🌍')
+        html_output += f'                <option value="{country}">{flag} {country}</option>\n'
+
+    html_output += """            </select>
+
             <select id="difficulty-filter" onchange="filterItems()">
                 <option value="">All Difficulties</option>
                 <option value="1">⭐ Beginner</option>
@@ -1142,6 +1270,39 @@ def generate_html(tunes):
 
     for tag in all_tags:
         html_output += f'                <option value="{tag}">{tag}</option>\n'
+
+    html_output += """            </select>
+
+            <select id="dance-type-filter" onchange="filterItems()">
+                <option value="">All Dance Types</option>
+"""
+
+    # Add dance types
+    all_dance_types = sorted(set(dt for tune in tunes for dt in tune['dance_types']))
+    for dance_type in all_dance_types:
+        html_output += f'                <option value="{dance_type}">{dance_type.title()}</option>\n'
+
+    html_output += """            </select>
+
+            <select id="genre-filter" onchange="filterItems()">
+                <option value="">All Genres</option>
+"""
+
+    # Add genres
+    all_genres = sorted(set(g for tune in tunes for g in tune['genres']))
+    for genre in all_genres:
+        html_output += f'                <option value="{genre}">{genre.title()}</option>\n'
+
+    html_output += """            </select>
+
+            <select id="occasion-filter" onchange="filterItems()">
+                <option value="">All Occasions</option>
+"""
+
+    # Add occasions
+    all_occasions = sorted(set(o for tune in tunes for o in tune['occasions']))
+    for occasion in all_occasions:
+        html_output += f'                <option value="{occasion}">{occasion.title()}</option>\n'
 
     html_output += """            </select>
 
@@ -1192,14 +1353,14 @@ def generate_html(tunes):
         is_christmas = is_christmas_song(tune['title'], tune['category'], tune['style'], tune['tags'])
         is_wedding = is_wedding_song(tune['title'], tune['category'], tune['style'], tune['tags'])
 
-        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
+        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
                     <td>
                         <strong>{html.escape(tune['title'])}</strong>"""
         if tune['subtitle']:
             html_output += f"""<br><small style="color: #7f8c8d;">{html.escape(tune['subtitle'])}</small>"""
         html_output += f"""</td>
                     <td>{html.escape(tune['composer']) if tune['composer'] else '—'}</td>
-                    <td>{html.escape(tune['country']) if tune['country'] else '—'}</td>
+                    <td>{get_country_display(tune['country'])}</td>
                     <td><span class="category {category_class}">{html.escape(tune['category'])}</span></td>
                     <td>{html.escape(tune['style'].title()) if tune['style'] else '—'}</td>
                     <td>{html.escape(tune['key']) if tune['key'] else '—'}</td>
@@ -1243,7 +1404,7 @@ def generate_html(tunes):
         is_christmas = is_christmas_song(tune['title'], tune['category'], tune['style'], tune['tags'])
         is_wedding = is_wedding_song(tune['title'], tune['category'], tune['style'], tune['tags'])
 
-        html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
+        html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
                 <div class="card-thumbnail">
 """
         if tune['thumbnail_exists']:
@@ -1255,6 +1416,7 @@ def generate_html(tunes):
         html_output += f"""                </div>
                 <div class="card-title">{html.escape(tune['title'])}</div>
                 <div class="card-composer">{html.escape(tune['composer']) if tune['composer'] else 'Traditional'}</div>
+                <div class="card-country" style="font-size: 0.85em; color: #7f8c8d; margin: 4px 0;">{get_country_display(tune['country'])}</div>
                 <div class="card-meta">
                     <span class="category {category_class}">{html.escape(tune['category'])}</span>
                     <div class="difficulty">{stars}</div>
@@ -1306,8 +1468,12 @@ def generate_html(tunes):
         function filterItems() {
             const searchInput = document.getElementById('search').value.toLowerCase();
             const categoryFilter = document.getElementById('category-filter').value;
+            const countryFilter = document.getElementById('country-filter').value;
             const difficultyFilter = document.getElementById('difficulty-filter').value;
             const tagFilter = document.getElementById('tag-filter').value;
+            const danceTypeFilter = document.getElementById('dance-type-filter').value;
+            const genreFilter = document.getElementById('genre-filter').value;
+            const occasionFilter = document.getElementById('occasion-filter').value;
 
             const items = currentView === 'table'
                 ? document.querySelectorAll('#music-table tbody tr')
@@ -1321,17 +1487,25 @@ def generate_html(tunes):
                     ? item.querySelector('td:nth-child(2)').textContent.toLowerCase()
                     : item.querySelector('.card-composer').textContent.toLowerCase();
                 const category = item.dataset.category;
+                const country = item.dataset.country;
                 const difficulty = item.dataset.difficulty;
                 const tags = item.dataset.tags.toLowerCase();
+                const danceTypes = item.dataset.danceTypes || '';
+                const genres = item.dataset.genres || '';
+                const occasions = item.dataset.occasions || '';
 
                 const matchesSearch = title.includes(searchInput) ||
                                     composer.includes(searchInput) ||
                                     tags.includes(searchInput);
                 const matchesCategory = !categoryFilter || category === categoryFilter;
+                const matchesCountry = !countryFilter || country === countryFilter;
                 const matchesDifficulty = !difficultyFilter || difficulty === difficultyFilter;
                 const matchesTag = !tagFilter || tags.includes(tagFilter.toLowerCase());
+                const matchesDanceType = !danceTypeFilter || danceTypes.includes(danceTypeFilter);
+                const matchesGenre = !genreFilter || genres.includes(genreFilter);
+                const matchesOccasion = !occasionFilter || occasions.includes(occasionFilter);
 
-                if (matchesSearch && matchesCategory && matchesDifficulty && matchesTag) {
+                if (matchesSearch && matchesCategory && matchesCountry && matchesDifficulty && matchesTag && matchesDanceType && matchesGenre && matchesOccasion) {
                     item.style.display = '';
                     visibleCount++;
                 } else {
