@@ -1,4 +1,4 @@
-\include "../../stylesheets/violin-functions.ly"
+\include "../../common/violin-functions.ly"
 
 \layout {
   \set beamExceptions = #'()

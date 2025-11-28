@@ -1,11 +1,14 @@
 \version "2.24.4"
 \language "english"
 
-\include "../stylesheets/twoByTwoBeaming.ly"
-\include "../stylesheets/bars-per-line-engraver.ly"
+\include "../../stylesheets/twoByTwoBeaming.ly"
+\include "../../stylesheets/bars-per-line-engraver.ly"
 
-
-
+\header {
+  title = "The Mad Lover"
+  composer = "John Eccles"
+  style = "classical"
+}
 
 global = {
   \time 3/4
@@ -87,9 +90,8 @@ melody = \relative c'' {
 %       title = "The Mad Lover"
 %       composer = "John Eccles"
 %       piece = "Original in F minor"
-%
-  style = "classical"
-}
+%       style = "classical"
+%     }
 %     \score {
 %       <<
 %         \new ChordNames \chordNames

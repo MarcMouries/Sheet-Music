@@ -1,7 +1,7 @@
 \version "2.24.4"
 \language "english"
 
-\header {
+\header {1
   title = "Im Hashem Lo Yivneh Bayis"
   subtitle = "Psalm 127:1"
   composer = "Traditional"

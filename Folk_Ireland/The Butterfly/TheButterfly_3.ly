@@ -1,7 +1,7 @@
 \version "2.19.49"
 \language "english"
 %{
-\include "violin-functions.ly"
+\include "../../common/violin-functions.ly"
 %}
 \header {
   title = "The Butterfly"

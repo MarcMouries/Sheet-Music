@@ -1,7 +1,7 @@
 \version "2.19.2"
 \language "english"
-\include "violin-functions.ly"
-\include "markups.ly"
+\include "../../common/violin-functions.ly"
+\include "../../common/markups.ly"
 %
 % Marc Mouries
 %

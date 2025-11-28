@@ -1,5 +1,5 @@
-\include "includes.ly"
-\include "markups.ly"
+\include "../../common/includes.ly"
+\include "../../common/markups.ly"
 
 \header {
   title = "Daphné"
@@ -71,7 +71,7 @@ melody = \relative c'' {
  \melodyPartA
 }
 
-\include "score.ly"
+\include "../../common/score.ly"
 
 
 \markup "practice"

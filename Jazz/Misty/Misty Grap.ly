@@ -1,6 +1,6 @@
 \version "2.19.13"
 \language "english"
-\include "../common/violin-functions.ly"
+\include "../../common/violin-functions.ly"
 
 %ADD slide on G
 %http://lsr.di.unimi.it/LSR/Item?id=633

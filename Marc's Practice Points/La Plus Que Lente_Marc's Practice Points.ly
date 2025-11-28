@@ -1,6 +1,6 @@
 \language "english"
 \version "2.16.0"
-\include "violin-functions.ly"
+\include "../common/violin-functions.ly"
 \header {    composer = "Marc Mouries"
   style = "practice exercise"
   tagline = ""}

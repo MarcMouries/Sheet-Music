@@ -98,9 +98,14 @@ lilypond -fpng -dresolution="$RESOLUTION" -dno-midi -o "$FULL_OUT" "$LY_FILE"
 
 FULL_PNG="${FULL_OUT}.png"
 
+# Handle multi-page scores (LilyPond creates filename-page1.png, filename-page2.png, etc.)
 if [ ! -f "$FULL_PNG" ]; then
-  echo "Error: expected output ${FULL_PNG} not found." >&2
-  exit 1
+  FULL_PNG="${FULL_OUT}-page1.png"
+  if [ ! -f "$FULL_PNG" ]; then
+    echo "Error: expected output ${FULL_OUT}.png or ${FULL_PNG} not found." >&2
+    exit 1
+  fi
+  echo "Multi-page score detected, using page 1 for preview."
 fi
 
 # --- Get dimensions ---
@@ -133,8 +138,8 @@ sips -c "$CROP_HEIGHT" "$IMG_W" \
      --cropOffset "$OFFSET_Y" "$OFFSET_X" \
      "$FULL_PNG" --out "$PREVIEW_OUT" >/dev/null
 
-# Optional: Clean up the full PNG to save disk space (uncomment if desired)
-# rm -f "$FULL_PNG"
+# Optional: Clean up the full PNG(s) to save disk space (uncomment if desired)
+# rm -f "${FULL_OUT}".png "${FULL_OUT}"-page*.png
 
 echo "Done:"
 echo "  Full page : $FULL_PNG"

@@ -1,7 +1,7 @@
-\version "2.19"
+\version "2.24.0"
 \language "english"
 
-\include "../common/includes.ly"
+\include "../../common/includes.ly"
 %\include "stylesheet_fiddle.ly"
 
 #(set-default-paper-size "letter")
@@ -70,4 +70,4 @@ chordNames = \chordmode {
      d2.    a2.:7   d2.    d2
 }
 
-\include "../common/score.ly"
+\include "../../common/score.ly"

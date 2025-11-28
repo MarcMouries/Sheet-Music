@@ -44,7 +44,7 @@ melody = \relative c'' {
   d4 c b fs8 b
   a4 e8 g fs2 ~
   fs2 r2
-  \compressFullBarRests
+  \compressMMRests
   \override Staff.MultiMeasureRest.space-increment = 1.0
   R1*2
 

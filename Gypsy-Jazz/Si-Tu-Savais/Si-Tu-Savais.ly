@@ -1,6 +1,6 @@
 \version "2.19.18"
 \language "english"
-\include "violin-functions.ly"
+\include "../../common/violin-functions.ly"
 
 \header {
   title = "Si Tu Savais"

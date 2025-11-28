@@ -1,6 +1,6 @@
 \version "2.19.53"
 \language "english"
-\include "../common/bars-per-line-engraver.ly"
+\include "../../stylesheets/bars-per-line-engraver.ly"
 
 \header {
   title = "Tango Flambe"

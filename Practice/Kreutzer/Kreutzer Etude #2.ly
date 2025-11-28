@@ -1,8 +1,8 @@
 \version "2.19.22"
 \language "english"
 
-\include "stylesheet_fiddle.ly"
-\include "violin-functions.ly"
+\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/violin-functions.ly"
 
 
 #(set-default-paper-size "letter")

@@ -4,7 +4,7 @@
 %\include "paganini.ily"
 %\include "lv-goldenage.ily"
 %\include "improviso.ily"
-\include "violin-functions.ly"
+\include "../../common/violin-functions.ly"
 
 triplet =
 #(define-music-function (notes) (ly:music?)

@@ -1,7 +1,7 @@
 \version "2.24.0"
 \language "english"
-\include "includes.ly"
-\include "improviso.ily"
+\include "../../common/includes.ly"
+\include "../../common/improviso.ily"
 
 
 date = #(strftime "%B, %d %Y" (localtime (current-time)))
@@ -183,4 +183,4 @@ melody = \relative c'' {
   a4 e8\harmonic a4\harmonic r4. \bar"||"
 }
 
-\include "score.ly"
+\include "../../common/score.ly"

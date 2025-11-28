@@ -1,8 +1,8 @@
 \version "2.24.4"
 \language "english"
 
-\include "../stylesheets/twoByTwoBeaming.ly"
-\include "../stylesheets/bars-per-line-engraver.ly"
+\include "../../stylesheets/twoByTwoBeaming.ly"
+\include "../../stylesheets/bars-per-line-engraver.ly"
 
 
 \header {

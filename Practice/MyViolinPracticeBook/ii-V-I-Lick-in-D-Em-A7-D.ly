@@ -1,6 +1,6 @@
 \version "2.19.19"
 \language "english"
-\include "stylesheet_fiddle.ly"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 
 \header {
   title = "ii-V-I Lick in D. Em A7 D"

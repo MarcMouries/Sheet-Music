@@ -15,7 +15,7 @@ from urllib.parse import quote
 REPO_ROOT = Path(__file__).parent
 OUTPUT_FILE = REPO_ROOT / "index.html"
 METADATA_FILE = REPO_ROOT / ".music-metadata.json"
-EXCLUDE_DIRS = {'.git', 'stylesheets', 'Lilypond_How-to', 'node_modules', '__pycache__', 'Scales', 'Practice'}
+EXCLUDE_DIRS = {'.git', 'stylesheets', 'common', 'lilypong_how-to', 'Lilypond_How-to', 'node_modules', '__pycache__', 'Scales', 'Practice'}
 
 # Difficulty estimation based on file characteristics
 def estimate_difficulty(ly_file):

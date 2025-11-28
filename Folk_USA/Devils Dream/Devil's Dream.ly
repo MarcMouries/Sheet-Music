@@ -15,7 +15,7 @@
   maintainerWeb = "http://www.wildgardenseed.com/Taj"
   lastupdated = "2005/Mar/04"
   meter = 120
-  tagline = "\\raisebox{16mm}{\\parbox{188mm}{\\quad\\small\\noindent \\hspace{\\stretch{1}} \\makebox[188mm][c]{Transcribed and typeset by " + \maintainer + " (" + \maintainerWeb + ") .} \\makebox[188mm][c]{Unrestricted modification and redistribution is permitted and encouraged---copy this music and share it!}}}"
+  tagline = \markup "\\raisebox{16mm}{\\parbox{188mm}{\\quad\\small\\noindent \\hspace{\\stretch{1}} \\makebox[188mm][c]{Transcribed and typeset by Taj Morton (http://www.wildgardenseed.com/Taj).} \\makebox[188mm][c]{Unrestricted modification and redistribution is permitted and encouraged---copy this music and share it!}}}"
 }
 
 

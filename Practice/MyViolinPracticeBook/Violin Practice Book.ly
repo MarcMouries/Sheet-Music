@@ -1,7 +1,7 @@
 \version "2.19.32"
 \language "english"
-\include "../../stylesheets/violin-functions.ly"
-\include "../../stylesheets/markups.ly"
+\include "../../common/violin-functions.ly"
+\include "../../common/markups.ly"
 
 
 \header {   composer = "Marc Mouries"
