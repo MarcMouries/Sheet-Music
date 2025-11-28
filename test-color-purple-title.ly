@@ -18,16 +18,16 @@
   % Custom title formatting - pulls from header fields above
   bookTitleMarkup = \markup {
     \fill-line {
-      \fontsize #-5
+      \fontsize #-3
       \column {
         \line { "Transcription" }
         \line { "by Maxence Mouriès" }
       }
       \center-column {
         \fontsize #1 \fromproperty #'header:title
-        \fontsize #-5 "As played by Itzhak Perlman"
+        \fontsize #-3 "As played by Itzhak Perlman"
       }
-      \fontsize #-5
+      \fontsize #-3
       \column {
         \fromproperty #'header:composer
         \line { "arr. " \fromproperty #'header:arranger }
