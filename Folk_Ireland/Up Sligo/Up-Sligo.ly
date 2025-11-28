@@ -4,7 +4,7 @@
   composer = "Traditional"
   footnotes = ""
   %subtitle = "https://thesession.org/tunes/537#setting13483"
-    style = "irish traditional"
+  style = "irish traditional"
   tagline = ""
 }
 voicedefault =  {
