@@ -2,7 +2,7 @@
 
 \header {
   title = "Minuet in G"
-  composer = "L. V. Beethoven (1770--1827)"
+  composer = "L. V. Beethoven (1770–1827) "
   style = "minuet"
   tagline = ""
 }

@@ -5,6 +5,7 @@
 ## ✅ Completed Tasks
 
 ### Metadata Cleanup (Nov 2024 - Nov 2025)
+
 - [x] Fixed metadata for 68+ files (added composer, style fields)
 - [x] Changed all "meter" fields to "style" (67 files total)
 - [x] Added dates to classical composer names (e.g., "Erik Satie (1866--1925)")
@@ -18,6 +19,7 @@
 - [x] Reduced files missing composers from 178 to 0! 🎉
 
 ### Repository Organization
+
 - [x] Reorganized repository structure:
   - Renamed Trad_* folders to Folk_*
   - Split Celtic folder by country (Ireland, Scotland)
@@ -28,26 +30,31 @@
 ## 📋 Low Priority Tasks
 
 ### 1. Bug/Test Files
+
 **Priority:** Very Low
 **Action:** Move to appropriate location or archive
 
 Files:
+
 - `Folk_Finland/Ievan Polkka/bug repeat partial.ly`
 - `Folk_Finland/Ievan Polkka/bug rythm.ly`
 
 **Notes:** These are test files for debugging LilyPond issues. Consider:
+
 - Creating a `_tests/` or `_debug/` folder
 - Or deleting if no longer needed
 
 ---
 
 ### 2. Gymnopédie Guitar Component Files
+
 **Priority:** Low
 **Action:** Review later if individual metadata needed
 
 Location: `Classical/Erik_Satie_Gymnopédie/Gymnopedie_Guitar/`
 
 **Notes:**
+
 - These are component files that are part of a larger guitar arrangement
 - Already have copyright.ly files
 - May not need individual metadata as they're included by a main file
@@ -55,12 +62,14 @@ Location: `Classical/Erik_Satie_Gymnopédie/Gymnopedie_Guitar/`
 ---
 
 ### 3. Practice Files Organization
+
 **Priority:** Low
 **Action:** Review and potentially consolidate
 
 Location: `Practice/MyViolin Practice/`
 
 **Notes:**
+
 - Some duplicate scale files exist
 - Consider organizing by:
   - Technique type (scales, arpeggios, etudes)
@@ -70,23 +79,26 @@ Location: `Practice/MyViolin Practice/`
 ---
 
 ### 4. Missing Key Signatures in Jazz Files
+
 **Priority:** Low
 **Action:** Review, but likely not needed
-
 **Notes:** Jazz style often doesn't require key signatures in the traditional sense, as harmony is fluid. This is probably fine as-is.
 
 ---
 
 ### 5. Extended Metadata (Optional)
+
 **Priority:** Very Low
 **Action:** Add optional metadata from .music-metadata-template.json
 
 Fields to consider:
+
 - `difficulty` (1-5 scale)
 - `tags` (additional categorization)
 - `notes` (practice notes, performance tips)
 
 **Files that could use extended metadata:**
+
 - All Gymnopédie arrangements (difficulty, performance notes)
 - Bach Badinerie (difficulty: advanced)
 - Dowland pieces (historical context)
@@ -96,6 +108,7 @@ Fields to consider:
 ## 🔧 Current Tasks (In Progress)
 
 ### Index.html Improvements
+
 - [ ] **Add music sheet preview to card display** - Display the beginning of the music sheet in the card view for quick visual reference
 
 ---
@@ -103,11 +116,13 @@ Fields to consider:
 ## 🎯 Future Enhancements
 
 ### Content Additions
+
 - [ ] Add more folk tunes from various traditions
 - [ ] Expand classical repertoire
 - [ ] Add more gypsy jazz transcriptions
 
 ### Technical Improvements
+
 - [ ] Generate PDF files automatically for all .ly files
 - [ ] Create MIDI files for practice
 - [ ] Add CI/CD pipeline for automatic compilation
@@ -115,6 +130,7 @@ Fields to consider:
 - [ ] Add search functionality to index.html
 
 ### Documentation
+
 - [ ] Add performance notes for complex pieces
 - [ ] Document bowing patterns for folk tunes
 - [ ] Create style guides for different genres
@@ -124,6 +140,7 @@ Fields to consider:
 ## 📊 Repository Statistics
 
 **As of 2025-11-25:**
+
 - Total tunes: 407
 - Files with complete metadata: 407 (100%)
 - Files with missing composers: 0 (was 178)
@@ -135,6 +152,7 @@ Fields to consider:
 ## 🎵 Metadata Standards
 
 ### Required Fields
+
 ```lilypond
 \header {
   title = "Tune Name"
@@ -145,6 +163,7 @@ Fields to consider:
 ```
 
 ### Optional Fields
+
 - `subtitle` - Additional context or alternate title
 - `poet` - Lyricist (for songs with lyrics)
 - `arranger` - Arranger name (format: "arr. Name")
@@ -154,6 +173,7 @@ Fields to consider:
 - `origin` - Geographic origin (for traditional music)
 
 ### Style Values Reference
+
 - **Folk:** jig, reel, hornpipe, polka, waltz, slip jig, etc.
 - **Classical:** baroque, classical, romantic, contemporary
 - **Jazz:** swing, bebop, gypsy jazz, jazz waltz
@@ -162,7 +182,8 @@ Fields to consider:
 ---
 
 ## Notes
+
 - Always use `style` field for genre/type (NOT `meter` - that's time signature!)
-- Include composer dates for classical music: "J. S. Bach (1685--1750)"
+- Include composer dates for classical music: "J. S. Bach (1685–1750)"
 - Use relative paths for includes: `\include "../../stylesheets/stylesheet_fiddle.ly"`
 - All folk tunes in 4/4 or 2/2 should include the fiddle stylesheet

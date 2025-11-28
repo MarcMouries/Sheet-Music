@@ -4,7 +4,7 @@
 \header {
   title    = "Wedding March"
   subtitle = "Adapted from \"A Midsummer Night's Dream\""
-  composer = "Felix Mendelssohn-Bartholdy"
+  composer = "Felix Mendelssohn (1809–1847)"
   arranger = "Violin adaptation"
   tagline  = ""
 }

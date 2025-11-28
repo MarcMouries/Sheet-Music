@@ -77,7 +77,7 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
   \header { 
     title = \markup { \fromproperty #'toc:number "Fur Elise" } % overrides overall title
     subtitle = ##f % prevent overall subtitle from appearing
-    composer = "L. V. Beethoven (1770--1827)"
+    composer = "L. V. Beethoven (1770–1827) "
   }
   \tocItem \markup { "Beethoven -  Fur Elise" }
   
@@ -104,7 +104,7 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
   \header { 
     title = \markup { \fromproperty #'toc:number "Ode to Joy" } % overrides overall title
     subtitle = ##f % prevent overall subtitle from appearing
-    composer = "L. V. Beethoven (1770--1827)"
+    composer = "L. V. Beethoven (1770–1827) "
   }
   \tocItem \markup { "Beethoven - Ode to Joy" }
   \OdeToJoy
