@@ -138,8 +138,8 @@ sips -c "$CROP_HEIGHT" "$IMG_W" \
      --cropOffset "$OFFSET_Y" "$OFFSET_X" \
      "$FULL_PNG" --out "$PREVIEW_OUT" >/dev/null
 
-# Optional: Clean up the full PNG(s) to save disk space (uncomment if desired)
-# rm -f "${FULL_OUT}".png "${FULL_OUT}"-page*.png
+# Clean up the full PNG(s) and MIDI files to save disk space
+rm -f "${FULL_OUT}".png "${FULL_OUT}"-page*.png "${FULL_OUT}".midi
 
 echo "Done:"
 echo "  Full page : $FULL_PNG"
