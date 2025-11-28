@@ -29,8 +29,8 @@ melody =  {
   \time 4/4 
   \key e \dorian
   \repeat volta 2 {
-    e'8    b'8    b'8     a'8    b'8 \colorRed {  d''8 }
-     a'8    g'8
+    e'8    b'8    \acciaccatura {b'8 d''}   b'8    a'8    b'8 \colorRed {  d''8 }
+     a'8\downbow    g'8
     fs'8   d'8    a'8     d'8    b'8    d'8    a'8
     \colorRed {  fs'8 }
 
