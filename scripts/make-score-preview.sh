@@ -94,7 +94,7 @@ FULL_OUT="${BASENAME}-full"
 PREVIEW_OUT="${BASENAME}-preview.png"
 
 echo "Rendering full-page PNG with LilyPond..."
-lilypond -fpng -dresolution="$RESOLUTION" -o "$FULL_OUT" "$LY_FILE"
+lilypond -fpng -dresolution="$RESOLUTION" -dno-midi -o "$FULL_OUT" "$LY_FILE"
 
 FULL_PNG="${FULL_OUT}.png"
 
@@ -133,6 +133,8 @@ sips -c "$CROP_HEIGHT" "$IMG_W" \
      --cropOffset "$OFFSET_Y" "$OFFSET_X" \
      "$FULL_PNG" --out "$PREVIEW_OUT" >/dev/null
 
+# Optional: Clean up the full PNG to save disk space (uncomment if desired)
+# rm -f "$FULL_PNG"
 
 echo "Done:"
 echo "  Full page : $FULL_PNG"

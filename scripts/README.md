@@ -30,14 +30,15 @@ Generates a preview image (cropped top portion) from a LilyPond file.
 - `--help` - Show help message
 
 **Output:**
-- `{basename}-full.png` - Full page PNG render
+- `{basename}-full.png` - Full page PNG render (can be deleted after preview creation)
 - `{basename}-preview.png` - Cropped preview image
-- `{basename}-full.midi` - MIDI file
 
 **Notes:**
 - Use higher `--percent` (45-55) for tunes with chords, lyrics, or multiple staves
 - The script uses macOS's native `sips` tool (no ImageMagick required)
 - Preview images are automatically detected by the index generator
+- MIDI generation is disabled during preview rendering (`-dno-midi` flag)
+- The full PNG can be deleted to save space (uncomment cleanup line in script)
 
 ### batch-generate-previews.py
 
