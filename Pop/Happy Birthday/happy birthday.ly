@@ -8,6 +8,7 @@
 \header {
   title = "Happy Birthday"
   composer = "Patty Hill and Mildred J. Hill (1893)"
+  country = "USA"
   style = "traditional"
     video = ""
   tagline = ""

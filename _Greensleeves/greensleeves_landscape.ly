@@ -3,6 +3,7 @@
 #(set-global-staff-size 32)
 \header {
   title = "Greensleeves"
+  country = "England"
   % Enlever le pied de page par défaut
   tagline = ##f
 }

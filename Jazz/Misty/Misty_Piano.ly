@@ -26,6 +26,7 @@
 \header {
 title = "Misty"
 composer = "Erroll Garner"
+  country = "USA"
 poet = "Johnny Burke"
 }
 

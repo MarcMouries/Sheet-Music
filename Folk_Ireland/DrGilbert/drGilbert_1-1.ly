@@ -7,6 +7,7 @@
   tagline = "Lily was here 2.24.4 -- automatically converted from ABC"
   title = "Dr. Gilbert's"
   composer = "Traditional"
+  country = "Ireland"
 }
 voicedefault =  \relative c''' {
 

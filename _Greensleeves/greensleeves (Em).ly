@@ -3,6 +3,7 @@
 \header {
 	title = "Greensleeves"
 	composer = "Traditional English"
+  country = "England"
 	style = "folk"
 	tagline = ""
 }

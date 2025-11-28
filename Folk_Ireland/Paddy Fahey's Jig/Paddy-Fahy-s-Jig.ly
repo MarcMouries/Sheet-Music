@@ -7,6 +7,7 @@
 \header {
   title = "Paddy Fahey's Jig"
   composer = "Traditional"
+  country = "Ireland"
   style = "jig"
 }
 

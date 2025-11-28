@@ -5,6 +5,7 @@
   title = "Blue Lou – Arpeggio Practice"
   subtitle = "Practice"
   composer = "practice etude"
+  country = "France"
   style = "gypsy jazz"
 }
 

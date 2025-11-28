@@ -15,6 +15,7 @@
   tagline = ""
   subtitle = "Israel's National Anthem"
   composer = "Traditional"
+  country = "Jewish"
 }
 
 global= {

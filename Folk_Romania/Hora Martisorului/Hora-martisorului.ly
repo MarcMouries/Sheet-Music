@@ -6,6 +6,7 @@
   title = "Hora Mărțișorului"
   subtitle = "(Little March Hora)"
   composer = "Grigoraș Dinicu (1889-1949)"
+  country = "Romania"
   style = "hora"
   tagline = ""
 }

@@ -3,6 +3,7 @@
 \header {
   title = "Sérénade"
   composer = "Mel Bonis (1858 – 1937)"
+  country = "France"
   style = "classical"
 }
 

@@ -12,6 +12,7 @@
 
 \header {
   title = "bug repeat "
+  country = "Finland"
   style = "finnish traditional"
 }
 

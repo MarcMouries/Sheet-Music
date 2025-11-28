@@ -8,6 +8,7 @@
   subtitle =  "From \"Midnight in Paris\""
   encodingdate =  "2018-10-19"
   composer =  "Stephane Wrembel"
+  country = "France"
   video = ""
   style = "gypsy jazz"
   tagline = ""

@@ -4,6 +4,7 @@
 \header {
   title = "Für Elise"
   composer = "Ludwig van Beethoven"
+  country = "Germany"
   style = "bagatelle"
   tagline = ""
 }

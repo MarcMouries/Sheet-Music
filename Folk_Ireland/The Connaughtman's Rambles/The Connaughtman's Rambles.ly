@@ -2,6 +2,7 @@
 \language "english"
 \header {
   title = "Connaughtman's Rambles, The"
+  country = "Ireland"
   thesession = "https://thesession.org/tunes/19#setting19"
   meter = "jig"
   tagline = ""

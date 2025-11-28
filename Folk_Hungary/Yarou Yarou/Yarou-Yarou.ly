@@ -4,6 +4,7 @@
 \header {
   title = "Yarou, Yarou"
   composer = "Traditional Hungarian"
+  country = "Hungary"
   style = "czardas"
   tagline = ""
 }

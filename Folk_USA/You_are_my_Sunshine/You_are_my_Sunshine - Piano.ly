@@ -3,6 +3,7 @@
 \header {
   title = "You are my Sunshine"
   composer = \markup \small \override #'(baseline-skip . 2.5) \center-column {
+  country = "USA"
     \line { "Words and music by"
   style = "american folk"
 }

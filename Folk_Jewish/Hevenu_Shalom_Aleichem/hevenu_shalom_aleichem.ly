@@ -6,6 +6,7 @@
   title = "הבאנו שלום עליכם"
   subtitle = "HEVENU SHALOM ALEICHEM"
   composer = "chant juif, XIX"
+  country = "Jewish"
   video = ""
   style = "klezmer"
 }

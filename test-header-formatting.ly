@@ -4,6 +4,7 @@
 \header {
   title = "The First Noël"
   composer = "18th Century French Melody"
+  country = "England"
   poet = "Traditional"
   style = "christmas carol"
   tagline = ""

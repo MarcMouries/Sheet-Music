@@ -10,6 +10,7 @@
   title = "Blues en Mineur"
   subtitle = "1949 Rome"
   composer = "Django Reinhardt"
+  country = "France"
   style = "gypsy jazz"
   video = "https://www.youtube.com/watch?v=EfnYL_lGSP0"
   tagline = ""

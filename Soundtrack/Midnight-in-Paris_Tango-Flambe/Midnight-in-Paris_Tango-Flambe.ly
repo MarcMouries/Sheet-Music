@@ -6,6 +6,7 @@
   title = "Tango Flambe"
   subtitle = "from Midnight in Paris"
   composer = "Novi Novog"
+  country = "France"
   style = "tango"
   tagline = ""
 }

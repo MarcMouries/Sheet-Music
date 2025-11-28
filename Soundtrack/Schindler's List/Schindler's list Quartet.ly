@@ -27,6 +27,7 @@
     title = "Schindler's List"
     subtitle = "From Steven Spielberg's Motion Picture 'Schindler's List'"
     composer = "John Williams"
+  country = "USA"
     poet = "arr. Caroline Jones"
     }
 

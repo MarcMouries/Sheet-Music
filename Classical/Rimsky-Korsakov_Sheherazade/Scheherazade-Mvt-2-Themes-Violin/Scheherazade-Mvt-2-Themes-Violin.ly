@@ -4,6 +4,7 @@
 \header{
   title = "Scheherazade – Mvt. 2: The Kalendar Prince"
   composer = "Nikolai Rimsky-Korsakov"
+  country = "Russia"
     style = "classical"
   tagline = ##f
 }

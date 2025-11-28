@@ -4,6 +4,7 @@
 \header {
   title = "Down To The River To Pray"
   composer = "Traditional American"
+  country = "USA"
   style = "spiritual"
   tagline = ""
 }

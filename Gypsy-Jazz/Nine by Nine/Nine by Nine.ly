@@ -3,6 +3,7 @@
 \header {
   title = "Nine by Nine"
   composer = "N. Picket"
+  country = "France"
   style = "gypsy jazz"
   tagline = ""
 }

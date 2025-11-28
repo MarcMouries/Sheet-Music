@@ -5,6 +5,7 @@
   title = "Odissea veneziana"
   subtitle = "Rondo Veneziano"
   composer = "G. P. Reverberi & D. Farina"
+  country = "Italy"
     style = "classical"
   tagline = ""
 }

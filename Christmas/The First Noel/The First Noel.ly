@@ -23,6 +23,7 @@ dropLyricsIV = {}
   title = "The First Noël"
   poet = "Traditional"
   composer = "18th Century French Melody"
+  country = "England"
   style = "christmas carol"
   tagline = \markup { "from" \italic {Christmas Carols, New and Old}}
 }

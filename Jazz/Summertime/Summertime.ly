@@ -3,6 +3,7 @@
 \header {
   title = "Summertime"
   composer = "G. Gershwin"
+  country = "USA"
   subtitle = "(from Porgy and Bess)"
     style = "jazz"
   tagline = ""

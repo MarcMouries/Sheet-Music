@@ -14,6 +14,7 @@
 \header {
   title = "Dr. Gilbert's"
   composer = "Traditional"
+  country = "Ireland"
     style = "irish traditional"
   tagline = ""
 }

@@ -6,6 +6,7 @@
 	title = "Коробейники (Korobeiniki)"
 	poet = "Nikolaï Alekseïevitch Nekrassov"
 	composer = "Trad. Russe"
+  country = "Russia"
 	arranger = ""
 	  style = "russian traditional"
   tagline = ""

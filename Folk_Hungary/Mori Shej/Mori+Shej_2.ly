@@ -4,6 +4,7 @@
   title = "Mori Shej"
   subtitle = "Mori Shej, Szabina (My Daughter Sabina)"
   composer = "József Balogh (Kályi Jág)"
+  country = "Hungary"
   style = "lullaby"
   origin = "Rom"
   tagline = ""

@@ -9,6 +9,7 @@
 \header {
     title = "Ievan polkka"
     composer = "Trad. Finish Folk Song"
+  country = "Finland"
   style = "finnish traditional"
 }
 

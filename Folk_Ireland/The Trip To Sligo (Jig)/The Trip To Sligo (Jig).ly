@@ -3,6 +3,7 @@
 \header {
   title = "The Trip To Sligo"
   composer = "Traditional"
+  country = "Ireland"
   style = "Jig"
   %subtitle = "https://thesession.org/tunes/397#setting13238"
   tagline = ""

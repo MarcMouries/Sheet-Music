@@ -5,6 +5,7 @@
 \header {
   title = "Erev shel Shoshanim"
   composer = "Yosef Hadar"
+  country = "Jewish"
   poet = "Moshe Dor"
     style = "klezmer"
   tagline = ""

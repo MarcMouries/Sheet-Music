@@ -7,6 +7,7 @@
   title    = "Eine Kleine Nachtmusik"
   subsubtitle = "Serenade No. 13 for strings in G major, K 525"
   composer = "W. A. Mozart"
+  country = "Austria"
   tagline  = ""
   arranger = \markup { \fontsize #-2.5 "arr. Marc Mouriès"}
 }

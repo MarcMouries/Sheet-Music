@@ -5,6 +5,7 @@
   title = "Hier Encore"
   subtitle = "Violino"
   composer = "Charles Aznavour"
+  country = "France"
   style = "chanson"
   tagline = ""
 }

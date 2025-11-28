@@ -6,6 +6,7 @@
 \header {
 title = "Bella ciao"
 composer = "Arrangements:Marc Mouries"
+  country = "Italy"
   style = "italian traditional"
 }
 

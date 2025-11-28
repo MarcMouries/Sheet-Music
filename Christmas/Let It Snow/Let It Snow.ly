@@ -3,6 +3,7 @@
 \header {
   title = "Let It Snow, Let It Snow, Let It Snow!"
   composer = "Jule Styne"
+  country = "USA"
   poet = "Sammy Cahn"
   style = "christmas song"
     video = ""

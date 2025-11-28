@@ -5,6 +5,7 @@
   title = "Jerusalem Ridge"
   subtitle = "https://youtu.be/JWySDSagHGU"
   composer = "Bill Monroe"
+  country = "USA"
   arranger = "As performed by Kenny Baker"
   style = "bluegrass"
   tagline = ""

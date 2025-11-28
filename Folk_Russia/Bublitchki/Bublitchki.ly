@@ -5,6 +5,7 @@
   title = "Bublitchki"
   subtitle = "Бублички"
   composer = "Traditional Russian"
+  country = "Russia"
   style = "klezmer"
   tagline = ""
 }

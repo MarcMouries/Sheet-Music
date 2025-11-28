@@ -6,6 +6,7 @@
   title = "L'Air Mignonne"
   subtitle = "barndance"
   composer = "Simon Riopel"
+  country = "Canada"
   style = "canadian traditional"
 }
 

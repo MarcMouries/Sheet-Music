@@ -7,6 +7,7 @@
   title = \markup \caps "You are my Sunshine"
   subtitle = "Words & Music by the Rice Brothers"
   composer = "Jimmie Davis and Charles Mitchell"
+  country = "USA"
   style = "old-time"
   tagline = ""
 }

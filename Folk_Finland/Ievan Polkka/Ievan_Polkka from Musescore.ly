@@ -28,6 +28,7 @@
     title = "Ievan Polkka"
     subtitle = "As sung by Loituma a cappella"
     composer = "Arr: Benjamin Tayehanpour"
+  country = "Finland"
     poet = "www.sandslott.org"
     }
 

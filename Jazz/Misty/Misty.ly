@@ -17,6 +17,7 @@
     title = "Misty"
     subtitle = "Music by Erroll Garner ★ Words by Johnny Burke"
     composer = "Erroll Garner"
+  country = "USA"
   style = "jazz"
   tagline = ""
  }

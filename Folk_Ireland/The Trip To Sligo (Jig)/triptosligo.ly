@@ -9,6 +9,7 @@
   tagline = "Lily was here 2.24.4 -- automatically converted from ABC"
   title = "Trip To Sligo"
   composer = "Traditional"
+  country = "Ireland"
   
 }
 voicedefault =  {

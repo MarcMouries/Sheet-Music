@@ -4,6 +4,7 @@
 \header {
   title = "Tango To Evora"
   composer = "Loreena McKennitt"
+  country = "Canada"
   style = "tango"
   tagline = ""
 }

@@ -4,6 +4,7 @@
 \header {
   title = "Numi numi - Hebrew Lullaby"
   composer = "Traditional Hebrew"
+  country = "Jewish"
   style = "lullaby"
   tagline = ""
 }

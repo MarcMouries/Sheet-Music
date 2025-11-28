@@ -74,6 +74,7 @@ def parse_lilypond_header(ly_file):
     metadata = {
         'title': ly_file.stem.replace('_', ' ').replace('-', ' '),
         'composer': '',
+        'country': '',
         'style': '',
         'key': '',
         'subtitle': '',
@@ -92,7 +93,7 @@ def parse_lilypond_header(ly_file):
                 header = header_match.group(1)
 
                 # Extract fields - try both simple string and \markup formats
-                for field in ['title', 'composer', 'style', 'subtitle', 'video']:
+                for field in ['title', 'composer', 'country', 'style', 'subtitle', 'video']:
                     # Try simple string format first: field = "value"
                     pattern = rf'{field}\s*=\s*"([^"]*)"'
                     match = re.search(pattern, header)
@@ -266,6 +267,7 @@ def scan_repository():
         tune_info = {
             'title': metadata['title'],
             'composer': metadata['composer'],
+            'country': metadata['country'],
             'category': category,
             'style': metadata['style'],
             'key': metadata['key'],
@@ -1162,9 +1164,10 @@ def generate_html(tunes):
                     <tr>
                         <th onclick="sortTable(0)">Title</th>
                         <th onclick="sortTable(1)">Composer</th>
-                        <th onclick="sortTable(2)">Collection</th>
-                        <th onclick="sortTable(3)">Style</th>
-                        <th onclick="sortTable(4)">Key</th>
+                        <th onclick="sortTable(2)">Country</th>
+                        <th onclick="sortTable(3)">Collection</th>
+                        <th onclick="sortTable(4)">Style</th>
+                        <th onclick="sortTable(5)">Key</th>
                         <th onclick="sortTable(5)">Difficulty</th>
                         <th onclick="sortTable(6)">Modified</th>
                         <th>Files</th>
@@ -1196,6 +1199,7 @@ def generate_html(tunes):
             html_output += f"""<br><small style="color: #7f8c8d;">{html.escape(tune['subtitle'])}</small>"""
         html_output += f"""</td>
                     <td>{html.escape(tune['composer']) if tune['composer'] else '—'}</td>
+                    <td>{html.escape(tune['country']) if tune['country'] else '—'}</td>
                     <td><span class="category {category_class}">{html.escape(tune['category'])}</span></td>
                     <td>{html.escape(tune['style'].title()) if tune['style'] else '—'}</td>
                     <td>{html.escape(tune['key']) if tune['key'] else '—'}</td>

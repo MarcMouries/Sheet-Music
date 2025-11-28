@@ -9,6 +9,7 @@
 
 \header {
   title = "Blues en Mineur"
+  country = "France"
   subtitle = "Chords & Arpgeggios"
   style = "gypsy jazz"
 }

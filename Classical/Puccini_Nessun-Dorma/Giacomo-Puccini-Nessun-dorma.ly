@@ -5,6 +5,7 @@
   title    = "Nessun dorma"
   subtitle = "dall'opera \"Turandot\""
   composer = "Giacomo Puccini"
+  country = "Italy"
   poet     = "Giuseppe Adami, Renato Simoni"
     style = "classical"
   tagline  = ""

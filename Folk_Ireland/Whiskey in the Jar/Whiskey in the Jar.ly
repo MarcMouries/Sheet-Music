@@ -4,6 +4,7 @@
 \header {
   title = "Kilgary Mountain"
   composer = "Ireland, ca. 1870"
+  country = "Ireland"
     video = ""
     style = "irish traditional"
   tagline = ""

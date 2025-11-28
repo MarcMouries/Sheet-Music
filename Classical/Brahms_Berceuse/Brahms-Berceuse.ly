@@ -5,6 +5,7 @@
   title = "Wiegenlied (Lullaby / Berceuse)"
   subtitle = "aus \"Des Knaben Wunderhorn\""
   composer = "Johannes Brahms (1833–1897)"
+  country = "Germany"
   poet = "Volkslied"
     video = ""
     style = "classical"

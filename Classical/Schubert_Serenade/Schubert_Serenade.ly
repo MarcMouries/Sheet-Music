@@ -4,6 +4,7 @@
 \header {
   % "Serenade D. 957 No. 4"
   composer = "Franz Schubert"
+  country = "Austria"
   title = "Serenade"
   subtitle = "D. 957 No. 4"
   composer = "Franz Schubert"

@@ -4,6 +4,7 @@
 \header {
   title = "Brandenburg Concerto No. 3"
   composer = "Johann Sebastian Bach"
+  country = "Germany"
   opus = "BWV 1048"
   style = "concerto"
   tagline = ""

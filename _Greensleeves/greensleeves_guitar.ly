@@ -3,6 +3,7 @@
 \header {
   title = "Greensleeves"
   composer = "Traditional"
+  country = "England"
   mutopiacomposer = "Traditional"
   arranger = "David Kastrup"
   instrument = "vocals, guitar"

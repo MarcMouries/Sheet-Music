@@ -3,6 +3,7 @@
 \header {
   title = "Irish  Medley"
   composer = "Martin Hayes"
+  country = "Ireland"
   style = "medley"
 }
 

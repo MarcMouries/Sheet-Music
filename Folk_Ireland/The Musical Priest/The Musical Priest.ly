@@ -13,6 +13,7 @@
 \header {
   title = "The Musical Priest"
   composer = "Trad. Irish"
+  country = "Ireland"
   style = "irish traditional"
   tagline = ##f       % Remove default LilyPond tagline
   subtitle = "As played by Sheila Falls"

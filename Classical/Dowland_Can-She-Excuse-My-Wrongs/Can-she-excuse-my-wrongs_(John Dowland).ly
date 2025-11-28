@@ -4,6 +4,7 @@
 \header {
   title = "Can she excuse my wrongs"
   composer = "John Dowland (1563--1626)"
+  country = "England"
   style = "renaissance"
     video = ""
   tagline = ""

@@ -4,6 +4,7 @@
 \header {
   title = "Sous le ciel de Paris"
   composer = "Hubert Giraud"
+  country = "France"
   poet = "Jean Dréjac"
   style = "french chanson"
     video = ""

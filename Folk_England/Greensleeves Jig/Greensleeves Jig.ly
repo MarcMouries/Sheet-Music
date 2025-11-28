@@ -5,6 +5,7 @@
   title = "Greensleeves Jig"
   subtitle = "Jig arrangement"
   composer = "Traditional English"
+  country = "England"
   style = "jig"
   video = "https://www.youtube.com/watch?v=4aDK9qdoWpk"
   tagline = ""

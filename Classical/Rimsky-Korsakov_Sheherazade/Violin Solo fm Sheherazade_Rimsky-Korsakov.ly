@@ -5,6 +5,7 @@
 \header {
   title = "Violin Solo from Sheherazade"
   composer = "Nikolai Rimsky-Korsakov (1844 – 1908)"
+  country = "Russia"
   encodingsoftware = "MuseScore 2.0.1"
   encodingdate = "2015-10-24"
   style = "classical"

@@ -5,6 +5,7 @@
   title = "Star Spangled Banner"
   subtitle = "The National Anthem of the United States"
   composer = "John Stafford Smith"
+  country = "USA"
   poet = "Francis Scott Key"
   style = "anthem"
   tagline = ""

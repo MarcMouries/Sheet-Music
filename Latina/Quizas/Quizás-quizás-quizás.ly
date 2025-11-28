@@ -4,6 +4,7 @@
 \header {
   title = "Quizás, quizás, quizás"
   composer = "Osvaldo Farres"
+  country = "Cuba"
 }
 
 global = {

@@ -6,6 +6,7 @@
   piece = "Traditional"
   mutopiatitle = "Devil's Dream"
   mutopiacomposer = "Traditional"
+  country = "USA"
   mutopiainstrument = "Violin, Guitar"
   source = "Transcribed by ear (no copyright)"
   style = "Folk"

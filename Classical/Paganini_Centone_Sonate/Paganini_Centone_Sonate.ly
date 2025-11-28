@@ -4,6 +4,7 @@
 \header {
   title = "Centone di Sonate"
   composer = "Niccolò Paganini (1782-1840)"
+  country = "Italy"
   opus = "Op. 64"
   style = "sonata"
   tagline = ""

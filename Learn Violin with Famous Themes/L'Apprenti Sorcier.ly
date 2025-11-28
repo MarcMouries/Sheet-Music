@@ -8,6 +8,7 @@
 %   title    = "L'Apprenti Sorcier / The Sorcerer's Apprentice"
 %  subtitle = "Scherzo after a ballad by Goethe"
 %  composer = "Paul Dukas"
+  country = "France"
 %  tagline = ##f
 %}
 

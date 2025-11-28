@@ -6,6 +6,7 @@
   title = "La Rose Jaune"
   subtitle = "As performed by Yoska Nemeth"
   composer = "Traditional Hungarian"
+  country = "Hungary"
   style = "folk tune"
   tagline = ""
 }

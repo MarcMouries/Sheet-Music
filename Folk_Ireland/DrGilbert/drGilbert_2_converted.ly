@@ -3,6 +3,7 @@
 \header {
 	title = "Dr. Gilbert"
 	composer = "Traditional"
+  country = "Ireland"
 	footnotes = "Traditional Irish Fiddle Tunes. Randy Miller and Jack Perron."
 	style = "irish traditional"
 	tagline = ""

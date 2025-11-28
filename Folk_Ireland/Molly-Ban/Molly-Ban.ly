@@ -5,6 +5,7 @@
 \header {
   title = "Molly Bán"
   composer = "Traditional"
+  country = "Ireland"
   subtitle = "aka Fair-Haired Molly"
   composer = "Trad. Irish"
   style = "reel"

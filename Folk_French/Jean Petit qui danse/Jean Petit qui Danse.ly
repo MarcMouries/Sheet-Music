@@ -6,6 +6,7 @@
 \header {
   title = "Jean Petit qui danse"
   composer = "Traditional French"
+  country = "France"
   style = "children's song"
   tagline = ""
 }

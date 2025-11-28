@@ -10,6 +10,7 @@
         subtitle = "La Stravaganza - Concerto op.4 No.6 in G minor RV316a"
         piece = "1. Allegro"
         composer = "Antonio Vivaldi (1678 – 1741)"
+  country = "Italy"
          date = "1720"
         style = "Baroque"
         maintainer = "Hajo Dezelski"

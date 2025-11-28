@@ -13,6 +13,7 @@
 \header {
   title = "Ievan Polkka"
   composer ="Trad. Finnish"
+  country = "Finland"
   style = "finnish traditional"
 }
 

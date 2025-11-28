@@ -6,6 +6,7 @@
 \header {
   title = "Darby O' Gill - Fox Chase"
   composer = "Traditional"
+  country = "Ireland"
   subtitle = "Irish Jig – Ornamented (top) vs Plain (bottom)"
   style = "irish traditional"
 }

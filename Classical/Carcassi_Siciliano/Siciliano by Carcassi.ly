@@ -4,6 +4,7 @@
 \header {
   title = "Siciliana"
   composer = "Matteo Carcassi"
+  country = "Italy"
   opus = "Opus 59, No. 22"
   style = "classical"
 }

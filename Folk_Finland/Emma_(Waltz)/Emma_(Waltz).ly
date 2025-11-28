@@ -6,6 +6,7 @@
 \header {
   title    = "Emma's Waltz"
   composer = "Traditional Finnish"
+  country = "Finland"
   style = "waltz"
 }
 

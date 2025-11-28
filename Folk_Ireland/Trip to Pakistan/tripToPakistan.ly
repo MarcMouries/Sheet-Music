@@ -4,6 +4,7 @@
 \header {
 	title     = "Trip To Pakistan, The"
 	%composer  =  "tr. Maxence Mouries"
+  country = "Ireland"
   style = "irish traditional"
 }}
 	composer  =  "by Niall Kenny"

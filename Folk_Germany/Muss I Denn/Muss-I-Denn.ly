@@ -3,6 +3,7 @@
 \header {
   title = "Muss I Denn"
   composer = "Traditional German"
+  country = "Germany"
   style = "folk song"
   tagline = ""
 }

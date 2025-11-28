@@ -3,6 +3,7 @@
 \header {
   title = "Swallowtail Jig"
   composer = "Traditional"
+  country = "Ireland"
   video = ""
   style = "jig"
 }

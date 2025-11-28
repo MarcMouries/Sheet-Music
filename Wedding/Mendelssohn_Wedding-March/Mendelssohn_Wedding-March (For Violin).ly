@@ -5,6 +5,7 @@
   title    = "Wedding March"
   subtitle = "Adapted from \"A Midsummer Night's Dream\""
   composer = "Felix Mendelssohn (1809–1847)"
+  country = "Germany"
   arranger = "Violin adaptation"
   tagline  = ""
 }

@@ -10,6 +10,7 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
   title = "Minor Swing"
   subtitle = "Christiaan van Hemert"
   composer = "Django Reinhardt & Stéphane Grappelli"
+  country = "France"
     video = ""
     style = "gypsy jazz"
   tagline = ##f     % Remove default LilyPond tagline

@@ -3,6 +3,7 @@
 
 \header {
   title = "Blues en Mineur"
+  country = "France"
   style = "gypsy jazz"
 }
 

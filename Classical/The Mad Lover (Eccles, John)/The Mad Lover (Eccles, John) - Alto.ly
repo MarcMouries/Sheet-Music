@@ -5,6 +5,7 @@
   title = "The Mad Lover"
   subtitle = "5. Aire"
   composer = "John Eccles"
+  country = "England"
   instrument = "Viola"
     style = "classical"
   tagline = ##f

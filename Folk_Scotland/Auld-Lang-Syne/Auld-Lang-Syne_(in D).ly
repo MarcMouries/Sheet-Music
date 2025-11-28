@@ -6,6 +6,7 @@
   title = "Auld Lang Syne"
   subtitle = "in D major"
   composer = "Traditional Scottish"
+  country = "Scotland"
   style = "air"
   tagline = ""
 }

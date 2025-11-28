@@ -4,6 +4,7 @@
 \header {
   title = "Gari Gari"
   composer = "Traditional Hungarian"
+  country = "Hungary"
   style = "folk dance"
   tagline = ""
 }

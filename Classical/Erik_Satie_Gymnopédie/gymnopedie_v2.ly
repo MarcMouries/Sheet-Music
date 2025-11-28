@@ -5,6 +5,7 @@
 \header{
   title = "1ere. Gymnopédie"
   composer = "Erik Satie (1866--1925)"
+  country = "France"
   style = "classical"
   tagline = ""
 }

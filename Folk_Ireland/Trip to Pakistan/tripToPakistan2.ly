@@ -5,6 +5,7 @@
 	footnotes = ""
 	title = "Trip To Pakistan, The"
 	composer = "Niall Kenny"
+  country = "Ireland"
 	style = "irish traditional"
 	tagline = ""
 }

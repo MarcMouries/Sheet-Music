@@ -16,6 +16,7 @@
         title = "Wedding March (For Organ)"
         subtitle = "From \"A Midsummer Night's Dream\""
         composer = "Felix Mendelssohn (1809–1847)"
+  country = "Germany"
         style = "wedding"
         tagline = ""
 

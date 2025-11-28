@@ -7,6 +7,7 @@
 \header {
   title = "The Mad Lover"
   composer = "John Eccles"
+  country = "England"
   style = "classical"
 }
 

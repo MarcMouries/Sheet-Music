@@ -11,6 +11,7 @@
   title = "Basso - Gypsy in Am"
   subtitle = "Duet for 2 violins - Preview"
   composer = "Traditional Hungarian"
+  country = "Hungary"
   style = "csardas"
   arranger = "Arranged by Marc Mouries"
   tagline = ""

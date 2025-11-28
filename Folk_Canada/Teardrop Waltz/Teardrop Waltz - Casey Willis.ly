@@ -5,6 +5,7 @@
 	footnotes = ""
 	title    = "Teardrop Waltz"
         composer = "Reg Bouvette"
+  country = "Canada"
 	arranger = "Casey Willis"
 	  style = "waltz"
   tagline  = ""

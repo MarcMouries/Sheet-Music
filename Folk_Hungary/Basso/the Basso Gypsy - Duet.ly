@@ -13,6 +13,7 @@
   title     = "Basso - Gypsy in Am"
   subtitle = "Duet for 2 violins"
   composer = "Traditional Hungarian"
+  country = "Hungary"
   style = "csardas"
   %instrument = "Violin I"
   arranger = "Arranged by Marc Mouries"

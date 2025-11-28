@@ -16,6 +16,7 @@
 \header {
     title = "Misty"
     composer = "Erroll Garner"
+  country = "USA"
     subtitle = "Words by Johnny Burke"
     style = "jazz"
     tagline = ""

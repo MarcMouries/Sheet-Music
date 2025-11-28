@@ -3,6 +3,7 @@
 
 \header {
  title = "Si Tu Savais"
+  country = "France"
   style = "gypsy jazz"
 }
 

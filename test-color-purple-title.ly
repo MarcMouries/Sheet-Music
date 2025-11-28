@@ -4,6 +4,7 @@
   title = "Color Purple"
   subtitle = "from The Color Purple (1985)"
   composer = "Quincy Jones"
+  country = "USA"
   arranger = "transcription by Maxence Mouriès"
   style = "soundtrack"
   tagline = ""

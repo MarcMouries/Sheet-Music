@@ -22,6 +22,7 @@
 }
 \header {  title = "Rythmes Gitans"
   composer = "Traditional"
+  country = "France"
   tagline = ##f }
 
 

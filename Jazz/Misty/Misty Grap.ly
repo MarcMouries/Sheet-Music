@@ -9,6 +9,7 @@
 \header {
   title = "Misty"
   composer = "Erroll Garner"
+  country = "USA"
   subtitle = "Stéphane Grappelli arrangement"
   opus = "transcribed by Marc Mouries"
   style = "jazz"

@@ -4,6 +4,7 @@
 \header {
   title = "Gary Owen"
   composer = "Traditional Irish"
+  country = "Ireland"
   style = "jig"
   tagline = ""
 }

@@ -8,6 +8,7 @@
   title = "Blue Lou"
   subtitle = \markup \small "transcribed by Marc"
   composer = "Stephane Grappelli"
+  country = "France"
   opus = "1947 in Paris"
   % Stephane Grappelli 26.03.1947
   style = "gypsy jazz"

@@ -6,6 +6,7 @@
   title = "Badinerie"
   subtitle = "From Orchestral Suite No. 2 in B minor"
   composer = "J. S. Bach (1685-1750)"
+  country = "Germany"
   opus = "BWV 1067"
   style = "suite movement"
   tagline = ""

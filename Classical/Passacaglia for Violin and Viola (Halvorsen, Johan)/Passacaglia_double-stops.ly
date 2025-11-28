@@ -5,6 +5,7 @@
   title = "Passacaglia - Double-stops"
   subtitle = "After Handel's Harpsichord Suite No. 7"
   composer = "Johan Halvorsen (1864-1935)"
+  country = "Norway"
   style = "passacaglia"
   tagline = ""
 }

@@ -6,6 +6,7 @@
 \header {
   title = "The Butterfly"
   composer = "Tommy Potts"
+  country = "Ireland"
   style = "slip jig"
   session = ""
   tagline = ""

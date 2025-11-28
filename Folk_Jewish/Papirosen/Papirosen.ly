@@ -7,6 +7,7 @@
   instrument = "Violin"
     style = "klezmer"
   composer = "Traditional"
+  country = "Jewish"
   tagline = ##f  % Remove default LilyPond tagline
 }
 

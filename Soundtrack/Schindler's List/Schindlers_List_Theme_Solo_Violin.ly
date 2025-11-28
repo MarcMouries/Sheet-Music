@@ -27,6 +27,7 @@
 \header {
     title = "Theme from Schindler's List"
     composer = "John Williams"
+  country = "USA"
     dedication = "For Itzhak Perlman"
 }
 

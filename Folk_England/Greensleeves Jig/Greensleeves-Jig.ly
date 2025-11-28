@@ -4,6 +4,7 @@
 \header {
   title = "Greensleeves Jig"
   composer = "Traditional"
+  country = "England"
     style = "jig"
   tagline = ""
 }
