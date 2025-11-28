@@ -14,17 +14,26 @@
   video = "https://www.youtube.com/watch?v=29AUiWEPs3o"
 }
 
+
+colorRed =
+#(define-music-function (parser location music) (ly:music?)
+   #{
+     \override NoteHead.color = #(x11-color 'red)
+     \override Stem.color     = #(x11-color 'red)
+     $music
+     \revert NoteHead.color
+     \revert Stem.color
+   #})
+
 melody =  {
   \time 4/4 
   \key e \dorian
   \repeat volta 2 {
-    e'8    b'8    b'8     a'8    b'8 \override NoteHead.color = #red
- d''8
- \override NoteHead.color = #black    a'8    g'8
-    fs'8   d'8    a'8     d'8    b'8    d'8    a'8      
-    \override NoteHead.color = #red
- fs'8
- \override NoteHead.color = #black
+    e'8    b'8    b'8     a'8    b'8 \colorRed {  d''8 }
+     a'8    g'8
+    fs'8   d'8    a'8     d'8    b'8    d'8    a'8
+    \colorRed {  fs'8 }
+
     e'8    b'8    b'8     a'8    b'4    b'8    cs''8
     d''8   b'8    a'8     fs'8   b'8    a'8    g'8    fs'8
     e'8    b'8    b'8     a'8    b'4    a'8    g'8
