@@ -1,10 +1,11 @@
-\version "2.7.40"
+\version "2.24.0"
+
 \header {
   title = "Up Sligo"
   composer = "Traditional"
   footnotes = ""
-  %subtitle = "https://thesession.org/tunes/537#setting13483"
-  style = "irish traditional"
+  source = "https://thesession.org/tunes/537#setting13483"
+  style = "jig"
   tagline = ""
 }
 voicedefault =  {
