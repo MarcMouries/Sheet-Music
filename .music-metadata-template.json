@@ -2,47 +2,47 @@
   "Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase.ly": {
     "difficulty": 4,
     "tags": [
-      "celtic",
-      "jig",
+      "irish",
       "traditional",
-      "irish"
+      "celtic",
+      "jig"
     ],
     "notes": "Add your notes here"
   },
   "Folk_Ireland/Darby-O-Gill_Fox-Chase/darby.ly": {
     "difficulty": 2,
     "tags": [
-      "celtic",
       "irish",
-      "traditional"
+      "traditional",
+      "celtic"
     ],
     "notes": "Add your notes here"
   },
   "Folk_Ireland/DrGilbert/drGilbert_2_converted.ly": {
     "difficulty": 2,
     "tags": [
-      "celtic",
       "irish",
-      "traditional"
+      "traditional",
+      "celtic"
     ],
     "notes": "Add your notes here"
   },
   "Folk_Ireland/DrGilbert/drGilbert_1.ly": {
     "difficulty": 4,
     "tags": [
-      "celtic",
       "irish",
-      "traditional"
+      "traditional",
+      "celtic"
     ],
     "notes": "Add your notes here"
   },
   "Folk_Ireland/DrGilbert/drGilbert_1-1.ly": {
     "difficulty": 2,
     "tags": [
-      "celtic",
       "irish",
       "traditional",
-      "reel"
+      "reel",
+      "celtic"
     ],
     "notes": "Add your notes here"
   }

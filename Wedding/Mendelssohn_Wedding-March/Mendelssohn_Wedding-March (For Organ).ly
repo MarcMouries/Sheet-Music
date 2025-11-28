@@ -1,4 +1,4 @@
-\version "2.19.65"
+\version "2.24.0"
 
 \paper {
     page-top-space = #0.0
@@ -14,10 +14,10 @@
 
 \header {
         title = "Wedding March (For Organ)"
-        subtitle = "From \"A Midsummer Night's Dream\""
+        subtitle = "From A Midsummer Night's Dream"
         composer = "Felix Mendelssohn (1809–1847)"
   country = "Germany"
-        style = "wedding"
+        style = "march"
         tagline = ""
 
         % Original metadata preserved

@@ -1,11 +1,10 @@
-\version "2.19.14"
+\version "2.24.0"
 \language "english"
 
 %  - http://folksongcollector.com/sunshine.html"
 
 \header {
-  title = \markup \caps "You are my Sunshine"
-  subtitle = "Words & Music by the Rice Brothers"
+  title = "You are my Sunshine"
   composer = "Jimmie Davis and Charles Mitchell"
   country = "USA"
   style = "old-time"
