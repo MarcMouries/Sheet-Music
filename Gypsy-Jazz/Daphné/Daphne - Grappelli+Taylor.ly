@@ -1,12 +1,14 @@
+\version "2.24.0"
 \include "../../common/includes.ly"
 \include "../../common/markups.ly"
 
 \header {
   title = "Daphné"
   composer = "Django Reinhardt"
-  arranger = "Grappelli + Taylor arrangement"
+  arranger = "As played by Grappelli & Taylor"
   style = "gypsy jazz"
   tagline = ""
+  video = ""
 }
 
 global = {
