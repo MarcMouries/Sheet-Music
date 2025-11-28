@@ -11,11 +11,12 @@
   indent = 0
 }
 \header {
-    style = "irish traditional"
-  tagline = ##f       % Remove default LilyPond tagline
   title = "The Musical Priest"
-  composer = "Trad. Celtic"
-  subtitle = "Sheila Falls"
+  composer = "Trad. Irish"
+  style = "irish traditional"
+  tagline = ##f       % Remove default LilyPond tagline
+  subtitle = "As played by Sheila Falls"
+  video = "https://www.youtube.com/watch?v=Zxl3ZtpdBA0"
 }
 \markup {
   \vspace #2
