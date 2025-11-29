@@ -8,7 +8,9 @@
   style = "spiritual"
   tagline = ""
 }
-
+\layout {
+  indent = 10\mm
+}
 global = {
   \time 2/4
   \key e \major
