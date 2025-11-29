@@ -1,12 +1,13 @@
-\version "2.12.3"
+\version "2.24.0"
+\language "english"
 
 \include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
-  title = "Kilgary Mountain"
-  composer = "Ireland, ca. 1870"
+  title = "Whiskey in the Jar"
+  composer = "Traditional Irish"
   country = "Ireland"
     video = ""
-    style = "irish traditional"
+    style = "folk song"
   tagline = ""
 }
 

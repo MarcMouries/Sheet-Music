@@ -4,12 +4,11 @@
 \header {
   title = "Badinerie"
   subtitle = "Orchestral Suite No. 2 in B minor"
-  composer = "Johann Sebastian Bach (1685–1750)
+  composer = "Johann Sebastian Bach (1685–1750)"
   country = "Germany"
-"
   opus = "BWV 1067"
   style = "baroque"
-    video = ""
+  video = ""
   tagline = ""
 }
 
