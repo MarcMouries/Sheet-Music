@@ -1,17 +1,13 @@
-\version "2.19.83"
+\version "2.24.0"
+\language "english"
 
 \header {
   title = "Reflections"
   composer = "Toshifumi Hinata"
   country = "Japan"
-  %% https://musescore.com/user/32906016/scores/6209292
-  subtitle = \markup \concat  {
-    "Youtube: "
-    \underline
-    \with-url #"https://www.youtube.com/watch?v=MJenceQ9IEw" "Toshifumi Hinata-Reflections"
   style = "classical"
-}
-  % Do not display the default LilyPond footer for this book
+  video = "https://www.youtube.com/watch?v=MJenceQ9IEw"
+  tagline = ""
 }
 
 \paper {

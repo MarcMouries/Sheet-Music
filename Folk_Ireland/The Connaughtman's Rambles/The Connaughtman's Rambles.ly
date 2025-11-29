@@ -1,10 +1,11 @@
 \version "2.24.0"
 \language "english"
 \header {
-  title = "Connaughtman's Rambles, The"
+  title = "The Connaughtman's Rambles"
+  composer = "Traditional"
   country = "Ireland"
-  thesession = "https://thesession.org/tunes/19#setting19"
-  meter = "jig"
+  style = "jig"
+  session = "https://thesession.org/tunes/19#setting19"
   tagline = ""
 }
 

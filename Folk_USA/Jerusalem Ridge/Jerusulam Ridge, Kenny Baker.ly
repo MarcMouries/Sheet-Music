@@ -1,13 +1,14 @@
-\version "2.19.53"
+\version "2.24.0"
+\language "english"
 
 \include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
   title = "Jerusalem Ridge"
-  subtitle = "https://youtu.be/JWySDSagHGU"
   composer = "Bill Monroe"
   country = "USA"
   arranger = "As performed by Kenny Baker"
   style = "bluegrass"
+  video = "https://youtu.be/JWySDSagHGU"
   tagline = ""
 }
 

@@ -1,16 +1,13 @@
-\version "2.7.40"
+\version "2.24.0"
 \language "english"
 
 \header {
-  crossRefNumber = "18"
-  footnotes = ""
-  style = "jig"
-  subtitle = "https://thesession.org/tunes/397#setting54304"
-  tagline = "Lily was here 2.24.4 -- automatically converted from ABC"
-  title = "Trip To Sligo"
+  title = "The Trip To Sligo"
   composer = "Traditional"
   country = "Ireland"
-  
+  style = "jig"
+  session = "https://thesession.org/tunes/397#setting54304"
+  tagline = ""
 }
 voicedefault =  {
   \set Score.measureBarType = ""

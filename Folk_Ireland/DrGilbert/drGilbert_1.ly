@@ -8,14 +8,14 @@
 }
 
 
-\version "2.14.0"
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\version "2.24.0"
 \language "english"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
   title = "Dr. Gilbert's"
   composer = "Traditional"
   country = "Ireland"
-    style = "irish traditional"
+  style = "reel"
   tagline = ""
 }
 %#(set-global-staff-size 20)

@@ -1,11 +1,11 @@
-\version "2.14.0"
+\version "2.24.0"
+\language "english"
 \include "../../stylesheets/stylesheet_fiddle.ly"
 \header {
-	title = "Dr. Gilbert"
+	title = "Dr. Gilbert's"
 	composer = "Traditional"
   country = "Ireland"
-	footnotes = "Traditional Irish Fiddle Tunes. Randy Miller and Jack Perron."
-	style = "irish traditional"
+	style = "reel"
 	tagline = ""
 }
 

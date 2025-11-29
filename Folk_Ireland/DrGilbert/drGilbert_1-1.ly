@@ -1,13 +1,12 @@
-\version "2.7.40"
+\version "2.24.0"
+\language "english"
 \include "../../stylesheets/stylesheet_fiddle.ly"
-\include "english.ly"
 \header {
-  footnotes = ""
-  style = "reel"
-  tagline = "Lily was here 2.24.4 -- automatically converted from ABC"
   title = "Dr. Gilbert's"
   composer = "Traditional"
   country = "Ireland"
+  style = "reel"
+  tagline = ""
 }
 voicedefault =  \relative c''' {
 

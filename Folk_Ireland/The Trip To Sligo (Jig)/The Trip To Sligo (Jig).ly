@@ -1,11 +1,11 @@
-\version "2.7.40"
-\include "english.ly"
+\version "2.24.0"
+\language "english"
 \header {
   title = "The Trip To Sligo"
   composer = "Traditional"
   country = "Ireland"
-  style = "Jig"
-  %subtitle = "https://thesession.org/tunes/397#setting13238"
+  style = "jig"
+  session = "https://thesession.org/tunes/397#setting13238"
   tagline = ""
 }
 
