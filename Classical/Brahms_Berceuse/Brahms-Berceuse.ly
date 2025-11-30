@@ -7,14 +7,14 @@
   composer = "Johannes Brahms (1833–1897)"
   country = "Germany"
   poet = "Volkslied"
-    video = ""
-    style = "classical"
+  video = ""
+  style = "classical"
   tagline = ##f
 }
 
 \paper {
   indent = 0
-  #(set-paper-size "a4")
+  %#(set-paper-size "a4")
 }
 
 melody = \relative c'' {

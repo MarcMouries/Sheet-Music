@@ -16,7 +16,7 @@
     \column {
       \fill-line {
         \override #'(font-name . "Garamond Premier Pro Semibold")
-        \abs-fontsize #15
+        \fontsize #2
         \smallCaps \fromproperty #'header:title
       }
       \fill-line {

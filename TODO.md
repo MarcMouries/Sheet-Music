@@ -1,8 +1,18 @@
 # Sheet Music Repository - TODO List
 
-- [] some files like  The Connaughtman's Rambles don't have a preview
-- [] check new files like Bear Dance
+- [] some files like The Connaughtman's Rambles don't have a preview
+- [] check new files that i just added like Bear Dance
+- [] check all the files that have transposed version (they use the \transpose keyword) and let's make them look nice like "Erev shel Shoshanim"
+- [] work on having a common bookTitleMarkup that we can inport in files
+- [] finish "Can she excuse my wrongs", find music on imlsp
 - [] Add difficulty to tunes
+- [] we want all the files to use the same tagline "tagline  = ##f". Can we put that into a common file?
+- [] check header of:  "Numi numi - Hebrew Lullaby", "Chosen Kalle Mazel Tov"
+
+
+
+
+
 
 **Last Updated:** 2025-11-25
 
@@ -25,7 +35,7 @@
 ### Repository Organization
 
 - [x] Reorganized repository structure:
-  - Renamed Trad_* folders to Folk_*
+  - Renamed Trad_*folders to Folk_*
   - Split Celtic folder by country (Ireland, Scotland)
   - Created proper folder hierarchy
 

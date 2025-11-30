@@ -6,7 +6,7 @@
   country = "USA"
   poet = "Sammy Cahn"
   style = "christmas song"
-    video = ""
+  video = ""
   tagline = ""
 }
 Strophe = \relative c' {
@@ -21,26 +21,26 @@ Strophe = \relative c' {
 }
 
 Text = \lyricmode {
-	\set stanza = #"1. "
-	Oh the wea -- ther out -- side is fright -- ful
-	But the fire is so de -- light -- ful.
-	And since we've no place to go,
-	Let it snow! Let it snow! Let it snow!
-	\set stanza = #"2. "
-	It does -- n't show signs of stop -- ping
-	And I brought some corn for pop -- ing.
-	The lights are turned way down low,
-	Let it snow! Let it snow! Let it snow!
+  \set stanza = #"1. "
+  Oh the wea -- ther out -- side is fright -- ful
+  But the fire is so de -- light -- ful.
+  And since we've no place to go,
+  Let it snow! Let it snow! Let it snow!
+  \set stanza = #"2. "
+  It does -- n't show signs of stop -- ping
+  And I brought some corn for pop -- ing.
+  The lights are turned way down low,
+  Let it snow! Let it snow! Let it snow!
 
-	When we fin -- al -- ly kiss good night,
-	How I'll hate go -- ing out in the storm!
-	But if you'll real -- ly hold me tight
-	All the way home I'll be warm.
-	\set stanza = #"3. "
-	The fi -- re is slow -- ly dy -- ing
-	And my dear, we're still good -- bye -- ing.
-	But_as long as you love me so,
-	Let it snow! Let it snow! Let it snow!
+  When we fin -- al -- ly kiss good night,
+  How I'll hate go -- ing out in the storm!
+  But if you'll real -- ly hold me tight
+  All the way home I'll be warm.
+  \set stanza = #"3. "
+  The fi -- re is slow -- ly dy -- ing
+  And my dear, we're still good -- bye -- ing.
+  But_as long as you love me so,
+  Let it snow! Let it snow! Let it snow!
 }
 
 Melodie = \relative c' {
@@ -49,13 +49,13 @@ Melodie = \relative c' {
   \time 2/2
   \partial 4
   c8 c \mark "A"
-%  \mark \markup { \musicglyph #"scripts.segno" }
-%  \repeat volta 2 {
+  %  \mark \markup { \musicglyph #"scripts.segno" }
+  %  \repeat volta 2 {
   \Strophe
- % }
+  % }
 
   c4 \mark "B"
- % \bar "||"
+  % \bar "||"
   \Strophe
   e8. f16 \mark "C"
   g8. a16 g4 e c'
@@ -67,7 +67,7 @@ Melodie = \relative c' {
   c8. b16 a4 b a8. b16
   c2. c,4
   \mark "D"
-%  \bar "||"
+  %  \bar "||"
   \Strophe
   \bar "|."
 }
@@ -75,12 +75,11 @@ Melodie = \relative c' {
 
 
 \score {
-	<<
+  <<
     \new Voice = "eins" {
-    \transpose c d \Melodie
- 	\Melodie
+      \transpose c d \Melodie \Melodie
     }
-  \new Lyrics \lyricsto "eins" \Text
+    \new Lyrics \lyricsto "eins" \Text
 
   >>
   \layout { }

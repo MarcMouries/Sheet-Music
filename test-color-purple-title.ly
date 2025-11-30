@@ -5,30 +5,29 @@
   subtitle = "from The Color Purple (1985)"
   composer = "Quincy Jones"
   country = "USA"
-  arranger = "transcription by Maxence Mouriès"
+  arranger = "Transcription by Maxence Mouriès"
+  notes = "As played by Itzhak Perlman"
   style = "soundtrack"
   tagline = ""
 }
 
 \paper {
-  #(set-paper-size "letter")
-  indent = 0\mm
-  ragged-last-bottom = ##t
-  ragged-bottom = ##f
+  indent = 10\mm
 
   % Custom title formatting - pulls from header fields above
   bookTitleMarkup = \markup {
+    \override #'(font-name . "Helvetica Neue")
     \fill-line {
-      \fontsize #-3
+      \fontsize #-2
       \column {
-        \line { "Transcription" }
-        \line { "by Maxence Mouriès" }
+        \line { \fromproperty #'header:notes }
+        \line { "" }
       }
       \center-column {
-        \fontsize #1 \fromproperty #'header:title
-        \fontsize #-3 "As played by Itzhak Perlman"
+        \fontsize #2 \bold \fromproperty #'header:title
+        \fontsize #-2 \fromproperty #'header:subtitle
       }
-      \fontsize #-3
+      \fontsize #-2
       \column {
         \fromproperty #'header:composer
         \line { "arr. " \fromproperty #'header:arranger }
@@ -36,6 +35,19 @@
     }
   }
 }
+
+\score {
+  \new Staff {
+    \relative c' {
+      \key a \major
+      \time 6/8
+      c4 d8 e4 f8
+      g4 a8 b4 c8
+      c2.
+    }
+  }
+}
+\pageBreak
 
 \score {
   \new Staff {

@@ -75,10 +75,9 @@ words = \lyricmode {
 
 % --- SPACE ---
 \markup \vspace #1 %
-
-
-  \markup \bold  "A minor"
+\markup \bold  "A minor"
   \score {
+   
     <<
       \new ChordNames { \transpose g a { \chordNames } }
       \new Staff { \transpose g a { \melody } }

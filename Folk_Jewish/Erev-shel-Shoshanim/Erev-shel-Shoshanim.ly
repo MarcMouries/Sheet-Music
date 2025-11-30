@@ -17,7 +17,7 @@ global = { \time 4/4 }
 songChords = \chordmode {
   % A section
   e1:m a1 a2:m d2 e1:m
-  c1 d1 b1:m e1:m
+  e1:m d1 b1:m e1:m
   % B section
   e1:m a1 a1:m e1:m
   a1:m e1:m d1 e1:m
