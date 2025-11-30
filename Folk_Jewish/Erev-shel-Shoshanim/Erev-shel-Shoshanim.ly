@@ -1,5 +1,5 @@
 \version "2.24.4"
-\include "../../stylesheets/stylesheet_fiddle.ly"
+%\include "../../stylesheets/stylesheet_fiddle.ly"
 \language "english"
 
 \header {
@@ -7,13 +7,13 @@
   composer = "Yosef Hadar"
   country = "Jewish"
   poet = "Moshe Dor"
-    style = "klezmer"
+  style = "klezmer"
   tagline = ""
 }
 
 global = { \time 4/4 }
 
-% --- Chords (whole song in original key center E minor) ---
+% --- Chords ---
 songChords = \chordmode {
   % A section
   e1:m a1 a2:m d2 e1:m
@@ -23,7 +23,7 @@ songChords = \chordmode {
   a1:m e1:m d1 e1:m
 }
 
-% --- Melody (E minor reference): A repeat then B repeat ---
+% --- Melody  ---
 songMelody = \relative c' {
   \global
   \repeat volta 2 {
@@ -77,7 +77,7 @@ verseTwo = \lyricmode {
 }
 
 \book {
-  % -------- E minor (original) --------
+  % -------- E minor --------
   \bookpart {
     \header { subtitle = "Key: E minor" }
     \score {
@@ -93,6 +93,7 @@ verseTwo = \lyricmode {
       \layout {
         \override Lyrics.LyricText.font-size = #-2
       }
+    \midi { \tempo 4 = 120 }
     }
   }
 

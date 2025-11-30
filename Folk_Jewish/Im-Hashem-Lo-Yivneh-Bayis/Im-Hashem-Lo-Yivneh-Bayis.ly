@@ -1,7 +1,8 @@
 \version "2.24.4"
 \language "english"
+\layout { indent = 10 \mm}
 
-\header {1
+\header {
   title = "Im Hashem Lo Yivneh Bayis"
   subtitle = "Psalm 127:1"
   composer = "Traditional"
@@ -9,6 +10,7 @@
   arranger = "A minor"
   tagline = ""
 }
+
 
 global = {
   \key a \minor
@@ -18,21 +20,34 @@ global = {
 melody = \relative c' {
   \global
   \partial 8 a16 c |
+  \repeat volta 2 {
   % A phrase
   | e8 e f e a, e' ~ e4
-  | g4 f8 e f16 g f e d8 d16 d
+  | g4 f8 e f16( g) f( e) d8 d16 d
   \break
-  | d8 d e d a d4  d8
-  | f8 f e d c4. c16 d 
-  | e8 e f e a, e' ~ e4
-  | g4 f8 e f16 g f e d8 d16 d
-%   d4 d e2   r1 
-%   % B phrase
-%   a8 b c a f' e d4  c4 c b a 
-%   g4 g a b 
-%   | c2 r2 |
-%   b4 b a g | a g f e |
-%   d4 e f g | a1
+  | d8 d e d a8( d4)  d8
+  | f8 f e( d) c4. c16 d 
+  \break
+  | e8 e f e a, e' r4
+  | g4 f8 e f16( g) f( e) d8 d16 d
+  | d8 d e d g8( f4)  f8
+  \break
+}
+%\break
+\alternative {
+  { e8 d c b a4. a16 c }
+  { e8 c' b( c) a2}
+}
+  \break
+  | f8 f e( d) c4. c16 d 
+  
+   d4 d e2   r1 
+   % B phrase
+   a8 b c a f' e d4  c4 c b a 
+   g4 g a b 
+    c2 r2 |
+   b4 b a g | a g f e |
+   d4 e f g | a1
 }
 
 lyricsVerse = \lyricmode {
@@ -58,7 +73,7 @@ harmony = \chordmode {
     %\new Lyrics \lyricsto "mel" { \lyricsVerse }
   >>
   \layout { }
-  \midi {}
+    \midi { \tempo 4 = 120 }
 }
 
 % --- Optional: quick transpose helper ---
