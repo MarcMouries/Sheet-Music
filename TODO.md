@@ -1,5 +1,9 @@
 # Sheet Music Repository - TODO List
 
+- [] some files like  The Connaughtman's Rambles don't have a preview
+- [] check new files like Bear Dance
+- [] Add difficulty to tunes
+
 **Last Updated:** 2025-11-25
 
 ## ✅ Completed Tasks
