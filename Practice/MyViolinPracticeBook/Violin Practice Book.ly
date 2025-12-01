@@ -5,8 +5,9 @@
 
 
 \header {   composer = "Marc Mouries"
-  style = "practice exercise"
-  tagline = ##f }
+  style = "practice exercise" }
+
+\include "../../common/common-header.ily"
 \paper {
   tocItemMarkup = \tocItemWithDotsMarkup
 }

@@ -9,8 +9,9 @@
   arranger = "As performed by Kenny Baker"
   style = "bluegrass"
   video = "https://youtu.be/JWySDSagHGU"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

@@ -1,4 +1,4 @@
-\version "2.19.83"
+\version "2.24.0"
 \language "english"
 
 \header {
@@ -6,8 +6,9 @@
   composer = "Traditional American"
   country = "USA"
   style = "spiritual"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 \layout {
   indent = 10\mm
 }

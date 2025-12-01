@@ -6,8 +6,9 @@
   country = "New Zealand"
   style = "sea shanty"
   session = "https://thesession.org/tunes/20383#setting40372"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 \layout {
   indent = 10\mm
 }

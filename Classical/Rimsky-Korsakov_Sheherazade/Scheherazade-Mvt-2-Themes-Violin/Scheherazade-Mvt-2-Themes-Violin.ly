@@ -6,8 +6,9 @@
   composer = "Nikolai Rimsky-Korsakov"
   country = "Russia"
     style = "classical"
-  tagline = ##f
 }
+
+\include "../../../common/common-header.ily"
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

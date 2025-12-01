@@ -8,6 +8,8 @@
   style = "practice exercise"
 }
 
+\include "../../common/common-header.ily"
+
 startParenthesis = {
   \once \override ParenthesesItem.stencils = #(lambda (grob)
         (let ((par-list (parentheses-item::calc-parenthesis-stencils grob)))
@@ -136,7 +138,6 @@ words = \lyricmode {
 \paper {
  % #(set-paper-size "snippet")
 %  ragged-right = ##f
-  tagline = ##f
 }
 \markup\vspace #1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -12,9 +12,10 @@
   composer = "Marc Mouries"
   style = "practice exercise"
 }
+
+\include "../../../common/common-header.ily"
   instrument = "Violin"
   meter = "1) Detache 2) slurred 3) Staccato"
-  tagline = ""
 }
 \paper{
   printallheaders=##t

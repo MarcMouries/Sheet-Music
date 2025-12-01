@@ -6,8 +6,9 @@
   composer = "Traditional"
   country = "England"
     style = "jig"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 % ---- GLOBAL SETTINGS ----
 globalGm = {

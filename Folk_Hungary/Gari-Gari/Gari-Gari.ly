@@ -6,8 +6,9 @@
   composer = "Traditional Hungarian"
   country = "Hungary"
   style = "folk dance"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 global = {

@@ -6,8 +6,9 @@
   country = "Ireland"
   style = "jig"
   session = "https://thesession.org/tunes/19#setting19"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 melody =  \relative a' {
 

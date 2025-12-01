@@ -5,8 +5,9 @@
   composer = "Unknown"
   style = "ringtone"
   subtitle = "Transcribed by Marc Mouries, December 24, 2016"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \key c \major

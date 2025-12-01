@@ -8,8 +8,9 @@
   country = "Canada"
 	arranger = "Casey Willis"
 	  style = "waltz"
-  tagline  = ""
 }
+
+\include "../../common/common-header.ily"
 
 \paper {
   indent = 0\mm

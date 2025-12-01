@@ -7,8 +7,9 @@
   composer = "Fiorenzo Carpi"
   country = "Italy"
   style = "soundtrack"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 #(set-global-staff-size 22)
 \paper {

@@ -8,8 +8,9 @@
   composer = "Grigoraș Dinicu (1889-1949)"
   country = "Romania"
   style = "hora"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

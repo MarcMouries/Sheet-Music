@@ -8,8 +8,9 @@
   composer = "Jimmie Davis and Charles Mitchell"
   country = "USA"
   style = "old-time"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 \paper {

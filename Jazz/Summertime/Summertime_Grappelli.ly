@@ -13,13 +13,14 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
 
   composer = "G. Gershwin"
   country = "USA"
-    style = "jazz"
-  tagline = ##f     % Remove default LilyPond tagline
+    style = "jazz"     % Remove default LilyPond tagline
   poet =  "Transcribed by Marc Mouries"
   tagline = \markup 
   \column {
       "(cc)(by)(sa) me Rights Reserved."
      \with-url "https://www.youtube.com/watch?v=mNejZlpOpAU" { "Youtube Video Gypsy Jazz Violin Lessons - Minor Swing" }
+
+\include "../../common/common-header.ily"
      \line {  $(format "Typeset with LilyPond ~a. ," (lilypond-version))  \date  } 
   } 
 } 

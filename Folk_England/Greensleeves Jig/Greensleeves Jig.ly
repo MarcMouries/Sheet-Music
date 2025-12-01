@@ -8,8 +8,9 @@
   country = "England"
   style = "jig"
   video = "https://www.youtube.com/watch?v=4aDK9qdoWpk"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 globalGm = {
   \time 6/8

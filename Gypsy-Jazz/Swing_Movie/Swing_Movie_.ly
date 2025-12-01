@@ -13,8 +13,9 @@
   composer = "Mandino Reinhardt & Tchavolo Schmitt"
   country = "France"
   style = "gypsy jazz"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

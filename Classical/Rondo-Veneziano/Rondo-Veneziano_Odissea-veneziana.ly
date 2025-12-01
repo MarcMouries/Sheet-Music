@@ -7,8 +7,9 @@
   composer = "G. P. Reverberi & D. Farina"
   country = "Italy"
     style = "classical"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 %#(set-global-staff-size 16) % Default is usually 20.
 
 violinOne = \relative c'' {

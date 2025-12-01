@@ -11,8 +11,9 @@
   composer = "Reg Bouvette"
   country = "Canada"
     style = "waltz"
-  tagline  = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 melody =  \relative c'' {

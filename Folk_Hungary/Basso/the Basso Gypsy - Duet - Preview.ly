@@ -14,8 +14,9 @@
   country = "Hungary"
   style = "csardas"
   arranger = "Arranged by Marc Mouries"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global= { \time 4/4 \key a \minor }
 

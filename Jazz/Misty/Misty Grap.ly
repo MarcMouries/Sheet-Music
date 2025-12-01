@@ -13,8 +13,9 @@
   subtitle = "Stéphane Grappelli arrangement"
   opus = "transcribed by Marc Mouries"
   style = "jazz"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 #(set-global-staff-size 20)
 
 \paper {

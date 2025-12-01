@@ -8,8 +8,9 @@
   country = "France"
   style = "classical"
     video = ""
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 % ===== Violin sections matching your analysis =====
 mRests = { R2. R2. R2. R2. }

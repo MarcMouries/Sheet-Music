@@ -8,8 +8,9 @@
   composer = "Traditional French"
   country = "France"
   style = "children's song"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

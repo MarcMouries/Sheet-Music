@@ -8,8 +8,9 @@
   country = "Germany"
   style = "march"
   arranger = "Violin adaptation"
-  tagline  = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \key c \major

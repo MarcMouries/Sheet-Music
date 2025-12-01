@@ -6,8 +6,9 @@
   subtitle = ""
     composer = "Marc Mouries"
   style = "practice exercise"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 % Centered practice-plan line
 \markup \fill-line { \null \vcenter "Practice plan for classical violinists learning Irish bowing" \null }

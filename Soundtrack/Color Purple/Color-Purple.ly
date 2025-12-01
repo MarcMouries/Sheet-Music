@@ -30,8 +30,9 @@ triplet =
   country = "USA"
   arranger = "transcription by Maxence Mouriès"
   style = "soundtrack"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 \paper {
   #(set-paper-size "letter")

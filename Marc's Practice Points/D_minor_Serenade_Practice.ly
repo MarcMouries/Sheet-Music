@@ -6,8 +6,9 @@
   subtitle = "Fingered & positioned • Quarter‑note studies • Practical range"
   composer = "Marc Mouries"
   style = "practice exercise"
-  tagline = ##f
 }
+
+\include "../common/common-header.ily"
 
 common = {
   \time 4/4

@@ -7,8 +7,9 @@
   country = "Germany"
   opus = "BWV 1048"
   style = "concerto"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 Bach_Brandenburg_Concerto_Three  =  \relative c'' {
  \clef treble

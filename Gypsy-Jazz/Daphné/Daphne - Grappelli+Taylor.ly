@@ -8,9 +8,10 @@
   country = "France"
   arranger = "As played by Grappelli & Taylor"
   style = "gypsy jazz"
-  tagline = ""
   video = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

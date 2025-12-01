@@ -6,8 +6,9 @@
   composer = "Steve Kroeger x Skye Holland"
   country = "USA"
   style = "pop"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

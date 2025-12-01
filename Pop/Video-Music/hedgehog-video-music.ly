@@ -6,8 +6,9 @@
   subtitle = "https://www.youtube.com/shorts/mRy9mGiiDVo"
   composer = "Unknown"
   style = "video soundtrack"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

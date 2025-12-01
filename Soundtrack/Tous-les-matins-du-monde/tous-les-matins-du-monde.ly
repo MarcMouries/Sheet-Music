@@ -8,8 +8,9 @@
   composer = "Marin Marais"
   country = "France"
   style = "baroque"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 3/4

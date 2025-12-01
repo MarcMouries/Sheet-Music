@@ -7,8 +7,9 @@
   country = "Austria"
   arranger = "Fingering overlay by Marc Mouries"
   style = "practice exercise"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 % This file DOES NOT change your pitches. It includes your original score
 % and overlays position/fingering markups at precise beats using skips (s).

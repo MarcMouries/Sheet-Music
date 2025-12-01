@@ -10,9 +10,10 @@
   composer = "Trad. Irish"
   style = "reel"
   session = "https://thesession.org/tunes/1637#setting1637"
-  tagline = ""
   video = "https://www.youtube.com/watch?v=29AUiWEPs3o"
 }
+
+\include "../../common/common-header.ily"
 
 
 colorRed =

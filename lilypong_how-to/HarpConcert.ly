@@ -119,10 +119,11 @@ AllegroNonTroppoHarpLeft = \relative c' { c }
   \bookpart {
     \header {
       title = \markup \center-column { " " " " " " " " "Concerto in G" " " "per la Arpa o il Cembalo concertato" " " " " }
+
+\include "../common/common-header.ily"
       subtitle = \markup \center-column { "accompagnate " "da due Violini e Basso," "con due Corni e due Flauti per rinforza" " " " " " " " " }
       dedication = "Giovanni Guglielmo Hertel"
       date = "1727-1789"
-      tagline = ##f
       copyright = ##f
     }
     \markuplist \table-of-contents

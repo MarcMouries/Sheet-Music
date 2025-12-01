@@ -8,8 +8,9 @@
   composer = "Traditional Scottish"
   country = "Scotland"
   style = "air"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

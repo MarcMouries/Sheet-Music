@@ -29,8 +29,9 @@ chordsAuto = \chordmode {
   composer = "John Eccles (1668-1735)"
   country = "England"
   style = "baroque"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 \score {
   <<

@@ -6,9 +6,10 @@
   composer = "Marc Mouries"
   style = "practice exercise"
 }
+
+\include "../../../common/common-header.ily"
   instrument = "Violin"
   meter = "1) détaché 2) slurred 3) Staccato"
-  tagline = ""
 }
 
 #(set-global-staff-size 22)

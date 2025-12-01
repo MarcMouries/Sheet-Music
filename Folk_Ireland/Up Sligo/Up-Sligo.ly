@@ -7,8 +7,9 @@
   footnotes = ""
   source = "https://thesession.org/tunes/537#setting13483"
   style = "jig"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 voicedefault =  {
   \time 6/8
   \key e \dorian

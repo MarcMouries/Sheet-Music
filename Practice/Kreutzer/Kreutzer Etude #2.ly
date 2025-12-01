@@ -14,8 +14,9 @@
   poetyear   = "Mouries - 2015"
   composeryear  = "Mouries 2015"
     style = "practice exercise"
-  tagline  = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 

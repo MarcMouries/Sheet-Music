@@ -8,8 +8,9 @@
   poet = "Jean Dréjac"
   style = "french chanson"
     video = ""
-  tagline = ""
 }
+
+\include "../../../common/common-header.ily"
 
 global = {
   \time 3/4

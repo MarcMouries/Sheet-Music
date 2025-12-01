@@ -19,8 +19,9 @@
   country = "USA"
     subtitle = "Words by Johnny Burke"
     style = "jazz"
-    tagline = ""
  }
+
+\include "../../common/common-header.ily"
  
 
 melody = \relative c'{

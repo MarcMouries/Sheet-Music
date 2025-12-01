@@ -6,8 +6,9 @@
   composer = "Traditional Irish"
   country = "Ireland"
   style = "jig"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 6/8

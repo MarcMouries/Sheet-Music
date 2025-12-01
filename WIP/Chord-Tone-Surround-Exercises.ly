@@ -4,8 +4,9 @@
 \header {
   title = "Chord Tone Surround Exercises"
   subtitle = "Surround each chord tone with a diatonic upper neighbor and chromatic lower neighbor"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 global = { \time 4/4 }
 

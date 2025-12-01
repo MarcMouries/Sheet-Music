@@ -11,8 +11,9 @@
   country = "France"
   video = ""
   style = "gypsy jazz"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 3/4

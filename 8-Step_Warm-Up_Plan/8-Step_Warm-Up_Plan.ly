@@ -6,8 +6,9 @@
   title = "8-Step Warm-Up Plan"
     composer = "Marc Mouries"
   style = "practice exercise"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 \paper {
   indent = 0

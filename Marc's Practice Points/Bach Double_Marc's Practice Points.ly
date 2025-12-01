@@ -3,8 +3,9 @@
 \include "../common/violin-functions.ly"
 
 \header {    composer = "Marc Mouries"
-  style = "practice exercise"
-  tagline = ""}
+  style = "practice exercise"}
+
+\include "../common/common-header.ily"
 Title =  "Bach Double Violin Concerto in Dm"
 \include "practice-points-header.ly"
 

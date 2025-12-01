@@ -7,8 +7,9 @@
   country = "Japan"
   style = "classical"
   video = "https://www.youtube.com/watch?v=MJenceQ9IEw"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 \paper {
   %system-system-spacing = #'((basic-distance . 0.1) (padding . 0))
@@ -16,7 +17,6 @@
   %ragged-bottom = ##f
   left-margin = 1\in
   right-margin = 1\in
-    tagline = ##f
 
 }
 

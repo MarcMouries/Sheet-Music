@@ -8,8 +8,9 @@
   composer = "Novi Novog"
   country = "France"
   style = "tango"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 \relative c' {

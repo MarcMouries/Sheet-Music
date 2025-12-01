@@ -10,8 +10,9 @@
   country = "Germany"
   composer =  "Ludwig van Beethoven"
   style = "Hymn"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

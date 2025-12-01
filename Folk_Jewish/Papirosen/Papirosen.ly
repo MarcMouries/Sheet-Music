@@ -7,9 +7,10 @@
   instrument = "Violin"
     style = "klezmer"
   composer = "Traditional"
-  country = "Jewish"
-  tagline = ##f  % Remove default LilyPond tagline
+  country = "Jewish"  % Remove default LilyPond tagline
 }
+
+\include "../../common/common-header.ily"
 
 \paper {
   #(set-paper-size "letter")

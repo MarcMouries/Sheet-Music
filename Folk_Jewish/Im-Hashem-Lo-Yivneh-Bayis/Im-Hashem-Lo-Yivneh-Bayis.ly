@@ -9,8 +9,9 @@
   subtitle = "Psalm 127:1"
   composer = "Traditional"
   country = "Jewish"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 global = {

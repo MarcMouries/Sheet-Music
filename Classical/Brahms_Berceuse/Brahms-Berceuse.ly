@@ -9,8 +9,9 @@
   poet = "Volkslied"
   video = ""
   style = "classical"
-  tagline = ##f
 }
+
+\include "../../common/common-header.ily"
 
 \paper {
   indent = 0

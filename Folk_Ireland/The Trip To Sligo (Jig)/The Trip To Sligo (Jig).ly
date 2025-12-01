@@ -6,8 +6,9 @@
   country = "Ireland"
   style = "jig"
   session = "https://thesession.org/tunes/397#setting13238"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 chordNames = \chordmode {

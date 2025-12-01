@@ -3,8 +3,9 @@
 
 \header {
   title = "Waterfall Arpeggios"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 global = { \time 4/4 }
 

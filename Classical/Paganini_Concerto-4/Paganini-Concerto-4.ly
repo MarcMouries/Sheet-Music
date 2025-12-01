@@ -9,8 +9,9 @@
   country = "Italy"
   style = "concerto"
     video = ""
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 6/8

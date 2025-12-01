@@ -11,8 +11,9 @@
   country = "USA"
   style = "traditional"
     video = ""
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 violinOne =    \relative d'{
   \key d \major

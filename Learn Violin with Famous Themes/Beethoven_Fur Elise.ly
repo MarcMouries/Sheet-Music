@@ -6,8 +6,9 @@
   composer = "Ludwig van Beethoven"
   country = "Germany"
   style = "bagatelle"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 global = {
   \time 4/4

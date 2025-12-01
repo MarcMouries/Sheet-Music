@@ -50,6 +50,8 @@ global = {
         "à Charles Levadé "
         }
 
+\include "../../../../../../common/common-header.ily"
+
   title = \markup \center-column {
 		\null
 		\italic
@@ -84,7 +86,7 @@ global = {
 	}
 
 %  poet = " "
-%  tagline = ""
+%
 %  piece = "v1.2"
 %  piece = " "
 %  style = "Romantic"

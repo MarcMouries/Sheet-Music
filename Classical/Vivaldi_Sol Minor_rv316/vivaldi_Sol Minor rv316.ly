@@ -16,8 +16,9 @@
         maintainer = "Hajo Dezelski"
         maintainerEmail = "dl1sdz (at) gmail.com"
 	footer = "Mutopia-2008/06/01-1429"
-	tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 ViolinoSolo =  	\relative g'' {
   \tempo 4=100

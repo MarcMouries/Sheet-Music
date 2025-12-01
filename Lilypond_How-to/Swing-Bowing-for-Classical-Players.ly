@@ -3,8 +3,9 @@
 \header{
   title = "Swing Bowing for Classical Players"
   subtitle = "Slur-to-offbeat + triplet-feel drills (violin, 1st position)"
-  tagline = ##f
 }
+
+\include "../common/common-header.ily"
 
 \paper { indent = 0 }
 

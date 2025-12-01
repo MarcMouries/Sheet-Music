@@ -6,8 +6,9 @@
   composer = "Traditional Hebrew"
   country = "Jewish"
   style = "lullaby"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

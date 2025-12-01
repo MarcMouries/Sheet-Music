@@ -6,8 +6,9 @@
   composer = "Loreena McKennitt"
   country = "Canada"
   style = "tango"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

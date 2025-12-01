@@ -5,8 +5,9 @@
   composer = "N. Picket"
   country = "France"
   style = "gypsy jazz"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 global = {
 }
 melody = \relative c'' {

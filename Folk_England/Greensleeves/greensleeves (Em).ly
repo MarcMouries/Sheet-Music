@@ -5,8 +5,9 @@
 	composer = "Traditional English"
   country = "England"
 	style = "folk"
-	tagline = ""
 }
+
+\include "../../common/common-header.ily"
 words = \lyricmode {
    A- las, my love,_  you do me wrong__
    To cast me off __  dis- cour- teous- ly,

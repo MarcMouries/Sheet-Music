@@ -12,11 +12,12 @@
   title = "Hatikvah (The Hope)"
   arranger = "Arr. Marc Mouries"
     style = "klezmer"
-  tagline = ""
   subtitle = "Israel's National Anthem"
   composer = "Traditional"
   country = "Jewish"
 }
+
+\include "../../common/common-header.ily"
 
 global= {
     \time 2/4

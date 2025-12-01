@@ -3,9 +3,10 @@
 
 \header {
   title = \markup \concat {"A-major pentatonic  " \flat "7"}
+
+\include "../common/common-header.ily"
   composer = "Marc Mouries"
   style = "practice exercise"
-  tagline = ""
 }
 
 lick = \relative a {

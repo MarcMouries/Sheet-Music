@@ -6,8 +6,9 @@
   composer = "Traditional"
   country = "Ireland"
   style = "reel"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 voicedefault =  \relative c''' {
 
   \time 4/4 \key e \minor  

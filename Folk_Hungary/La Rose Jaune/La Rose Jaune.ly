@@ -8,8 +8,9 @@
   composer = "Traditional Hungarian"
   country = "Hungary"
   style = "folk tune"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

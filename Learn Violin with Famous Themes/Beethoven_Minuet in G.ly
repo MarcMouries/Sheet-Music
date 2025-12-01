@@ -5,8 +5,9 @@
   composer = "L. V. Beethoven (1770–1827) "
   country = "Germany"
   style = "minuet"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 sop =  \transpose c c'{
 	\voiceOne

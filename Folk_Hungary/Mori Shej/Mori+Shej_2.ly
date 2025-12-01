@@ -7,8 +7,9 @@
   country = "Hungary"
   style = "lullaby"
   origin = "Rom"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 melody =  \relative c'' {
   \tempo 4 = 120
   \override Staff.TimeSignature.style = #'C

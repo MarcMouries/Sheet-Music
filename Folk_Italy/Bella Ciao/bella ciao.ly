@@ -6,8 +6,9 @@
   composer = "Traditional Italian"
   country = "Italy"
   style = "folk song"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 theMelody =  {

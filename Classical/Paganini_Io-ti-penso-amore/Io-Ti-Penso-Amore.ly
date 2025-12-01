@@ -8,8 +8,9 @@
   composer = "Niccolò Paganini"
   country = "Italy"
   style = "classical"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 6/8

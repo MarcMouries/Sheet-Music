@@ -6,8 +6,9 @@
   country = "USA"
   subtitle = "(from Porgy and Bess)"
     style = "jazz"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 Chords = \chordmode {
   \partial 2  s2

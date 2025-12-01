@@ -7,8 +7,9 @@
   country = "Ireland"
   style = "jig"
   session = "https://thesession.org/tunes/397#setting54304"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 voicedefault =  {
   \set Score.measureBarType = ""
 

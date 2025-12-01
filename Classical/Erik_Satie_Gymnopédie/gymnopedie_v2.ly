@@ -7,8 +7,9 @@
   composer = "Erik Satie (1866--1925)"
   country = "France"
   style = "classical"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 melody = {
   \clef treble

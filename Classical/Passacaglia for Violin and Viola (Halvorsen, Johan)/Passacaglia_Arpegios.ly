@@ -7,8 +7,9 @@
   composer = "Johan Halvorsen (1864-1935)"
   country = "Norway"
   style = "passacaglia"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 \markup \vspace #1
 

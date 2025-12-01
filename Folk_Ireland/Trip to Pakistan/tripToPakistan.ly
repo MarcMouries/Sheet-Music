@@ -6,13 +6,14 @@
 	%composer  =  "tr. Maxence Mouries"
   country = "Ireland"
   style = "irish traditional"
-}}
+}
+
+\include "../../common/common-header.ily"}
 	composer  =  "by Niall Kenny"
 	arranger  =  "arr. Sarah Burnell"
 	opus      =	"tr. Maxence Mouriès"
 	%opus      = \markup {\with-url #"http://www.bandsman.co.uk/" { \fontsize #-5 {\italic {http://www.bandsman.co.uk }}}}
 	enteredby = "Maxence"
-	tagline   = ""
     copyright = ""
 }
 \paper {

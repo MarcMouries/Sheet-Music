@@ -9,8 +9,9 @@
   country = "Russia"
 	arranger = ""
 	  style = "russian traditional"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 melody = \relative si' {
 	\clef "treble"

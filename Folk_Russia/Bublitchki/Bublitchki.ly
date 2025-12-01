@@ -7,8 +7,9 @@
   composer = "Traditional Russian"
   country = "Russia"
   style = "klezmer"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 2/4

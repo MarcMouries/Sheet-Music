@@ -7,8 +7,9 @@
   country = "England"
   poet = "Traditional"
   style = "christmas carol"
-  tagline = ""
 }
+
+\include "common/common-header.ily"
 
 \paper {
   % Define how to format the title using the simple string from header

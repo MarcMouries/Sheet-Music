@@ -7,8 +7,9 @@
 	composer = "Niall Kenny"
   country = "Ireland"
 	style = "irish traditional"
-	tagline = ""
 }
+
+\include "../../common/common-header.ily"
 voicedefault =  {
 \set Score.defaultBarType = "empty"
 

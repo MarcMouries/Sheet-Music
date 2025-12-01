@@ -11,8 +11,9 @@
   
   poet =  "Fingerings by Ivry Gitlis"
     style = "classical"
-  tagline = ##f
 }
+
+\include "../../common/common-header.ily"
 
 \paper {
   ragged-last-bottom = ##f

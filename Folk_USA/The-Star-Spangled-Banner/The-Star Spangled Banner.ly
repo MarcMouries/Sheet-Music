@@ -8,8 +8,9 @@
   country = "USA"
   poet = "Francis Scott Key"
   style = "anthem"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 3/4

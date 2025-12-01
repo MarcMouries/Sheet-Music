@@ -8,8 +8,9 @@
   country = "Italy"
   poet     = "Giuseppe Adami, Renato Simoni"
     style = "classical"
-  tagline  = ""
 }
+
+\include "../../common/common-header.ily"
 
 \markup \large ""
 

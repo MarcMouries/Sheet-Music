@@ -7,8 +7,9 @@
   composer = "Charles Aznavour"
   country = "France"
   style = "chanson"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 violin = \relative c' {
   \clef treble

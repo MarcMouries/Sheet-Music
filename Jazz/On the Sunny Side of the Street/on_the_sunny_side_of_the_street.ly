@@ -1,13 +1,13 @@
 \version "2.24.4"
 
-tagline = ""
-
 \header {
   title = "(On the) Sunny Side of the Street"
   composer = "Jimmy McHugh"
   country = "USA"
   style = "Medium Swing"
 }
+
+\include "../../common/common-header.ily"
 
 
 harmonies = \chordmode {

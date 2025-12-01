@@ -1,4 +1,4 @@
-\version "2.20"
+\version "2.24.0"
 \language "english"
 
 \paper {
@@ -11,8 +11,9 @@
   composer = "Jay Ungar"
   country = "USA"
   style = "waltz"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \key d \major

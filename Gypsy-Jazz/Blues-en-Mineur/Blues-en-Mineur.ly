@@ -13,8 +13,9 @@
   country = "France"
   style = "gypsy jazz"
   video = "https://www.youtube.com/watch?v=EfnYL_lGSP0"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 \markup "intro"

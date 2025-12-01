@@ -9,8 +9,10 @@
 %  subtitle = "Scherzo after a ballad by Goethe"
 %  composer = "Paul Dukas"
   country = "France"
-%  tagline = ##f
+%
 %}
+
+\include "../common/common-header.ily"
 
 
 %% Paul Dukas: The Sorcerer’s Apprentice (Measures 66-92)

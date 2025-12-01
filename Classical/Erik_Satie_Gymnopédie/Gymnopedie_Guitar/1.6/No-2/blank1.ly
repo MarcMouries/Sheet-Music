@@ -2,8 +2,9 @@
 
 \paper { print-page-number = ##f }
 
-\header {   style = "classical"
-  tagline = "" }
+\header {   style = "classical" }
+
+\include "../../../../../common/common-header.ily"
 
 %\pointAndClickOff
 

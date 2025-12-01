@@ -5,8 +5,9 @@
   title = "Greensleeves"
   country = "England"
   % Enlever le pied de page par défaut
-  tagline = ##f
 }
+
+\include "../../common/common-header.ily"
 \paper {
    #(set-paper-size "a4"'landscape)
    page-count = 1

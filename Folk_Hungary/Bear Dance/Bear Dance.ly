@@ -1,12 +1,15 @@
 \version "2.24.0"
 \language "english"
+
 \header {
   title = "Bear Dance"
   composer = "Traditional"
   country = "Hungary"
   style = "folk dance"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
+
 #(set-global-staff-size 18)
 
 global = {

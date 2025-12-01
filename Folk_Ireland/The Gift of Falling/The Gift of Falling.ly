@@ -7,8 +7,9 @@
   country = "Ireland"
   style = "slow air"
   subsubtitle = "transcribed by Marc"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

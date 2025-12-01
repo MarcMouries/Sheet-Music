@@ -1,8 +1,9 @@
 \version "2.19.31"
 \language "english"
 \header {    composer = "Marc Mouries"
-  style = "practice exercise"
-  tagline = ""}
+  style = "practice exercise"}
+
+\include "../common/common-header.ily"
 Title =  "Berceuse de Faure"
 \include "practice-points-header.ly"
 

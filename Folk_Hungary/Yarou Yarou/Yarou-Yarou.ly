@@ -6,8 +6,9 @@
   composer = "Traditional Hungarian"
   country = "Hungary"
   style = "czardas"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 2/4

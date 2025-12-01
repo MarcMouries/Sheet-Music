@@ -5,8 +5,9 @@
 #(set-global-staff-size 20)
 
 \header {
-	title = \markup { \concat { "Exercises in Thirds" \flat } }
-	tagline= ""
+	title = \markup { \concat { "Exercises in Thirds" \flat }
+
+\include "../common/common-header.ily" }
 }
 
 

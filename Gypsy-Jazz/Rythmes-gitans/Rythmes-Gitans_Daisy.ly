@@ -22,8 +22,9 @@
 }
 \header {  title = "Rythmes Gitans (Daisy)"
   composer = "Traditional"
-  country = "France"
-  tagline = ##f }
+  country = "France" }
+
+\include "../../common/common-header.ily"
 
 
 \layout{

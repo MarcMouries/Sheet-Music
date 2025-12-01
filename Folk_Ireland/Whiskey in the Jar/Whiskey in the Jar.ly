@@ -8,8 +8,9 @@
   country = "Ireland"
     video = ""
     style = "folk song"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 melody = \relative d' {
     \tempo 4 = 120

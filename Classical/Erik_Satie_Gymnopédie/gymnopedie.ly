@@ -7,8 +7,9 @@
   country = "France"
   arranger = "arr. Toshihiko Kawano"
   style = "classical"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 melody = {
   \clef treble

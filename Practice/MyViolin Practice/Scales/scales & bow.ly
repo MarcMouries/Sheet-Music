@@ -15,13 +15,14 @@
 	                 {\small "arr. Marc Mouries"
   composer = "Marc Mouries"
   style = "practice exercise"
-} 
+}
+
+\include "../../../common/common-header.ily" 
 	                 {\teeny "PUT AS URL http://marcmouries.com/music"}
 	               }
 	            }
   instrument = "Violin"
   meter = "1) détaché 2) slurred 3) Staccato"
-  tagline = ""
 }
 
 #(set-global-staff-size 18)

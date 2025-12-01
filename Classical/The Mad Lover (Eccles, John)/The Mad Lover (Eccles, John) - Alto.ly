@@ -8,8 +8,9 @@
   country = "England"
   instrument = "Viola"
     style = "classical"
-  tagline = ##f
 }
+
+\include "../../common/common-header.ily"
 
 viola = \relative c'' {
   %\clef alto

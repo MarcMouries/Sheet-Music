@@ -30,8 +30,9 @@
   country = "Japan"
     arranger = "Arranged by Jias"
     style = "soundtrack"
-    tagline = ""
     }
+
+\include "../../common/common-header.ily"
 
 AVlnSolovoiceAA = \relative c'{
     \set Staff.instrumentName = #"Violin Solo"

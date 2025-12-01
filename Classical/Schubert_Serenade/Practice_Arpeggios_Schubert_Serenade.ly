@@ -6,8 +6,9 @@
   title = "Schubert Serenade (Practice Arpeggios)"
   composer = "Marc Mouries"
   style = "practice exercise"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 \markup \bold "Practice Arpegios - Schubert Serenade"
 % String indication

@@ -7,8 +7,9 @@
   composer = "Leroy Kirkland & Pearl Woods"
   country = "USA"
   style = "blues"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 \layout {

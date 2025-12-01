@@ -6,8 +6,9 @@
   composer = "Traditional"
   country = "USA"
   style = "reel"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 
 melody = \relative c'' {

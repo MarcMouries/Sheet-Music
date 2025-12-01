@@ -12,15 +12,16 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
   composer = "Django Reinhardt & Stéphane Grappelli"
   country = "France"
     video = ""
-    style = "gypsy jazz"
-  tagline = ##f     % Remove default LilyPond tagline
+    style = "gypsy jazz"     % Remove default LilyPond tagline
   poet =  "Transcribed by Marc & Maxence Mouries"
   % tagline = \markup
   % \column {
   %   {
   %     "(cc)(by)(sa) me Rights Reserved."
   %    \with-url "https://www.youtube.com/watch?v=mNejZlpOpAU"
-  %    { "Youtube Video Gypsy Jazz Violin Lessons - Minor Swing" }}
+  %    { "Youtube Video Gypsy Jazz Violin Lessons - Minor Swing" }
+
+\include "../../common/common-header.ily"}
   % {
   %   \line {  $(format "Typeset with LilyPond ~a. ," (lilypond-version)) \date  }
   % }

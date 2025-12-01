@@ -14,11 +14,12 @@
   title = "The Musical Priest"
   composer = "Trad. Irish"
   country = "Ireland"
-  style = "irish traditional"
-  tagline = ##f       % Remove default LilyPond tagline
+  style = "irish traditional"       % Remove default LilyPond tagline
   subtitle = "As played by Sheila Falls"
   video = "https://www.youtube.com/watch?v=Zxl3ZtpdBA0"
 }
+
+\include "../../common/common-header.ily"
 \markup {
   \vspace #2
 }

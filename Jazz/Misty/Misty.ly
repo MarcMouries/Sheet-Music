@@ -19,8 +19,9 @@
     composer = "Erroll Garner"
   country = "USA"
   style = "jazz"
-  tagline = ""
  }
+
+\include "../../common/common-header.ily"
 
 
 melody = \relative c'{

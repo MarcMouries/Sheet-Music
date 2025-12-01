@@ -24,8 +24,9 @@ raisedSharp = \markup \raise #0.6 \sharp
   subtitle = ""
     composer = "Marc Mouries"
   style = "practice exercise"
-  tagline = ##f
 }
+
+\include "../../common/common-header.ily"
 
 Am_notes =  \relative c' {
   \time 6/4

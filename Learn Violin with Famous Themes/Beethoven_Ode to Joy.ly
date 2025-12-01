@@ -7,8 +7,9 @@
   country = "Germany"
   opus = "Op. 125"
   style = "hymn"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 sop =  \transpose c c'{
 	\voiceOne

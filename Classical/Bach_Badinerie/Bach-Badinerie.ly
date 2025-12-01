@@ -9,8 +9,9 @@
   opus = "BWV 1067"
   style = "baroque"
   video = ""
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 melody = {
   \clef treble

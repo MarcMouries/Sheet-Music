@@ -8,8 +8,9 @@
   poet = "Sammy Cahn"
   style = "christmas song"
   video = ""
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 Strophe = \relative c' {
   c'8 c bf4 a g
   f c2 c8. c16

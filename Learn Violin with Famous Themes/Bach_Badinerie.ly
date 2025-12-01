@@ -9,8 +9,9 @@
   country = "Germany"
   opus = "BWV 1067"
   style = "suite movement"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 Bach_Badinerie = {
 \partial 4 b''8\f  [  d'''16 b''16 ]  |  % 1

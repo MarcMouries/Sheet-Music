@@ -5,8 +5,9 @@
   subtitle = "LilyPond markup version"
     composer = "Marc Mouries"
   style = "practice exercise"
-  tagline = ##f
 }
+
+\include "../common/common-header.ily"
 
 \paper {
   indent = 0

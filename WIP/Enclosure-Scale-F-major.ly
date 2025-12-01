@@ -3,8 +3,9 @@
 
 \header {
   title = "Enclosure Scale — F major"
-  tagline = ""
 }
+
+\include "../common/common-header.ily"
 
 global = { \time 4/4 }
 

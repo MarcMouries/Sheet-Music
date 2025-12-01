@@ -9,8 +9,9 @@
   country = "Ireland"
   style = "slip jig"
   session = ""
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 violin =  \relative c'' {
   \time 9/8
   \key e \minor

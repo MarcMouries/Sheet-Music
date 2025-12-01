@@ -7,8 +7,9 @@
   country = "England"
   style = "renaissance"
     video = ""
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 3/2

@@ -7,8 +7,9 @@
   country = "Italy"
   opus = "Op. 64"
   style = "sonata"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

@@ -8,8 +8,9 @@
   arranger = "Transcription by Maxence Mouriès"
   notes = "As played by Itzhak Perlman"
   style = "soundtrack"
-  tagline = ""
 }
+
+\include "common/common-header.ily"
 
 \paper {
   indent = 10\mm

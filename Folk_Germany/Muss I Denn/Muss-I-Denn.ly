@@ -5,8 +5,9 @@
   composer = "Traditional German"
   country = "Germany"
   style = "folk song"
-  tagline = ""
 }
+
+\include "../../common/common-header.ily"
 
 global = {
     \key e \major
