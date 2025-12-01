@@ -1,4 +1,5 @@
 \version "2.12.3"
+\language "english"
 
 \header {
   title = "Let It Snow, Let It Snow, Let It Snow!"
@@ -10,13 +11,14 @@
   tagline = ""
 }
 Strophe = \relative c' {
-  c'8 c bes4 a g
+  c'8 c bf4 a g
   f c2 c8. c16
   g'4. f8 g4. f8
   e4 c2 d4
-  d'8 d c4 bes a
+  d'8 d c4 bf a
+  
   g2. e'8. d16
-  c4 c8. bes16 a4 a8. g16
+  c4 c8. bf16 a4 a8. g16
   f2.
 }
 

@@ -1,14 +1,9 @@
 \version "2.24.0"
 
-
-\layout {
-        
-      }
-
 \layout {
   
-  % No indent on the first line
-  indent = 0.0\cm
+  % Smaller indent on the first line
+  indent = 10\mm
   
    % Makes the size of the grace notes smaller
     \context {
