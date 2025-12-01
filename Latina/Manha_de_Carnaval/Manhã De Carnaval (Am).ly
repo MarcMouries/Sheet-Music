@@ -1,11 +1,16 @@
-\version "2.19.15"
+\version "2.24.0"
 \language "english"
 \include "../common/bars-per-line-engraver.ly"
 \include "../common/violin-functions.ly"
 
 \header {
   title = "Manhã De Carnaval"
+  composer = "Luiz Bonfá"
+  country = "Brazil"
+  style = "bossa nova"
 }
+
+\include "../common/common-header.ily"
 
 global = {
   \time 4/4
