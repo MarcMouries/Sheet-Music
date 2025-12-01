@@ -1,22 +1,12 @@
-\version "2.19.32"
+\version "2.24.0"
 \language "english"
 
 \header {
   title = "Devil's Dream"
-  piece = "Traditional"
-  mutopiatitle = "Devil's Dream"
-  mutopiacomposer = "Traditional"
+  composer = "Traditional"
   country = "USA"
-  mutopiainstrument = "Violin, Guitar"
-  source = "Transcribed by ear (no copyright)"
-  style = "Folk"
-  copyright = "Public Domain"
-  maintainer = "Taj Morton"
-  maintainerEmail = "taj@wildgardenseed.com"
-  maintainerWeb = "http://www.wildgardenseed.com/Taj"
-  lastupdated = "2005/Mar/04"
-  meter = 120
-  tagline = \markup "\\raisebox{16mm}{\\parbox{188mm}{\\quad\\small\\noindent \\hspace{\\stretch{1}} \\makebox[188mm][c]{Transcribed and typeset by Taj Morton (http://www.wildgardenseed.com/Taj).} \\makebox[188mm][c]{Unrestricted modification and redistribution is permitted and encouraged---copy this music and share it!}}}"
+  style = "reel"
+  tagline = ""
 }
 
 

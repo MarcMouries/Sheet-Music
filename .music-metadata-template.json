@@ -3,8 +3,8 @@
     "difficulty": 4,
     "tags": [
       "traditional",
-      "irish",
       "celtic",
+      "irish",
       "jig"
     ],
     "notes": "Add your notes here"
@@ -12,38 +12,39 @@
   "Folk_Ireland/Darby-O-Gill_Fox-Chase/darby.ly": {
     "difficulty": 2,
     "tags": [
-      "traditional",
+      "celtic",
       "irish",
-      "celtic"
+      "traditional"
     ],
     "notes": "Add your notes here"
   },
   "Folk_Ireland/DrGilbert/drGilbert_1.ly": {
     "difficulty": 4,
     "tags": [
-      "reel",
-      "irish",
       "celtic",
-      "traditional"
+      "irish",
+      "traditional",
+      "reel"
     ],
     "notes": "Add your notes here"
   },
   "Folk_Ireland/DrGilbert/drGilbert_1-1.ly": {
     "difficulty": 2,
     "tags": [
-      "reel",
-      "irish",
       "celtic",
-      "traditional"
+      "irish",
+      "traditional",
+      "reel"
     ],
     "notes": "Add your notes here"
   },
-  "Folk_Ireland/Martin%20Hayes%20Unknown/Irish%20Martin%20Hayes_Medley.ly": {
+  "Folk_Ireland/Gary%20Owen/Gary-Owen.ly": {
     "difficulty": 2,
     "tags": [
       "traditional",
+      "celtic",
       "irish",
-      "celtic"
+      "jig"
     ],
     "notes": "Add your notes here"
   }

@@ -1,11 +1,12 @@
-\version "2.7.40"
+\version "2.24.0"
 \language "english"
 \header {
   title = "The Wellerman"
+  composer = "Traditional"
   country = "New Zealand"
-  style = "polka"
+  style = "sea shanty"
   session = "https://thesession.org/tunes/20383#setting40372"
-  tagline  = ##f   % Remove default LilyPond tagline
+  tagline = ""
 }
 \layout {
   indent = 10\mm
