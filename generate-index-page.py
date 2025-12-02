@@ -522,6 +522,8 @@ def generate_html(tunes):
     <!-- Tone.js libraries for MIDI playback -->
     <script src="https://unpkg.com/tone"></script>
     <script src="https://unpkg.com/@tonejs/midi"></script>
+    <!-- Tune detail view support -->
+    <script src="tune-detail-view.js"></script>
     <style>
         * {
             margin: 0;
@@ -1645,6 +1647,11 @@ def generate_html(tunes):
             document.getElementById('difficulty-filter').value = '';
             document.getElementById('tag-filter').value = '';
 
+            // Update URL
+            const url = new URL(window.location);
+            url.searchParams.set('category', 'wedding');
+            window.history.pushState({}, '', url);
+
             // Highlight active button
             document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
             if (event && event.target) event.target.classList.add('active');
@@ -1684,6 +1691,11 @@ def generate_html(tunes):
             document.getElementById('category-filter').value = '';
             document.getElementById('difficulty-filter').value = '';
             document.getElementById('tag-filter').value = '';
+
+            // Clear URL parameters
+            const url = new URL(window.location);
+            url.search = '';
+            window.history.pushState({}, '', url);
 
             // Show all items
             filterItems();
@@ -1778,17 +1790,12 @@ def generate_html(tunes):
             }
         }
 
-        // Close modal on escape key
+        // Close MIDI player on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                closeMidiPlayer();
-            }
-        });
-
-        // Close modal when clicking outside
-        document.getElementById('midi-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'midi-modal') {
-                closeMidiPlayer();
+                if (midiPlayer.isPlaying) {
+                    closeMidiPlayer();
+                }
             }
         });
 
@@ -1822,14 +1829,12 @@ def generate_html(tunes):
                     }
                 }
 
-                if (params.has('category')) {
-                    document.getElementById('category-filter').value = params.get('category');
-                    filterTunes();
-                }
+                // Note: category and search filters are now handled by tune-detail-view.js
+                // to avoid conflicts with enhanced URL filtering
 
                 if (params.has('search')) {
                     document.getElementById('search').value = params.get('search');
-                    filterTunes();
+                    filterItems();
                 }
             } catch(e) {
                 console.error('Error applying URL filters:', e);

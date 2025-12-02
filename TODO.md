@@ -8,6 +8,7 @@
 - [] Add difficulty to tunes
 - [] we want all the files to use the same tagline "tagline  = ##f". Can we put that into a common file?
 - [] check header of:  "Numi numi - Hebrew Lullaby", "Chosen Kalle Mazel Tov"
+- [] if we include \include "../../common/improviso.ily" we get an error
 
 
 

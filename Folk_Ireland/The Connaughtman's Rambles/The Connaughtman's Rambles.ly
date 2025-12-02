@@ -69,8 +69,8 @@ melody =  \relative a' {
 
 \score {
   <<
-    \new ChordNames \chordNames
-    \new Staff { \melody }
+    \new ChordNames {\chordNames}
+    \new Staff      { \melody }
   >>
   \layout { }
   \midi { }

@@ -22,3 +22,6 @@
 \header {
   tagline = ##f
 }
+\paper {
+  indent = 10 \mm
+}
