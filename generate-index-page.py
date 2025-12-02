@@ -938,6 +938,79 @@ def generate_html(tunes):
             touch-action: manipulation;
         }
 
+        /* MIDI Player Controls */
+        #midi-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+            min-width: 300px;
+        }
+
+        #midi-controls.active {
+            display: block;
+        }
+
+        #midi-controls h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .tempo-control {
+            margin-top: 15px;
+        }
+
+        .tempo-control label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .tempo-slider {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .tempo-value {
+            text-align: center;
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .midi-controls-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .midi-controls-buttons button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .midi-stop-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .midi-close-btn {
+            background: #95a5a6;
+            color: white;
+        }
+
         audio {
             width: 100%;
         }
@@ -1462,6 +1535,19 @@ def generate_html(tunes):
                 <div id="lightbox-title"></div>
             </div>
         </div>
+
+        <!-- MIDI Player Controls -->
+        <div id="midi-controls">
+            <h3 id="midi-title">🎵 Now Playing</h3>
+            <div class="tempo-control">
+                <label for="tempo-slider">Tempo: <span id="tempo-value">100%</span></label>
+                <input type="range" id="tempo-slider" class="tempo-slider" min="25" max="200" value="100" step="5">
+            </div>
+            <div class="midi-controls-buttons">
+                <button class="midi-stop-btn" onclick="stopMidi()">⏹ Stop</button>
+                <button class="midi-close-btn" onclick="closeMidiControls()">✕ Close</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1707,7 +1793,8 @@ def generate_html(tunes):
             synth: null,
             isPlaying: false,
             currentFile: null,
-            currentTitle: null
+            currentTitle: null,
+            tempo: 1.0 // 1.0 = normal speed
         };
 
         async function playMidi(midiPath, title) {
@@ -1770,10 +1857,19 @@ def generate_html(tunes):
                     console.log('MIDI loaded:', notes.length, 'notes');
                 }
 
+                // Apply tempo
+                Tone.Transport.bpm.value = 120 * midiPlayer.tempo;
+
                 // Start playback
                 Tone.Transport.start();
                 midiPlayer.isPlaying = true;
                 console.log('Playing:', title);
+
+                // Show MIDI controls
+                const midiControls = document.getElementById('midi-controls');
+                const midiTitle = document.getElementById('midi-title');
+                midiTitle.textContent = '🎵 ' + title;
+                midiControls.classList.add('active');
 
             } catch (err) {
                 console.error('MIDI playback error:', err);
@@ -1789,6 +1885,33 @@ def generate_html(tunes):
                 midiPlayer.isPlaying = false;
             }
         }
+
+        function stopMidi() {
+            closeMidiPlayer();
+            closeMidiControls();
+        }
+
+        function closeMidiControls() {
+            const midiControls = document.getElementById('midi-controls');
+            midiControls.classList.remove('active');
+        }
+
+        // Tempo slider control
+        document.addEventListener('DOMContentLoaded', () => {
+            const tempoSlider = document.getElementById('tempo-slider');
+            const tempoValue = document.getElementById('tempo-value');
+
+            tempoSlider.addEventListener('input', (e) => {
+                const tempo = e.target.value / 100;
+                midiPlayer.tempo = tempo;
+                tempoValue.textContent = e.target.value + '%';
+
+                // Update BPM in real-time if playing
+                if (midiPlayer.isPlaying) {
+                    Tone.Transport.bpm.value = 120 * tempo;
+                }
+            });
+        });
 
         // Close MIDI player on escape key
         document.addEventListener('keydown', (e) => {

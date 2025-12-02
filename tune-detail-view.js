@@ -53,18 +53,14 @@ function extractMidiPath(button) {
 
     // Get the onclick attribute as a string
     const onclickAttr = button.getAttribute('onclick');
-    console.log('Extract MIDI - onclick attr:', onclickAttr);
     if (!onclickAttr) return null;
 
     // Extract the MIDI path from playMidi('path', 'title')
     const match = onclickAttr.match(/playMidi\('([^']+\.midi)'/);
-    console.log('Extract MIDI - match result:', match);
     if (!match) return null;
 
     // Keep as relative path - absolute URLs don't work with file:// protocol
-    const midiPath = match[1];
-    console.log('Extract MIDI - extracted path:', midiPath);
-    return midiPath;
+    return match[1];
 }
 
 function findThumbnailForTune(tuneSlug) {
@@ -178,12 +174,6 @@ function showTuneDetailView(tuneSlug) {
 
         const escapedMidiPath = escapeForJs(absolutePath);
         const escapedTitle = escapeForJs(tuneData.title);
-        console.log('MIDI Debug - Original path:', tuneData.midiPath);
-        console.log('MIDI Debug - Base path:', basePath);
-        console.log('MIDI Debug - Absolute path:', absolutePath);
-        console.log('MIDI Debug - Escaped path:', escapedMidiPath);
-        console.log('MIDI Debug - Original title:', tuneData.title);
-        console.log('MIDI Debug - Escaped title:', escapedTitle);
         detailHTML += `
             <button onclick="playMidi('${escapedMidiPath}', '${escapedTitle}')"
                style="padding: 12px 24px; background: #27ae60; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
@@ -288,14 +278,11 @@ function addShareLinkButtons() {
 
 // Enhanced URL parameter handling
 function applyEnhancedURLFilters() {
-    console.log('applyEnhancedURLFilters called');
     const params = new URLSearchParams(window.location.search);
-    console.log('URL params:', Array.from(params.entries()));
 
     // Check for tune detail view FIRST
     if (params.has('tune')) {
         const tuneSlug = params.get('tune');
-        console.log('Showing tune detail for:', tuneSlug);
         setTimeout(() => showTuneDetailView(tuneSlug), 100);
         return; // Don't process other filters if showing tune detail
     }
@@ -306,15 +293,12 @@ function applyEnhancedURLFilters() {
     // Check for category filter (enhanced)
     if (params.has('category')) {
         const categoryParam = decodeURIComponent(params.get('category')).toLowerCase();
-        console.log('Applying category filter:', categoryParam);
 
         // Check if this is a special category (wedding, christmas) that has a dedicated button
         if (categoryParam === 'wedding' && typeof showWedding === 'function') {
-            console.log('Using showWedding() function');
             showWedding();
             return;
         } else if (categoryParam === 'christmas' && typeof showChristmas === 'function') {
-            console.log('Using showChristmas() function');
             showChristmas();
             return;
         }
@@ -330,40 +314,24 @@ function applyEnhancedURLFilters() {
 
             if (matchingOption) {
                 categoryFilter.value = matchingOption.value;
-                console.log('Category filter element value set to:', categoryFilter.value);
 
                 // Check if filterItems function exists
                 if (typeof filterItems === 'function') {
-                    console.log('Calling filterItems()');
                     filterItems();
-                } else {
-                    console.error('filterItems function not found!');
                 }
-            } else {
-                console.error('No matching category found for:', categoryParam);
-                console.log('Available categories:', options.map(o => o.value));
             }
-        } else {
-            console.error('category-filter element not found!');
         }
-    } else {
-        console.log('No category parameter in URL');
     }
 }
 
 // Initialize on load
 window.addEventListener('load', () => {
-    console.log('Window load event fired');
-
     // Add share link buttons first
     addShareLinkButtons();
 
     // Apply enhanced filters - run after everything is loaded
     // Use load event instead of DOMContentLoaded to ensure scripts are ready
     setTimeout(() => {
-        console.log('About to call applyEnhancedURLFilters');
         applyEnhancedURLFilters();
     }, 100);
 });
-
-console.log('Tune detail view support loaded');
