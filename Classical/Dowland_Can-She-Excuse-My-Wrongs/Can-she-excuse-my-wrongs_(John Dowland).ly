@@ -25,9 +25,10 @@ chordNames = \chordmode {
 
 melody = \relative c'' {
   \global
+  \repeat volta 2{
   d,2 a' d c2. b4 a2 a2 g2 f2 f1.
   c'2 a4 bf2 g4 a1 f2 g e e d1.
-  
+  }
 }
 
 words = \lyricmode {

@@ -12,10 +12,10 @@
 }
 \header {
   title = "The Musical Priest"
+  subtitle = "As played by Sheila Falls"
   composer = "Trad. Irish"
   country = "Ireland"
-  style = "irish traditional"       % Remove default LilyPond tagline
-  subtitle = "As played by Sheila Falls"
+  style = "irish traditional"
   video = "https://www.youtube.com/watch?v=Zxl3ZtpdBA0"
 }
 
