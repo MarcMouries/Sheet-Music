@@ -198,10 +198,13 @@ def parse_lilypond_header(ly_file):
                 # Extract fields - try both simple string and \markup formats
                 for field in ['title', 'composer', 'country', 'style', 'subtitle', 'video']:
                     # Try simple string format first: field = "value"
-                    pattern = rf'{field}\s*=\s*"([^"]*)"'
+                    # Pattern handles escaped quotes: allows \" inside the string
+                    pattern = rf'{field}\s*=\s*"((?:[^"\\]|\\.)*)"'
                     match = re.search(pattern, header)
                     if match:
-                        metadata[field] = match.group(1)
+                        # Unescape the string: replace \" with "
+                        value = match.group(1).replace('\\"', '"')
+                        metadata[field] = value
                     else:
                         # Try \markup format: field = \markup ... "value"
                         # Find the last quoted string in the markup (handles complex nested markup)

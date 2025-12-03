@@ -1,5 +1,6 @@
 # Sheet Music Repository - TODO List
 
+- [] Fix duplicate Rondo Alla Turca entries - 3 versions with identical metadata (Piano, Violin, Violin-MacBookAir). Either update subtitles to distinguish them or delete obsolete MacBookAir version
 - [] some files like The Connaughtman's Rambles don't have a preview
 - [] check new files that i just added like Bear Dance
 - [] check all the files that have transposed version (they use the \transpose keyword) and let's make them look nice like "Erev shel Shoshanim"
