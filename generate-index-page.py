@@ -702,8 +702,23 @@ def generate_html(tunes):
             vertical-align: middle;
         }
 
-        tr:hover {
-            background: #f8f9fa;
+        tbody tr {
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: #e8f4f8;
+        }
+
+        /* Prevent link column from being clickable for row navigation */
+        tbody tr td.links {
+            cursor: default;
+        }
+
+        tbody tr td.links a,
+        tbody tr td.links button {
+            cursor: pointer;
         }
 
         /* Card View */
@@ -1431,7 +1446,12 @@ def generate_html(tunes):
         is_christmas = is_christmas_song(tune['title'], tune['category'], tune['style'], tune['tags'])
         is_wedding = is_wedding_song(tune['title'], tune['category'], tune['style'], tune['tags'])
 
-        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
+        # Generate tune slug for URL
+        tune_slug = tune['title'].lower()
+        tune_slug = re.sub(r'[^a-z0-9]+', '-', tune_slug)
+        tune_slug = tune_slug.strip('-')
+
+        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}" data-tune-slug="{tune_slug}" onclick="navigateToTune(event, '{tune_slug}')">
                     <td>
                         <strong>{html.escape(tune['title'])}</strong>"""
         if tune['subtitle']:
@@ -1924,6 +1944,21 @@ def generate_html(tunes):
                 }
             }
         });
+
+        // Navigate to tune detail page when clicking on a row
+        function navigateToTune(event, tuneSlug) {
+            // Don't navigate if clicking on links, buttons, or links column
+            if (event.target.closest('.links') ||
+                event.target.tagName === 'A' ||
+                event.target.tagName === 'BUTTON' ||
+                event.target.closest('a') ||
+                event.target.closest('button')) {
+                return;
+            }
+
+            // Navigate to tune detail page
+            window.location.href = `index.html?tune=${tuneSlug}`;
+        }
 
         // Auto-switch to card view on mobile
         function checkMobileView() {
