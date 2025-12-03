@@ -3,9 +3,9 @@
     "difficulty": 4,
     "tags": [
       "celtic",
-      "irish",
+      "jig",
       "traditional",
-      "jig"
+      "irish"
     ],
     "notes": "Add your notes here"
   },
@@ -13,16 +13,16 @@
     "difficulty": 2,
     "tags": [
       "celtic",
-      "irish",
-      "traditional"
+      "traditional",
+      "irish"
     ],
     "notes": "Add your notes here"
   },
   "Folk_Ireland/DrGilbert/drGilbert_1.ly": {
     "difficulty": 4,
     "tags": [
-      "celtic",
       "reel",
+      "celtic",
       "traditional",
       "irish"
     ],
@@ -31,8 +31,8 @@
   "Folk_Ireland/DrGilbert/drGilbert_1-1.ly": {
     "difficulty": 2,
     "tags": [
-      "celtic",
       "reel",
+      "celtic",
       "traditional",
       "irish"
     ],
@@ -42,9 +42,9 @@
     "difficulty": 2,
     "tags": [
       "celtic",
-      "irish",
+      "jig",
       "traditional",
-      "jig"
+      "irish"
     ],
     "notes": "Add your notes here"
   }

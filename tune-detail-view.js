@@ -225,57 +225,6 @@ function hideDetailView() {
     document.title = 'Marc\'s Sheet Music Collection 🎵';
 }
 
-// Add share link buttons to each row/card
-function addShareLinkButtons() {
-    // Add to table rows
-    const tableRows = document.querySelectorAll('#music-table tbody tr');
-    tableRows.forEach(row => {
-        const titleCell = row.querySelector('td:first-child strong');
-        if (!titleCell) return;
-
-        const title = titleCell.textContent.trim();
-        const slug = sanitizeTitleForUrl(title);
-        const linksCell = row.querySelector('.links');
-
-        if (linksCell && !linksCell.querySelector('.share-link-btn')) {
-            const btn = document.createElement('button');
-            btn.className = 'btn share-link-btn';
-            btn.innerHTML = '🔗 Link';
-            btn.title = 'Direct link to this tune';
-            btn.onclick = (e) => {
-                e.stopPropagation();
-                const url = window.location.origin + window.location.pathname + '?tune=' + slug;
-                window.location.href = url;
-            };
-            linksCell.appendChild(btn);
-        }
-    });
-
-    // Add to cards
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        const titleEl = card.querySelector('.card-title');
-        if (!titleEl) return;
-
-        const title = titleEl.textContent.trim();
-        const slug = sanitizeTitleForUrl(title);
-        const linksDiv = card.querySelector('.links');
-
-        if (linksDiv && !linksDiv.querySelector('.share-link-btn')) {
-            const btn = document.createElement('button');
-            btn.className = 'btn share-link-btn';
-            btn.innerHTML = '🔗';
-            btn.title = 'Direct link';
-            btn.onclick = (e) => {
-                e.stopPropagation();
-                const url = window.location.origin + window.location.pathname + '?tune=' + slug;
-                window.location.href = url;
-            };
-            linksDiv.appendChild(btn);
-        }
-    });
-}
-
 // Enhanced URL parameter handling
 function applyEnhancedURLFilters() {
     const params = new URLSearchParams(window.location.search);
@@ -326,9 +275,6 @@ function applyEnhancedURLFilters() {
 
 // Initialize on load
 window.addEventListener('load', () => {
-    // Add share link buttons first
-    addShareLinkButtons();
-
     // Apply enhanced filters - run after everything is loaded
     // Use load event instead of DOMContentLoaded to ensure scripts are ready
     setTimeout(() => {

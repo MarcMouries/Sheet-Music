@@ -10,777 +10,8 @@
     <script src="https://unpkg.com/@tonejs/midi"></script>
     <!-- Tune detail view support -->
     <script src="tune-detail-view.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            border-bottom: 4px solid #667eea;
-            padding-bottom: 15px;
-            font-size: 2.5em;
-        }
-
-        .stats {
-            margin: 20px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 10px 20px;
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            display: block;
-        }
-
-        .filters {
-            margin: 20px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filters input, .filters select {
-            padding: 10px 15px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .filters input {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .filters input:focus, .filters select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .view-toggle {
-            display: flex;
-            gap: 5px;
-        }
-
-        .quick-filters {
-            display: flex;
-            gap: 10px;
-            margin-left: auto;
-        }
-
-        .quick-filter-btn {
-            padding: 10px 20px;
-            border: 2px solid #667eea;
-            background: white;
-            color: #667eea;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .quick-filter-btn:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
-        }
-
-        .quick-filter-btn.active {
-            background: #667eea;
-            color: white;
-        }
-
-        .view-toggle button {
-            padding: 10px 15px;
-            border: 2px solid #667eea;
-            background: white;
-            color: #667eea;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .view-toggle button.active {
-            background: #667eea;
-            color: white;
-        }
-
-        .view-toggle button:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        /* Table View */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th {
-            background: #34495e;
-            color: white;
-            padding: 15px 12px;
-            text-align: left;
-            font-weight: 600;
-            position: sticky;
-            top: 0;
-            cursor: pointer;
-            user-select: none;
-            z-index: 10;
-        }
-
-        th:hover {
-            background: #2c3e50;
-        }
-
-        th::after {
-            content: ' ⇅';
-            opacity: 0.5;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #ecf0f1;
-            vertical-align: middle;
-        }
-
-        tbody tr {
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        tbody tr:hover {
-            background: #e8f4f8;
-        }
-
-        /* Prevent link column from being clickable for row navigation */
-        tbody tr td.links {
-            cursor: default;
-        }
-
-        tbody tr td.links a,
-        tbody tr td.links button {
-            cursor: pointer;
-        }
-
-        /* Card View */
-        .cards-grid {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .cards-grid.active {
-            display: grid;
-        }
-
-        .card {
-            background: white;
-            border: 2px solid #ecf0f1;
-            border-radius: 8px;
-            padding: 20px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-            border-color: #667eea;
-        }
-
-        .card-thumbnail {
-            width: 100%;
-            height: 200px;
-            background: #f8f9fa;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            color: #ddd;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .card-thumbnail img:hover {
-            transform: scale(1.05);
-        }
-
-        .card-thumbnail::after {
-            content: '🔍';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 16px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-
-        .card-thumbnail:hover::after {
-            opacity: 1;
-        }
-
-        .card-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .card-composer {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .category {
-            display: inline-block;
-            padding: 5px 12px;
-            background: #3498db;
-            color: white;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .category.classical { background: #9b59b6; }
-        .category.jazz { background: #e67e22; }
-        .category.folk, .category.celtic { background: #27ae60; }
-        .category.traditional { background: #16a085; }
-        .category.pop { background: #e74c3c; }
-        .category.practice { background: #95a5a6; }
-        .category.latin { background: #c0392b; }
-
-        .difficulty {
-            display: inline-flex;
-            align-items: center;
-            gap: 2px;
-            font-size: 14px;
-        }
-
-        .difficulty-star {
-            color: #f39c12;
-        }
-
-        .difficulty-star.empty {
-            color: #ddd;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin: 8px 0;
-        }
-
-        .tag {
-            padding: 3px 8px;
-            background: #ecf0f1;
-            color: #555;
-            border-radius: 3px;
-            font-size: 11px;
-        }
-
-        .links {
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-
-        .links a, .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 6px 12px;
-            background: #ecf0f1;
-            color: #2c3e50;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 12px;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .links a:hover, .btn:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-1px);
-        }
-
-        .date {
-            color: #7f8c8d;
-            font-size: 13px;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: #7f8c8d;
-            font-size: 1.2em;
-        }
-
-        /* MIDI Player Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #999;
-            background: none;
-            border: none;
-            padding: 5px 10px;
-        }
-
-        .modal-close:hover {
-            color: #333;
-        }
-
-        .midi-player {
-            margin-top: 20px;
-        }
-
-        .midi-player button {
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-        }
-
-        /* MIDI Player Controls */
-        #midi-controls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: none;
-            min-width: 300px;
-        }
-
-        #midi-controls.active {
-            display: block;
-        }
-
-        #midi-controls h3 {
-            margin: 0 0 10px 0;
-            font-size: 16px;
-            color: #2c3e50;
-        }
-
-        .tempo-control {
-            margin-top: 15px;
-        }
-
-        .tempo-control label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .tempo-slider {
-            width: 100%;
-            margin-bottom: 5px;
-        }
-
-        .tempo-value {
-            text-align: center;
-            font-size: 14px;
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        .midi-controls-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .midi-controls-buttons button {
-            flex: 1;
-            padding: 8px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .midi-stop-btn {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .midi-close-btn {
-            background: #95a5a6;
-            color: white;
-        }
-
-        audio {
-            width: 100%;
-        }
-
-        /* Image Lightbox Modal */
-        #lightbox-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        #lightbox-modal.active {
-            display: flex;
-        }
-
-        #lightbox-content {
-            max-width: 90vw;
-            max-height: 90vh;
-            position: relative;
-        }
-
-        #lightbox-image {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
-        }
-
-        #lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            font-size: 36px;
-            cursor: pointer;
-            color: white;
-            background: rgba(0,0,0,0.5);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        #lightbox-close:hover {
-            background: rgba(255,255,255,0.2);
-            transform: rotate(90deg);
-        }
-
-        #lightbox-title {
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            right: 0;
-            color: white;
-            text-align: center;
-            font-size: 1.2em;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-
-        @media (max-width: 768px) {
-            .modal-content {
-                width: 95%;
-                padding: 20px;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
-
-            .modal-close {
-                font-size: 32px;
-                padding: 10px;
-                top: 5px;
-                right: 5px;
-            }
-
-            #lightbox-close {
-                top: 10px;
-                right: 10px;
-                width: 44px;
-                height: 44px;
-                font-size: 28px;
-            }
-
-            #lightbox-title {
-                bottom: 10px;
-                font-size: 1em;
-            }
-
-            .midi-player button {
-                padding: 12px 24px !important;
-                font-size: 16px !important;
-                min-height: 44px;
-                display: block;
-                width: 100%;
-                margin: 8px 0 !important;
-            }
-
-            #volume-slider {
-                width: 100% !important;
-                max-width: 250px;
-            }
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 15px;
-                border-radius: 8px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-                margin-bottom: 15px;
-            }
-
-            .stats {
-                flex-direction: column;
-                padding: 15px;
-                gap: 10px;
-            }
-
-            .stat-item {
-                padding: 8px 10px;
-            }
-
-            .stat-number {
-                font-size: 1.5em;
-            }
-
-            .filters {
-                flex-direction: column;
-                padding: 15px;
-                gap: 10px;
-            }
-
-            .filters input {
-                min-width: 100%;
-                width: 100%;
-            }
-
-            .filters select {
-                width: 100%;
-            }
-
-            .view-toggle {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .view-toggle .btn {
-                flex: 1;
-            }
-
-            .quick-filters {
-                width: 100%;
-                margin-left: 0;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .quick-filter-btn {
-                flex: 1;
-                min-width: 120px;
-                padding: 8px 12px;
-                font-size: 13px;
-            }
-
-            /* Hide table view on mobile - force card view */
-            table {
-                display: none !important;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .card {
-                padding: 15px;
-            }
-
-            .card-title {
-                font-size: 1.1em;
-            }
-
-            .card-info {
-                font-size: 0.9em;
-            }
-
-            .links {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            .links .btn,
-            .links a {
-                flex: 1;
-                min-width: calc(50% - 4px);
-                font-size: 13px;
-                padding: 8px;
-                text-align: center;
-            }
-
-            .difficulty-stars {
-                transform: scale(0.9);
-            }
-
-            .tags {
-                flex-wrap: wrap;
-            }
-
-            .tag {
-                font-size: 11px;
-                padding: 3px 8px;
-            }
-
-            /* Modal improvements for mobile */
-            .modal-content {
-                width: 95%;
-                max-width: 95%;
-                padding: 20px;
-                margin: 20px auto;
-            }
-
-            .modal-close {
-                font-size: 32px;
-            }
-
-            /* Make sure viewport is properly set */
-            #music-count {
-                font-size: 0.9em;
-            }
-        }
-
-        /* Extra small devices (phones in portrait) */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.3em;
-            }
-
-            .stat-number {
-                font-size: 1.3em;
-            }
-
-            .quick-filter-btn {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-
-            .card-title {
-                font-size: 1em;
-            }
-
-            .card-info {
-                font-size: 0.85em;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -936,7 +167,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,irish,traditional,jig" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="darby-o-gill-fox-chase" onclick="navigateToTune(event, 'darby-o-gill-fox-chase')">
+                <tr data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,jig,traditional,irish" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="darby-o-gill-fox-chase" onclick="navigateToTune(event, 'darby-o-gill-fox-chase')">
                     <td>
                         <strong>Darby O&#x27; Gill - Fox Chase</strong><br><small style="color: #7f8c8d;">Irish Jig – Ornamented (top) vs Plain (bottom)</small></td>
                     <td>Traditional</td>
@@ -951,7 +182,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase.midi', "Darby O' Gill - Fox Chase")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="darby-o-gill-fox-chase" onclick="navigateToTune(event, 'darby-o-gill-fox-chase')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="darby-o-gill-fox-chase" onclick="navigateToTune(event, 'darby-o-gill-fox-chase')">
                     <td>
                         <strong>Darby O&#x27; Gill - Fox Chase</strong></td>
                     <td>Traditional</td>
@@ -966,7 +197,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Darby-O-Gill_Fox-Chase/darby.midi', "Darby O' Gill - Fox Chase")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,reel,traditional,irish" data-style="reel" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="dr-gilbert-s" onclick="navigateToTune(event, 'dr-gilbert-s')">
+                <tr data-category="Celtic/Irish" data-difficulty="4" data-tags="reel,celtic,traditional,irish" data-style="reel" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="dr-gilbert-s" onclick="navigateToTune(event, 'dr-gilbert-s')">
                     <td>
                         <strong>Dr. Gilbert&#x27;s</strong></td>
                     <td>Traditional</td>
@@ -981,7 +212,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/DrGilbert/drGilbert_1.midi', "Dr. Gilbert's")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,reel,traditional,irish" data-style="reel" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="dr-gilbert-s" onclick="navigateToTune(event, 'dr-gilbert-s')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="reel,celtic,traditional,irish" data-style="reel" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="dr-gilbert-s" onclick="navigateToTune(event, 'dr-gilbert-s')">
                     <td>
                         <strong>Dr. Gilbert&#x27;s</strong></td>
                     <td>Traditional</td>
@@ -996,7 +227,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/DrGilbert/drGilbert_1-1.midi', "Dr. Gilbert's")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="gary-owen" onclick="navigateToTune(event, 'gary-owen')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="gary-owen" onclick="navigateToTune(event, 'gary-owen')">
                     <td>
                         <strong>Gary Owen</strong></td>
                     <td>Traditional Irish</td>
@@ -1011,7 +242,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Gary%20Owen/Gary-Owen.midi', "Gary Owen")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-style="medley" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="irish-medley" onclick="navigateToTune(event, 'irish-medley')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-style="medley" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="irish-medley" onclick="navigateToTune(event, 'irish-medley')">
                     <td>
                         <strong>Irish  Medley</strong></td>
                     <td>Martin Hayes</td>
@@ -1026,7 +257,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Martin%20Hayes%20Unknown/Irish%20Martin%20Hayes_Medley.midi', "Irish  Medley")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,reel,traditional,irish" data-style="reel" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="molly-b-n" onclick="navigateToTune(event, 'molly-b-n')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="reel,celtic,traditional,irish" data-style="reel" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="molly-b-n" onclick="navigateToTune(event, 'molly-b-n')">
                     <td>
                         <strong>Molly Bán</strong><br><small style="color: #7f8c8d;">aka Fair-Haired Molly</small></td>
                     <td>Traditional</td>
@@ -1042,7 +273,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Molly-Ban/Molly-Ban.midi', "Molly B\u00e1n")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="paddy-fahey-s-jig" onclick="navigateToTune(event, 'paddy-fahey-s-jig')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="paddy-fahey-s-jig" onclick="navigateToTune(event, 'paddy-fahey-s-jig')">
                     <td>
                         <strong>Paddy Fahey&#x27;s Jig</strong></td>
                     <td>Traditional</td>
@@ -1057,7 +288,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Paddy%20Fahey%27s%20Jig/Paddy-Fahy-s-Jig.midi', "Paddy Fahey's Jig")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="swallowtail-jig" onclick="navigateToTune(event, 'swallowtail-jig')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="swallowtail-jig" onclick="navigateToTune(event, 'swallowtail-jig')">
                     <td>
                         <strong>Swallowtail Jig</strong></td>
                     <td>Traditional</td>
@@ -1071,7 +302,7 @@
                         <a href="Folk_Ireland/Swallowtail-Jig/Swallowtail-Jig.pdf" title="View PDF" target="_blank">📄 PDF</a>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="3" data-tags="celtic,irish,traditional,jig" data-style="slip jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="the-butterfly" onclick="navigateToTune(event, 'the-butterfly')">
+                <tr data-category="Celtic/Irish" data-difficulty="3" data-tags="celtic,jig,traditional,irish" data-style="slip jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="the-butterfly" onclick="navigateToTune(event, 'the-butterfly')">
                     <td>
                         <strong>The Butterfly</strong></td>
                     <td>Tommy Potts</td>
@@ -1086,7 +317,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/The%20Butterfly/The%20Butterfly.midi', "The Butterfly")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-connaughtman-s-rambles" onclick="navigateToTune(event, 'the-connaughtman-s-rambles')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-connaughtman-s-rambles" onclick="navigateToTune(event, 'the-connaughtman-s-rambles')">
                     <td>
                         <strong>The Connaughtman&#x27;s Rambles</strong></td>
                     <td>Traditional</td>
@@ -1101,7 +332,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/The%20Connaughtman%27s%20Rambles/The%20Connaughtman%27s%20Rambles.midi', "The Connaughtman's Rambles")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-style="slow air" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-gift-of-falling" onclick="navigateToTune(event, 'the-gift-of-falling')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-style="slow air" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-gift-of-falling" onclick="navigateToTune(event, 'the-gift-of-falling')">
                     <td>
                         <strong>The Gift Of Falling</strong><br><small style="color: #7f8c8d;">from The Celtic Fiddle of Liz Knowles</small></td>
                     <td>Liz Knowles</td>
@@ -1116,7 +347,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/The%20Gift%20of%20Falling/The%20Gift%20of%20Falling.midi', "The Gift Of Falling")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,irish,traditional" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-musical-priest" onclick="navigateToTune(event, 'the-musical-priest')">
+                <tr data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,traditional,irish" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-musical-priest" onclick="navigateToTune(event, 'the-musical-priest')">
                     <td>
                         <strong>The Musical Priest</strong><br><small style="color: #7f8c8d;">As played by Sheila Falls</small></td>
                     <td>Trad. Irish</td>
@@ -1132,7 +363,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/The%20Musical%20Priest/The%20Musical%20Priest.midi', "The Musical Priest")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-trip-to-sligo" onclick="navigateToTune(event, 'the-trip-to-sligo')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="the-trip-to-sligo" onclick="navigateToTune(event, 'the-trip-to-sligo')">
                     <td>
                         <strong>The Trip To Sligo</strong></td>
                     <td>Traditional</td>
@@ -1147,7 +378,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/The%20Trip%20To%20Sligo%20%28Jig%29/The%20Trip%20To%20Sligo%20%28Jig%29.midi', "The Trip To Sligo")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="trip-to-pakistan-the" onclick="navigateToTune(event, 'trip-to-pakistan-the')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="trip-to-pakistan-the" onclick="navigateToTune(event, 'trip-to-pakistan-the')">
                     <td>
                         <strong>Trip To Pakistan, The</strong></td>
                     <td>tr. Maxence Mouries</td>
@@ -1162,7 +393,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan.midi', "Trip To Pakistan, The")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="trip-to-pakistan-the" onclick="navigateToTune(event, 'trip-to-pakistan-the')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-style="irish traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="trip-to-pakistan-the" onclick="navigateToTune(event, 'trip-to-pakistan-the')">
                     <td>
                         <strong>Trip To Pakistan, The</strong></td>
                     <td>Niall Kenny</td>
@@ -1177,7 +408,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan2.midi', "Trip To Pakistan, The")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="up-sligo" onclick="navigateToTune(event, 'up-sligo')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-style="jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="up-sligo" onclick="navigateToTune(event, 'up-sligo')">
                     <td>
                         <strong>Up Sligo</strong></td>
                     <td>Traditional</td>
@@ -1192,7 +423,7 @@
                         <button class="btn" onclick="playMidi('Folk_Ireland/Up%20Sligo/Up-Sligo.midi', "Up Sligo")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-style="folk song" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="whiskey-in-the-jar" onclick="navigateToTune(event, 'whiskey-in-the-jar')">
+                <tr data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-style="folk song" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="whiskey-in-the-jar" onclick="navigateToTune(event, 'whiskey-in-the-jar')">
                     <td>
                         <strong>Whiskey in the Jar</strong></td>
                     <td>Traditional Irish</td>
@@ -1222,7 +453,7 @@
                         <button class="btn" onclick="playMidi('Christmas/Let%20It%20Snow/Let%20It%20Snow.midi', "Let It Snow, Let It Snow, Let It Snow!")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Christmas" data-difficulty="2" data-tags="christmas,waltz,traditional" data-style="christmas carol" data-country="" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false" data-tune-slug="the-first-noel-duet" onclick="navigateToTune(event, 'the-first-noel-duet')">
+                <tr data-category="Christmas" data-difficulty="2" data-tags="christmas,traditional,waltz" data-style="christmas carol" data-country="" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false" data-tune-slug="the-first-noel-duet" onclick="navigateToTune(event, 'the-first-noel-duet')">
                     <td>
                         <strong>The First Noel (Duet)</strong></td>
                     <td>Traditional; English carol, c. 13th century, arr. first published 1833</td>
@@ -1236,7 +467,7 @@
                         <a href="Christmas/The%20First%20Noel/The%20First%20Noel_Duet.pdf" title="View PDF" target="_blank">📄 PDF</a>
                     </td>
                 </tr>
-                <tr data-category="Christmas" data-difficulty="2" data-tags="christmas,waltz,traditional" data-style="christmas carol" data-country="England" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false" data-tune-slug="the-first-no-l" onclick="navigateToTune(event, 'the-first-no-l')">
+                <tr data-category="Christmas" data-difficulty="2" data-tags="christmas,traditional,waltz" data-style="christmas carol" data-country="England" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false" data-tune-slug="the-first-no-l" onclick="navigateToTune(event, 'the-first-no-l')">
                     <td>
                         <strong>The First Noël</strong></td>
                     <td>18th Century French Melody</td>
@@ -1498,8 +729,8 @@
                     <td><div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div></td>
                     <td class="date">2025-11-28</td>
                     <td class="links">
-                        <a href="Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca-Violin.pdf" title="View PDF" target="_blank">📄 PDF</a>
-                        <button class="btn" onclick="playMidi('Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca-Violin.midi', "Rondo Alla Turca")" title="Play MIDI">🎵 Play</button>
+                        <a href="Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca-Violin.pdf" title="View PDF" target="_blank">📄 PDF</a>
+                        <button class="btn" onclick="playMidi('Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca-Violin.midi', "Rondo Alla Turca")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
                 <tr data-category="Classical" data-difficulty="3" data-tags="classical" data-style="Classical" data-country="Austria" data-dance-types="" data-genres="classical" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="rondo-alla-turca" onclick="navigateToTune(event, 'rondo-alla-turca')">
@@ -1526,8 +757,8 @@
                     <td><div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div></td>
                     <td class="date">2025-11-28</td>
                     <td class="links">
-                        <a href="Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca.pdf" title="View PDF" target="_blank">📄 PDF</a>
-                        <button class="btn" onclick="playMidi('Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca.midi', "Rondo Alla Turca")" title="Play MIDI">🎵 Play</button>
+                        <a href="Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca.pdf" title="View PDF" target="_blank">📄 PDF</a>
+                        <button class="btn" onclick="playMidi('Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca.midi', "Rondo Alla Turca")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
                 <tr data-category="Classical" data-difficulty="3" data-tags="classical" data-style="classical" data-country="Russia" data-dance-types="" data-genres="classical" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="scheherazade-mvt-2-the-kalendar-prince" onclick="navigateToTune(event, 'scheherazade-mvt-2-the-kalendar-prince')">
@@ -1775,7 +1006,7 @@
                         <button class="btn" onclick="playMidi('Folk_Canada/L-Air-Mignonne/L-Air-Mignonne.midi', "L'Air Mignonne")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Folk/Canada" data-difficulty="3" data-tags="canadian,folk,waltz,traditional" data-style="waltz" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="teardrop-waltz" onclick="navigateToTune(event, 'teardrop-waltz')">
+                <tr data-category="Folk/Canada" data-difficulty="3" data-tags="canadian,folk,traditional,waltz" data-style="waltz" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="teardrop-waltz" onclick="navigateToTune(event, 'teardrop-waltz')">
                     <td>
                         <strong>Teardrop Waltz</strong></td>
                     <td>Reg Bouvette</td>
@@ -1790,7 +1021,7 @@
                         <button class="btn" onclick="playMidi('Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz%20-%20Casey%20Willis.midi', "Teardrop Waltz")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Folk/Canada" data-difficulty="2" data-tags="canadian,folk,waltz,traditional" data-style="waltz" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="teardrop-waltz" onclick="navigateToTune(event, 'teardrop-waltz')">
+                <tr data-category="Folk/Canada" data-difficulty="2" data-tags="canadian,folk,traditional,waltz" data-style="waltz" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="teardrop-waltz" onclick="navigateToTune(event, 'teardrop-waltz')">
                     <td>
                         <strong>Teardrop Waltz</strong></td>
                     <td>Reg Bouvette</td>
@@ -1805,7 +1036,7 @@
                         <button class="btn" onclick="playMidi('Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz_Marc.midi', "Teardrop Waltz")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Folk/French" data-difficulty="2" data-tags="traditional,folk,french" data-style="children&#x27;s song" data-country="France" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="jean-petit-qui-danse" onclick="navigateToTune(event, 'jean-petit-qui-danse')">
+                <tr data-category="Folk/French" data-difficulty="2" data-tags="french,folk,traditional" data-style="children&#x27;s song" data-country="France" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="jean-petit-qui-danse" onclick="navigateToTune(event, 'jean-petit-qui-danse')">
                     <td>
                         <strong>Jean Petit qui danse</strong></td>
                     <td>Traditional French</td>
@@ -1820,7 +1051,7 @@
                         <button class="btn" onclick="playMidi('Folk_French/Jean%20Petit%20qui%20danse/Jean%20Petit%20qui%20Danse.midi', "Jean Petit qui danse")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Folk/USA" data-difficulty="2" data-tags="american,waltz,traditional,folk" data-style="waltz" data-country="USA" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="ashokan-farewell" onclick="navigateToTune(event, 'ashokan-farewell')">
+                <tr data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional,waltz" data-style="waltz" data-country="USA" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="ashokan-farewell" onclick="navigateToTune(event, 'ashokan-farewell')">
                     <td>
                         <strong>Ashokan Farewell</strong></td>
                     <td>Jay Ungar</td>
@@ -1850,7 +1081,7 @@
                         <button class="btn" onclick="playMidi('Folk_USA/Devils%20Dream/Devil%27s%20Dream.midi', "Devil's Dream")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-style="spiritual" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="down-to-the-river-to-pray" onclick="navigateToTune(event, 'down-to-the-river-to-pray')">
+                <tr data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-style="spiritual" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="down-to-the-river-to-pray" onclick="navigateToTune(event, 'down-to-the-river-to-pray')">
                     <td>
                         <strong>Down To The River To Pray</strong></td>
                     <td>Traditional American</td>
@@ -1864,7 +1095,7 @@
                         <a href="Folk_USA/Down-To-The-River-To-Pray/Down-To-The-River-To-Pray.pdf" title="View PDF" target="_blank">📄 PDF</a>
                     </td>
                 </tr>
-                <tr data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-style="bluegrass" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="jerusalem-ridge" onclick="navigateToTune(event, 'jerusalem-ridge')">
+                <tr data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-style="bluegrass" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="jerusalem-ridge" onclick="navigateToTune(event, 'jerusalem-ridge')">
                     <td>
                         <strong>Jerusalem Ridge</strong></td>
                     <td>Bill Monroe</td>
@@ -1879,7 +1110,7 @@
                         <a href="Folk_USA/Jerusalem%20Ridge/Jerusulam%20Ridge%2C%20Kenny%20Baker.pdf" title="View PDF" target="_blank">📄 PDF</a>
                     </td>
                 </tr>
-                <tr data-category="Folk/USA" data-difficulty="2" data-tags="american,waltz,traditional,folk" data-style="anthem" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="star-spangled-banner" onclick="navigateToTune(event, 'star-spangled-banner')">
+                <tr data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional,waltz" data-style="anthem" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="star-spangled-banner" onclick="navigateToTune(event, 'star-spangled-banner')">
                     <td>
                         <strong>Star Spangled Banner</strong><br><small style="color: #7f8c8d;">The National Anthem of the United States</small></td>
                     <td>John Stafford Smith</td>
@@ -1894,7 +1125,7 @@
                         <button class="btn" onclick="playMidi('Folk_USA/The-Star-Spangled-Banner/The-Star%20Spangled%20Banner.midi', "Star Spangled Banner")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-style="old-time" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="you-are-my-sunshine" onclick="navigateToTune(event, 'you-are-my-sunshine')">
+                <tr data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-style="old-time" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="you-are-my-sunshine" onclick="navigateToTune(event, 'you-are-my-sunshine')">
                     <td>
                         <strong>You are my Sunshine</strong></td>
                     <td>Jimmie Davis and Charles Mitchell</td>
@@ -1909,7 +1140,7 @@
                         <button class="btn" onclick="playMidi('Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine.midi', "You are my Sunshine")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-style="american folk" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="you-are-my-sunshine" onclick="navigateToTune(event, 'you-are-my-sunshine')">
+                <tr data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-style="american folk" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="you-are-my-sunshine" onclick="navigateToTune(event, 'you-are-my-sunshine')">
                     <td>
                         <strong>You are my Sunshine</strong></td>
                     <td>USA</td>
@@ -1922,7 +1153,7 @@
                     <td class="links">
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz,waltz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="bistro-fada" onclick="navigateToTune(event, 'bistro-fada')">
+                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,waltz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="bistro-fada" onclick="navigateToTune(event, 'bistro-fada')">
                     <td>
                         <strong>Bistro Fada</strong><br><small style="color: #7f8c8d;">From &quot;Midnight in Paris&quot;</small></td>
                     <td>Stephane Wrembel</td>
@@ -1936,7 +1167,7 @@
                         <a href="Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml.pdf" title="View PDF" target="_blank">📄 PDF</a>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blue-lou" onclick="navigateToTune(event, 'blue-lou')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blue-lou" onclick="navigateToTune(event, 'blue-lou')">
                     <td>
                         <strong>Blue Lou</strong><br><small style="color: #7f8c8d;">transcribed by Marc</small></td>
                     <td>Stephane Grappelli</td>
@@ -1951,7 +1182,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Blue-Lou/Blue_Lou_Marc.midi', "Blue Lou")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blue-lou-lick" onclick="navigateToTune(event, 'blue-lou-lick')">
+                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blue-lou-lick" onclick="navigateToTune(event, 'blue-lou-lick')">
                     <td>
                         <strong>Blue Lou Lick</strong><br><small style="color: #7f8c8d;">transcribed by Marc</small></td>
                     <td>Stephane Grappelli</td>
@@ -1966,7 +1197,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Blue-Lou/Blue_Lou_Licks.midi', "Blue Lou Lick")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blue-lou-arpeggio-practice" onclick="navigateToTune(event, 'blue-lou-arpeggio-practice')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blue-lou-arpeggio-practice" onclick="navigateToTune(event, 'blue-lou-arpeggio-practice')">
                     <td>
                         <strong>Blue Lou – Arpeggio Practice</strong><br><small style="color: #7f8c8d;">Practice</small></td>
                     <td>practice etude</td>
@@ -1981,7 +1212,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Blue-Lou/Blue-Lou_Chords.midi', "Blue Lou \u2013 Arpeggio Practice")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="4" data-tags="gypsy,blues,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="blues" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blues-en-mineur" onclick="navigateToTune(event, 'blues-en-mineur')">
+                <tr data-category="Gypsy Jazz" data-difficulty="4" data-tags="jazz,blues,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="blues" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="blues-en-mineur" onclick="navigateToTune(event, 'blues-en-mineur')">
                     <td>
                         <strong>Blues en Mineur</strong><br><small style="color: #7f8c8d;">1949 Rome</small></td>
                     <td>Django Reinhardt</td>
@@ -1997,7 +1228,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur.midi', "Blues en Mineur")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="chicago" onclick="navigateToTune(event, 'chicago')">
+                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="chicago" onclick="navigateToTune(event, 'chicago')">
                     <td>
                         <strong>Chicago</strong><br><small style="color: #7f8c8d;">Grappelli</small></td>
                     <td>Fred Fisher</td>
@@ -2012,7 +1243,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Chicago/Chicago%20-%20Grappelli.midi', "Chicago")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="daphne" onclick="navigateToTune(event, 'daphne')">
+                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="daphne" onclick="navigateToTune(event, 'daphne')">
                     <td>
                         <strong>Daphné</strong></td>
                     <td>Django Reinhardt</td>
@@ -2027,7 +1258,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Daphn%C3%A9/Daphne%20-%20Grappelli%2BTaylor.midi', "Daphne\u0301")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,swing,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="minor-swing" onclick="navigateToTune(event, 'minor-swing')">
+                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy,swing" data-style="gypsy jazz" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="minor-swing" onclick="navigateToTune(event, 'minor-swing')">
                     <td>
                         <strong>Minor Swing</strong><br><small style="color: #7f8c8d;">Christiaan van Hemert</small></td>
                     <td>Django Reinhardt &amp; Stéphane Grappelli</td>
@@ -2042,7 +1273,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Minor-Swing/Minor%20Swing%20-%20van%20Hemert.midi', "Minor Swing")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="nine-by-nine" onclick="navigateToTune(event, 'nine-by-nine')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="nine-by-nine" onclick="navigateToTune(event, 'nine-by-nine')">
                     <td>
                         <strong>Nine by Nine</strong></td>
                     <td>N. Picket</td>
@@ -2057,7 +1288,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Nine%20by%20Nine/Nine%20by%20Nine.midi', "Nine by Nine")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-style="" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="rythmes-gitans" onclick="navigateToTune(event, 'rythmes-gitans')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-style="" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="rythmes-gitans" onclick="navigateToTune(event, 'rythmes-gitans')">
                     <td>
                         <strong>Rythmes Gitans</strong></td>
                     <td>Traditional</td>
@@ -2072,7 +1303,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans.midi', "Rythmes Gitans")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-style="" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="rythmes-gitans-daisy" onclick="navigateToTune(event, 'rythmes-gitans-daisy')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-style="" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="rythmes-gitans-daisy" onclick="navigateToTune(event, 'rythmes-gitans-daisy')">
                     <td>
                         <strong>Rythmes Gitans (Daisy)</strong></td>
                     <td>Traditional</td>
@@ -2087,7 +1318,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans_Daisy.midi', "Rythmes Gitans (Daisy)")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="si-tu-savais" onclick="navigateToTune(event, 'si-tu-savais')">
+                <tr data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="si-tu-savais" onclick="navigateToTune(event, 'si-tu-savais')">
                     <td>
                         <strong>Si Tu Savais</strong></td>
                     <td>Django Reinhardt</td>
@@ -2101,7 +1332,7 @@
                         <a href="Gypsy-Jazz/Si-Tu-Savais/Si%20tu%20savais%20%28Cm%29.pdf" title="View PDF" target="_blank">📄 PDF</a>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="si-tu-savais" onclick="navigateToTune(event, 'si-tu-savais')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy" data-style="gypsy jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="si-tu-savais" onclick="navigateToTune(event, 'si-tu-savais')">
                     <td>
                         <strong>Si Tu Savais</strong></td>
                     <td>Django Reinhardt</td>
@@ -2116,7 +1347,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais.midi', "Si Tu Savais")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-style="" data-country="" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="tchavolo-swing" onclick="navigateToTune(event, 'tchavolo-swing')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-style="" data-country="" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="tchavolo-swing" onclick="navigateToTune(event, 'tchavolo-swing')">
                     <td>
                         <strong>Tchavolo Swing</strong><br><small style="color: #7f8c8d;">from the movie Latcho drom (1993)</small></td>
                     <td>Dorado Schmitt</td>
@@ -2131,7 +1362,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Tchavolo-Swing/Tchavolo-Swing.midi', "Tchavolo Swing")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-style="gypsy jazz" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="from-the-movie-swing-2002" onclick="navigateToTune(event, 'from-the-movie-swing-2002')">
+                <tr data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-style="gypsy jazz" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="from-the-movie-swing-2002" onclick="navigateToTune(event, 'from-the-movie-swing-2002')">
                     <td>
                         <strong>from the Movie Swing (2002)</strong></td>
                     <td>Mandino Reinhardt &amp; Tchavolo Schmitt</td>
@@ -2146,7 +1377,7 @@
                         <button class="btn" onclick="playMidi('Gypsy-Jazz/Swing_Movie/Swing_Movie_.midi', "from the Movie Swing (2002)")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Jazz" data-difficulty="2" data-tags="swing,jazz" data-style="Medium Swing" data-country="USA" data-dance-types="swing" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="on-the-sunny-side-of-the-street" onclick="navigateToTune(event, 'on-the-sunny-side-of-the-street')">
+                <tr data-category="Jazz" data-difficulty="2" data-tags="jazz,swing" data-style="Medium Swing" data-country="USA" data-dance-types="swing" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="on-the-sunny-side-of-the-street" onclick="navigateToTune(event, 'on-the-sunny-side-of-the-street')">
                     <td>
                         <strong>(On the) Sunny Side of the Street</strong></td>
                     <td>Jimmy McHugh</td>
@@ -2231,7 +1462,7 @@
                         <button class="btn" onclick="playMidi('Jazz/Misty/Misty.midi', "Misty")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Jazz" data-difficulty="3" data-tags="swing,jazz,waltz" data-style="jazz" data-country="USA" data-dance-types="" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="summertime" onclick="navigateToTune(event, 'summertime')">
+                <tr data-category="Jazz" data-difficulty="3" data-tags="jazz,waltz,swing" data-style="jazz" data-country="USA" data-dance-types="" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="summertime" onclick="navigateToTune(event, 'summertime')">
                     <td>
                         <strong>Summertime</strong><br><small style="color: #7f8c8d;">S. Grappelli</small></td>
                     <td>G. Gershwin</td>
@@ -3201,7 +2432,7 @@
                         <button class="btn" onclick="playMidi('Folk_Jewish/Hevenu_Shalom_Aleichem/hevenu_shalom_aleichem.midi', "\u05d4\u05d1\u05d0\u05e0\u05d5 \u05e9\u05dc\u05d5\u05dd \u05e2\u05dc\u05d9\u05db\u05dd")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="pop,waltz" data-style="traditional" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="happy-birthday" onclick="navigateToTune(event, 'happy-birthday')">
+                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="waltz,pop" data-style="traditional" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="happy-birthday" onclick="navigateToTune(event, 'happy-birthday')">
                     <td>
                         <strong>Happy Birthday</strong></td>
                     <td>Patty Hill and Mildred J. Hill (1893)</td>
@@ -3216,7 +2447,7 @@
                         <button class="btn" onclick="playMidi('Pop/Happy%20Birthday/Happy%20Birthday.midi', "Happy Birthday")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="pop,waltz" data-style="traditional" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="happy-birthday" onclick="navigateToTune(event, 'happy-birthday')">
+                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="waltz,pop" data-style="traditional" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="happy-birthday" onclick="navigateToTune(event, 'happy-birthday')">
                     <td>
                         <strong>Happy Birthday</strong></td>
                     <td>Patty Hill and Mildred J. Hill (1893)</td>
@@ -3244,7 +2475,7 @@
                         <button class="btn" onclick="playMidi('Pop/Video-Music/hedgehog-video-music.midi', "Hedgehog Video Music")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="pop,waltz" data-style="chanson" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="hier-encore" onclick="navigateToTune(event, 'hier-encore')">
+                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="waltz,pop" data-style="chanson" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="hier-encore" onclick="navigateToTune(event, 'hier-encore')">
                     <td>
                         <strong>Hier Encore</strong><br><small style="color: #7f8c8d;">Violino</small></td>
                     <td>Charles Aznavour</td>
@@ -3258,7 +2489,7 @@
                         <a href="Pop/Charles-Aznavour_Hier-Encore/Charles-Aznavour-Hier-Encore.pdf" title="View PDF" target="_blank">📄 PDF</a>
                     </td>
                 </tr>
-                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="pop,blues" data-style="blues" data-country="USA" data-dance-types="blues" data-genres="jazz,pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="something-s-got-a-hold-on-me" onclick="navigateToTune(event, 'something-s-got-a-hold-on-me')">
+                <tr data-category="Pop/Modern" data-difficulty="2" data-tags="blues,pop" data-style="blues" data-country="USA" data-dance-types="blues" data-genres="jazz,pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false" data-tune-slug="something-s-got-a-hold-on-me" onclick="navigateToTune(event, 'something-s-got-a-hold-on-me')">
                     <td>
                         <strong>Something&#x27;s Got a Hold on Me</strong><br><small style="color: #7f8c8d;">Blues style</small></td>
                     <td>Leroy Kirkland &amp; Pearl Woods</td>
@@ -3273,7 +2504,7 @@
                         <button class="btn" onclick="playMidi('Pop/Something-Got-a-Hold-of-Me/Something-s-got-a-hold-on-me.midi', "Something's Got a Hold on Me")" title="Play MIDI">🎵 Play</button>
                     </td>
                 </tr>
-                <tr data-category="Pop/Modern" data-difficulty="3" data-tags="pop,waltz" data-style="french chanson" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="sous-le-ciel-de-paris" onclick="navigateToTune(event, 'sous-le-ciel-de-paris')">
+                <tr data-category="Pop/Modern" data-difficulty="3" data-tags="waltz,pop" data-style="french chanson" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false" data-tune-slug="sous-le-ciel-de-paris" onclick="navigateToTune(event, 'sous-le-ciel-de-paris')">
                     <td>
                         <strong>Sous le ciel de Paris</strong></td>
                     <td>Hubert Giraud</td>
@@ -3367,7 +2598,7 @@
         </div>
 
         <div id="cards-container" class="cards-grid">
-            <div class="card" data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase-preview.png" alt="Darby O&#x27; Gill - Fox Chase" onclick="openLightbox('Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase-preview.png', 'Darby O&#x27; Gill - Fox Chase')">
                 </div>
@@ -3378,13 +2609,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Darby-O-Gill_Fox-Chase/Darby-O-Gill-Fox-Chase.midi', "Darby O' Gill - Fox Chase")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Darby-O-Gill_Fox-Chase/darby-preview.png" alt="Darby O&#x27; Gill - Fox Chase" onclick="openLightbox('Folk_Ireland/Darby-O-Gill_Fox-Chase/darby-preview.png', 'Darby O&#x27; Gill - Fox Chase')">
                 </div>
@@ -3395,13 +2626,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Darby-O-Gill_Fox-Chase/darby.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Darby-O-Gill_Fox-Chase/darby.midi', "Darby O' Gill - Fox Chase")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,reel,traditional,irish" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="4" data-tags="reel,celtic,traditional,irish" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/DrGilbert/drGilbert_1-preview.png" alt="Dr. Gilbert&#x27;s" onclick="openLightbox('Folk_Ireland/DrGilbert/drGilbert_1-preview.png', 'Dr. Gilbert&#x27;s')">
                 </div>
@@ -3412,13 +2643,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">reel</span><span class="tag">traditional</span><span class="tag">irish</span></div>
+                <div class="tags"><span class="tag">reel</span><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/DrGilbert/drGilbert_1.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/DrGilbert/drGilbert_1.midi', "Dr. Gilbert's")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,reel,traditional,irish" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="reel,celtic,traditional,irish" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/DrGilbert/drGilbert_1-1-preview.png" alt="Dr. Gilbert&#x27;s" onclick="openLightbox('Folk_Ireland/DrGilbert/drGilbert_1-1-preview.png', 'Dr. Gilbert&#x27;s')">
                 </div>
@@ -3429,13 +2660,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">reel</span><span class="tag">traditional</span><span class="tag">irish</span></div>
+                <div class="tags"><span class="tag">reel</span><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/DrGilbert/drGilbert_1-1.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/DrGilbert/drGilbert_1-1.midi', "Dr. Gilbert's")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Gary%20Owen/Gary-Owen-preview.png" alt="Gary Owen" onclick="openLightbox('Folk_Ireland/Gary%20Owen/Gary-Owen-preview.png', 'Gary Owen')">
                 </div>
@@ -3446,13 +2677,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Gary%20Owen/Gary-Owen.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Gary%20Owen/Gary-Owen.midi', "Gary Owen")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Martin%20Hayes%20Unknown/Irish%20Martin%20Hayes_Medley-preview.png" alt="Irish  Medley" onclick="openLightbox('Folk_Ireland/Martin%20Hayes%20Unknown/Irish%20Martin%20Hayes_Medley-preview.png', 'Irish  Medley')">
                 </div>
@@ -3463,13 +2694,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Martin%20Hayes%20Unknown/Irish%20Martin%20Hayes_Medley.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Martin%20Hayes%20Unknown/Irish%20Martin%20Hayes_Medley.midi', "Irish  Medley")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,reel,traditional,irish" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="reel,celtic,traditional,irish" data-country="Ireland" data-dance-types="reel" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Molly-Ban/Molly-Ban-preview.png" alt="Molly Bán" onclick="openLightbox('Folk_Ireland/Molly-Ban/Molly-Ban-preview.png', 'Molly Bán')">
                 </div>
@@ -3480,14 +2711,14 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">reel</span><span class="tag">traditional</span><span class="tag">irish</span></div>
+                <div class="tags"><span class="tag">reel</span><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="https://www.youtube.com/watch?v=29AUiWEPs3o" title="Watch video" target="_blank">🎥 Video</a>
                     <a href="Folk_Ireland/Molly-Ban/Molly-Ban.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Molly-Ban/Molly-Ban.midi', "Molly B\u00e1n")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Paddy%20Fahey%27s%20Jig/Paddy-Fahy-s-Jig-preview.png" alt="Paddy Fahey&#x27;s Jig" onclick="openLightbox('Folk_Ireland/Paddy%20Fahey%27s%20Jig/Paddy-Fahy-s-Jig-preview.png', 'Paddy Fahey&#x27;s Jig')">
                 </div>
@@ -3498,13 +2729,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Paddy%20Fahey%27s%20Jig/Paddy-Fahy-s-Jig.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Paddy%20Fahey%27s%20Jig/Paddy-Fahy-s-Jig.midi', "Paddy Fahey's Jig")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Swallowtail-Jig/Swallowtail-Jig-preview.png" alt="Swallowtail Jig" onclick="openLightbox('Folk_Ireland/Swallowtail-Jig/Swallowtail-Jig-preview.png', 'Swallowtail Jig')">
                 </div>
@@ -3515,12 +2746,12 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Swallowtail-Jig/Swallowtail-Jig.pdf" target="_blank">📄 PDF</a>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="3" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="3" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/The%20Butterfly/The%20Butterfly-preview.png" alt="The Butterfly" onclick="openLightbox('Folk_Ireland/The%20Butterfly/The%20Butterfly-preview.png', 'The Butterfly')">
                 </div>
@@ -3531,13 +2762,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/The%20Butterfly/The%20Butterfly.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/The%20Butterfly/The%20Butterfly.midi', "The Butterfly")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/The%20Connaughtman%27s%20Rambles/The%20Connaughtman%27s%20Rambles-preview.png" alt="The Connaughtman&#x27;s Rambles" onclick="openLightbox('Folk_Ireland/The%20Connaughtman%27s%20Rambles/The%20Connaughtman%27s%20Rambles-preview.png', 'The Connaughtman&#x27;s Rambles')">
                 </div>
@@ -3548,13 +2779,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/The%20Connaughtman%27s%20Rambles/The%20Connaughtman%27s%20Rambles.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/The%20Connaughtman%27s%20Rambles/The%20Connaughtman%27s%20Rambles.midi', "The Connaughtman's Rambles")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/The%20Gift%20of%20Falling/The%20Gift%20of%20Falling-preview.png" alt="The Gift Of Falling" onclick="openLightbox('Folk_Ireland/The%20Gift%20of%20Falling/The%20Gift%20of%20Falling-preview.png', 'The Gift Of Falling')">
                 </div>
@@ -3565,13 +2796,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/The%20Gift%20of%20Falling/The%20Gift%20of%20Falling.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/The%20Gift%20of%20Falling/The%20Gift%20of%20Falling.midi', "The Gift Of Falling")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,irish,traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="4" data-tags="celtic,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/The%20Musical%20Priest/The%20Musical%20Priest-preview.png" alt="The Musical Priest" onclick="openLightbox('Folk_Ireland/The%20Musical%20Priest/The%20Musical%20Priest-preview.png', 'The Musical Priest')">
                 </div>
@@ -3582,14 +2813,14 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="https://www.youtube.com/watch?v=Zxl3ZtpdBA0" title="Watch video" target="_blank">🎥 Video</a>
                     <a href="Folk_Ireland/The%20Musical%20Priest/The%20Musical%20Priest.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/The%20Musical%20Priest/The%20Musical%20Priest.midi', "The Musical Priest")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/The%20Trip%20To%20Sligo%20%28Jig%29/The%20Trip%20To%20Sligo%20%28Jig%29-preview.png" alt="The Trip To Sligo" onclick="openLightbox('Folk_Ireland/The%20Trip%20To%20Sligo%20%28Jig%29/The%20Trip%20To%20Sligo%20%28Jig%29-preview.png', 'The Trip To Sligo')">
                 </div>
@@ -3600,13 +2831,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/The%20Trip%20To%20Sligo%20%28Jig%29/The%20Trip%20To%20Sligo%20%28Jig%29.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/The%20Trip%20To%20Sligo%20%28Jig%29/The%20Trip%20To%20Sligo%20%28Jig%29.midi', "The Trip To Sligo")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     🎼
                 </div>
@@ -3617,13 +2848,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan.midi', "Trip To Pakistan, The")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan2-preview.png" alt="Trip To Pakistan, The" onclick="openLightbox('Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan2-preview.png', 'Trip To Pakistan, The')">
                 </div>
@@ -3634,13 +2865,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan2.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Trip%20to%20Pakistan/tripToPakistan2.midi', "Trip To Pakistan, The")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional,jig" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,jig,traditional,irish" data-country="Ireland" data-dance-types="jig" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Up%20Sligo/Up-Sligo-preview.png" alt="Up Sligo" onclick="openLightbox('Folk_Ireland/Up%20Sligo/Up-Sligo-preview.png', 'Up Sligo')">
                 </div>
@@ -3651,13 +2882,13 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span><span class="tag">jig</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">jig</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Up%20Sligo/Up-Sligo.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Up%20Sligo/Up-Sligo.midi', "Up Sligo")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,irish,traditional" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Celtic/Irish" data-difficulty="2" data-tags="celtic,traditional,irish" data-country="Ireland" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Ireland/Whiskey%20in%20the%20Jar/Whiskey%20in%20the%20Jar-preview.png" alt="Whiskey in the Jar" onclick="openLightbox('Folk_Ireland/Whiskey%20in%20the%20Jar/Whiskey%20in%20the%20Jar-preview.png', 'Whiskey in the Jar')">
                 </div>
@@ -3668,7 +2899,7 @@
                     <span class="category celtic">Celtic/Irish</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">celtic</span><span class="tag">irish</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">celtic</span><span class="tag">traditional</span><span class="tag">irish</span></div>
                 <div class="links">
                     <a href="Folk_Ireland/Whiskey%20in%20the%20Jar/Whiskey%20in%20the%20Jar.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Ireland/Whiskey%20in%20the%20Jar/Whiskey%20in%20the%20Jar.midi', "Whiskey in the Jar")">🎵 Play</button>
@@ -3691,7 +2922,7 @@
                     <button class="btn" onclick="playMidi('Christmas/Let%20It%20Snow/Let%20It%20Snow.midi', "Let It Snow, Let It Snow, Let It Snow!")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Christmas" data-difficulty="2" data-tags="christmas,waltz,traditional" data-country="" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false">
+            <div class="card" data-category="Christmas" data-difficulty="2" data-tags="christmas,traditional,waltz" data-country="" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Christmas/The%20First%20Noel/The%20First%20Noel_Duet-preview.png" alt="The First Noel (Duet)" onclick="openLightbox('Christmas/The%20First%20Noel/The%20First%20Noel_Duet-preview.png', 'The First Noel (Duet)')">
                 </div>
@@ -3702,12 +2933,12 @@
                     <span class="category christmas">Christmas</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">christmas</span><span class="tag">waltz</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">christmas</span><span class="tag">traditional</span><span class="tag">waltz</span></div>
                 <div class="links">
                     <a href="Christmas/The%20First%20Noel/The%20First%20Noel_Duet.pdf" target="_blank">📄 PDF</a>
                 </div>
             </div>
-            <div class="card" data-category="Christmas" data-difficulty="2" data-tags="christmas,waltz,traditional" data-country="England" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false">
+            <div class="card" data-category="Christmas" data-difficulty="2" data-tags="christmas,traditional,waltz" data-country="England" data-dance-types="" data-genres="" data-occasions="christmas" data-top10="false" data-christmas="true" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Christmas/The%20First%20Noel/The%20First%20Noel-preview.png" alt="The First Noël" onclick="openLightbox('Christmas/The%20First%20Noel/The%20First%20Noel-preview.png', 'The First Noël')">
                 </div>
@@ -3718,7 +2949,7 @@
                     <span class="category christmas">Christmas</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">christmas</span><span class="tag">waltz</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">christmas</span><span class="tag">traditional</span><span class="tag">waltz</span></div>
                 <div class="links">
                     <a href="Christmas/The%20First%20Noel/The%20First%20Noel.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Christmas/The%20First%20Noel/The%20First%20Noel.midi', "The First No\u00ebl")">🎵 Play</button>
@@ -4005,8 +3236,8 @@
                 </div>
                 <div class="tags"><span class="tag">classical</span></div>
                 <div class="links">
-                    <a href="Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca-Violin.pdf" target="_blank">📄 PDF</a>
-                    <button class="btn" onclick="playMidi('Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca-Violin.midi', "Rondo Alla Turca")">🎵 Play</button>
+                    <a href="Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca-Violin.pdf" target="_blank">📄 PDF</a>
+                    <button class="btn" onclick="playMidi('Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca-Violin.midi', "Rondo Alla Turca")">🎵 Play</button>
                 </div>
             </div>
             <div class="card" data-category="Classical" data-difficulty="3" data-tags="classical" data-country="Austria" data-dance-types="" data-genres="classical" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
@@ -4026,7 +3257,7 @@
             </div>
             <div class="card" data-category="Classical" data-difficulty="2" data-tags="classical" data-country="Austria" data-dance-types="" data-genres="classical" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
-                    <img src="Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca-preview.png" alt="Rondo Alla Turca" onclick="openLightbox('Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca-preview.png', 'Rondo Alla Turca')">
+                    <img src="Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca-preview.png" alt="Rondo Alla Turca" onclick="openLightbox('Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca-preview.png', 'Rondo Alla Turca')">
                 </div>
                 <div class="card-title">Rondo Alla Turca</div>
                 <div class="card-composer">W. A. Mozart</div>
@@ -4037,8 +3268,8 @@
                 </div>
                 <div class="tags"><span class="tag">classical</span></div>
                 <div class="links">
-                    <a href="Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca.pdf" target="_blank">📄 PDF</a>
-                    <button class="btn" onclick="playMidi('Classical/Mozart_Rondo_Alla_Turca/KV331_3_RondoAllaTurca.midi', "Rondo Alla Turca")">🎵 Play</button>
+                    <a href="Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca.pdf" target="_blank">📄 PDF</a>
+                    <button class="btn" onclick="playMidi('Classical/Mozart_Rondo-Alla-Turca/KV331_3_RondoAllaTurca.midi', "Rondo Alla Turca")">🎵 Play</button>
                 </div>
             </div>
             <div class="card" data-category="Classical" data-difficulty="3" data-tags="classical" data-country="Russia" data-dance-types="" data-genres="classical" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
@@ -4320,7 +3551,7 @@
                     <button class="btn" onclick="playMidi('Folk_Canada/L-Air-Mignonne/L-Air-Mignonne.midi', "L'Air Mignonne")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Folk/Canada" data-difficulty="3" data-tags="canadian,folk,waltz,traditional" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/Canada" data-difficulty="3" data-tags="canadian,folk,traditional,waltz" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz%20-%20Casey%20Willis-preview.png" alt="Teardrop Waltz" onclick="openLightbox('Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz%20-%20Casey%20Willis-preview.png', 'Teardrop Waltz')">
                 </div>
@@ -4331,13 +3562,13 @@
                     <span class="category folk">Folk/Canada</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">canadian</span><span class="tag">folk</span><span class="tag">waltz</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">canadian</span><span class="tag">folk</span><span class="tag">traditional</span><span class="tag">waltz</span></div>
                 <div class="links">
                     <a href="Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz%20-%20Casey%20Willis.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz%20-%20Casey%20Willis.midi', "Teardrop Waltz")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Folk/Canada" data-difficulty="2" data-tags="canadian,folk,waltz,traditional" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/Canada" data-difficulty="2" data-tags="canadian,folk,traditional,waltz" data-country="Canada" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz_Marc-preview.png" alt="Teardrop Waltz" onclick="openLightbox('Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz_Marc-preview.png', 'Teardrop Waltz')">
                 </div>
@@ -4348,13 +3579,13 @@
                     <span class="category folk">Folk/Canada</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">canadian</span><span class="tag">folk</span><span class="tag">waltz</span><span class="tag">traditional</span></div>
+                <div class="tags"><span class="tag">canadian</span><span class="tag">folk</span><span class="tag">traditional</span><span class="tag">waltz</span></div>
                 <div class="links">
                     <a href="Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz_Marc.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_Canada/Teardrop%20Waltz/Teardrop%20Waltz_Marc.midi', "Teardrop Waltz")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Folk/French" data-difficulty="2" data-tags="traditional,folk,french" data-country="France" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/French" data-difficulty="2" data-tags="french,folk,traditional" data-country="France" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_French/Jean%20Petit%20qui%20danse/Jean%20Petit%20qui%20Danse-preview.png" alt="Jean Petit qui danse" onclick="openLightbox('Folk_French/Jean%20Petit%20qui%20danse/Jean%20Petit%20qui%20Danse-preview.png', 'Jean Petit qui danse')">
                 </div>
@@ -4365,13 +3596,13 @@
                     <span class="category folk">Folk/French</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">traditional</span><span class="tag">folk</span><span class="tag">french</span></div>
+                <div class="tags"><span class="tag">french</span><span class="tag">folk</span><span class="tag">traditional</span></div>
                 <div class="links">
                     <a href="Folk_French/Jean%20Petit%20qui%20danse/Jean%20Petit%20qui%20Danse.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_French/Jean%20Petit%20qui%20danse/Jean%20Petit%20qui%20Danse.midi', "Jean Petit qui danse")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="american,waltz,traditional,folk" data-country="USA" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional,waltz" data-country="USA" data-dance-types="waltz" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_USA/Ashokan%20Farewell/Ungar-Ashokan-Farewell-preview.png" alt="Ashokan Farewell" onclick="openLightbox('Folk_USA/Ashokan%20Farewell/Ungar-Ashokan-Farewell-preview.png', 'Ashokan Farewell')">
                 </div>
@@ -4382,7 +3613,7 @@
                     <span class="category folk">Folk/USA</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">american</span><span class="tag">waltz</span><span class="tag">traditional</span><span class="tag">folk</span></div>
+                <div class="tags"><span class="tag">folk</span><span class="tag">american</span><span class="tag">traditional</span><span class="tag">waltz</span></div>
                 <div class="links">
                     <a href="Folk_USA/Ashokan%20Farewell/Ungar-Ashokan-Farewell.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_USA/Ashokan%20Farewell/Ungar-Ashokan-Farewell.midi', "Ashokan Farewell")">🎵 Play</button>
@@ -4405,7 +3636,7 @@
                     <button class="btn" onclick="playMidi('Folk_USA/Devils%20Dream/Devil%27s%20Dream.midi', "Devil's Dream")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_USA/Down-To-The-River-To-Pray/Down-To-The-River-To-Pray-preview.png" alt="Down To The River To Pray" onclick="openLightbox('Folk_USA/Down-To-The-River-To-Pray/Down-To-The-River-To-Pray-preview.png', 'Down To The River To Pray')">
                 </div>
@@ -4416,12 +3647,12 @@
                     <span class="category folk">Folk/USA</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">american</span><span class="tag">traditional</span><span class="tag">folk</span></div>
+                <div class="tags"><span class="tag">folk</span><span class="tag">american</span><span class="tag">traditional</span></div>
                 <div class="links">
                     <a href="Folk_USA/Down-To-The-River-To-Pray/Down-To-The-River-To-Pray.pdf" target="_blank">📄 PDF</a>
                 </div>
             </div>
-            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_USA/Jerusalem%20Ridge/Jerusulam%20Ridge%2C%20Kenny%20Baker-preview.png" alt="Jerusalem Ridge" onclick="openLightbox('Folk_USA/Jerusalem%20Ridge/Jerusulam%20Ridge%2C%20Kenny%20Baker-preview.png', 'Jerusalem Ridge')">
                 </div>
@@ -4432,13 +3663,13 @@
                     <span class="category folk">Folk/USA</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">american</span><span class="tag">traditional</span><span class="tag">folk</span></div>
+                <div class="tags"><span class="tag">folk</span><span class="tag">american</span><span class="tag">traditional</span></div>
                 <div class="links">
                     <a href="https://youtu.be/JWySDSagHGU" title="Watch video" target="_blank">🎥 Video</a>
                     <a href="Folk_USA/Jerusalem%20Ridge/Jerusulam%20Ridge%2C%20Kenny%20Baker.pdf" target="_blank">📄 PDF</a>
                 </div>
             </div>
-            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="american,waltz,traditional,folk" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional,waltz" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_USA/The-Star-Spangled-Banner/The-Star%20Spangled%20Banner-preview.png" alt="Star Spangled Banner" onclick="openLightbox('Folk_USA/The-Star-Spangled-Banner/The-Star%20Spangled%20Banner-preview.png', 'Star Spangled Banner')">
                 </div>
@@ -4449,13 +3680,13 @@
                     <span class="category folk">Folk/USA</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">american</span><span class="tag">waltz</span><span class="tag">traditional</span><span class="tag">folk</span></div>
+                <div class="tags"><span class="tag">folk</span><span class="tag">american</span><span class="tag">traditional</span><span class="tag">waltz</span></div>
                 <div class="links">
                     <a href="Folk_USA/The-Star-Spangled-Banner/The-Star%20Spangled%20Banner.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_USA/The-Star-Spangled-Banner/The-Star%20Spangled%20Banner.midi', "Star Spangled Banner")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine-preview.png" alt="You are my Sunshine" onclick="openLightbox('Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine-preview.png', 'You are my Sunshine')">
                 </div>
@@ -4466,13 +3697,13 @@
                     <span class="category folk">Folk/USA</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">american</span><span class="tag">traditional</span><span class="tag">folk</span></div>
+                <div class="tags"><span class="tag">folk</span><span class="tag">american</span><span class="tag">traditional</span></div>
                 <div class="links">
                     <a href="Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine.midi', "You are my Sunshine")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="american,traditional,folk" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Folk/USA" data-difficulty="2" data-tags="folk,american,traditional" data-country="USA" data-dance-types="" data-genres="folk" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine%20-%20Piano-preview.png" alt="You are my Sunshine" onclick="openLightbox('Folk_USA/You_are_my_Sunshine/You_are_my_Sunshine%20-%20Piano-preview.png', 'You are my Sunshine')">
                 </div>
@@ -4483,11 +3714,11 @@
                     <span class="category folk">Folk/USA</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">american</span><span class="tag">traditional</span><span class="tag">folk</span></div>
+                <div class="tags"><span class="tag">folk</span><span class="tag">american</span><span class="tag">traditional</span></div>
                 <div class="links">
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz,waltz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,waltz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml-preview.png" alt="Bistro Fada" onclick="openLightbox('Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml-preview.png', 'Bistro Fada')">
                 </div>
@@ -4498,12 +3729,12 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span><span class="tag">waltz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">waltz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml.pdf" target="_blank">📄 PDF</a>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Blue-Lou/Blue_Lou_Marc-preview.png" alt="Blue Lou" onclick="openLightbox('Gypsy-Jazz/Blue-Lou/Blue_Lou_Marc-preview.png', 'Blue Lou')">
                 </div>
@@ -4514,13 +3745,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Blue-Lou/Blue_Lou_Marc.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Blue-Lou/Blue_Lou_Marc.midi', "Blue Lou")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Blue-Lou/Blue_Lou_Licks-preview.png" alt="Blue Lou Lick" onclick="openLightbox('Gypsy-Jazz/Blue-Lou/Blue_Lou_Licks-preview.png', 'Blue Lou Lick')">
                 </div>
@@ -4531,13 +3762,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Blue-Lou/Blue_Lou_Licks.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Blue-Lou/Blue_Lou_Licks.midi', "Blue Lou Lick")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Blue-Lou/Blue-Lou_Chords-preview.png" alt="Blue Lou – Arpeggio Practice" onclick="openLightbox('Gypsy-Jazz/Blue-Lou/Blue-Lou_Chords-preview.png', 'Blue Lou – Arpeggio Practice')">
                 </div>
@@ -4548,13 +3779,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">swing</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Blue-Lou/Blue-Lou_Chords.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Blue-Lou/Blue-Lou_Chords.midi', "Blue Lou \u2013 Arpeggio Practice")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="4" data-tags="gypsy,blues,jazz" data-country="France" data-dance-types="blues" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="4" data-tags="jazz,blues,gypsy" data-country="France" data-dance-types="blues" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur-preview.png" alt="Blues en Mineur" onclick="openLightbox('Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur-preview.png', 'Blues en Mineur')">
                 </div>
@@ -4565,14 +3796,14 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">blues</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">blues</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="https://www.youtube.com/watch?v=EfnYL_lGSP0" title="Watch video" target="_blank">🎥 Video</a>
                     <a href="Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur.midi', "Blues en Mineur")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Chicago/Chicago%20-%20Grappelli-preview.png" alt="Chicago" onclick="openLightbox('Gypsy-Jazz/Chicago/Chicago%20-%20Grappelli-preview.png', 'Chicago')">
                 </div>
@@ -4583,13 +3814,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Chicago/Chicago%20-%20Grappelli.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Chicago/Chicago%20-%20Grappelli.midi', "Chicago")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Daphn%C3%A9/Daphne%20-%20Grappelli%2BTaylor-preview.png" alt="Daphné" onclick="openLightbox('Gypsy-Jazz/Daphn%C3%A9/Daphne%20-%20Grappelli%2BTaylor-preview.png', 'Daphné')">
                 </div>
@@ -4600,13 +3831,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Daphn%C3%A9/Daphne%20-%20Grappelli%2BTaylor.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Daphn%C3%A9/Daphne%20-%20Grappelli%2BTaylor.midi', "Daphne\u0301")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,swing,jazz" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy,swing" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Minor-Swing/Minor%20Swing%20-%20van%20Hemert-preview.png" alt="Minor Swing" onclick="openLightbox('Gypsy-Jazz/Minor-Swing/Minor%20Swing%20-%20van%20Hemert-preview.png', 'Minor Swing')">
                 </div>
@@ -4617,13 +3848,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">swing</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Minor-Swing/Minor%20Swing%20-%20van%20Hemert.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Minor-Swing/Minor%20Swing%20-%20van%20Hemert.midi', "Minor Swing")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Nine%20by%20Nine/Nine%20by%20Nine-preview.png" alt="Nine by Nine" onclick="openLightbox('Gypsy-Jazz/Nine%20by%20Nine/Nine%20by%20Nine-preview.png', 'Nine by Nine')">
                 </div>
@@ -4634,13 +3865,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Nine%20by%20Nine/Nine%20by%20Nine.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Nine%20by%20Nine/Nine%20by%20Nine.midi', "Nine by Nine")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     🎼
                 </div>
@@ -4651,13 +3882,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">swing</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans.midi', "Rythmes Gitans")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     🎼
                 </div>
@@ -4668,13 +3899,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">swing</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans_Daisy.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Rythmes-gitans/Rythmes-Gitans_Daisy.midi', "Rythmes Gitans (Daisy)")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="gypsy,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="2" data-tags="jazz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     🎼
                 </div>
@@ -4685,12 +3916,12 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Si-Tu-Savais/Si%20tu%20savais%20%28Cm%29.pdf" target="_blank">📄 PDF</a>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,jazz" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy" data-country="France" data-dance-types="" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais-preview.png" alt="Si Tu Savais" onclick="openLightbox('Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais-preview.png', 'Si Tu Savais')">
                 </div>
@@ -4701,13 +3932,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais.midi', "Si Tu Savais")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-country="" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-country="" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     🎼
                 </div>
@@ -4718,13 +3949,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">swing</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Tchavolo-Swing/Tchavolo-Swing.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Tchavolo-Swing/Tchavolo-Swing.midi', "Tchavolo Swing")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="gypsy,swing,jazz" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Gypsy Jazz" data-difficulty="3" data-tags="jazz,gypsy,swing" data-country="France" data-dance-types="swing" data-genres="jazz,gypsy jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Gypsy-Jazz/Swing_Movie/Swing_Movie_-preview.png" alt="from the Movie Swing (2002)" onclick="openLightbox('Gypsy-Jazz/Swing_Movie/Swing_Movie_-preview.png', 'from the Movie Swing (2002)')">
                 </div>
@@ -4735,13 +3966,13 @@
                     <span class="category gypsy-jazz">Gypsy Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">gypsy</span><span class="tag">swing</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">gypsy</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Gypsy-Jazz/Swing_Movie/Swing_Movie_.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Gypsy-Jazz/Swing_Movie/Swing_Movie_.midi', "from the Movie Swing (2002)")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Jazz" data-difficulty="2" data-tags="swing,jazz" data-country="USA" data-dance-types="swing" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Jazz" data-difficulty="2" data-tags="jazz,swing" data-country="USA" data-dance-types="swing" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Jazz/On%20the%20Sunny%20Side%20of%20the%20Street/on_the_sunny_side_of_the_street-preview.png" alt="(On the) Sunny Side of the Street" onclick="openLightbox('Jazz/On%20the%20Sunny%20Side%20of%20the%20Street/on_the_sunny_side_of_the_street-preview.png', '(On the) Sunny Side of the Street')">
                 </div>
@@ -4752,7 +3983,7 @@
                     <span class="category jazz">Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">swing</span><span class="tag">jazz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Jazz/On%20the%20Sunny%20Side%20of%20the%20Street/on_the_sunny_side_of_the_street.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Jazz/On%20the%20Sunny%20Side%20of%20the%20Street/on_the_sunny_side_of_the_street.midi', "(On the) Sunny Side of the Street")">🎵 Play</button>
@@ -4838,7 +4069,7 @@
                     <button class="btn" onclick="playMidi('Jazz/Misty/Misty.midi', "Misty")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Jazz" data-difficulty="3" data-tags="swing,jazz,waltz" data-country="USA" data-dance-types="" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Jazz" data-difficulty="3" data-tags="jazz,waltz,swing" data-country="USA" data-dance-types="" data-genres="jazz" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Jazz/Summertime/Summertime_Grappelli-preview.png" alt="Summertime" onclick="openLightbox('Jazz/Summertime/Summertime_Grappelli-preview.png', 'Summertime')">
                 </div>
@@ -4849,7 +4080,7 @@
                     <span class="category jazz">Jazz</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">swing</span><span class="tag">jazz</span><span class="tag">waltz</span></div>
+                <div class="tags"><span class="tag">jazz</span><span class="tag">waltz</span><span class="tag">swing</span></div>
                 <div class="links">
                     <a href="Jazz/Summertime/Summertime_Grappelli.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Jazz/Summertime/Summertime_Grappelli.midi', "Summertime")">🎵 Play</button>
@@ -5895,7 +5126,7 @@
                     <button class="btn" onclick="playMidi('Folk_Jewish/Hevenu_Shalom_Aleichem/hevenu_shalom_aleichem.midi', "\u05d4\u05d1\u05d0\u05e0\u05d5 \u05e9\u05dc\u05d5\u05dd \u05e2\u05dc\u05d9\u05db\u05dd")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="pop,waltz" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="waltz,pop" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Pop/Happy%20Birthday/Happy%20Birthday-preview.png" alt="Happy Birthday" onclick="openLightbox('Pop/Happy%20Birthday/Happy%20Birthday-preview.png', 'Happy Birthday')">
                 </div>
@@ -5906,13 +5137,13 @@
                     <span class="category pop">Pop/Modern</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">pop</span><span class="tag">waltz</span></div>
+                <div class="tags"><span class="tag">waltz</span><span class="tag">pop</span></div>
                 <div class="links">
                     <a href="Pop/Happy%20Birthday/Happy%20Birthday.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Pop/Happy%20Birthday/Happy%20Birthday.midi', "Happy Birthday")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="pop,waltz" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="waltz,pop" data-country="USA" data-dance-types="" data-genres="folk,pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Pop/Happy%20Birthday/Happy%20Birthday%20Quartet-preview.png" alt="Happy Birthday" onclick="openLightbox('Pop/Happy%20Birthday/Happy%20Birthday%20Quartet-preview.png', 'Happy Birthday')">
                 </div>
@@ -5923,7 +5154,7 @@
                     <span class="category pop">Pop/Modern</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">pop</span><span class="tag">waltz</span></div>
+                <div class="tags"><span class="tag">waltz</span><span class="tag">pop</span></div>
                 <div class="links">
                 </div>
             </div>
@@ -5944,7 +5175,7 @@
                     <button class="btn" onclick="playMidi('Pop/Video-Music/hedgehog-video-music.midi', "Hedgehog Video Music")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="pop,waltz" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="waltz,pop" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Pop/Charles-Aznavour_Hier-Encore/Charles-Aznavour-Hier-Encore-preview.png" alt="Hier Encore" onclick="openLightbox('Pop/Charles-Aznavour_Hier-Encore/Charles-Aznavour-Hier-Encore-preview.png', 'Hier Encore')">
                 </div>
@@ -5955,12 +5186,12 @@
                     <span class="category pop">Pop/Modern</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">pop</span><span class="tag">waltz</span></div>
+                <div class="tags"><span class="tag">waltz</span><span class="tag">pop</span></div>
                 <div class="links">
                     <a href="Pop/Charles-Aznavour_Hier-Encore/Charles-Aznavour-Hier-Encore.pdf" target="_blank">📄 PDF</a>
                 </div>
             </div>
-            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="pop,blues" data-country="USA" data-dance-types="blues" data-genres="jazz,pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Pop/Modern" data-difficulty="2" data-tags="blues,pop" data-country="USA" data-dance-types="blues" data-genres="jazz,pop" data-occasions="" data-top10="false" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Pop/Something-Got-a-Hold-of-Me/Something-s-got-a-hold-on-me-preview.png" alt="Something&#x27;s Got a Hold on Me" onclick="openLightbox('Pop/Something-Got-a-Hold-of-Me/Something-s-got-a-hold-on-me-preview.png', 'Something&#x27;s Got a Hold on Me')">
                 </div>
@@ -5971,13 +5202,13 @@
                     <span class="category pop">Pop/Modern</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">pop</span><span class="tag">blues</span></div>
+                <div class="tags"><span class="tag">blues</span><span class="tag">pop</span></div>
                 <div class="links">
                     <a href="Pop/Something-Got-a-Hold-of-Me/Something-s-got-a-hold-on-me.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Pop/Something-Got-a-Hold-of-Me/Something-s-got-a-hold-on-me.midi', "Something's Got a Hold on Me")">🎵 Play</button>
                 </div>
             </div>
-            <div class="card" data-category="Pop/Modern" data-difficulty="3" data-tags="pop,waltz" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
+            <div class="card" data-category="Pop/Modern" data-difficulty="3" data-tags="waltz,pop" data-country="France" data-dance-types="" data-genres="pop" data-occasions="" data-top10="true" data-christmas="false" data-wedding="false">
                 <div class="card-thumbnail">
                     <img src="Pop/French/Sous%20le%20ciel%20de%20Paris/Sous%20le%20ciel%20de%20Paris-preview.png" alt="Sous le ciel de Paris" onclick="openLightbox('Pop/French/Sous%20le%20ciel%20de%20Paris/Sous%20le%20ciel%20de%20Paris-preview.png', 'Sous le ciel de Paris')">
                 </div>
@@ -5988,7 +5219,7 @@
                     <span class="category pop">Pop/Modern</span>
                     <div class="difficulty"><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star">★</span><span class="difficulty-star empty">★</span><span class="difficulty-star empty">★</span></div>
                 </div>
-                <div class="tags"><span class="tag">pop</span><span class="tag">waltz</span></div>
+                <div class="tags"><span class="tag">waltz</span><span class="tag">pop</span></div>
                 <div class="links">
                     <a href="Pop/French/Sous%20le%20ciel%20de%20Paris/Sous%20le%20ciel%20de%20Paris.pdf" target="_blank">📄 PDF</a>
                     <button class="btn" onclick="playMidi('Pop/French/Sous%20le%20ciel%20de%20Paris/Sous%20le%20ciel%20de%20Paris.midi', "Sous le ciel de Paris")">🎵 Play</button>
@@ -6491,8 +5722,15 @@
                 return;
             }
 
-            // Navigate to tune detail page
-            window.location.href = `index.html?tune=${tuneSlug}`;
+            // Update URL without page reload
+            const url = new URL(window.location);
+            url.searchParams.set('tune', tuneSlug);
+            window.history.pushState({}, '', url);
+
+            // Show tune detail view (function from tune-detail-view.js)
+            if (typeof showTuneDetailView === 'function') {
+                showTuneDetailView(tuneSlug);
+            }
         }
 
         // Auto-switch to card view on mobile
