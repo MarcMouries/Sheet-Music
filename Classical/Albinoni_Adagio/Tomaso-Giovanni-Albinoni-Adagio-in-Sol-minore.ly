@@ -4,15 +4,11 @@
 %#(set-global-staff-size 16.075)
 
 \header {
-  title     = \markup \bold \italic "Adagio in Sol minore"
-  subtitle  = \markup \center-column {
-    "per archi e organo su due spunti tematici"
-    "e su un basso numerato di tomaso albinoni"
-    }
-  composer  = \markup \center-column {
-    "Tomaso Giovanni Albinoni (1671-1751)"
-    "Remo Giazotto (1910-1998)"
-    }
+  title     = "Adagio in G minor"
+  subtitle  = "per archi e organo (attributed to Albinoni, composed by Giazotto)"
+  composer  = "Remo Giazotto (1910–1998)"
+  country = "Italy"
+  style = "classical"
 }
 
 
