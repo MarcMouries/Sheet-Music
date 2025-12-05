@@ -1,16 +1,11 @@
 \version "2.12.3"
 \language "english"
 
-\header {
-  title = "Let It Snow, Let It Snow, Let It Snow!"
-  composer = "Jule Styne"
-  country = "USA"
-  poet = "Sammy Cahn"
-  style = "christmas song"
-  video = ""
+global = {
+  \key f \major
+  \time 2/2
+  \tempo 4 = 120
 }
-
-\include "../../common/common-header.ily"
 
 Strophe = \relative c' {
   c'8 c bf4 a g
@@ -18,7 +13,7 @@ Strophe = \relative c' {
   g'4. f8 g4. f8
   e4 c2 d4
   d'8 d c4 bf a
-  
+
   g2. e'8. d16
   c4 c8. bf16 a4 a8. g16
   f2.
@@ -49,17 +44,12 @@ Text = \lyricmode {
 
 Melodie = \relative c' {
   \clef treble
-  \key f \major
-  \time 2/2
+  \global
   \partial 4
   c8 c \mark "A"
-  %  \mark \markup { \musicglyph #"scripts.segno" }
-  %  \repeat volta 2 {
   \Strophe
-  % }
 
   c4 \mark "B"
-  % \bar "||"
   \Strophe
   e8. f16 \mark "C"
   g8. a16 g4 e c'
@@ -71,32 +61,6 @@ Melodie = \relative c' {
   c8. b16 a4 b a8. b16
   c2. c,4
   \mark "D"
-  %  \bar "||"
   \Strophe
   \bar "|."
 }
-
-
-
-\score {
-  <<
-    \new Voice = "eins" {
-      \transpose c c \Melodie 
-    }
-    \new Lyrics \lyricsto "eins" \Text
-  >>
-  \layout { }
-  \midi { }
-}
-
-\score {
-  <<
-    \new Voice = "eins" {
-      \transpose c d \Melodie 
-    }
-    \new Lyrics \lyricsto "eins" \Text
-  >>
-  \layout { }
-  \midi { }
-}
-

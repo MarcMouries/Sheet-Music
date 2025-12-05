@@ -447,7 +447,12 @@ def scan_repository():
             print(f"  Skipping (missing metadata): {rel_path}")
             continue
 
+        # IMPORTANT RULE: Multi-key tunes must be counted only once
         # Group tunes by directory + base_name to collect multiple keys
+        # Examples:
+        #   - Let-It-Snow_(F).ly and Let-It-Snow_(G).ly -> counted as 1 tune with 2 keys
+        #   - Gary-Owen_(G).ly, Gary-Owen_(D).ly, etc. -> counted as 1 tune with 4 keys
+        #   - Korobeiniki_(Am).ly, Korobeiniki_(Dm).ly, etc. -> counted as 1 tune with 5 keys
         group_key = f"{ly_file.parent}/{base_name}"
         if group_key not in tunes_by_base:
             # First time seeing this tune - add it with its key
@@ -456,6 +461,7 @@ def scan_repository():
             tunes.append(tune_info)
         else:
             # We've seen this tune before - just add the key to the existing entry
+            # This ensures multi-key tunes are counted only once
             if file_key:
                 tunes_by_base[group_key]['available_keys'].append(file_key)
 
