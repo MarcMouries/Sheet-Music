@@ -877,6 +877,28 @@ def generate_html(tunes):
             const genreFilter = document.getElementById('genre-filter').value;
             const occasionFilter = document.getElementById('occasion-filter').value;
 
+            // Save filter state to URL
+            const params = new URLSearchParams(window.location.search);
+            if (searchInput) params.set('search', searchInput);
+            else params.delete('search');
+            if (categoryFilter) params.set('category', categoryFilter);
+            else params.delete('category');
+            if (countryFilter) params.set('country', countryFilter);
+            else params.delete('country');
+            if (difficultyFilter) params.set('difficulty', difficultyFilter);
+            else params.delete('difficulty');
+            if (tagFilter) params.set('tag', tagFilter);
+            else params.delete('tag');
+            if (danceTypeFilter) params.set('danceType', danceTypeFilter);
+            else params.delete('danceType');
+            if (genreFilter) params.set('genre', genreFilter);
+            else params.delete('genre');
+            if (occasionFilter) params.set('occasion', occasionFilter);
+            else params.delete('occasion');
+
+            const newUrl = params.toString() ? `?${params.toString()}` : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+
             const items = currentView === 'table'
                 ? document.querySelectorAll('#music-table tbody tr')
                 : document.querySelectorAll('.card');
@@ -1210,8 +1232,46 @@ def generate_html(tunes):
             midiControls.classList.remove('active');
         }
 
+        // Restore filter state from URL on page load
+        function restoreFilterState() {
+            const params = new URLSearchParams(window.location.search);
+
+            if (params.has('search')) {
+                document.getElementById('search').value = params.get('search');
+            }
+            if (params.has('category')) {
+                document.getElementById('category-filter').value = params.get('category');
+            }
+            if (params.has('country')) {
+                document.getElementById('country-filter').value = params.get('country');
+            }
+            if (params.has('difficulty')) {
+                document.getElementById('difficulty-filter').value = params.get('difficulty');
+            }
+            if (params.has('tag')) {
+                document.getElementById('tag-filter').value = params.get('tag');
+            }
+            if (params.has('danceType')) {
+                document.getElementById('dance-type-filter').value = params.get('danceType');
+            }
+            if (params.has('genre')) {
+                document.getElementById('genre-filter').value = params.get('genre');
+            }
+            if (params.has('occasion')) {
+                document.getElementById('occasion-filter').value = params.get('occasion');
+            }
+
+            // Apply filters if any were restored
+            if (params.toString()) {
+                filterItems();
+            }
+        }
+
         // Tempo slider control
         document.addEventListener('DOMContentLoaded', () => {
+            // Restore filter state from URL
+            restoreFilterState();
+
             const tempoSlider = document.getElementById('tempo-slider');
             const tempoValue = document.getElementById('tempo-value');
 

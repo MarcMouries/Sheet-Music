@@ -149,10 +149,23 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
     // Generate difficulty stars
     const stars = '⭐'.repeat(parseInt(tuneData.difficulty));
 
+    // Build back link with preserved search/filter state
+    const urlParams = new URLSearchParams(window.location.search);
+    const backParams = new URLSearchParams();
+
+    // Preserve search and filter parameters (exclude 'tune' and 'key')
+    for (const [key, value] of urlParams.entries()) {
+        if (key !== 'tune' && key !== 'key' && value) {
+            backParams.set(key, value);
+        }
+    }
+
+    const backUrl = backParams.toString() ? `index.html?${backParams.toString()}` : 'index.html';
+
     // Build detail HTML
     let detailHTML = `
         <div style="margin-bottom: 20px;">
-            <a href="index.html" style="color: var(--ocean-mid, #2d8a9f); text-decoration: none; font-weight: 600; font-size: 16px;">← Back to Collection</a>
+            <a href="${backUrl}" style="color: var(--ocean-mid, #2d8a9f); text-decoration: none; font-weight: 600; font-size: 16px;">← Back to Collection</a>
         </div>
 
         <div style="display: flex; align-items: center; gap: 20px; margin: 20px 20px 20px 0; padding: 5px; border-bottom: 3px solid var(--ocean-mid, #2d8a9f);">
