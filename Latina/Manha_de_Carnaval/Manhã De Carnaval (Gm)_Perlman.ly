@@ -5,8 +5,8 @@
 
 \header {
   title = "Manhã De Carnaval"
+  subtitle = "As performed by Itzhak Perlman"
   composer = "Luiz Bonfá"
-  arranger = "As performed by Itzhak Perlman"
   country = "Brazil"
   style = "bossa nova"
 }
