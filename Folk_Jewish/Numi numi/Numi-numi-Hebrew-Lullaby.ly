@@ -1,5 +1,12 @@
 \version "2.19.54"
+\include "../../stylesheets/stylesheet_fiddle.ly"
 \language "english"
+
+% This file is the PREVIEW WRAPPER for editing
+% MASTER FILE for music content: Numi-numi-Hebrew-Lullaby_music.ily
+% Edit the .ily file to change the melody/chords
+
+\include "Numi-numi-Hebrew-Lullaby_music.ily"
 
 \header {
   title = "Numi numi - Hebrew Lullaby"
@@ -9,54 +16,6 @@
 }
 
 \include "../../common/common-header.ily"
-
-global = {
-  \time 4/4
-  \key c \major
-  \tempo 4=100
-}
-
-chordNames = \chordmode {
-  \global
-  
-  
-}
-
-melody = \relative c' {
-  \global
- % \repeat volta 2 {
-  d4 d a' a
-  g8( f) g( a)  g4( f)
-  d4 d g g  
-  f2 r2
-  
-  \break
-    d4 d a' a
-  g8( f) g( a)  g4( f)
-  c4 c f ef  
-  d2 r2
-%  }
-  
-%   \alternative {
-%    {  d2 r2 }
-%    {  d2 r4 d4 }
-%   }
-  \break
-  g4. d8 g d g a
-  g2. f4 
-  g f bf a
-  g2. d4
-  \break
-g4. d8 g a  bf a
-  g2. f4 
-  g f c' bf 
-  a1
-}
-
-words = \lyricmode {
-  
-  
-}
 
 \score {
   <<

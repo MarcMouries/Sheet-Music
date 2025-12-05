@@ -172,6 +172,20 @@ def convert_key_to_standard(note, mode):
         # For modal keys (dorian, mixolydian, etc.), include the mode
         return f"{note} {mode}"
 
+def extract_key_from_filename(filename):
+    """Extract key from filename pattern: Tune-Name_(Key).ly
+    Returns tuple: (base_name, key) or (filename, None) if no key pattern found
+
+    Examples:
+        'Erev-shel-Shoshanim_(Em).ly' -> ('Erev-shel-Shoshanim', 'Em')
+        'Misty.ly' -> ('Misty', None)
+    """
+    # Pattern: anything followed by _(Key) where Key is like Em, F#m, C, etc.
+    match = re.match(r'^(.+?)_\(([A-G][#b]?m?)\)(?:\.ly)?$', filename)
+    if match:
+        return (match.group(1), match.group(2))
+    return (filename.replace('.ly', ''), None)
+
 def parse_lilypond_header(ly_file):
     """Extract metadata from LilyPond header"""
     metadata = {
@@ -328,13 +342,15 @@ def save_metadata_template(tunes):
 def scan_repository():
     """Scan repository for all .ly files"""
     tunes = []
+    tunes_by_base = {}  # Group tunes by base name to collect multiple keys
     custom_metadata = load_custom_metadata()
 
     # Component files to exclude (not standalone pieces)
     EXCLUDE_FILENAMES = {'book.ly', 'book-1.ly', 'book-2.ly', 'guitar1.ly', 'guitar2.ly', 'guitar3.ly',
                          'guitar4.ly', 'dynamicsa.ly', 'dynamicsb.ly', 'dynamicsc.ly',
                          'blank.ly', 'blank1.ly', 'copyright.ly', 'spacing.ly',
-                         'gymnopedie-2.ly', 'gymnopedie-3.ly', 'make-score-preview-lilypond-example.ly'}
+                         'gymnopedie-2.ly', 'gymnopedie-3.ly', 'make-score-preview-lilypond-example.ly',
+                         'music.ily'}  # Exclude include files that contain only music definitions
 
     for ly_file in REPO_ROOT.rglob('*.ly'):
         # Skip excluded directories
@@ -344,6 +360,22 @@ def scan_repository():
         # Skip component files
         if ly_file.name in EXCLUDE_FILENAMES:
             continue
+
+        # Skip _music.ily files (they're include files, not standalone scores)
+        if ly_file.name.endswith('_music.ily'):
+            continue
+
+        # Skip preview wrapper files (identified by the comment marker)
+        try:
+            with open(ly_file, 'r', encoding='utf-8') as f:
+                first_lines = f.read(500)
+                if 'PREVIEW WRAPPER' in first_lines or 'preview wrapper' in first_lines.lower():
+                    continue
+        except:
+            pass
+
+        # Extract key from filename (if exists)
+        base_name, file_key = extract_key_from_filename(ly_file.name)
 
         # Get file stats
         stat = ly_file.stat()
@@ -386,6 +418,7 @@ def scan_repository():
             'category': category,
             'style': metadata['style'],
             'key': metadata['key'],
+            'file_key': file_key,  # Key from filename pattern
             'tempo': metadata['tempo'],
             'subtitle': metadata['subtitle'],
             'video': metadata['video'],
@@ -403,7 +436,10 @@ def scan_repository():
             # Dimensional tags
             'dance_types': dimensions['dance_type'],
             'genres': dimensions['genre'],
-            'occasions': dimensions['occasion']
+            'occasions': dimensions['occasion'],
+            # For grouping multi-key versions
+            'base_name': base_name,
+            'directory': str(ly_file.parent)
         }
 
         # Skip files without proper title or composer
@@ -411,7 +447,17 @@ def scan_repository():
             print(f"  Skipping (missing metadata): {rel_path}")
             continue
 
-        tunes.append(tune_info)
+        # Group tunes by directory + base_name to collect multiple keys
+        group_key = f"{ly_file.parent}/{base_name}"
+        if group_key not in tunes_by_base:
+            # First time seeing this tune - add it with its key
+            tune_info['available_keys'] = [file_key] if file_key else []
+            tunes_by_base[group_key] = tune_info
+            tunes.append(tune_info)
+        else:
+            # We've seen this tune before - just add the key to the existing entry
+            if file_key:
+                tunes_by_base[group_key]['available_keys'].append(file_key)
 
     return sorted(tunes, key=lambda x: (x['category'], x['title']))
 
@@ -682,7 +728,13 @@ def generate_html(tunes):
         tune_slug = re.sub(r'[^a-z0-9]+', '-', tune_slug)
         tune_slug = tune_slug.strip('-')
 
-        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}" data-tune-slug="{tune_slug}" onclick="navigateToTune(event, '{tune_slug}')">
+        # Prepare key-related data
+        available_keys_json = json.dumps(tune.get('available_keys', []))
+        base_name = html.escape(tune.get('base_name', ''))
+        file_key = html.escape(tune.get('file_key') or '')
+        directory = html.escape(tune.get('directory', ''))
+
+        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}" data-tune-slug="{tune_slug}" data-available-keys='{available_keys_json}' data-base-name="{base_name}" data-file-key="{file_key}" data-directory="{directory}" onclick="navigateToTune(event, '{tune_slug}')">
                     <td>
                         <strong>{html.escape(tune['title'])}</strong>"""
         if tune['subtitle']:

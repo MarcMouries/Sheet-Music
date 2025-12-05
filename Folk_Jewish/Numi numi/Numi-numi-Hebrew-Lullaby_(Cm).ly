@@ -1,0 +1,34 @@
+\version "2.19.54"
+\include "../../stylesheets/stylesheet_fiddle.ly"
+\language "english"
+
+\include "Numi-numi-Hebrew-Lullaby_music.ily"
+
+\header {
+  title = "Numi numi - Hebrew Lullaby"
+  subtitle = "Key: C minor"
+  instrument = "Violin"
+  composer = "Traditional Hebrew"
+  country = "Jewish"
+  style = "lullaby"
+}
+
+\include "../../common/common-header.ily"
+
+\paper {
+  #(set-paper-size "letter")
+}
+
+\score {
+  \new Staff \with {
+    midiInstrument = "violin"
+  } {
+    <<
+      \new ChordNames \chordNames
+      \new Voice = "mel" { \transpose d c' \melody }
+      \addlyrics { \words }
+    >>
+  }
+  \layout { indent=0 }
+  \midi { }
+}

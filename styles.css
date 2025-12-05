@@ -40,7 +40,6 @@ h1 {
     color: var(--ocean-deep);
     margin-bottom: 1rem;
     padding-bottom: 1.5rem;
-    border-bottom: 3px solid var(--mist);
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
