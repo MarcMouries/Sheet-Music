@@ -1,21 +1,17 @@
-%\version "2.12"
+\version "2.24.0"
 \include "../../stylesheets/stylesheet_fiddle.ly"
 \include "english.ly"
 \header {
 	title     = "Trip To Pakistan, The"
-	%composer  =  "tr. Maxence Mouries"
+	subtitle  = "arr. Sarah Burnell"
+	composer  =  "Niall Kenny"
+	arranger  =  "arr. Sarah Burnell"
+	opus      =	"tr. Maxence Mouriès"
   country = "Ireland"
   style = "irish traditional"
 }
 
-\include "../../common/common-header.ily"}
-	composer  =  "by Niall Kenny"
-	arranger  =  "arr. Sarah Burnell"
-	opus      =	"tr. Maxence Mouriès"
-	%opus      = \markup {\with-url #"http://www.bandsman.co.uk/" { \fontsize #-5 {\italic {http://www.bandsman.co.uk }}}}
-	enteredby = "Maxence"
-    copyright = ""
-}
+\include "../../common/common-header.ily"
 \paper {
   #(set-paper-size "letter")
 }

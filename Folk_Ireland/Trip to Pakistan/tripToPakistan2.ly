@@ -4,6 +4,7 @@
 	crossRefNumber = "1"
 	footnotes = ""
 	title = "Trip To Pakistan, The"
+	subtitle = "Version 2"
 	composer = "Niall Kenny"
   country = "Ireland"
 	style = "irish traditional"
