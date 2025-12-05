@@ -1,7 +1,7 @@
 \version "2.24.0"
 \language "english"
-\include "../common/bars-per-line-engraver.ly"
-\include "../common/violin-functions.ly"
+\include "../../common/bars-per-line-engraver.ly"
+\include "../../common/violin-functions.ly"
 
 \header {
   title = "Manhã De Carnaval"
@@ -11,7 +11,7 @@
   style = "bossa nova"
 }
 
-\include "../common/common-header.ily"
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4
