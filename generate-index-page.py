@@ -608,7 +608,7 @@ def generate_html(tunes):
         </div>
 
         <div class="filters">
-            <input type="text" id="search" placeholder="🔍 Search by title, composer, key, or tag..." onkeyup="filterItems()">
+            <input type="search" id="search" placeholder="🔍 Search by title, composer, key, or tag..." onkeyup="filterItems()">
 
             <select id="category-filter" onchange="filterItems()">
                 <option value="">All Categories</option>
@@ -1271,6 +1271,13 @@ def generate_html(tunes):
         document.addEventListener('DOMContentLoaded', () => {
             // Restore filter state from URL
             restoreFilterState();
+
+            // Add event listener for search input clear button
+            const searchInput = document.getElementById('search');
+            searchInput.addEventListener('search', () => {
+                // The 'search' event fires when the clear button is clicked
+                filterItems();
+            });
 
             const tempoSlider = document.getElementById('tempo-slider');
             const tempoValue = document.getElementById('tempo-value');

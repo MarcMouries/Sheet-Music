@@ -1,4 +1,4 @@
-\version "2.12.3"
+\version "2.24.0"
 \include "english.ly"
 #(set-global-staff-size 32)
 \header {
@@ -9,7 +9,7 @@
 
 \include "../../common/common-header.ily"
 \paper {
-   #(set-paper-size "a4"'landscape)
+   %#(set-paper-size "a4"'landscape)
    page-count = 1
     top-margin = 3\mm
       %pour répartir les systèmes dans la page
@@ -62,7 +62,7 @@ melody = \relative c'' {
   % Ajouter ici des paroles.}
 \score {
   \new StaffGroup \with {
-    \override StaffGrouper #'staffgroup-staff-spacing #'basic-distance = #20
+    \override StaffGrouper.staffgroup-staff-spacing.basic-distance = #20
   } <<
        \new Voice { \melody }
        % \addlyrics { \verse }
@@ -70,13 +70,13 @@ melody = \relative c'' {
             % creer portee
             \consists "Staff_symbol_engraver"
             % epaisseur des lignes de la portée
-            \override StaffSymbol #'thickness = #(magstep -10)
-            \consists "Chord_name_engraver"
-            \override BarLine #'bar-size = #4
+            \override StaffSymbol.thickness = #(magstep -10)
+            \consists Chord_name_engraver \consists Current_chord_text_engraver
+            \override BarLine.bar-extent = #'(-2 . 2)
             \consists "Bar_engraver"
             % deplacer accords (horizontal . Vertical)
-              \override ChordName #'extra-offset = #'(0 . -1)
-             \override ChordName   #'font-size = #1
+              \override ChordName.extra-offset = #'(0 . -1)
+             \override ChordName.font-size = #1
         }\chordNames
       >>
   \layout {
@@ -87,10 +87,7 @@ melody = \relative c'' {
     }
   }
   \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
-    }
+    \tempo 4 = 100
   }
 }
 
