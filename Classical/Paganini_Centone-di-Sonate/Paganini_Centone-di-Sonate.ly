@@ -13,7 +13,7 @@
 
 global = {
   \time 4/4
-  \key c \major
+  \key a \minor
   \tempo 4=100
 }
 
@@ -62,5 +62,5 @@ melody = \relative c'{
     \new Staff { \melody }
   >>
   \layout { }
-  \midi { }
+  \midi { \tempo 4 = 100 }
 }
