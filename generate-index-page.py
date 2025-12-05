@@ -590,6 +590,14 @@ def generate_html(tunes):
                 <span>Categories</span>
             </div>
             <div class="stat-item">
+                <span class="stat-number">""" + str(len(set(t['composer'] for t in tunes if t['composer']))) + """</span>
+                <span>Composers</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">""" + str(len(set(t['country'] for t in tunes if t['country']))) + """</span>
+                <span>Countries</span>
+            </div>
+            <div class="stat-item">
                 <span class="stat-number">""" + str(sum(1 for t in tunes if t['pdf_exists'])) + """</span>
                 <span>PDFs Available</span>
             </div>
