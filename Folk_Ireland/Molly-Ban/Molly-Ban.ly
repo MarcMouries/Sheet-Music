@@ -27,8 +27,9 @@ colorRed =
    #})
 
 melody =  {
-  \time 4/4 
+  \time 4/4
   \key e \dorian
+  \tempo 4 = 112
   \repeat volta 2 {
     e'8    b'8    \acciaccatura {b'8 d''}   b'8(    a'8)    b'4 
      a'8\downbow    g'8
@@ -62,8 +63,9 @@ melody =  {
 
 \markup \bold \larger "Version 2"
 melody_B =  {
-  \time 4/4 
+  \time 4/4
   \key e \dorian
+  \tempo 4 = 112
   \repeat volta 2 {
     e'8    b'8    \acciaccatura {b'8 d''}   b'8    a'8    b'8 \colorRed {  d''8 }
      a'8\downbow    g'8

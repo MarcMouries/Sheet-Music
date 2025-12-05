@@ -24,6 +24,7 @@ chordNames = \chordmode {
 violinOne =    \relative d'{
   \key d \major
   \time 3/4
+  \tempo 4 = 100
   r2. r2. r2.
 
   r4 r <d-0 a'-0>8 <d a'>8
@@ -41,6 +42,7 @@ violinOne =    \relative d'{
 violinTwo =    \relative d'{
   \key d \major
   \time 3/4
+  \tempo 4 = 100
   r2. r2. r2.
   r4 r
   <fs-3 a-1>8 <fs-3 a-1>8
@@ -79,13 +81,14 @@ music = {
       \consists #(bars-per-line-engraver '(4))
     }
   }
-  \midi { }
+  \midi { \tempo 4 = 100 }
 }
 
 \markup \bold "Playing Double stops"
 violin_double_stops =    \relative d'{
   \key d \major
   \time 4/4
+  \tempo 4 = 100
   <d_0 a'-0>2        %  D
   <d_0 b'-1>2        %  G
   <e-1 a-0> 2         %  A
@@ -137,5 +140,5 @@ violin_double_stops =    \relative d'{
       \consists #(bars-per-line-engraver '(4))
     }
   }
-  \midi { }
+  \midi { \tempo 4 = 100 }
 }

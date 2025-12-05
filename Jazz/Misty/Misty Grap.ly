@@ -27,6 +27,7 @@
 melody = \relative c' {
   \time 4/4
   \key c \major
+  \tempo 4 = 76
   r4  g'2 e8  b8  b8(  b2.)  r4
   r4  g16[ a  bf d] a'8 a a8 ~ a2 r2
   g4  e16 ef d c a8 a8 a8 ~ a8
@@ -53,5 +54,5 @@ melody = \relative c' {
 \score {
     \new Staff { \melody }
   \layout { }
-  \midi { }
+  \midi { \tempo 4 = 76 }
 }

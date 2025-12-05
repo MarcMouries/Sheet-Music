@@ -15,6 +15,7 @@
 global = {
   \time 4/4
   \key a \minor
+  \tempo 4 = 104
 }
 
 chordNames = \chordmode {
@@ -140,10 +141,5 @@ words = \lyricmode {
     }
     indent = 0
   }
-  \midi {
-     \context {
-       \Score
-       tempoWholesPerMinute = #(ly:make-moment 104 4)
-       }
-     }
+  \midi { \tempo 4 = 104 }
 }

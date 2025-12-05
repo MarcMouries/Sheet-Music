@@ -28,8 +28,9 @@ melody = \relative c'{
     \set Staff.instrumentName = #""
     \set Staff.shortInstrumentName = #""
     \clef treble
-    \key ef \major 
-    \time 4/4 
+    \key ef \major
+    \time 4/4
+    \tempo 4 = 76
     \partial 4
     bf'8[ g]
     \repeat volta 2 {
@@ -155,7 +156,7 @@ chordNames = \chordmode {
     \addlyrics     { \stanzaTwo  }
   >>
   \layout { }
- \midi { }
+ \midi { \tempo 4 = 76 }
 }
 
 

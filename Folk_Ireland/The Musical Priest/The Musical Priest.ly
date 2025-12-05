@@ -27,6 +27,7 @@
 melody =  \relative c'' {
   \time 4/4
   \key b \minor
+  \tempo 4 = 120
 
   % PART A
   \repeat volta 2 {

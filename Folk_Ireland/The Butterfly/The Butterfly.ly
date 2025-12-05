@@ -15,6 +15,7 @@
 violin =  \relative c'' {
   \time 9/8
   \key e \minor
+  \tempo 4. = 120
 
   \repeat volta 2 {
     b4\upbow       e,8 (   g4  -)   e8 (  \appoggiatura {fs16 g} fs4.  -)
@@ -73,5 +74,5 @@ chordNames = \chordmode {
    % \new Staff { \violinAdvanced }
   >>
   \layout { indent =0}
-  \midi { }
+  \midi { \tempo 4. = 120 }
 }

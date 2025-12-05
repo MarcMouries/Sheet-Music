@@ -16,6 +16,7 @@
 global = {
   \time 4/4
   \key g \minor
+  \tempo 4 = 104
 }
 
 chordNames = \chordmode {
@@ -143,10 +144,5 @@ words = \lyricmode {
       \consists #(bars-per-line-engraver '(4))
     }
   }
-  \midi {
-     \context {
-       \Score
-       tempoWholesPerMinute = #(ly:make-moment 104 4)
-       }
-     }
+  \midi { \tempo 4 = 104 }
 }

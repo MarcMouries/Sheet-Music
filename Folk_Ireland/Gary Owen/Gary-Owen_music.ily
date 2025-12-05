@@ -3,6 +3,7 @@
 
 global = {
   \time 6/8
+  \tempo 4. = 120
 }
 
 chordNames = \chordmode {

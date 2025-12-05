@@ -21,7 +21,9 @@ chordNames = \chordmode {
 
 melody =  \relative c' {
 
-  \time 6/8 \key g \major  
+  \time 6/8
+  \key g \major
+  \tempo 4. = 120
   \partial 8 d8 
   \repeat volta 2 {
     e4    
@@ -57,5 +59,5 @@ melody =  \relative c' {
     \new Staff { \melody }
   >>
   \layout { }
-  \midi { }
+  \midi { \tempo 4. = 120 }
 }

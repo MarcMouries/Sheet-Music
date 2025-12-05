@@ -4,6 +4,7 @@
 global = {
   \key d \minor
   \time 3/4
+  \tempo 4 = 120
 }
 
 emmaMelody = \relative c' {

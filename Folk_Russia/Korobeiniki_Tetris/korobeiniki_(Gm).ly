@@ -31,5 +31,5 @@
     >>
   }
   \layout { }
-  \midi { }
+  \midi { \tempo 4 = 150 }
 }

@@ -11,7 +11,9 @@
 \include "../../common/common-header.ily"
 voicedefault =  \relative c''' {
 
-  \time 4/4 \key e \minor  
+  \time 4/4
+  \key e \minor
+  \tempo 4 = 112
     g8    fs8  \repeat volta 2 {
     e8    b8    b8   a8    a8    b4. ^"~"     
     d8    b8    a8   c8    b8  a8    

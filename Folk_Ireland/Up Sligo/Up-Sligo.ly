@@ -13,6 +13,7 @@
 voicedefault =  {
   \time 6/8
   \key e \dorian
+  \tempo 4. = 120
   \repeat volta 2 {
   e'8    b'    b'    b'    a'    g'
   fis'8    a'    a'    a'    g'    fis'    e'    b'    b'    g'

@@ -29,6 +29,7 @@ harmonies = \chordmode {
 melody = \relative c' {
   \key c \major
   \time 4/4
+  \tempo 4 = 140
 
 
   \partial 4 { e8 d } \bar "||"
@@ -69,7 +70,7 @@ lyricsText = \lyricmode {
    % \new Lyrics \lyricsto "one" \lyricsText
   >>
   \layout { }
-  \midi { }
+  \midi { \tempo 4 = 140 }
 }
 
 

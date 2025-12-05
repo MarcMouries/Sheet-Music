@@ -14,6 +14,7 @@
 global = {
   \time 4/4
   \key c \major
+  \tempo 4 = 60
 }
 
 chordNames = \chordmode {
@@ -44,5 +45,5 @@ words = \lyricmode {
     \addlyrics { \words }
   >>
   \layout {indent=0 }
-  \midi { }
+  \midi { \tempo 4 = 60 }
 }

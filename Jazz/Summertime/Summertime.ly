@@ -24,7 +24,8 @@ Chords = \chordmode {
 
 Tune = \relative c''{
   \partial 2
-  e4 c4 | 
+  \tempo 4 = 76
+  e4 c4 |
   \repeat "volta" 2 {
   | e1 ~  
   | e4  d8 c8 d8 e8 c4  
@@ -58,5 +59,5 @@ Tune = \relative c''{
     \new Staff { \Tune }
   >>
   \layout { }
-  \midi { }
+  \midi { \tempo 4 = 76 }
 }

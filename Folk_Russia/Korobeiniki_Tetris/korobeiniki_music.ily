@@ -5,6 +5,7 @@ melody = \relative si' {
 	\clef "treble"
 	\key do \major
 	\time 4/4
+	\tempo 4 = 150
 
 	\repeat volta 2 {
 	 mi4 si8 do re4 do8 si
