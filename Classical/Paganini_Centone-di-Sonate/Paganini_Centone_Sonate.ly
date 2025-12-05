@@ -62,5 +62,5 @@ melody = \relative c'{
     \new Staff { \melody }
   >>
   \layout { }
-%  \midi { }
+  \midi { }
 }
