@@ -11,6 +11,7 @@
 }
 
 \include "../../common/common-header.ily"
+
 Strophe = \relative c' {
   c'8 c bf4 a g
   f c2 c8. c16
@@ -80,10 +81,20 @@ Melodie = \relative c' {
 \score {
   <<
     \new Voice = "eins" {
-      \transpose c d \Melodie \Melodie
+      \transpose c c \Melodie 
     }
     \new Lyrics \lyricsto "eins" \Text
+  >>
+  \layout { }
+  \midi { }
+}
 
+\score {
+  <<
+    \new Voice = "eins" {
+      \transpose c d \Melodie 
+    }
+    \new Lyrics \lyricsto "eins" \Text
   >>
   \layout { }
   \midi { }
