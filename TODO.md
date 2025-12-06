@@ -1,5 +1,6 @@
 # Sheet Music Repository - TODO List
 
+- [] Check new tunes: Humoresque, Besame mucho, renamed of Manha-de-Carnaval.
 - [] Fix duplicate Rondo Alla Turca entries - 3 versions with identical metadata (Piano, Violin, Violin-MacBookAir). Either update subtitles to distinguish them or delete obsolete MacBookAir version
 - [] some files like The Connaughtman's Rambles don't have a preview
 - [] check new files that i just added like Bear Dance
@@ -10,11 +11,6 @@
 - [] we want all the files to use the same tagline "tagline  = ##f". Can we put that into a common file?
 - [] check header of:  "Numi numi - Hebrew Lullaby", "Chosen Kalle Mazel Tov"
 - [] if we include \include "../../common/improviso.ily" we get an error
-
-
-
-
-
 
 **Last Updated:** 2025-11-25
 
