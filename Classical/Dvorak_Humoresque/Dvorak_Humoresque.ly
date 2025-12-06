@@ -1,31 +1,26 @@
-%\version "2.14.0"
-\include "english.ly"
+\version "2.24.0"
+\language "english"
 \include "../../common/violin-functions.ly"
 
+\header {
+  title    = "Humoresque"
+  subtitle = "Opus 101, No. 7"
+  composer = "Antonín Dvořák (1841–1904)"
+  country  = "Czech Republic"
+  style    = "romantic"
+  arranger = "arr. Marc Mouries"
+}
 
-% english.ly     c   d   e   f   g   a   b   -s/-sharp   -f/-flat
+\include "../../common/common-header.ily"
 
 #(set-global-staff-size 20)
 
 \paper{
-  % obsolete-between-system-space = 30\mm  system-system-spacing #'basic-distance = #(/ obsolete-between-system-space staff-space)  score-system-spacing #'basic-distance = #(/ obsolete-between-system-space staff-space)  %Default is 20mm
-  %paper-width = 2\cm
-  % obsolete-after-title-space = 5\cm  markup-system-spacing #'basic-distance = #(/ obsolete-after-title-space staff-space) % Default is 5mm
-  top-margin    = 2\cm   % Default is 5mm
+  top-margin    = 2\cm
   left-margin   = 5\mm
   right-margin  = 5\mm
   bottom-margin = 1.5\cm
   ragged-last-bottom = ##t
-}
-
-
-
-\header {
-  title    = "Humoresque"
-  subtitle = "(Opus 101, No 7 )"
-  composer = "A. Dvorak (1841-1904)"
-  tagline  = ""
-  arrangerM = "Marc Mouries"
 }
 
 Common = {
@@ -141,5 +136,6 @@ Violin =  \relative g' {
     indent = 0\in
   }
   \midi {
+    \tempo 4 = 72
   }
 }

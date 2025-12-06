@@ -6,10 +6,10 @@
 
 \header {
 	title = "Коробейники (Korobeiniki)"
-	subtitle = "Key: Em (Tetris Theme)"
+	subtitle = "Tetris Theme"
 	instrument = "Violin"
 	poet = "Nikolaï Alekseïevitch Nekrassov"
-	composer = "Trad. Russe"
+	composer = "Traditional Russian"
 	country = "Russia"
 	arranger = ""
 	style = "russian traditional"
