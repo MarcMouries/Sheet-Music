@@ -1,6 +1,7 @@
 # Sheet Music Repository - TODO List
 
 - [x] Check new tunes: Humoresque, Besame mucho, renamed of Manha-de-Carnaval.
+- [] Review Christmas music files (Silent Night, Joy to the World, Carol of the Bells, etc.) to ensure they follow repository format standards
 - [] Fix duplicate Rondo Alla Turca entries - 3 versions with identical metadata (Piano, Violin, Violin-MacBookAir). Either update subtitles to distinguish them or delete obsolete MacBookAir version
 - [] check all the files that have transposed version (they use the \transpose keyword) and let's make them look nice like "Erev shel Shoshanim"
 - [] work on having a common bookTitleMarkup that we can inport in files
