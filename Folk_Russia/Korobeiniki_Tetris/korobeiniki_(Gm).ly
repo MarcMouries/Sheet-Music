@@ -26,8 +26,8 @@
     midiInstrument = "violin"
   } {
     <<
-      \new ChordNames { \transpose do sol \chordNames }
-      \new Voice = "mel" { \transpose do sol \melody }
+      \new ChordNames { \transpose la sol \chordNames }
+      \new Voice = "mel" { \transpose la sol \melody }
     >>
   }
   \layout { }
