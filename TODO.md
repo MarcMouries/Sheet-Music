@@ -4,7 +4,8 @@
 - [x] Review Christmas music files (Silent Night, Joy to the World, Carol of the Bells, etc.) to ensure they follow repository format standards - All 16 Christmas files now have consistent metadata
 - [x] Update README.md with comprehensive documentation for contributors and AI agents - Added repository overview, format standards, multi-key pattern documentation, workflows, and examples
 - [x] Fix URL tune parameter bug (?tune=slug wasn't opening tune detail) - Added parameter handling in applyURLFilters() function. **Lesson learned**: When adding URL parameters, always update BOTH read (applyURLFilters) and write (navigation) functions. Documented in scripts/README.md and code comments.
-- [] Add transposed versions of Christmas tunes in violin-friendly keys (similar to Let It Snow F/G and Korobeiniki multi-key pattern)
+- [] Fix compilation errors in files that fail to generate previews - 45 files failed during batch preview generation including: Carol-of-the-bells_SATB.ly, silent_night.ly, SilentNight.ly, Silent Night2.ly, and various other files with partcombine or layout issues
+- [] Add transposed versions of Christmas tunes in violin-friendly keys 
 - [] Fix duplicate Rondo Alla Turca entries - 3 versions with identical metadata (Piano, Violin, Violin-MacBookAir). Either update subtitles to distinguish them or delete obsolete MacBookAir version
 - [] check all the files that have transposed version (they use the \transpose keyword) and let's make them look nice like "Erev shel Shoshanim"
 - [] work on having a common bookTitleMarkup that we can inport in files

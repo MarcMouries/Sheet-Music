@@ -83,7 +83,7 @@ melody = \relative c'' {
      indent = 0.0\mm
     \context {
       \Score
-      \remove "Bar_number_engraver"
+     % \remove "Bar_number_engraver"
     }
   }
   \midi {
