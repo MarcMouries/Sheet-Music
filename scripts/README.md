@@ -154,6 +154,41 @@ python3 generate-index-page.py
 
 The index generator automatically detects preview images and displays them in the card view. If no preview exists, a musical note emoji (🎼) is shown as a placeholder.
 
+### URL Parameters Support
+
+The generated `index.html` supports various URL parameters for direct linking and sharing:
+
+#### Supported Parameters
+
+- **`?tune=slug`** - Opens a specific tune detail page
+  - Example: `index.html?tune=i-saw-three-ships`
+  - The slug is the URL-friendly version of the tune title (lowercase, hyphens instead of spaces)
+
+- **`?filter=type`** - Applies a predefined filter
+  - `?filter=christmas` - Shows only Christmas music
+  - `?filter=top10` - Shows top 10 tunes
+
+- **`?search=query`** - Applies a search filter
+  - Example: `index.html?search=bach`
+
+- **`?category=name`** - Filters by category
+- **`?country=name`** - Filters by country
+- **`?difficulty=level`** - Filters by difficulty level
+
+#### Important: Handling URL Parameters
+
+**When adding new URL parameters**, you must update TWO places in `index.html`:
+
+1. **Reading parameters on page load** - in the `applyURLFilters()` function
+2. **Writing parameters to URL** - in the filter/navigation functions
+
+**Example bug that was fixed:** The `tune` parameter was being written to the URL when clicking on a tune (via `navigateToTune()`), but it wasn't being read on page load in `applyURLFilters()`. This meant that direct links like `?tune=i-saw-three-ships` would show the full tune list instead of opening the specific tune.
+
+**To prevent this bug pattern:**
+- Always check both read and write paths when adding new parameters
+- Test direct URL links after implementing parameter handling
+- Add comments in the code explaining what each parameter does
+
 ## Preview Image Naming Convention
 
 Preview images must follow this naming pattern:

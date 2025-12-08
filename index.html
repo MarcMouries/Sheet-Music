@@ -6493,9 +6493,24 @@
         window.addEventListener('resize', checkMobileView);
 
         // URL parameter support for shareable filter links
+        // Supports: ?tune=slug, ?filter=christmas, ?search=query, etc.
+        // IMPORTANT: When adding new URL parameters, make sure to handle them here
+        // during page load, not just when saving to URL
         function applyURLFilters() {
             try {
                 const params = new URLSearchParams(window.location.search);
+
+                // Handle tune parameter to open specific tune detail
+                // This allows direct links like: ?tune=i-saw-three-ships
+                if (params.has('tune')) {
+                    const tuneSlug = params.get('tune');
+                    setTimeout(() => {
+                        if (typeof showTuneDetailView === 'function') {
+                            showTuneDetailView(tuneSlug);
+                        }
+                    }, 300);
+                    return; // Don't apply other filters when opening a tune
+                }
 
                 if (params.has('filter')) {
                     const filter = params.get('filter').toLowerCase();

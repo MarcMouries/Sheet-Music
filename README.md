@@ -158,6 +158,9 @@ This scans the entire repository and generates `index.html` with:
 - Metadata (title, composer, style, country)
 - Links to PDF and MIDI files
 - Multi-key selector for transposed versions
+- URL parameter support for direct linking (e.g., `?tune=i-saw-three-ships`)
+
+**Note**: The index supports URL parameters like `?tune=slug`, `?filter=christmas`, `?search=query`. See [scripts/README.md](scripts/README.md#url-parameters-support) for details.
 
 ## Repository Scripts
 
