@@ -1,21 +1,14 @@
 \version "2.24.0"
+
 \header {
 	title = "The First Noel"
-	composer = "Traditional; English carol, c. 13th century, arr. first published 1833"
-	mutopiatitle = "The First Noel (hymntune)"
-	mutopiacomposer = "Traditional"
-	mutopiainstrument = "Voice (SATB)"
-	copyright = "Public Domain"
-	date = "1833"
-	maintainer = "Steve Dunlop"
-	maintainerWeb = "http://www.nerstrand.net"
-	maintainerEmail = "music@nerstrand.net"
-	style = "Hymn"
-	source = "www.cyberhymnal.org"
-	lastupdated = "2008/1/12"
- footer = "Mutopia-2008/01/13-1243"
- tagline = \markup { \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-column { \small \line { Sheet music from \with-url "http://www.MutopiaProject.org" \line { \teeny www. \hspace #-1.0 MutopiaProject \hspace #-1.0 \teeny .org \hspace #0.5 } • \hspace #0.5 \italic Free to download, with the \italic freedom to distribute, modify and perform. } \line { \small \line { Typeset using \with-url "http://www.LilyPond.org" \line { \teeny www. \hspace #-1.0 LilyPond \hspace #-1.0 \teeny .org } by \maintainer \hspace #-1.0 . \hspace #0.5 Reference: \footer } } \line { \teeny \line { This sheet music has been placed in the public domain by the typesetter, for details see: \hspace #-0.5 \with-url "http://creativecommons.org/licenses/publicdomain" http://creativecommons.org/licenses/publicdomain } } } }
+	composer = "Traditional French (18th Century)"
+	poet = "Traditional"
+	country = "England"
+	style = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 % #(set-default-paper-size "letter")
 
 Soprano = { \time 3/4  { \key d \major fis'8 e' d'4. e'8 fis' g' a'2 b'8 cis'' d''4 cis'' b' a'2 b'8 cis'' d''4 cis'' b' a' b' cis'' d'' a' g' fis'2 fis'8 e' d'4. e'8 fis' g' a'2 b'8 cis'' d''4 cis'' b' a'2 b'8 cis'' d''4 cis'' b' a' b' cis'' d'' a' g' fis'2 fis'8 e' d'4. e'8 fis' g' a'2 d''8 cis'' b'2 b'4 a'2 a'4 d'' cis'' b' a' b' cis'' d'' a' g' fis'2  \bar "|." } }

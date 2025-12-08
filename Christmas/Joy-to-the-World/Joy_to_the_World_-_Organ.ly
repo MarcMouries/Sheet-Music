@@ -15,7 +15,13 @@
 
 \header {
   title = "Joy to the World"
+  composer = "George Frideric Handel (1685–1759)"
+  poet = "Isaac Watts"
+  country = "England"
+  style = "christmas hymn"
 }
+
+\include "../../common/common-header.ily"
 
 melody = \relative c'{
   \clef treble

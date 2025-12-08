@@ -1,7 +1,9 @@
 # Sheet Music Repository - TODO List
 
 - [x] Check new tunes: Humoresque, Besame mucho, renamed of Manha-de-Carnaval.
-- [] Review Christmas music files (Silent Night, Joy to the World, Carol of the Bells, etc.) to ensure they follow repository format standards
+- [x] Review Christmas music files (Silent Night, Joy to the World, Carol of the Bells, etc.) to ensure they follow repository format standards - All 16 Christmas files now have consistent metadata
+- [x] Update README.md with comprehensive documentation for contributors and AI agents - Added repository overview, format standards, multi-key pattern documentation, workflows, and examples
+- [] Add transposed versions of Christmas tunes in violin-friendly keys (similar to Let It Snow F/G and Korobeiniki multi-key pattern)
 - [] Fix duplicate Rondo Alla Turca entries - 3 versions with identical metadata (Piano, Violin, Violin-MacBookAir). Either update subtitles to distinguish them or delete obsolete MacBookAir version
 - [] check all the files that have transposed version (they use the \transpose keyword) and let's make them look nice like "Erev shel Shoshanim"
 - [] work on having a common bookTitleMarkup that we can inport in files

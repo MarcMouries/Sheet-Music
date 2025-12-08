@@ -22,11 +22,12 @@ dropLyricsIV = {}
 \header {
   title = "The First Noël"
   poet = "Traditional"
-  composer = "18th Century French Melody"
+  composer = "Traditional French (18th Century)"
   country = "England"
   style = "christmas carol"
-  tagline = \markup { "from" \italic {Christmas Carols, New and Old}}
 }
+
+\include "../../common/common-header.ily"
 \paper {
   paper-height = 9\in
   paper-width = 6\in

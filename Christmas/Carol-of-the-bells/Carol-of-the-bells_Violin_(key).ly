@@ -1,9 +1,15 @@
 \version "2.24.0"
 \include "english.ly"
 \header {
-  title = "Carol of the Bells (Shchedryk)"
-  composer = "Mykola Leontovych"
+  title = "Carol of the Bells"
+  subtitle = "Shchedryk (Щедрик)"
+  composer = "Mykola Leontovych (1877–1921)"
+  poet = "Peter J. Wilhousky"
+  country = "Ukraine"
+  style = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 setStaffElements = {
   \override Staff.Clef.font-size = #-2
   \override Staff.TimeSignature.font-size = #-1

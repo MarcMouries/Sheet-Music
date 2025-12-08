@@ -16,9 +16,13 @@
 }
 
 \header {
-  title = "Deck the halls"
-  tagline = ##f
+  title = "Deck the Halls"
+  composer = "Traditional Welsh"
+  country = "Wales"
+  style = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 
 harmonies = \chords {
     f2. c4:7 | d4:m c4 f2 | c2:7 f2 | f4 c4 f2 |

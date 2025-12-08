@@ -7,11 +7,12 @@
 \header {
 	title     = "Petit Papa Noël"
 	composer  = "Raymond Vincy & Henri Martinet"
-    arranger  = "French Christmas Song"
-	copyright = "public domain"
-	enteredby = "Marc Mouries"
-	tagline   = ""
+	poet      = "Raymond Vincy"
+	country   = "France"
+	style     = "christmas song"
 }
+
+\include "../../common/common-header.ily"
 
 % LAYOUT
 #(set-global-staff-size 22)

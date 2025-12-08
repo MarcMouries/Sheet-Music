@@ -37,10 +37,15 @@ solo = \markup { "Solo" }
 all = \markup { "All" }
 
 \header {
-  title = "Shchedryk"
-  composer = "Mykola Leontovych"
-  tagline = ""
+  title = "Carol of the Bells"
+  subtitle = "Shchedryk (Щедрик) - SATB"
+  composer = "Mykola Leontovych (1877–1921)"
+  poet = "Peter J. Wilhousky"
+  country = "Ukraine"
+  style = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 
 \paper {
   paper-width = 8.5\in

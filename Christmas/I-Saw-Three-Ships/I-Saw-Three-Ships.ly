@@ -5,8 +5,12 @@
 
 \header {
   title = "I Saw Three Ships"
-  composer = "Traditional"
+  composer = "Traditional English"
+  country = "England"
+  style = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 harmonies = \chordmode {
   s8 | f4. c/f | f c/f |
   f2. | c/f | f4. c/f |

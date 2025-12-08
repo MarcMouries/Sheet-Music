@@ -1,11 +1,14 @@
 \include "english.ly"
+
 \header {
   title     = "Silent Night"
-  composer  = "Franz Gruber (1787-1863)"
-  copyright = "Public Domain"
-  date      = ""
-  tagline   = ""
+  composer  = "Franz Gruber (1787–1863)"
+  poet      = "Joseph Mohr"
+  country   = "Austria"
+  style     = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 #(set-default-paper-size "letter")
 #(set-global-staff-size 20)
 \paper {

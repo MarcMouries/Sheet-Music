@@ -43,21 +43,16 @@
 
 \header
 {
-    %dedication = ""
     title = "O Holy Night"
-    %subtitle = ""
-    %subsubtitle = ""
-    % poet = \markup{ \italic Text: }
-    % composer = \markup{ \italic Music: }
-    %meter = ""
-    %opus = ""
-    %arranger = ""
-    %instrument = ""
-    %piece = \markup{\null \null \null \null \null \null \null \null \null \null \null \null \null \italic Slowly \null \null \null \null \null \note #"4" #1.0 = 70-100}
-    %breakbefore
-    %copyright = ""
-    tagline = ""
+    subtitle = "Cantique de Noël"
+    composer = "Adolphe Charles Adam (1803–1856)"
+    poet = "Placide Cappeau"
+    country = "France"
+    style = "christmas hymn"
+    arranger = "arr. G. B. H."
 }
+
+\include "../../common/common-header.ily"
 
 
 global =

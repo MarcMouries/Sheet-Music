@@ -3,9 +3,13 @@
 
 \header {
   title = "We Wish You a Merry Christmas"
-  subtitle = "XVIe"
-  composer = "Trad. English"
+  subtitle = "XVI Century"
+  composer = "Traditional English"
+  country = "England"
+  style = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 
 
 chordNames = \chordmode {

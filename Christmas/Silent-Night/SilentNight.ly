@@ -1,12 +1,14 @@
 
 \header {
-title = "Stille Nacht"
-subtitle = "(Silent Night)"
-filename = "stille.ly"
-enteredby = "Peter Chubb"
-composer = "Franz X. Gruber"
-poet = "Joseph Mohr"
+  title = "Silent Night"
+  subtitle = "Stille Nacht"
+  composer = "Franz Gruber (1787–1863)"
+  poet = "Joseph Mohr"
+  country = "Austria"
+  style = "christmas carol"
 }
+
+\include "../../common/common-header.ily"
 
 
 \version "2.14.0"
