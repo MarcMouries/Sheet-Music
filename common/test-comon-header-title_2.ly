@@ -9,7 +9,7 @@
   style = "christmas carol"
 }
 
-\include "common/common-header.ily"
+\include "common-header.ily"
 
 
 % Simple music example

@@ -1,32 +1,23 @@
 \version "2.24.0"
 \language "english"
+%\include "../../common/improviso.ily"
 \include "../../common/includes.ly"
-\include "../../common/improviso.ily"
+\include "../../common/common-header.ily"
+
 
 
 date = #(strftime "%B, %d %Y" (localtime (current-time)))
 
 \header {
   title = "Minor Swing"
-  subtitle = "Christiaan van Hemert"
+  subtitle = "As played by Christiaan van Hemert"
   composer = "Django Reinhardt & Stéphane Grappelli"
   country = "France"
-    video = ""
-    style = "gypsy jazz"     % Remove default LilyPond tagline
-  poet =  "Transcribed by Marc & Maxence Mouries"
-  % tagline = \markup
-  % \column {
-  %   {
-  %     "(cc)(by)(sa) me Rights Reserved."
-  %    \with-url "https://www.youtube.com/watch?v=mNejZlpOpAU"
-  %    { "Youtube Video Gypsy Jazz Violin Lessons - Minor Swing" }
-
-\include "../../common/common-header.ily"}
-  % {
-  %   \line {  $(format "Typeset with LilyPond ~a. ," (lilypond-version)) \date  }
-  % }
-  %}
+  video = "https://www.youtube.com/watch?v=mNejZlpOpAU"
+  style = "gypsy jazz"
+  transcriber =  "Marc & Maxence Mouries"
 }
+
 
 %\markup \vspace #1
 %\markup \fill-line {
@@ -39,14 +30,6 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
 % 	Don't worry to much about accents. Legato with light swing
 % 	produces the right sound all by itself."
 % }
-
-#(set-global-staff-size 21)
-
-
-\paper {
-  #(set-paper-size "letter")
-}
-
 
 global = {
   \key a \minor

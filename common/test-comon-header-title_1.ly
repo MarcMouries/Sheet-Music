@@ -5,12 +5,12 @@
   subtitle = "from The Color Purple (1985)"
   composer = "Quincy Jones"
   country = "USA"
-  arranger = "Transcription by Maxence Mouriès"
+  transcriber = "Maxence Mouriès"
   notes = "As played by Itzhak Perlman"
   style = "soundtrack"
 }
-
-\include "common/common-header.ily"
+ 
+\include "common-header.ily"
 
 
 
