@@ -21,7 +21,7 @@ Currently in collection: 3 songs (Let It Snow, The First Noel, The First Noel Du
    - One of the most recognizable Christmas songs worldwide
    - Fun, upbeat melody
    - Status: ❌ Not in collection
-   - 🔗 [View on IMSLP](https://imslp.org/wiki/Jingle_Bells_(Pierpont,_James_Lord))
+   - 🔗 [View on IMSLP](https://imslp.org/wiki/The_One_Horse_Open_Sleigh_(Pierpont%2C_James))
    - 🎬 Video: https://www.youtube.com/watch?v=V5A9N6sVbzI
 
 3. **White Christmas**
