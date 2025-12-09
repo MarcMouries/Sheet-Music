@@ -12,67 +12,63 @@
 
 
 melody = \relative c'' {
-  \key g \major
-  \partial 4 d4
-  
-  %\bar ".|:" 
+  \key a \major
+  \partial 4 e4
+
+  %\bar ".|:"
   \repeat volta 1 {
-    g8 fs g d  g fs g d  g fs g d e d c b
-    c e a, e' c e a, e' c e a, e' g fs e d \break
-    
-    g8 fs g d  g fs g d  g fs g d e d c b
-    a b c d e fs g e d b a b g4 d'4
-    }
-    %\bar ":|."
+    a8 gs a e  a gs a e  a gs a e fs e d cs
+    d fs b, fs' d fs b, fs' d fs b, fs' a gs fs e \break
+
+    a8 gs a e  a gs a e  a gs a e fs e d cs
+    b cs d e fs gs a fs e cs b cs a4 e'4
+  }
+  %\bar ":|."
   \break
-% Part 2
+  % Part 2
   %\bar ".|:"
   \repeat volta 2{
-  b8 d g, d' b d g, d' b d g, d' e d c b
-  c e a, e' c e a, e' c e a, e' g fs e d \break
+    cs8 e a, e' cs e a, e' cs e a, e' fs e d cs
+    d fs b, fs' d fs b, fs' d fs b, fs' a gs fs e \break
 
-  b8 d g, d' b d g, d' b d g, d' e d c b
-  a b c d e fs g e d b a b g4 g4}
-  \alternative {{g4 d4}{g4 g4} }
+    cs8 e a, e' cs e a, e' cs e a, e' fs e d cs
+    b cs d e fs gs a fs e cs b cs a4 a4
+  }
+  \alternative {{a4 e4}{a4 a4} }
   \bar ":|."
 }
 
 harmonies = \chordmode {
-  r4
-  
-  g4 g4 g4 g4
-  g4 g4 g4 g4
-  a4:min a4:min a4:min a4:min
-  a4:min a4:min d4:7 d4:7
-  g4 g4 g4 g4
-  g4 g4 g4 g4
-  c4 c4 g4 g4
-  d4:7 d4:7 g4 g4
-  
-  g4 g4 g4 g4
-  g4 g4 g4 g4
-  a4:min a4:min a4:min a4:min
-  a4:min a4:min d4:7 d4:7
-  g4 g4 g4 g4
-  g4 g4 g4 g4
-  c4 c4 g4 g4
-  d4:7 d4:7 g4 g4
+  s4
+  a4 a4 a4 a4
+  a4 a4 a4 a4
+  b4:min b4:min b4:min b4:min
+  b4:min b4:min e4:7 e4:7
+  a4 a4 a4 a4
+  a4 a4 a4 a4
+  d4 d4 a4 a4
+  e4:7 e4:7 a4 a4
+
+  a4 a4 a4 a4
+  a4 a4 a4 a4
+  b4:min b4:min b4:min b4:min
+  b4:min b4:min e4:7 e4:7
+  a4 a4 a4 a4
+  a4 a4 a4 a4
+  d4 d4 a4 a4
+  e4:7 e4:7 a4 a4
 }
 
 \score {
-   <<
-      \context ChordNames {
-         \set chordChanges = ##t
-         \harmonies
-      }
-   \context Staff = one \melody
-   >>
-
-   \layout{ }
-   
+  <<
+    \context ChordNames {
+      \set chordChanges = ##t
+      \harmonies
+    }
+    \context Staff = one \melody
+  >>
+  \layout{ }
   \midi {
     \tempo 4 = 120
-    }
-
-
+  }
 }
