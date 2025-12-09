@@ -31,12 +31,41 @@
     \override LyricText.font-name = #"Arial"
   }
 
+
+% \paper {
+%   #(define fonts
+%     (set-global-fonts
+%     #:music "lilyboulez"
+%     #:brace "emmentaler"
+%     #:roman "copperplate"
+%     #:sans "Helvetica"
+%     #:typewriter "Andale Mono"
+%     #:factor (/ staff-height pt 20)
+%   ))
+% }
+
 \paper {
   indent = 10 \mm
 
   % Spacing between title/composer and music
   markup-system-spacing.basic-distance = #16  % Space after header markup (title/composer) before first system
   markup-system-spacing.padding = #2
+  
+  %  between-system-space = 2.5\cm
+%  between-system-padding = 2\cm
+  %%set to ##t if your score is less than one page:
+ % ragged-last-bottom = ##t
+ % ragged-bottom = ##f
+  markup-system-spacing = #'((basic-distance . 0)
+                             (minimum-distance . 8)
+                             (padding . 10))
+ % vertical spacing
+ system-system-spacing =
+    #'((basic-distance . 16)
+       (minimum-distance . 12)
+       (padding . 1)
+       (stretchability . 60))
+
 
 
   % Custom title formatting - pulls from header fields above
@@ -81,3 +110,4 @@
 %     }
 %   }
 % }
+

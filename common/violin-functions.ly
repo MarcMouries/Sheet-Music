@@ -225,6 +225,10 @@ restezFinger =
 
 
 
+triplet =
+#(define-music-function (notes) (ly:music?)
+   #{ \tuplet 3/2 { #notes } #})
+
 
 restezFinger_OLD =
 #(define-music-function (FingerNumber music) (string? ly:music?)

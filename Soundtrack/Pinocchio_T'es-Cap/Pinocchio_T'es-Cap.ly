@@ -2,41 +2,31 @@
 \language "english"
 
 \header {
-  title = "Pinocchio - T'es Cap"
+  title = "T'es Cap"
   subtitle = "from The Adventures of Pinocchio (1972)"
   composer = "Fiorenzo Carpi"
   country = "Italy"
-  style = "soundtrack"
+  style = "Soundtrack"
 }
 
 \include "../../common/common-header.ily"
 
-#(set-global-staff-size 22)
-\paper {
-  paper-width = 21.0\cm
-  paper-height = 29.7\cm
-  top-margin = 1.0\cm
-  bottom-margin = 2.0\cm
-  left-margin = 1.0\cm
-  right-margin = 1.0\cm
-}
+% \paper {
+%   paper-width = 21.0\cm
+%   paper-height = 29.7\cm
+%   top-margin = 1.0\cm
+%   bottom-margin = 2.0\cm
+%   left-margin = 1.0\cm
+%   right-margin = 1.0\cm
+% }
 
 stanzaOne = \lyricmode {
   \set stanza = #"1. "
-  \skip \breve bla\breve
+  \skip 1 bla1
 
 }
 stanzaTwo = \lyricmode {
   \set stanza = #"2. "
-}
-
-PartPOneVoiceOne =  \relative c'' {
-  \clef "treble"
-  \key ef \major
-  \time 2/4
-
-
-
 }
 
 practice =  \relative c' {
@@ -44,15 +34,15 @@ practice =  \relative c' {
   \key ef \major
   \time 2/4
   \repeat volta 2 {
-    ef f g bf
+    ef4 f g bf
     ef-1 f g bf
     ef bf g f
     ef bf g f
   }
   \repeat volta 2 {
-    g'4 f  ef2
-    d-1 f 4 ef d2
-    c-1 ef4 d  c2
+    g'8 f  ef4
+    d-1 f 8 ef d4
+    c-1 ef8 d  c4
   }
 }
 
@@ -64,28 +54,20 @@ practice =  \relative c' {
   \midi { }
 }
 
-\score {
-  <<
-    %\new ChordNames \chordNames
-    \new Staff { \PartPOneVoiceOne }
-    \addlyrics { \stanzaOne }
-  >>
-  \layout { }
-  %\midi { }
-}
+
 
 skips = {
 
-  \skip 2 \skip 2 \skip 2 \skip 2  \skip 2
-  \skip 2 \skip 2 \skip 2 \skip 2  \skip 2
-  \skip 2 \skip 2 \skip 2 \skip 2  \skip 2
-  \skip 2 \skip 2 \skip 2 \skip 2  \skip 2
-  \skip 2 \skip 2 \skip 4 \skip 4  \skip 4
-  \skip 2 \skip 4 \skip 4 \skip 4  \skip 4
-  \skip 2 \skip 2 \skip 4 \skip 4  \skip 4
+  \skip 4 \skip 4 \skip 4 \skip 4  \skip 4
+  \skip 4 \skip 4 \skip 4 \skip 4  \skip 4
+  \skip 4 \skip 4 \skip 4 \skip 4  \skip 4
+  \skip 4 \skip 4 \skip 4 \skip 4  \skip 4
+  \skip 4 \skip 4 \skip 8 \skip 8  \skip 8
+  \skip 4 \skip 8 \skip 8 \skip 8  \skip 8
+  \skip 4 \skip 4 \skip 8 \skip 8  \skip 8
 
-  \skip 2 \skip 4 \skip 4 \skip 4  \skip 4
-  \skip 2 \skip 2
+  \skip 4 \skip 8 \skip 8 \skip 8  \skip 8
+  \skip 4 \skip 4
 }
 
 stanzaOne = \lyricmode {
@@ -114,7 +96,7 @@ stanzaThree = \lyricmode {
   T'es cap, pas cap de cho -- pper u -- ne mou -- che
 }
 
-Theme = {g'2 fs4 g4 af g fs g f!2 ef4 f g2 ef}
+Theme = {g'4 fs8 g8 af g fs g f!4 ef8 f g4 ef}
 voltaAdLib = \markup {"x"\small\italic { "3" } }
 
 
@@ -125,18 +107,18 @@ voltaAdLib = \markup {"x"\small\italic { "3" } }
         \time 2/4
 
         \mark "Intro"
-        g'2  fs4 g4 af g fs g f!2 d4 ef g f ef d c2 r2
+        g'4  fs8 g8 af g fs g f!4 d8 ef g f ef d c4 r4
         \break
 
         \repeat volta 3 {
-          g'2^\markup { \bold "2×" } fs4 g4 af g fs g f!2 ef4 f g2 ef
+          g'4^\markup { \bold "2×" } fs8 g8 af g fs g f!4 ef8 f g4 ef
           \break
-          g2  fs4 g4 af g fs g f!2 d4 ef g f ef d
+          g4  fs8 g8 af g fs g f!4 d8 ef g f ef d
         }
         \alternative
         {
-          \volta 1 { }
-          \volta 2 { c4 r4 }
+          %\volta 2 { }
+          \volta 4 { c8 r8 r4 }
         }
 
         %\break
@@ -145,53 +127,53 @@ voltaAdLib = \markup {"x"\small\italic { "3" } }
         % \set Score.repeatCommands = #'((volta #f) (volta "4.") end-repeat)
         % \set Score.repeatCommands = #'((volta #f))
         \break
-        r4 r4 
+
         \repeat volta 2 {
-r4 ef4
-          c4 r r ef c r r  g'
-          g g f g af g r4  ef4
+          r8 ef8
+          c8 r r ef c r r  g'
+          g g f g af g r8  ef8
           c r r ef c r
           r  g' g g f g
           %\break
-          af   g   f4  ef4
-          d4   r   r   f
-          d4   r   r   g
-          g4   g   f   g
+          af   g   f8  ef8
+          d8   r   r   f
+          d8   r   r   g
+          g8   g   f   g
           af   g   r   f
           d   r   r   f
-          d4   r   r   g
-          bf4  g   f4  d 
-          ef   c4
-          
+          d8   r   r   g
+          bf8  g   f8  d
+          ef   c8
+
         }
-          \break
-          \mark "Refrain"
+        \break
+        \mark "Refrain"
         \repeat volta 2 {
-          r   g'4
-          af4. f8   f4  f4
-          g4   ef4   d4  c4
-          bf2  bf'2  g2  r4 g4
-          af4. f8  f4 f4
-          g4   ef4  d4 c4
-          bf2  bf'2
+          r   g'8
+          af8. f16   f8  f8
+          g8   ef8   d8  c8
+          bf4  bf'4  g4  r8 g8
+          af8. f16  f8 f8
+          g8   ef8  d8 c8
+          bf4  bf'4
           \break
-          g4.  f8  ef2  % 27
-          g4.  f8  ef2  % 28
-          g4.  f8  ef4 bf'4  % 29
-          bf4  bf4  bf4 af4
-          g4.  f8  ef2
-          g4.  f8  ef2
-          g4.  f8  ef4 bf'4
-          bf4  bf4  bf4 af4
-          g4.  f8  ef2
-          f4.  ef8 d2
-          ef4. d8  c2
-          d2 g2
-          c,2 d4 ef4
-          f4 f4 ef4 d4
-          c2 d4 ef4
-          f4 f4 ef4 d4
-          c2 r4 ef4 \bar "|."
+          g8.  f16  ef4  % 27
+          g8.  f16  ef4  % 28
+          g8.  f16  ef8 bf'8  % 29
+          bf8  bf8  bf8 af8
+          g8.  f16  ef4
+          g8.  f16  ef4
+          g8.  f16  ef8 bf'8
+          bf8  bf8  bf8 af8
+          g8.  f16  ef4
+          f8.  ef16 d4
+          ef8. d16  c4
+          d4 g4
+          c,4 d8 ef8
+          f8 f8 ef8 d8
+          c4 d8 ef8
+          f8 f8 ef8 d8
+          c4 r8 ef8 \bar "|."
         }
       }
     }
