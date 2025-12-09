@@ -19,6 +19,10 @@
 
 \version "2.24.0"
 
+% Helper function to check if transcriber exists
+#(define (transcriber-exists layout props)
+   (chain-assoc-get 'header:transcriber props))
+
 \header {
   tagline = ##f
 }
@@ -44,7 +48,11 @@
       \fontsize #-2
       \column {
         \line { \fromproperty #'header:notes }
-        \line { \fromproperty #'header:arranger }
+        \line {
+          \if \transcriber-exists {
+            "Transcription by " \fromproperty #'header:transcriber
+          }
+        }
       }
       \center-column {
         \override #'(font-name . "Garamond Premier Pro Semibold") 
