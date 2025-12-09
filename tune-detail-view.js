@@ -49,7 +49,7 @@ function getTuneData(tuneSlug, selectedKey = null) {
                 category: row.cells[3].textContent.trim(),
                 csvGenre: row.dataset.csvGenre || '',
                 csvSubgenre: row.dataset.csvSubgenre || '',
-                key: currentKey || row.cells[5].textContent.trim(),
+                key: currentKey || row.cells[4].textContent.trim(),
                 difficulty: row.dataset.difficulty,
                 subtitle: subtitle,
                 tags: row.dataset.tags.split(',').filter(t => t),
@@ -210,7 +210,6 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
             <div><strong>Composer:</strong><br>${tuneData.composer || '—'}</div>
             <div><strong>Country:</strong><br>${tuneData.country || '—'}</div>
-            <div><strong>Category:</strong><br>${tuneData.category || '—'}</div>
             <div><strong>Genre:</strong><br>${tuneData.csvGenre || '—'}${tuneData.csvSubgenre ? `<br><small style="color: #7f8c8d;">${tuneData.csvSubgenre}</small>` : ''}</div>
             <div><strong>Difficulty:</strong><br>${stars}</div>
         </div>

@@ -57,6 +57,35 @@ def get_country_display(country):
     flag = COUNTRY_FLAGS.get(country, '🌍')
     return f"{flag} {country}"
 
+def extract_moods(primary_tags, secondary_tags):
+    """Extract mood values from Primary and Secondary Tags fields.
+
+    Returns list of mood strings (may be empty).
+    """
+    import re
+    moods = []
+
+    # Extract mood from primary tags
+    match = re.search(r'mood:\s*([^;]+)', primary_tags, re.IGNORECASE)
+    if match:
+        mood_text = match.group(1).strip()
+        # Split on commas to get individual moods
+        for mood in mood_text.split(','):
+            mood = mood.strip()
+            if mood and mood not in ['N/A', 'neutral', 'practice-focused', 'technical']:
+                moods.append(mood)
+
+    # Also check secondary tags
+    match = re.search(r'mood:\s*([^;]+)', secondary_tags, re.IGNORECASE)
+    if match:
+        mood_text = match.group(1).strip()
+        for mood in mood_text.split(','):
+            mood = mood.strip()
+            if mood and mood not in ['N/A', 'neutral', 'practice-focused', 'technical']:
+                moods.append(mood)
+
+    return moods
+
 def load_csv_metadata():
     """Load rich metadata from CSV file
 
@@ -77,6 +106,10 @@ def load_csv_metadata():
             for row in reader:
                 title = row.get('Title', '').strip()
                 if title:
+                    primary_tags = row.get('Primary Tags', '')
+                    secondary_tags = row.get('Secondary Tags', '')
+                    moods = extract_moods(primary_tags, secondary_tags)
+
                     csv_data[title] = {
                         'composer': row.get('Composer', ''),
                         'genre': row.get('Style/Genre', ''),
@@ -90,9 +123,10 @@ def load_csv_metadata():
                         'country': row.get('Country / Region of Origin', ''),
                         'use_case': row.get('Primary Use Case', ''),
                         'session_friendliness': row.get('Session Friendliness (if folk)', ''),
-                        'primary_tags': row.get('Primary Tags', ''),
-                        'secondary_tags': row.get('Secondary Tags', ''),
+                        'primary_tags': primary_tags,
+                        'secondary_tags': secondary_tags,
                         'notes': row.get('Notes', ''),
+                        'moods': moods,  # Extracted mood list
                     }
         print(f"  Loaded CSV metadata for {len(csv_data)} tunes")
     except Exception as e:
@@ -501,12 +535,14 @@ def scan_repository():
             tune_info['csv_subgenre'] = csv_data['subgenre']
             tune_info['csv_period'] = csv_data['period']
             tune_info['csv_type'] = csv_data['type']
+            tune_info['csv_key'] = csv_data['key']
             tune_info['csv_ensemble'] = csv_data['ensemble']
             tune_info['csv_use_case'] = csv_data['use_case']
-            tune_info['csv_session_friendliness'] = csv_data['session_friendliness']
+            tune_info['csv_session'] = csv_data['session_friendliness']
             tune_info['csv_primary_tags'] = csv_data['primary_tags']
             tune_info['csv_secondary_tags'] = csv_data['secondary_tags']
             tune_info['csv_notes'] = csv_data['notes']
+            tune_info['csv_moods'] = csv_data['moods']  # Extracted mood list
             # Override difficulty if CSV has it
             if csv_data['difficulty']:
                 # Parse difficulty: "Beginner", "Intermediate", "Advanced", etc.
@@ -777,6 +813,161 @@ def generate_html(tunes):
 
     html_output += """            </select>
 
+            <select id="period-filter" onchange="filterItems()">
+                <option value="">All Periods</option>
+"""
+
+    # Add musical periods from CSV in chronological order
+    period_order = [
+        'Renaissance (c. 1400–1600)',
+        'Baroque (c. 1600–1750)',
+        'Classical (c. 1730–1820)',
+        'Romantic (c. 1800–1910)',
+        'Late Romantic (c. 1850–1920)',
+        '20th century (c. 1900–2000)',
+        'Contemporary (c. 1975–present)',
+        'Traditional (pre-modern)'
+    ]
+    csv_periods_set = set(tune.get('csv_period', '') for tune in tunes if tune.get('csv_period'))
+    # Sort by chronological order
+    csv_periods = [p for p in period_order if p in csv_periods_set]
+    for period in csv_periods:
+        html_output += f'                <option value="{period}">{period}</option>\n'
+
+    html_output += """            </select>
+
+            <select id="type-filter" onchange="filterItems()">
+                <option value="">All Types</option>
+"""
+
+    # Add type of piece from CSV
+    csv_types = sorted(set(tune.get('csv_type', '') for tune in tunes if tune.get('csv_type')))
+    for piece_type in csv_types:
+        html_output += f'                <option value="{piece_type}">{piece_type}</option>\n'
+
+    html_output += """            </select>
+
+            <select id="key-filter" onchange="filterItems()">
+                <option value="">All Keys</option>
+"""
+
+    # Add keys from CSV in circle-of-fifths order with counts
+    # Circle of Fifths order: C, then sharps (G,D,A,E,B,F#,C#), then flats (F,Bb,Eb,Ab,Db,Gb,Cb)
+    # Note: major and minor keys with the same key signature are combined
+    # Format: "C Major / A minor (34)"
+    key_signature_groups = [
+        ('C', 'A', 0),      # 0 sharps/flats
+        ('G', 'E', 1),      # 1 sharp
+        ('D', 'B', 2),      # 2 sharps
+        ('A', 'F#', 3),     # 3 sharps
+        ('E', 'C#', 4),     # 4 sharps
+        ('B', 'G#', 5),     # 5 sharps
+        ('F#', 'D#', 6),    # 6 sharps
+        ('C#', 'A#', 7),    # 7 sharps
+        ('F', 'D', -1),     # 1 flat
+        ('Bb', 'G', -2),    # 2 flats
+        ('Eb', 'C', -3),    # 3 flats
+        ('Ab', 'F', -4),    # 4 flats
+        ('Db', 'Bb', -5),   # 5 flats
+        ('Gb', 'Eb', -6),   # 6 flats
+        ('Cb', 'Ab', -7)    # 7 flats
+    ]
+
+    # Count tunes per key signature group
+    all_keys = [tune.get('csv_key', '') for tune in tunes if tune.get('csv_key') and tune.get('csv_key') not in ['N/A', 'Various', 'Varies', '']]
+
+    def normalize_key_name(key_str):
+        """Normalize key: 'F-sharp major' → 'F#', 'B-flat minor' → 'Bb'"""
+        key_str = key_str.replace('-sharp', '#').replace('-flat', 'b')
+        key_str = key_str.split(' (')[0].strip()  # Remove parenthetical notes
+        # Extract just the note name (remove major/minor)
+        key_str = key_str.replace(' major', '').replace(' minor', '').strip()
+        return key_str
+
+    # Count keys by signature group
+    sig_group_counts = {}  # (major_note, minor_note) -> count
+    sig_group_filter = {}  # (major_note, minor_note) -> first full key value for filtering
+
+    for key in all_keys:
+        key_note = normalize_key_name(key)
+
+        # Match to signature group
+        for major_note, minor_note, _ in key_signature_groups:
+            if key_note == major_note or key_note == minor_note:
+                sig_key = (major_note, minor_note)
+                sig_group_counts[sig_key] = sig_group_counts.get(sig_key, 0) + 1
+                if sig_key not in sig_group_filter:
+                    sig_group_filter[sig_key] = key
+                break
+
+    # Output keys in circle-of-fifths order with "Major / minor" format
+    for major_note, minor_note, _ in key_signature_groups:
+        sig_key = (major_note, minor_note)
+        if sig_key in sig_group_counts:
+            count = sig_group_counts[sig_key]
+            filter_value = sig_group_filter[sig_key]
+            display_name = f"{major_note} Major / {minor_note} minor"
+            html_output += f'                <option value="{filter_value}">{display_name} ({count})</option>\n'
+
+    html_output += """            </select>
+
+            <select id="ensemble-filter" onchange="filterItems()">
+                <option value="">All Ensembles</option>
+"""
+
+    # Add ensemble types from CSV
+    csv_ensembles = sorted(set(tune.get('csv_ensemble', '') for tune in tunes if tune.get('csv_ensemble')))
+    for ensemble in csv_ensembles:
+        # Simplify display
+        display_ensemble = ensemble.replace('Solo violin', 'Solo')
+        html_output += f'                <option value="{ensemble}">{display_ensemble}</option>\n'
+
+    html_output += """            </select>
+
+            <select id="use-case-filter" onchange="filterItems()">
+                <option value="">All Use Cases</option>
+"""
+
+    # Add use cases from CSV
+    csv_use_cases = sorted(set(tune.get('csv_use_case', '') for tune in tunes if tune.get('csv_use_case')))
+    for use_case in csv_use_cases:
+        html_output += f'                <option value="{use_case}">{use_case}</option>\n'
+
+    html_output += """            </select>
+
+            <select id="mood-filter" onchange="filterItems()">
+                <option value="">All Moods</option>
+"""
+
+    # Add moods from CSV with counts
+    # Collect all moods from all tunes
+    all_moods = []
+    for tune in tunes:
+        moods = tune.get('csv_moods', [])
+        if moods:
+            all_moods.extend(moods)
+
+    # Count mood occurrences
+    from collections import Counter
+    mood_counts = Counter(all_moods)
+
+    # Sort moods by frequency (most common first)
+    for mood, count in mood_counts.most_common():
+        html_output += f'                <option value="{html.escape(mood)}">{html.escape(mood.title())} ({count})</option>\n'
+
+    html_output += """            </select>
+
+            <select id="session-filter" onchange="filterItems()" style="display: none;">
+                <option value="">All Session Levels</option>
+"""
+
+    # Add session friendliness from CSV (only for folk tunes)
+    csv_session = sorted(set(tune.get('csv_session', '') for tune in tunes if tune.get('csv_session') and tune.get('csv_session') != 'N/A'))
+    for session in csv_session:
+        html_output += f'                <option value="{session}">{session}</option>\n'
+
+    html_output += """            </select>
+
             <div class="view-toggle">
                 <button id="table-view" class="active" onclick="switchView('table')">📋 Table</button>
                 <button id="card-view" onclick="switchView('cards')">🎴 Cards</button>
@@ -837,7 +1028,10 @@ def generate_html(tunes):
         display_genre = tune.get('csv_genre', tune['style']) or '—'
         display_subgenre = tune.get('csv_subgenre', '')
 
-        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-csv-genre="{html.escape(tune.get('csv_genre', ''))}" data-csv-subgenre="{html.escape(display_subgenre)}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}" data-tune-slug="{tune_slug}" data-available-keys='{available_keys_json}' data-base-name="{base_name}" data-file-key="{file_key}" data-directory="{directory}" onclick="navigateToTune(event, '{tune_slug}')">
+        # Get moods as comma-separated string for data attribute
+        moods_str = ','.join(tune.get('csv_moods', []))
+
+        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-csv-genre="{html.escape(tune.get('csv_genre', ''))}" data-csv-subgenre="{html.escape(display_subgenre)}" data-csv-period="{html.escape(tune.get('csv_period', ''))}" data-csv-type="{html.escape(tune.get('csv_type', ''))}" data-csv-key="{html.escape(tune.get('csv_key', ''))}" data-csv-ensemble="{html.escape(tune.get('csv_ensemble', ''))}" data-csv-use-case="{html.escape(tune.get('csv_use_case', ''))}" data-csv-session="{html.escape(tune.get('csv_session', ''))}" data-csv-moods="{html.escape(moods_str)}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}" data-tune-slug="{tune_slug}" data-available-keys='{available_keys_json}' data-base-name="{base_name}" data-file-key="{file_key}" data-directory="{directory}" onclick="navigateToTune(event, '{tune_slug}')">
                     <td>
                         <strong>{html.escape(tune['title'])}</strong>"""
         if tune['subtitle']:
@@ -845,11 +1039,9 @@ def generate_html(tunes):
         html_output += f"""</td>
                     <td>{html.escape(tune['composer']) if tune['composer'] else '—'}</td>
                     <td>{get_country_display(tune['country'])}</td>
-                    <td><span class="category {category_class}">{html.escape(tune['category'])}</span></td>
                     <td>{html.escape(display_genre.title())}{f'<br><small style="color: #7f8c8d;">{html.escape(display_subgenre)}</small>' if display_subgenre else ''}</td>
                     <td>{html.escape(tune['key']) if tune['key'] else '—'}</td>
                     <td><div class="difficulty">{stars}</div></td>
-                    <td class="date">{tune['modified'].strftime('%Y-%m-%d')}</td>
                     <td class="links">"""
         # Add video link if available
         if tune['video']:
@@ -892,7 +1084,10 @@ def generate_html(tunes):
         display_genre = tune.get('csv_genre', tune['style']) or tune['category']
         display_subgenre = tune.get('csv_subgenre', '')
 
-        html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-csv-genre="{html.escape(tune.get('csv_genre', ''))}" data-csv-subgenre="{html.escape(display_subgenre)}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
+        # Get moods as comma-separated string for data attribute
+        moods_str = ','.join(tune.get('csv_moods', []))
+
+        html_output += f"""            <div class="card" data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-csv-genre="{html.escape(tune.get('csv_genre', ''))}" data-csv-subgenre="{html.escape(display_subgenre)}" data-csv-period="{html.escape(tune.get('csv_period', ''))}" data-csv-type="{html.escape(tune.get('csv_type', ''))}" data-csv-key="{html.escape(tune.get('csv_key', ''))}" data-csv-ensemble="{html.escape(tune.get('csv_ensemble', ''))}" data-csv-use-case="{html.escape(tune.get('csv_use_case', ''))}" data-csv-session="{html.escape(tune.get('csv_session', ''))}" data-csv-moods="{html.escape(moods_str)}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}">
                 <div class="card-thumbnail">
 """
         if tune['thumbnail_exists']:
@@ -976,6 +1171,13 @@ def generate_html(tunes):
             const danceTypeFilter = document.getElementById('dance-type-filter').value;
             const genreFilter = document.getElementById('genre-filter').value;
             const subgenreFilter = document.getElementById('subgenre-filter').value;
+            const periodFilter = document.getElementById('period-filter').value;
+            const typeFilter = document.getElementById('type-filter').value;
+            const keyFilter = document.getElementById('key-filter').value;
+            const ensembleFilter = document.getElementById('ensemble-filter').value;
+            const useCaseFilter = document.getElementById('use-case-filter').value;
+            const moodFilter = document.getElementById('mood-filter').value;
+            const sessionFilter = document.getElementById('session-filter').value;
 
             // Save filter state to URL
             const params = new URLSearchParams(window.location.search);
@@ -995,6 +1197,20 @@ def generate_html(tunes):
             else params.delete('genre');
             if (subgenreFilter) params.set('subgenre', subgenreFilter);
             else params.delete('subgenre');
+            if (periodFilter) params.set('period', periodFilter);
+            else params.delete('period');
+            if (typeFilter) params.set('type', typeFilter);
+            else params.delete('type');
+            if (keyFilter) params.set('key', keyFilter);
+            else params.delete('key');
+            if (ensembleFilter) params.set('ensemble', ensembleFilter);
+            else params.delete('ensemble');
+            if (useCaseFilter) params.set('useCase', useCaseFilter);
+            else params.delete('useCase');
+            if (moodFilter) params.set('mood', moodFilter);
+            else params.delete('mood');
+            if (sessionFilter) params.set('session', sessionFilter);
+            else params.delete('session');
 
             const newUrl = params.toString() ? `?${params.toString()}` : window.location.pathname;
             window.history.replaceState({}, '', newUrl);
@@ -1017,6 +1233,13 @@ def generate_html(tunes):
                 const danceTypes = item.dataset.danceTypes || '';
                 const csvGenre = item.dataset.csvGenre || '';
                 const csvSubgenre = item.dataset.csvSubgenre || '';
+                const csvPeriod = item.dataset.csvPeriod || '';
+                const csvType = item.dataset.csvType || '';
+                const csvKey = item.dataset.csvKey || '';
+                const csvEnsemble = item.dataset.csvEnsemble || '';
+                const csvUseCase = item.dataset.csvUseCase || '';
+                const csvMoods = item.dataset.csvMoods || '';
+                const csvSession = item.dataset.csvSession || '';
 
                 const matchesSearch = title.includes(searchInput) ||
                                     composer.includes(searchInput) ||
@@ -1028,8 +1251,15 @@ def generate_html(tunes):
                 const matchesDanceType = !danceTypeFilter || danceTypes.includes(danceTypeFilter);
                 const matchesGenre = !genreFilter || csvGenre === genreFilter;
                 const matchesSubgenre = !subgenreFilter || csvSubgenre === subgenreFilter;
+                const matchesPeriod = !periodFilter || csvPeriod === periodFilter;
+                const matchesType = !typeFilter || csvType === typeFilter;
+                const matchesKey = !keyFilter || csvKey === keyFilter;
+                const matchesEnsemble = !ensembleFilter || csvEnsemble === ensembleFilter;
+                const matchesUseCase = !useCaseFilter || csvUseCase === useCaseFilter;
+                const matchesMood = !moodFilter || csvMoods.includes(moodFilter);
+                const matchesSession = !sessionFilter || csvSession === sessionFilter;
 
-                if (matchesSearch && matchesCategory && matchesCountry && matchesDifficulty && matchesTag && matchesDanceType && matchesGenre && matchesSubgenre) {
+                if (matchesSearch && matchesCategory && matchesCountry && matchesDifficulty && matchesTag && matchesDanceType && matchesGenre && matchesSubgenre && matchesPeriod && matchesType && matchesKey && matchesEnsemble && matchesUseCase && matchesMood && matchesSession) {
                     item.style.display = '';
                     visibleCount++;
                 } else {
@@ -1042,9 +1272,27 @@ def generate_html(tunes):
 
             if (currentView === 'table') {
                 document.getElementById('table-container').style.display = visibleCount === 0 ? 'none' : 'block';
+                // Sort visible rows alphabetically by title after filtering
+                sortVisibleRows();
             } else {
                 document.getElementById('cards-container').style.display = visibleCount === 0 ? 'none' : 'grid';
             }
+        }
+
+        function sortVisibleRows() {
+            const table = document.getElementById('music-table');
+            const tbody = table.tBodies[0];
+            const visibleRows = Array.from(tbody.rows).filter(row => row.style.display !== 'none');
+
+            // Sort visible rows by title (first column)
+            visibleRows.sort((a, b) => {
+                const titleA = a.cells[0].textContent.trim().toLowerCase();
+                const titleB = b.cells[0].textContent.trim().toLowerCase();
+                return titleA.localeCompare(titleB);
+            });
+
+            // Reorder rows in tbody
+            visibleRows.forEach(row => tbody.appendChild(row));
         }
 
         function sortTable(columnIndex) {
@@ -1217,6 +1465,13 @@ def generate_html(tunes):
             document.getElementById('dance-type-filter').value = '';
             document.getElementById('genre-filter').value = '';
             document.getElementById('subgenre-filter').value = '';
+            document.getElementById('period-filter').value = '';
+            document.getElementById('type-filter').value = '';
+            document.getElementById('key-filter').value = '';
+            document.getElementById('ensemble-filter').value = '';
+            document.getElementById('use-case-filter').value = '';
+            document.getElementById('mood-filter').value = '';
+            document.getElementById('session-filter').value = '';
 
             // Clear URL parameters
             const url = new URL(window.location);
@@ -1363,6 +1618,9 @@ def generate_html(tunes):
             }
             if (params.has('subgenre')) {
                 document.getElementById('subgenre-filter').value = params.get('subgenre');
+            }
+            if (params.has('mood')) {
+                document.getElementById('mood-filter').value = params.get('mood');
             }
 
             // Apply filters if any were restored
