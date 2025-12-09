@@ -253,7 +253,7 @@ cisLocrian = {
   title = "Gammes de Do dièse"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

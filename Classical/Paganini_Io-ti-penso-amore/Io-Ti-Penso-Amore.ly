@@ -7,7 +7,7 @@
   subsubtitle = "from the 2nd movement of Paganini 4th violin concerto"
   composer = "Niccolò Paganini"
   country = "Italy"
-  style = "classical"
+  genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

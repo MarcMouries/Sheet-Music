@@ -10,7 +10,7 @@
   title = "Gammes de Si dièse"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

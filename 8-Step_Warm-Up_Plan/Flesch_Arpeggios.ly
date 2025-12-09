@@ -3,7 +3,7 @@
 \header {
   title = "Flesch One-octave arpeggios 2"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 %{
            Page

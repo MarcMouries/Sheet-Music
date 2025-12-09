@@ -8,7 +8,7 @@
   country = "Germany"
   poet = "Volkslied"
   video = ""
-  style = "classical"
+  genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

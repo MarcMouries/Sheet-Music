@@ -6,7 +6,7 @@
   subtitle = "Around the Circle of Fourths"
   subsubtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \layout { indent = 0}

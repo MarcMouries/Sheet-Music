@@ -10,7 +10,7 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 	tagline = \markup {
 	\simple #(strftime "%x" (localtime (current-time)))
 	Version 1.6
-  style = "classical"
+  genre = "Classical"
 }
 
  }

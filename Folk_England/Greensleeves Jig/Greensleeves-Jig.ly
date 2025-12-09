@@ -5,7 +5,9 @@
   title = "Greensleeves Jig"
   composer = "Traditional"
   country = "England"
-    style = "jig"
+    genre = "Folk"
+
+    subgenre = "Irish"
 }
 
 \include "../../common/common-header.ily"

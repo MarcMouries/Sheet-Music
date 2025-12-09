@@ -7,7 +7,7 @@
   subtitle = "in D major"
   composer = "Traditional Scottish"
   country = "Scotland"
-  style = "air"
+  genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

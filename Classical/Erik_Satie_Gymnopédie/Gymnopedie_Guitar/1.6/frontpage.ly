@@ -7,7 +7,7 @@
 	#(set-paper-size "arch a")
     }
 
-    \header {   style = "classical" }
+    \header {   genre = "Classical" }
 
 \include "../../../../common/common-header.ily"
 

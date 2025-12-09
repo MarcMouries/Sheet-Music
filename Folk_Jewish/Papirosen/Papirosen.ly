@@ -5,7 +5,9 @@
 \header {
   title = "Papirosen"
   instrument = "Violin"
-    style = "klezmer"
+    genre = "Folk"
+
+    subgenre = "Klezmer"
   composer = "Traditional"
   country = "Jewish"  % Remove default LilyPond tagline
 }

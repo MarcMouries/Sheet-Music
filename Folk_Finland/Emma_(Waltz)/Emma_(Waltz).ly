@@ -12,7 +12,7 @@
   title    = "Emma's Waltz"
   composer = "Traditional Finnish"
   country = "Finland"
-  style = "waltz"
+  genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

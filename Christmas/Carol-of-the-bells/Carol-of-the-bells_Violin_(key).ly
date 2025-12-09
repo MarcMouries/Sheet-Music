@@ -6,7 +6,7 @@
   composer = "Mykola Leontovych (1877–1921)"
   poet = "Peter J. Wilhousky"
   country = "Ukraine"
-  style = "christmas carol"
+  genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

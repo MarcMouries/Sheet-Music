@@ -4,7 +4,9 @@
 \header {
  title = "Si Tu Savais"
   country = "France"
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
 }
 
 global = {

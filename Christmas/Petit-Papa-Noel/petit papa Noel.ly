@@ -9,7 +9,7 @@
 	composer  = "Raymond Vincy & Henri Martinet"
 	poet      = "Raymond Vincy"
 	country   = "France"
-	style     = "christmas song"
+	genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

@@ -5,7 +5,9 @@
   title = "Devil's Dream"
   composer = "Traditional"
   country = "USA"
-  style = "reel"
+  genre = "Folk"
+
+  subgenre = "Irish"
 }
 
 \include "../../common/common-header.ily"

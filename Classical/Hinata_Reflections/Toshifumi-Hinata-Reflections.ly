@@ -5,7 +5,7 @@
   title = "Reflections"
   composer = "Toshifumi Hinata"
   country = "Japan"
-  style = "classical"
+  genre = "Classical"
   video = "https://www.youtube.com/watch?v=MJenceQ9IEw"
 }
 

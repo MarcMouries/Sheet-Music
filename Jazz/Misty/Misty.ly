@@ -18,7 +18,7 @@
     subtitle = "Music by Erroll Garner ★ Words by Johnny Burke"
     composer = "Erroll Garner"
   country = "USA"
-  style = "jazz"
+  genre = "Jazz"
  }
 
 \include "../../common/common-header.ily"

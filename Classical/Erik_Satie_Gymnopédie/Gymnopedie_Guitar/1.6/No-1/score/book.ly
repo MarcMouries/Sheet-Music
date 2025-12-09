@@ -89,7 +89,7 @@ global = {
 %
 %  piece = "v1.2"
 %  piece = " "
-%  style = "Romantic"
+%  genre = "Classical"
 % copyright = \markup  \fill-line { \tiny { \line { Steve Shorter (2021). \epsfile #0 #10 #'"by-sa.eps" }}}
  }
 

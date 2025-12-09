@@ -14,7 +14,9 @@
   composer = "chant juif, XIX"
   country = "Jewish"
   video = ""
-  style = "klezmer"
+  genre = "Folk"
+
+  subgenre = "Klezmer"
 }
 
 

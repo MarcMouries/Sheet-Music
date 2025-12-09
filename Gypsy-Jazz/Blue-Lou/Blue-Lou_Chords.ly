@@ -6,7 +6,9 @@
   subtitle = "Practice"
   composer = "practice etude"
   country = "France"
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
 }
 
 global = {

@@ -7,7 +7,7 @@
   subsubtitle = "Transposed from D to G"
   composer = "Marin Marais"
   country = "France"
-  style = "baroque"
+  genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

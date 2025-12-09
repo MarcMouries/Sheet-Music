@@ -12,7 +12,7 @@
   country = "USA"
   subtitle = "Stéphane Grappelli arrangement"
   opus = "transcribed by Marc Mouries"
-  style = "jazz"
+  genre = "Jazz"
 }
 
 \include "../../common/common-header.ily"

@@ -10,7 +10,7 @@
   title = "Gammes de Ré dièse"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

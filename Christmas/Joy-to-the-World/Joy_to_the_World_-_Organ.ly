@@ -18,7 +18,7 @@
   composer = "George Frideric Handel (1685–1759)"
   poet = "Isaac Watts"
   country = "England"
-  style = "christmas hymn"
+  genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

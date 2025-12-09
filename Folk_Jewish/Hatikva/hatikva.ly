@@ -11,7 +11,9 @@
 \header {
   title = "Hatikvah (The Hope)"
   arranger = "Arr. Marc Mouries"
-    style = "klezmer"
+    genre = "Folk"
+
+    subgenre = "Klezmer"
   subtitle = "Israel's National Anthem"
   composer = "Traditional"
   country = "Jewish"

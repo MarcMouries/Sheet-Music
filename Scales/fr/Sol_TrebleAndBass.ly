@@ -435,7 +435,7 @@ gLocrian = {
   title = "Gammes de Sol"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

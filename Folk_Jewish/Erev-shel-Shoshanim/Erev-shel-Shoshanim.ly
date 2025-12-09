@@ -7,7 +7,9 @@
   composer = "Yosef Hadar"
   country = "Jewish"
   poet = "Moshe Dor"
-  style = "klezmer"
+  genre = "Folk"
+
+  subgenre = "Klezmer"
 }
 
 \include "../../common/common-header.ily"

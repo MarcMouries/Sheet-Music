@@ -6,7 +6,9 @@
   subtitle = "Jig arrangement"
   composer = "Traditional English"
   country = "England"
-  style = "jig"
+  genre = "Folk"
+
+  subgenre = "Irish"
   video = "https://www.youtube.com/watch?v=4aDK9qdoWpk"
 }
 

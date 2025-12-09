@@ -15,7 +15,9 @@
   subtitle = "As played by Sheila Falls"
   composer = "Trad. Irish"
   country = "Ireland"
-  style = "irish traditional"
+  genre = "Folk"
+
+  subgenre = "Irish"
   video = "https://www.youtube.com/watch?v=Zxl3ZtpdBA0"
 }
 

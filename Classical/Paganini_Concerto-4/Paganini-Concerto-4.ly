@@ -7,7 +7,7 @@
   subtitle = "From Violin Concerto No. 4"
   composer = "Niccolò Paganini (1782-1840)"
   country = "Italy"
-  style = "concerto"
+  genre = "Classical"
     video = ""
 }
 

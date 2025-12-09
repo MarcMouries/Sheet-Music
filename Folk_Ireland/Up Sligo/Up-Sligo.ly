@@ -6,7 +6,9 @@
   country = "Ireland"
   footnotes = ""
   source = "https://thesession.org/tunes/537#setting13483"
-  style = "jig"
+  genre = "Folk"
+
+  subgenre = "Irish"
 }
 
 \include "../../common/common-header.ily"

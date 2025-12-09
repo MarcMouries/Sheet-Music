@@ -435,7 +435,7 @@ fesLocrian = {
   title = "Gammes de Fa bémol"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

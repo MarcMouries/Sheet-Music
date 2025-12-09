@@ -6,7 +6,7 @@
   subtitle = "Бублички"
   composer = "Traditional Russian"
   country = "Russia"
-  style = "klezmer"
+  genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

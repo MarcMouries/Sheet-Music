@@ -8,7 +8,7 @@
 \header {
   title = "Modes"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 %{

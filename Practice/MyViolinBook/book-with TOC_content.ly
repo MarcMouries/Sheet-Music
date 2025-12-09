@@ -17,7 +17,7 @@
     { e'1 }
     \header { piece = "Second score"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
   }
 }

@@ -8,7 +8,7 @@
   subtitle  = "per archi e organo (attributed to Albinoni, composed by Giazotto)"
   composer  = "Remo Giazotto (1910–1998)"
   country = "Italy"
-  style = "classical"
+  genre = "Classical"
 }
 
 

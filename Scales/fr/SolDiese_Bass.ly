@@ -253,7 +253,7 @@ gisLocrian = {
   title = "Gammes de Sol dièse"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

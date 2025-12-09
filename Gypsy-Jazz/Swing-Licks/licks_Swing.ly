@@ -3,7 +3,9 @@
 
 \header {
   title = ""
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
 }
 
 global = {

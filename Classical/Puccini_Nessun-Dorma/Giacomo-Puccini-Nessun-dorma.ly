@@ -7,7 +7,7 @@
   composer = "Giacomo Puccini"
   country = "Italy"
   poet     = "Giuseppe Adami, Renato Simoni"
-    style = "classical"
+    genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

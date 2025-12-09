@@ -11,7 +11,8 @@
   subtitle = "1949 Rome"
   composer = "Django Reinhardt"
   country = "France"
-  style = "gypsy jazz"
+  genre = "Jazz"
+  subgenre = "Gypsy Jazz"
   video = "https://www.youtube.com/watch?v=EfnYL_lGSP0"
 }
 

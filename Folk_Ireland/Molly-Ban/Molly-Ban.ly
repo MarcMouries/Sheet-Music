@@ -8,7 +8,9 @@
   country = "Ireland"
   subtitle = "aka Fair-Haired Molly"
   composer = "Trad. Irish"
-  style = "reel"
+  genre = "Folk"
+
+  subgenre = "Irish"
   session = "https://thesession.org/tunes/1637#setting1637"
   video = "https://www.youtube.com/watch?v=29AUiWEPs3o"
 }

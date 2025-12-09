@@ -13,7 +13,9 @@
   composer = "Traditional"
   country = "Jewish"
   subtitle = "Traditional Yiddish/Klezmer"
-  style = "klezmer"
+  genre = "Folk"
+
+  subgenre = "Klezmer"
 }
 
 \book {

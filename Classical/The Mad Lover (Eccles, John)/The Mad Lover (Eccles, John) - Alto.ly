@@ -7,7 +7,7 @@
   composer = "John Eccles"
   country = "England"
   instrument = "Viola"
-    style = "classical"
+    genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

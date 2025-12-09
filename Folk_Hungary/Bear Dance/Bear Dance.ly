@@ -5,7 +5,7 @@
   title = "Bear Dance"
   composer = "Traditional"
   country = "Hungary"
-  style = "folk dance"
+  genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

@@ -7,7 +7,9 @@
   composer = "Django Reinhardt"
   country = "France"
   arranger = "As played by Grappelli & Taylor"
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
   video = ""
 }
 

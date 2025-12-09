@@ -4,7 +4,7 @@
 	title = "Greensleeves"
 	composer = "Traditional English"
   country = "England"
-	style = "folk"
+	genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

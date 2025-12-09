@@ -12,7 +12,9 @@
   title = "from the Movie Swing (2002)"
   composer = "Mandino Reinhardt & Tchavolo Schmitt"
   country = "France"
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
 }
 
 \include "../../common/common-header.ily"

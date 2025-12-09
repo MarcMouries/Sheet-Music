@@ -7,7 +7,7 @@
   subtitle = "Jig arrangement in G major"
   composer = "Traditional Scottish"
   country = "Scotland"
-  style = "jig"
+  genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

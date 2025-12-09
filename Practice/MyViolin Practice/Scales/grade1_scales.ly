@@ -3,7 +3,7 @@
   title = "ABRSM Grade 1 Scales"
   arranger = \markup { \small "arr. Paul Makepeace" \teeny "http://paulm.com/music"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
   instrument = "Flute"
   meter = "slurred and tongued"

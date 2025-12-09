@@ -4,7 +4,7 @@
   title = "Scales"
   arranger = \markup { \small "arr. Marc Mouries" \teeny "marc@mouries.net"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../../../common/common-header.ily"

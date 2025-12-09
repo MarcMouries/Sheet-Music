@@ -7,7 +7,7 @@
         composer = "Reg Bouvette"
   country = "Canada"
 	arranger = "Casey Willis"
-	  style = "waltz"
+	  genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

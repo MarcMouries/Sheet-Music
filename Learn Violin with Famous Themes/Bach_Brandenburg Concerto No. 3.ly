@@ -6,7 +6,7 @@
   composer = "Johann Sebastian Bach"
   country = "Germany"
   opus = "BWV 1048"
-  style = "concerto"
+  genre = "Classical"
 }
 
 \include "../common/common-header.ily"

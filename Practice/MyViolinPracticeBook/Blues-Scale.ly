@@ -3,7 +3,7 @@
 \header {
   title = "Blues Scale"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 global = {

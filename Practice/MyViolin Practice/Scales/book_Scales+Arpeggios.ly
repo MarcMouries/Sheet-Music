@@ -33,7 +33,7 @@
     title = "Scales & Arpeggios"
     copyright = "Copyright line on book first page"
     part  composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
   tagline = "Part tagline"
     tagline = "Book tagline"
   }

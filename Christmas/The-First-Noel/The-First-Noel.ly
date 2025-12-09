@@ -24,7 +24,7 @@ dropLyricsIV = {}
   poet = "Traditional"
   composer = "Traditional French (18th Century)"
   country = "England"
-  style = "christmas carol"
+  genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

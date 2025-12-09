@@ -7,7 +7,7 @@
   composer = "Johann Sebastian Bach (1685–1750)"
   country = "Germany"
   opus = "BWV 1067"
-  style = "baroque"
+  genre = "Classical"
   video = ""
 }
 

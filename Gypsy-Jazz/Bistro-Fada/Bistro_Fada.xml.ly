@@ -10,7 +10,8 @@
   composer =  "Stephane Wrembel"
   country = "France"
   video = ""
-  style = "gypsy jazz"
+  genre = "Jazz"
+  subgenre = "Gypsy Jazz"
 }
 
 \include "../../common/common-header.ily"

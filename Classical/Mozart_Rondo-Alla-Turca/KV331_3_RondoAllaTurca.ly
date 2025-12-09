@@ -8,7 +8,7 @@
   mutopiatitle = "Rondo Alla Turca"
   mutopiacomposer = "MozartWA"
   mutopiainstrument = "Piano"
-  style = "Classical"
+  genre = "Classical"
   copyright = "Public Domain"
   source = "IMSLP"
 

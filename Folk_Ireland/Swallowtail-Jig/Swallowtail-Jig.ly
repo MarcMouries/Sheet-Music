@@ -5,7 +5,9 @@
   composer = "Traditional"
   country = "Ireland"
   video = ""
-  style = "jig"
+  genre = "Folk"
+
+  subgenre = "Irish"
 }
 
 global = {

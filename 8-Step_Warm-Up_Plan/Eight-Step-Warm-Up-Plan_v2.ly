@@ -4,7 +4,7 @@
   title = "Eight-Step Warm-Up Plan"
   subtitle = "LilyPond markup version"
     composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../common/common-header.ily"

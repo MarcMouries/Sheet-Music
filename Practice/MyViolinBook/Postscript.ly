@@ -4,7 +4,7 @@
 \header {
  title = "Postscript"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 ringsps = #"

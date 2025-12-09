@@ -5,7 +5,7 @@
 \header {
   title = "ii-V-I Lick in D. Em A7 D"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../../common/common-header.ily"

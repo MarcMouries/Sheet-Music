@@ -19,7 +19,7 @@
   title = "Deck the Halls"
   composer = "Traditional Welsh"
   country = "Wales"
-  style = "christmas carol"
+  genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

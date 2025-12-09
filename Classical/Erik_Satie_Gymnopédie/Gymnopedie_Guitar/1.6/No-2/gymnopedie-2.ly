@@ -13,7 +13,7 @@
 }
 
 \header {
-  style = "classical"
+  genre = "Classical"
 }
 
 global = {

@@ -6,7 +6,7 @@
   title = "1ere. Gymnopédie"
   composer = "Erik Satie (1866--1925)"
   country = "France"
-  style = "classical"
+  genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

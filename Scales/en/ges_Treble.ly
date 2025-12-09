@@ -10,7 +10,7 @@
   title = "Gammes de Sol bémol"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

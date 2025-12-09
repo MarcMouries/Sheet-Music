@@ -8,7 +8,9 @@
   title = "Papirosen"
   subtitle = "Key: D minor"
   instrument = "Violin"
-  style = "klezmer"
+  genre = "Folk"
+
+  subgenre = "Klezmer"
   composer = "Traditional"
   country = "Jewish"
 }

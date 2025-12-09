@@ -12,7 +12,7 @@
         composer = "Antonio Vivaldi (1678 – 1741)"
   country = "Italy"
          date = "1720"
-        style = "Baroque"
+        genre = "Classical"
         maintainer = "Hajo Dezelski"
         maintainerEmail = "dl1sdz (at) gmail.com"
 	footer = "Mutopia-2008/06/01-1429"

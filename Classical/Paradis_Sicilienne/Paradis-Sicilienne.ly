@@ -10,7 +10,7 @@
   % 
   
   poet =  "Fingerings by Ivry Gitlis"
-    style = "classical"
+    genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

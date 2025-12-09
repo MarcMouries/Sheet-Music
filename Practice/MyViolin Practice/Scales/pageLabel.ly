@@ -41,7 +41,7 @@
     }
     \header { piece = "First score"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
   }
 }

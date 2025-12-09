@@ -8,9 +8,10 @@
 
 \header {
   title = "Ashokan Farewell"
+  subtitle = "Theme from Ken Burns' The Civil War"
   composer = "Jay Ungar"
   country = "USA"
-  style = "waltz"
+  genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

@@ -4,7 +4,9 @@
   title = "Nine by Nine"
   composer = "N. Picket"
   country = "France"
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
 }
 
 \include "../../common/common-header.ily"

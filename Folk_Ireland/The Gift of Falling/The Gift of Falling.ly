@@ -5,7 +5,9 @@
   subtitle = "from The Celtic Fiddle of Liz Knowles"
   composer = "Liz Knowles"
   country = "Ireland"
-  style = "slow air"
+  genre = "Folk"
+
+  subgenre = "Irish"
   subsubtitle = "transcribed by Marc"
 }
 

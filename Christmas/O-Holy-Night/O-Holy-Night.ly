@@ -48,7 +48,7 @@
     composer = "Adolphe Charles Adam (1803–1856)"
     poet = "Placide Cappeau"
     country = "France"
-    style = "christmas hymn"
+    genre = "Christmas"
     arranger = "arr. G. B. H."
 }
 

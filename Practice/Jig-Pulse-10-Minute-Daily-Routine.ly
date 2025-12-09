@@ -5,7 +5,7 @@
   title = "Jig Rhythm: 10-Minute Daily Routine"
   subtitle = ""
     composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../common/common-header.ily"

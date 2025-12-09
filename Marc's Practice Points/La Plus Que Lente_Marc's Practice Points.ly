@@ -2,7 +2,7 @@
 \version "2.16.0"
 \include "../common/violin-functions.ly"
 \header {    composer = "Marc Mouries"
-  style = "practice exercise"}
+  genre = "Exercise"}
 
 \include "../common/common-header.ily"
 Title =  "Debussy's Plus que Lente"

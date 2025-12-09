@@ -14,7 +14,7 @@
 	              { \line 
 	                 {\small "arr. Marc Mouries"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../../../common/common-header.ily" 

@@ -47,7 +47,8 @@ function getTuneData(tuneSlug, selectedKey = null) {
                 composer: row.cells[1].textContent.trim(),
                 country: row.cells[2].textContent.trim(),
                 category: row.cells[3].textContent.trim(),
-                style: row.cells[4].textContent.trim(),
+                csvGenre: row.dataset.csvGenre || '',
+                csvSubgenre: row.dataset.csvSubgenre || '',
                 key: currentKey || row.cells[5].textContent.trim(),
                 difficulty: row.dataset.difficulty,
                 subtitle: subtitle,
@@ -206,15 +207,12 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
         </div>
         ${tuneData.subtitle ? `<p style="font-size: 1.1em; color: #7f8c8d; margin-bottom: 20px; margin-top: 5px;">${tuneData.subtitle}</p>` : ''}
 
-        <div style="display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-            <span style="padding: 8px 16px; background: #667eea; color: white; border-radius: 6px; font-weight: 600;">${tuneData.category}</span>
-            <span style="padding: 8px 16px; background: #f0f0f0; border-radius: 6px;">Difficulty: ${stars}</span>
-        </div>
-
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
             <div><strong>Composer:</strong><br>${tuneData.composer || '—'}</div>
             <div><strong>Country:</strong><br>${tuneData.country || '—'}</div>
-            <div><strong>Style:</strong><br>${tuneData.style || '—'}</div>
+            <div><strong>Category:</strong><br>${tuneData.category || '—'}</div>
+            <div><strong>Genre:</strong><br>${tuneData.csvGenre || '—'}${tuneData.csvSubgenre ? `<br><small style="color: #7f8c8d;">${tuneData.csvSubgenre}</small>` : ''}</div>
+            <div><strong>Difficulty:</strong><br>${stars}</div>
         </div>
     `;
 

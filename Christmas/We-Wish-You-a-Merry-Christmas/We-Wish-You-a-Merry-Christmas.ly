@@ -6,7 +6,7 @@
   subtitle = "XVI Century"
   composer = "Traditional English"
   country = "England"
-  style = "christmas carol"
+  genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

@@ -6,7 +6,7 @@
 
 \include "../common/common-header.ily"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 lick = \relative a {

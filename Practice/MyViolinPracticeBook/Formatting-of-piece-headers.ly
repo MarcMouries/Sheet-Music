@@ -16,7 +16,7 @@
 \header {
   title = "Formatting of piece headers"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \paper {

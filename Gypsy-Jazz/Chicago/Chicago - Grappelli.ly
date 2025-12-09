@@ -6,7 +6,9 @@
   subtitle = "Grappelli"
   composer = "Fred Fisher"
   country = "France"
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
 }
 
 global = {

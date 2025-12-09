@@ -10,7 +10,7 @@
   title    = "Teardrop Waltz"
   composer = "Reg Bouvette"
   country = "Canada"
-    style = "waltz"
+    genre = "Folk"
 }
 
 \include "../../common/common-header.ily"

@@ -435,7 +435,7 @@ dLocrian = {
   title = "Gammes de Ré"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

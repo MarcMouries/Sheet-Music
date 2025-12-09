@@ -6,7 +6,7 @@
   composer = "Erik Satie (1866--1925)"
   country = "France"
   arranger = "arr. Toshihiko Kawano"
-  style = "classical"
+  genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

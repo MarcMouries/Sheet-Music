@@ -5,7 +5,7 @@
   title = "Schubert Serenade (Practice)"
   subtitle = "Fingered & positioned • Quarter‑note studies • Practical range"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../common/common-header.ily"

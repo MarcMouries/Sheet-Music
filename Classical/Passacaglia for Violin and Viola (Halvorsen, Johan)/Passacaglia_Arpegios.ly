@@ -6,7 +6,7 @@
   subtitle = "After Handel's Harpsichord Suite No. 7 - Arpeggios"
   composer = "Johan Halvorsen (1864-1935)"
   country = "Norway"
-  style = "passacaglia"
+  genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

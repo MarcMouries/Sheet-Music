@@ -8,7 +8,7 @@
   title = "Scale of G Major"
   %arranger =
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 violin = \relative c''

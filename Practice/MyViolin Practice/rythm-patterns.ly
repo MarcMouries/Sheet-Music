@@ -39,7 +39,7 @@
   \header {
     piece = "Rhythm Patterns"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
   \layout {
     indent = 0\in

@@ -23,7 +23,7 @@ raisedSharp = \markup \raise #0.6 \sharp
   title = "Gammes de Blues"
   subtitle = ""
     composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../../common/common-header.ily"

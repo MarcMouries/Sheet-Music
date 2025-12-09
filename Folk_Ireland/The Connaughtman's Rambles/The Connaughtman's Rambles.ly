@@ -4,7 +4,9 @@
   title = "The Connaughtman's Rambles"
   composer = "Traditional"
   country = "Ireland"
-  style = "jig"
+  genre = "Folk"
+
+  subgenre = "Irish"
   session = "https://thesession.org/tunes/19#setting19"
 }
 

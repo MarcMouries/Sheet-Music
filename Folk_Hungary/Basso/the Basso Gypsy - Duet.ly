@@ -14,7 +14,7 @@
   subtitle = "Duet for 2 violins"
   composer = "Traditional Hungarian"
   country = "Hungary"
-  style = "csardas"
+  genre = "Folk"
   %instrument = "Violin I"
   arranger = "Arranged by Marc Mouries"
 }

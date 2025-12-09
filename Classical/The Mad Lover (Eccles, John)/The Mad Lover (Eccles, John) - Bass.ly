@@ -6,7 +6,7 @@
   subtitle = "5. Aire (Bass)"
   composer = "John Eccles (1668–1735)"
   country = "England"
-    style = "classical"
+    genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

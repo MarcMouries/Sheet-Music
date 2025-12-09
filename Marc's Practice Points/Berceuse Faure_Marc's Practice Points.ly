@@ -1,7 +1,7 @@
 \version "2.19.31"
 \language "english"
 \header {    composer = "Marc Mouries"
-  style = "practice exercise"}
+  genre = "Exercise"}
 
 \include "../common/common-header.ily"
 Title =  "Berceuse de Faure"

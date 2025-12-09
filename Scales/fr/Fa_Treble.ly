@@ -10,7 +10,7 @@
   title = "Gammes de Fa"
   subtitle = " "
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 

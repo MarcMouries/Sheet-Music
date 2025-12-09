@@ -6,7 +6,7 @@
   composer = "18th Century French Melody"
   country = "England"
   poet = "Traditional"
-  style = "christmas carol"
+  genre = "Christmas"
 }
 
 \include "common-header.ily"

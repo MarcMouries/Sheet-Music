@@ -5,7 +5,7 @@
 
 
 \header {   composer = "Marc Mouries"
-  style = "practice exercise" }
+  genre = "Exercise" }
 
 \include "../../common/common-header.ily"
 \paper {

@@ -10,7 +10,9 @@
   instrument = "Violin"
   composer = "chant juif, XIX"
   country = "Jewish"
-  style = "klezmer"
+  genre = "Folk"
+
+  subgenre = "Klezmer"
 }
 
 \include "../../common/common-header.ily"

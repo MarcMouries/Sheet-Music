@@ -15,7 +15,9 @@
   title = "Dr. Gilbert's"
   composer = "Traditional"
   country = "Ireland"
-  style = "reel"
+  genre = "Folk"
+
+  subgenre = "Irish"
 }
 
 \include "../../common/common-header.ily"

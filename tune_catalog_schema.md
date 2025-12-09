@@ -18,7 +18,7 @@ The name of the piece exactly as it appears.
 
 ## 2. Composer
 **What it is:**  
-Composer, songwriter, or “Traditional / Unknown” for folk music.
+Composer, songwriter, or “Traditional <country> / Unknown” for folk music.
 
 **Used for:**  
 - Searching by composer (Bach, Django, Paganini…)  
@@ -29,7 +29,9 @@ Composer, songwriter, or “Traditional / Unknown” for folk music.
 
 ## 3. Style/Genre
 **What it is:**  
-Top‑level style category (Classical, Jazz, Gypsy Jazz, Folk, Film, Pop, Exercise, Christmas…).
+Top‑level style category (Classical, Jazz, Gypsy Jazz, Folk, Film, Pop, Exercise.
+
+how can we ask to see classical 
 
 **Used for:**  
 - “Show me classical pieces”  
@@ -43,13 +45,14 @@ Top‑level style category (Classical, Jazz, Gypsy Jazz, Folk, Film, Pop, Exerci
 More precise stylistic origin.
 
 Examples:  
-- Irish jig  
+- Celtic
 - Finnish waltz  
 - Klezmer  
 - Roma/Hungarian folk  
 - French Chanson  
 - Bossa nova  
 - Baroque concerto
+- Old‑Time
 
 **Used for:**  
 - Finding tunes from a specific cultural or stylistic tradition  
@@ -99,7 +102,7 @@ Examples:
 
 ---
 
-## 7. Key Signature (Common)
+## 7. Key Signature
 **What it is:**  
 Most common or canonical key for the piece.
 
@@ -126,11 +129,11 @@ Primary meter of the piece (4/4, 3/4, 6/8, 9/8…).
 General violin difficulty level.
 
 Levels:  
-- Beginner  
-- Early Intermediate  
-- Intermediate  
-- Advanced  
-- Professional
+1. Beginner  
+2. Early Intermediate  
+3. Intermediate  
+4. Advanced  
+5. Professional
 
 **Used for:**  
 - Student repertoire planning  
@@ -170,7 +173,7 @@ Ireland, Finland, Hungary/Roma, France, Israel, Russia, USA.
 
 ---
 
-## 12. Primary Use Case
+## 12. Use Case
 **What it is:**  
 Real‑world scenario where this piece fits best.
 
@@ -212,6 +215,7 @@ Values:
 ## 14. Primary Tags
 **What it is:**  
 Readable high‑level classification string combining genre + mood.
+we may want to split the genre & mood.
 
 Examples:  
 - “Folk › Irish jig; mood: energetic”  

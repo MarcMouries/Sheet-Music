@@ -5,7 +5,7 @@
   composer = "Franz Gruber (1787–1863)"
   poet = "Joseph Mohr"
   country = "Austria"
-  style = "christmas carol"
+  genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

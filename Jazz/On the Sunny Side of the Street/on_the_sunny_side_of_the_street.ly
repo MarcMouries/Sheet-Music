@@ -4,7 +4,7 @@
   title = "(On the) Sunny Side of the Street"
   composer = "Jimmy McHugh"
   country = "USA"
-  style = "Medium Swing"
+  genre = "Jazz"
 }
 
 \include "../../common/common-header.ily"

@@ -13,7 +13,7 @@
   composer   = "Kreutzer"
   poetyear   = "Mouries - 2015"
   composeryear  = "Mouries 2015"
-    style = "practice exercise"
+    genre = "Exercise"
 }
 
 \include "../../common/common-header.ily"

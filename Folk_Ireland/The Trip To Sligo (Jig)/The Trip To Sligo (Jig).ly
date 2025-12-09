@@ -4,7 +4,9 @@
   title = "The Trip To Sligo"
   composer = "Traditional"
   country = "Ireland"
-  style = "jig"
+  genre = "Folk"
+
+  subgenre = "Irish"
   session = "https://thesession.org/tunes/397#setting13238"
 }
 

@@ -9,7 +9,7 @@
   composer = "Jule Styne"
   country = "USA"
   poet = "Sammy Cahn"
-  style = "christmas song"
+  genre = "Christmas"
 }
 
 \include "../../common/common-header.ily"

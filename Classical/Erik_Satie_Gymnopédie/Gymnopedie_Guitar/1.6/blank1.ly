@@ -2,7 +2,7 @@
 
 \paper { print-page-number = ##f }
 
-\header {   style = "classical" }
+\header {   genre = "Classical" }
 
 \include "../../../../common/common-header.ily"
 

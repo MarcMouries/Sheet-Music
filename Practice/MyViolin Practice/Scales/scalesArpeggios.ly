@@ -10,7 +10,7 @@
   title = "Scales & Arpeggios"
   arranger = \markup { \small "Marc Mouriès" \teeny "marc@mouries.net"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../../../common/common-header.ily"

@@ -5,7 +5,7 @@
   title = "Vivaldi-Style"
   subtitle = "Baroque style exercise"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
   video = "https://www.facebook.com/share/r/1GYw3dLfA3/"
 }
 

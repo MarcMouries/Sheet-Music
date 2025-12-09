@@ -28,7 +28,7 @@ chordsAuto = \chordmode {
   subtitle = "Full Score - Combined Violin, Alto, Bass"
   composer = "John Eccles (1668-1735)"
   country = "England"
-  style = "baroque"
+  genre = "Classical"
 }
 
 \include "../../common/common-header.ily"

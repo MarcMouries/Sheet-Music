@@ -12,7 +12,9 @@
   title = "Gary Owen"
   composer = "Traditional Irish"
   country = "Ireland"
-  style = "jig"
+  genre = "Folk"
+
+  subgenre = "Irish"
 }
 
 \include "../../common/common-header.ily"

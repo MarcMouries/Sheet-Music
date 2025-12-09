@@ -7,7 +7,9 @@
   composer  =  "Niall Kenny"
   opus      =	"tr. Maxence Mouriès"
   country = "Ireland"
-  style = "irish traditional"
+  genre = "Folk"
+
+  subgenre = "Irish"
 }
 
 \include "../../common/common-header.ily"

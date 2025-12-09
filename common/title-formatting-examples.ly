@@ -10,7 +10,7 @@
 \header {
   title = "My Beautiful Song"
   composer = "John Doe"
-  style = "folk"
+  genre = "Folk"
   tagline = ""
 }
 

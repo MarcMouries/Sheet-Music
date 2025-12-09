@@ -14,7 +14,9 @@ date = #(strftime "%B, %d %Y" (localtime (current-time)))
   composer = "Django Reinhardt & Stéphane Grappelli"
   country = "France"
   video = "https://www.youtube.com/watch?v=mNejZlpOpAU"
-  style = "gypsy jazz"
+  genre = "Jazz"
+
+  subgenre = "Gypsy Jazz"
   transcriber =  "Marc & Maxence Mouries"
 }
 

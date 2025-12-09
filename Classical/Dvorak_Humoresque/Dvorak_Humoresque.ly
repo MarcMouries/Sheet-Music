@@ -7,7 +7,7 @@
   subtitle = "Opus 101, No. 7"
   composer = "Antonín Dvořák (1841–1904)"
   country  = "Czech Republic"
-  style    = "romantic"
+  genre = "Classical"
   arranger = "arr. Marc Mouries"
 }
 

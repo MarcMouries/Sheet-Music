@@ -6,7 +6,7 @@
   composer = "Franz Schubert (1797-1828)"
   country = "Austria"
   arranger = "Fingering overlay by Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
 
 \include "../../common/common-header.ily"

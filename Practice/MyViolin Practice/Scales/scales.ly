@@ -4,7 +4,7 @@
   title = "Scales"
   arranger = \markup { \small "arr. Paul Makepeace" \teeny "http://paulm.com/music"
   composer = "Marc Mouries"
-  style = "practice exercise"
+  genre = "Exercise"
 }
   instrument = "Violin"
   meter = "1) détaché 2) slurred 3) Staccato"

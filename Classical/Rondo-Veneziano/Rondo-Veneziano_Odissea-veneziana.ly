@@ -6,7 +6,7 @@
   subtitle = "Rondo Veneziano"
   composer = "G. P. Reverberi & D. Farina"
   country = "Italy"
-    style = "classical"
+    genre = "Classical"
 }
 
 \include "../../common/common-header.ily"
