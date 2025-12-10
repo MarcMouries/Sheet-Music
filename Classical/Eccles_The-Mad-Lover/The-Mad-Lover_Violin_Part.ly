@@ -1,41 +1,19 @@
+% Violin part for "The Mad Lover" by John Eccles
+% This file can be:
+%   1. Compiled standalone to produce a violin part PDF with chords
+%   2. Included in full scores (the \score block is skipped)
+
 \version "2.24.4"
 \language "english"
 
 \include "../../stylesheets/twoByTwoBeaming.ly"
 \include "../../stylesheets/bars-per-line-engraver.ly"
 
-
-\header {
-  title = "The Mad Lover"
-  composer = "John Eccles (1668 – 1735)"
-  country = "England"
-  genre = "Classical"
-}
-
-\include "../../common/common-header.ily"
-
 global = {
   \time 3/4
   \key e \minor
   \tempo 4 = 100
 }
-
-\layout {
-  indent = 0
-  \context {
-    \Score
-    % Align marks with the key signature at system starts
-    \override RehearsalMark.break-align-symbols = #'(key-signature)
-    % Slight left alignment is usually nicer above the key
-    \override RehearsalMark.self-alignment-X = #LEFT
-    % Fine-tune horizontal/vertical nudges if desired:
-    \override RehearsalMark.X-offset = #4
-    \override RehearsalMark.Y-offset = #-2
-  }
-}
-
-
-
 
 chordNames = \chordmode {
   \global
@@ -115,72 +93,52 @@ melody = \relative c'' {
   }
 }
 
-% Score 1: Original version in F minor
+% Conditional compilation: only generate \score if compiled standalone
+% When included in another file with (ly:set-option 'included-as-part #t), skip the score
 
-% \book {
-%
-%   \bookpart {
-%     \header {
-%       title = "The Mad Lover"
-%       composer = "John Eccles"
-%       piece = "Original in F minor"
-%     }
-%     \score {
-%       <<
-%         \new ChordNames \chordNames
-%         \new Staff {
-%           \melody
-%         }
-%       >>
-%       \layout {
-%         \context {
-%           \Voice
-%           \twoByTwoBeaming
-%         }
-%         \context {
-%           \Score
-%           %use the line below to insist on your layout
-%           %\override NonMusicalPaperColumn.line-break-permission = ##f
-%           \consists #(bars-per-line-engraver '(5 4 4 4 4 4  4  4 4  5))
-%         }
-%       }
-%     }
-%   }% bookpart
-% } % book
+\header {
+  title = "The Mad Lover"
+  subtitle = "5. Air - Violin"
+  composer = "John Eccles (1668 – 1735)"
+  country = "England"
+  genre = "Classical"
+}
 
+\include "../../common/common-header.ily"
 
-
-% Score 2: Transposed version (down a semitone to E minor)
-\book {
-  \bookpart {
-    \header {
-      title = "The Mad Lover"
-      subtitle = "5. Air"
-      composer = "John Eccles (1668 – 1735)"
-      %piece = "Transposed down from F minor to E minor"
-    }
-    \score {
-      <<
-        \new ChordNames {
-          \transpose c c { \chordNames }
+% Only generate score block if not included as part
+#(if (not (ly:get-option 'included-as-part))
+  (add-score
+    #{
+      \score {
+        <<
+          \new ChordNames {
+            \transpose c c { \chordNames }
+          }
+          \new Staff {
+            \transpose c c { \melody }
+          }
+        >>
+        \layout {
+          indent = 0
+          \context {
+            \Voice
+            \twoByTwoBeaming
+          }
+          \context {
+            \Score
+            % Align marks with the key signature at system starts
+            \override RehearsalMark.break-align-symbols = #'(key-signature)
+            % Slight left alignment is usually nicer above the key
+            \override RehearsalMark.self-alignment-X = #LEFT
+            % Fine-tune horizontal/vertical nudges if desired:
+            \override RehearsalMark.X-offset = #4
+            \override RehearsalMark.Y-offset = #-2
+            %use the line below to insist on your layout
+            %\override NonMusicalPaperColumn.line-break-permission = ##f
+            \consists #(bars-per-line-engraver '(4 4 4 4 4 4 4 4 4 6))
+          }
         }
-        \new Staff {
-          \transpose c c { \melody    }
-        }
-      >>
-      \layout {
-        \context {
-          \Voice
-          \twoByTwoBeaming
-        }
-        \context {
-          \Score
-          %use the line below to insist on your layout
-          %\override NonMusicalPaperColumn.line-break-permission = ##f
-          \consists #(bars-per-line-engraver '(4 4 4 4 4 4 4 4 4 6))
-        }
+        \midi { }
       }
-    }
-  }% bookpart
-} % book
-
+    #}))
