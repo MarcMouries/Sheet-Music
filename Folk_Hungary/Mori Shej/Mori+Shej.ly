@@ -1,41 +1,22 @@
 \version "2.19.7"
 
-\include "../../stylesheets/stylesheet_fiddle.ly"
-\paper{
-  print-all-headers = ##t
-}
-date = #(strftime "%d-%m-%Y" (localtime (current-time)))
+%\include "../../stylesheets/stylesheet_fiddle.ly"
 
-\markup{ engraved on \date }
-
-
+%date = #(strftime "%d-%m-%Y" (localtime (current-time)))
+%\markup{ engraved on \date }
 \header{
-    title= "Mori Shej"
-    subtitle="Mori Shej, Szabina (My Daughter Sabina)"
-    composer= "József Balogh (Kályi Jág)"
+  title= "Mori Shej"
+  subtitle="Mori Shej, Szabina (My Daughter Sabina)"
+  composer= "József Balogh (Kályi Jág)"
   country = "Hungary"
-    style = "lullaby"
-    instrument =""
-    arranger= ""
-    tagline  = \markup {
-    \fontsize #-3.5 {
-      \override #'(box-padding . 1.0) \override #'(baseline-skip . 2.7) \box \center-column {
-        \line {
-          Engraved on \date using \with-url #"http://lilypond.org/"
-          \line {
-            LilyPond \simple #(lilypond-version) (http://lilypond.org/)
-  video = ""
+  style = "lullaby"
+  instrument =""
+  arranger= ""
 }
-        }
-      }
-    }
-  }
-}
-  
- 
+\include "../../common/common-header.ily"
+
+
 %#################################### Melody ########################
-%melody =  \transpose c d \relative c' {  
-%transpose for clarinet
 melody = \relative c'' {
   \clef treble
   \key a \minor
@@ -43,26 +24,27 @@ melody = \relative c'' {
   \tempo 4 = 120
 
   %\partial 16*3 a16 d f   %lead in notes
+\mark \markup \box "A"
 
-
-    a8 ^\markup{ \italic {Slowly}} ^\markup { \box A}a4. a4 b
-    a8 g4. a4 g|
-    e4 e e4. d8|
-    e8 (f) e (d) e2|
-\break
-    a8 a4. a4 b
-    a8 g4. a4 g|
-    e4 e e4. d8|
-    e8 (f) e (d) e2|
+  a8 a4. a4 b
+  a8 g4. a4 g|
+  e4 e e4. d8|
+  e8 (f) e (d) e2|
+  \break
+  a8 a4. a4 b
+  a8 g4. a4 g|
+  e4 e e4. d8|
+  e8 (f) e (d) e2|
   %\alternative { { }{ } }
-\break
+  \break
+\mark \markup \box "B"
 
   \repeat volta 2{
-    d1 ^\markup { \box B}
+    d1 
     e8 fis4. g2|
     a8 b4. a4 g|
     e8 d4. c2|
-\break
+    \break
     b8 c d c d c d4 |
     e4 d8 c e4 d8 c
     a4 a2 a4 ~
@@ -83,17 +65,17 @@ melody = \relative c'' {
   Ál -- ál-- ál -- á.....
 }
 \addlyrics{
-Kin -- áu tu -- ke sz -- om -- ná -- káj
- Mó -- ri drá -- go pi -- ko séj
-Lá lu -- má -- ko sz -- om -- ná -- káj
-Mó -- ri drá -- go pi -- ko séj
+  Kin -- áu tu -- ke sz -- om -- ná -- káj
+  Mó -- ri drá -- go pi -- ko séj
+  Lá lu -- má -- ko sz -- om -- ná -- káj
+  Mó -- ri drá -- go pi -- ko séj
 
 }
 \addlyrics{
-Ál -- din dév -- lá mu -- rá sá \skip1
-Mó -- ri drá -- go pi -- kon -- ya
-Mó -- ri drá -- go pi -- kon -- ya \skip1
-Mu -- rá su -- kár szá -- bi -- ná
+  Ál -- din dév -- lá mu -- rá sá \skip1
+  Mó -- ri drá -- go pi -- kon -- ya
+  Mó -- ri drá -- go pi -- kon -- ya \skip1
+  Mu -- rá su -- kár szá -- bi -- ná
 
 
 }
@@ -115,11 +97,11 @@ harmonies = \chordmode {
       \harmonies
     }
     \new Staff \with {
-      instrumentName = "Violin"}
+      %instrumentName = "Violin"
+    }
     \melody
   >>
- 
-  }
-  \layout{ }
-  \midi { }
+
+\layout{ }
+\midi { \tempo 4 = 120}
 }
