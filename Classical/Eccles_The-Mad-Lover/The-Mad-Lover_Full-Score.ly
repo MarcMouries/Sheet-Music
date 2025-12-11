@@ -14,6 +14,7 @@
   \context {
     \Score
     \override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1/16)
+    \consists #(bars-per-line-engraver '(4 4 4 4 4 4 4 4 4 6))
   }
 }
 

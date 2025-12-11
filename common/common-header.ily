@@ -31,6 +31,12 @@
     \override LyricText.font-name = #"Arial"
   }
 
+%\paper{ #(define fonts
+%           (make-pango-font-tree
+%            "Arial"
+%            "Arial"
+%            "Arial" (/ 18 20))) }
+
 
 % \paper {
 %   #(define fonts

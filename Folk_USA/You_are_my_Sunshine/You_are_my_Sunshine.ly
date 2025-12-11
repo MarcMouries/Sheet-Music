@@ -13,13 +13,6 @@
 \include "../../common/common-header.ily"
 
 
-\paper {
-  #(set-paper-size "letter")
-  ragged-last-bottom = ##f
-  %system-count = 8
-}
-
-
 Melody = \relative c'' {
   \clef "treble"
   \key g \major
