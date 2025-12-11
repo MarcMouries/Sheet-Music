@@ -1,59 +1,58 @@
 \version "2.24.0"
 \language "english"
 
+global = {
+  \time 2/4
+  \tempo 4=100
+}
+
 \header {
   title = "Down To The River To Pray"
   composer = "Traditional American"
   country = "USA"
+  genre = "Folk"
   style = "spiritual"
-}
-
-\include "../../common/common-header.ily"
-\layout {
-  indent = 10\mm
-}
-global = {
-  \time 2/4
-  \key e \major
-  \tempo 4=100
 }
 
 chordNames = \chordmode {
   \global
+  \key e \major
   b1
 }
 
 melody = \relative c'' {
   \global
-  \partial 8 b8 
-  b4 cs e4 e8 e 
-  e e e4 e2 
-  \break
+  \key e \major
+  \partial 8 b8
+  b4 cs e4 e8 e
+  e e e4 e2
   fs8 fs fs gs
-  fs4 e gs fs8( e) e4
-  cs8 (b8) 
-  
   \break
-  b4 gs 
-  b4. cs8 
-  e4 cs e gs 
+
+fs4 e gs fs8( e) e4
+  cs8 (b8)
+
+  \break
+  b4 gs
+  b4. cs8
+  e4 cs e gs
   \break
   fs2
   e8 e4 cs8 b2 r2
   \break
    fs'2 fs4 e4 gs4 b
-   fs8 (e4.) 
-\break   
+   fs8 (e4.)
+\break
    gs4 b  fs8 (e4.)
    e8 e4. cs8( b4.)
 \break
    fs'2 fs4 e4 gs4 b
-   fs8 (e4.) 
+   fs8 (e4.)
    \break
-   
+
    gs4 fs8 e e e cs4 b2
-  
-  
+
+
 }
 
 words = \lyricmode {
@@ -65,17 +64,5 @@ O sis -- ters let's go down__
 Let's go down, come on down
 O sis -- ters let's go down
 Down in the riv -- er to pray
-  
-}
 
-\score {
-  <<
-    \new ChordNames \chordNames
-    \new Staff { \melody }
-    \addlyrics { \words }
-  >>
-  \layout { 
-    \override Lyrics.LyricText.font-size = #-1 
-  }
-%  \midi { }
 }
