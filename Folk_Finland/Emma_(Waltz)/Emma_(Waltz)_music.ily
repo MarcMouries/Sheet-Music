@@ -15,13 +15,9 @@ emmaMelody = \relative c' {
 
   %==== A PART – played twice ====
   \repeat volta 2 {
-    % Bar 1 – "Am" e3 f e2
     a4. bf8 a4 |
-    % Bar 2 – "Am/G#" c2 AE Ac
     f4 d8 a d f |
-    % Bar 3 – "Am/G" e3 f ed
     a4. bf8 a g |
-    % Bar 4 – "Am/F#" c2 AB cA
     f4 d8 e f d |
 \break
     % Bar 5 – "Dm" B3^A Bc (simplified to natural A)

@@ -6,18 +6,12 @@
 
 \header {
   title    = "Emma's Waltz"
-  subtitle = "Key: E minor"
-  instrument = "Violin"
   composer = "Traditional Finnish"
   country = "Finland"
   genre = "Folk"
 }
 
 \include "../../common/common-header.ily"
-
-\paper {
-  #(set-paper-size "letter")
-}
 
 \score {
   \new Staff \with {
