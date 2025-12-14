@@ -1,5 +1,6 @@
 \version "2.24.0"
 \include "english.ly"
+
 \header {
   title = "Carol of the Bells"
   subtitle = "Shchedryk (Щедрик)"
@@ -9,7 +10,6 @@
   genre = "Christmas"
 }
 
-\include "../../common/common-header.ily"
 setStaffElements = {
   \override Staff.Clef.font-size = #-2
   \override Staff.TimeSignature.font-size = #-1
@@ -35,28 +35,6 @@ dim = \markup { \smaller \italic "dim." }
 rit = \markup { \smaller \italic "rit." }
 solo = \markup { "Solo" }
 all = \markup { "All" }
-
-
-
-\paper {
-  paper-width = 8.5\in
-  paper-height = 11\in
-  left-margin = 0.725\in
-  right-margin = 0.725\in
-  top-margin = 0.625\in
-  bottom-margin = 0.625\in
-  
-  markup-system-spacing.basic-distance = #10
-%  page-count = #3
-%  max-systems-per-page = #2
-  ragged-last-bottom = ##f
-  
-  % Define the three document fonts - serif, sans serif, and monospaced
-  #(define fonts
-     (make-pango-font-tree 
-      "Linux Libertine" "Luxi Sans" "Luxi Mono"
-       (/ staff-height pt 20)))
-}
 
 global = {
   \key g \minor
@@ -104,20 +82,4 @@ sopMusic = \relative c'' {
     { bf4^\mf^\solo a8 bf g4 }
     { g2.~ g~ g d'4->^\solo c8^\rit[ d] g, r}
   }
-}
-
-
-
-\score {
-  \new Staff {
-    %\setStaffElements
-    %\setNoteSize 
-    \sopMusic
-  }
-  \layout { }
-}
-
-\score {
-  \unfoldRepeats \sopMusic
-  \midi { \tempo 4 = 184 }
 }
