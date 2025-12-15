@@ -29,6 +29,12 @@
   \layout {
     \override LyricText.font-size = #-2
     \override LyricText.font-name = #"Arial"
+
+    % Increase spacing between staff lines for better readability
+    \context {
+      \Score
+      \override StaffSymbol.staff-space = #1.1  % Default is 1.0, increase to 1.1 for wider spacing
+    }
   }
 
 %\paper{ #(define fonts

@@ -82,5 +82,6 @@ ChordNames = \chordmode {
     \new ChordNames { \ChordNames }
     \new Staff { \melody }
   >>
+  \layout {}
   \midi {}
 }

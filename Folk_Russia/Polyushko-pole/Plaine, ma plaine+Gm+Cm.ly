@@ -1,6 +1,6 @@
 \version "2.19.7"
 \language "english"
-\include "violin-functions.ly"
+\include "../../common/violin-functions.ly"
 \paper {   indent = 0\cm}
 %#(set-global-staff-size 22)
 
