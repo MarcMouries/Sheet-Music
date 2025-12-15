@@ -16,12 +16,15 @@
 
 \include "../../common/common-header.ily"
 
+
+targetKey = f
+
 \score {
   <<
-    \new ChordNames { \transpose e f \songChords }
+    \new ChordNames { \transpose e \targetKey \songChords }
     \new Staff <<
       \key f \minor
-      \new Voice = "mel" { \transpose e f \songMelody }
+      \new Voice = "mel" { \transpose e \targetKey \songMelody }
       \new Lyrics \lyricsto "mel" { \set stanza = "1." \verseOne }
       \new Lyrics \lyricsto "mel" { \set stanza = "2." \verseTwo }
     >>

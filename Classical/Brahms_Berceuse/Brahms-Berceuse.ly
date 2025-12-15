@@ -47,11 +47,14 @@ melody = \relative c'' {
   \bar "|."
 }
 
+
+targetKey = a
+
 \score {
   \new Staff \with { instrumentName = "" } { \melody }
 }
 
-\score { \transpose g a \melody }
+\score { \transpose g \targetKey \melody }
 
 \score { \transpose g b \melody } 
 

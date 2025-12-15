@@ -28,20 +28,23 @@ melody = \relative c''' {
   fs4
 }
 
-\score { \new Staff { \transpose a c' \Hungarian_Minor_Gypsy_A } \layout { }}
+
+targetKey = c
+
+\score { \new Staff { \transpose a \targetKey' \Hungarian_Minor_Gypsy_A } \layout { }}
 \score { \new Staff { \transpose a d' \Hungarian_Minor_Gypsy_A } \layout { }}
 
 \markup "A"
 \score { \new Staff { \Hungarian_Minor_Gypsy_A } \layout { }}
 \score { \new Staff { \melody } \layout { }}
-\score { \new Staff { \transpose a c'  \Hungarian_Minor_Gypsy_A } \layout { }}
-\score { \new Staff { \transpose a c' \melody } \layout { }}
+\score { \new Staff { \transpose a \targetKey'  \Hungarian_Minor_Gypsy_A } \layout { }}
+\score { \new Staff { \transpose a \targetKey' \melody } \layout { }}
 \score { \new Staff { \transpose a g   \Hungarian_Minor_Gypsy_A } \layout { }}
 \score { \new Staff { \transpose a g \melody } \layout { }}
 
 
 \markup "B"
-\score { \new Staff { \transpose a c  \melody } \layout { }}
+\score { \new Staff { \transpose a \targetKey  \melody } \layout { }}
 \score { \new Staff { \transpose a d \melody } \layout { }}
 \score { \new Staff { \transpose a e \melody } \layout { }}
 \score { \new Staff { \transpose a f \melody } \layout { }}

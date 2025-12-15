@@ -21,6 +21,9 @@
 
 \book { 
 \bookOutputSuffix "C" 
+
+targetKey = fs
+
    \score { 
      %first arpeggio 
      \relative c' { c e g c } 
@@ -60,8 +63,8 @@ melodyA = \relative c'' {
 }
 \score { 
   <<
-    \new ChordNames {\transpose g fs \chordNames}
-    \new Staff      {\transpose g fs \melodyA   }
+    \new ChordNames {\transpose g \targetKey \chordNames}
+    \new Staff      {\transpose g \targetKey \melodyA   }
   >>
 }
 \score { 

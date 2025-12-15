@@ -14,14 +14,17 @@
 
 \include "../../common/common-header.ily"
 
+
+targetKey = a
+
 \score {
   \new Staff {
-    \transpose g a \sopMusic
+    \transpose g \targetKey \sopMusic
   }
   \layout { }
 }
 
 \score {
-  \unfoldRepeats \transpose g a \sopMusic
+  \unfoldRepeats \transpose g \targetKey \sopMusic
   \midi { \tempo 4 = 184 }
 }

@@ -61,8 +61,8 @@ partD = \relative c'' {
 }
 
 % Convenience: 8va versions
-partAUp = \transpose c c' \partA
-partBUp = \transpose c c' \partB
+partAUp = \transpose c \targetKey' \partA
+partBUp = \transpose c \targetKey' \partB
 
 melody = {
   \global
@@ -118,6 +118,9 @@ melody = {
   r4 r r r
   r4 r r r
 }
+
+
+targetKey = c
 
 \score {
   <<

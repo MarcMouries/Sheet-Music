@@ -53,7 +53,7 @@ contrabassPart = \new Staff \with {
   instrumentName = "Cb."
   shortInstrumentName = "Cb."
   midiInstrument = "contrabass"
-} { \clef bass \transposition c \transpose c c' \contrabass }
+} { \clef bass \transposition c \transpose c \targetKey' \contrabass }
 
 synthPadPart = \new PianoStaff \with {
   instrumentName = "Syn.Pad"
@@ -75,6 +75,9 @@ synthBassPart = \new PianoStaff \with {
     midiInstrument = "synth bass 1"
   } { \clef bass \leftSynthBass }
 >>
+
+
+targetKey = c
 
 \score {
   <<

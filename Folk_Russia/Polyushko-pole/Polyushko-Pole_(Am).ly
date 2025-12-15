@@ -15,11 +15,14 @@
 
 \include "../../common/common-header.ily"
 
+
+targetKey = a
+
 \score {
   <<
-    \new ChordNames \transpose g a \chordNames
+    \new ChordNames \transpose g \targetKey \chordNames
     \new Staff \with { midiInstrument = "violin" } 
-    { \transpose g a \melody }
+    { \transpose g \targetKey \melody }
   >>
   \layout { }
   \midi { }

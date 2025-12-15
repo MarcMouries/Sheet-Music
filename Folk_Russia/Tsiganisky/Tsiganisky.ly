@@ -25,6 +25,9 @@ melody = \relative bf' {
   d
 }
 
+
+targetKey = a
+
 \score {
   <<
     \new ChordNames \chordNames
@@ -36,7 +39,7 @@ melody = \relative bf' {
 \score {
   <<
     \new ChordNames \chordNames
-    \new Staff { \transpose g a \melody }
+    \new Staff { \transpose g \targetKey \melody }
   >>
   \layout { }
  % \midi { }

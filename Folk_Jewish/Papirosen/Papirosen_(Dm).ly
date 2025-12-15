@@ -21,10 +21,13 @@
   #(set-paper-size "letter")
 }
 
+
+targetKey = d
+
 \score {
   \new Staff \with {
     midiInstrument = "violin"
-  } { \transpose c d \melody }
+  } { \transpose c \targetKey \melody }
   \layout { }
   \midi { }
 }

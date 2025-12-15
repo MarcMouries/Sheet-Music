@@ -18,10 +18,13 @@
   #(set-paper-size "letter")
 }
 
+
+targetKey = d
+
 \score {
   <<
     \new ChordNames \chordNames
-    \new Staff { \transpose d d \melody }
+    \new Staff { \transpose d \targetKey \melody }
   >>
   \layout { }
   \midi { \tempo 4 = 96 }

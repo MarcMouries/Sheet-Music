@@ -47,8 +47,11 @@ melody = \relative c' {
     s1
 }
 
+
+targetKey = g
+
 \score {
-    \new Staff { \transpose g g \melody }
+    \new Staff { \transpose g \targetKey \melody }
   \layout { }
 }
 \score {

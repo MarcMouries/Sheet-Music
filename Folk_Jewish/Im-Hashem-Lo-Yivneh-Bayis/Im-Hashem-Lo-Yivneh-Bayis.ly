@@ -72,6 +72,9 @@ melody = \relative c' {
     e:7 | a:m | d:m e:7 | a:m
   }
 
+
+targetKey = c
+
   \score {
     <<
       % \new ChordNames { \harmony }
@@ -84,7 +87,7 @@ melody = \relative c' {
 
   % --- Optional: quick transpose helper ---
   % \score {
-  %   \transpose a c {  % example: transpose from A minor to C minor
+  %   \transpose a \targetKey {  % example: transpose from A minor to C minor
   %     <<
   %       \new ChordNames \with { \set chordChanges = ##t } { \harmony }
   %       \new Voice = "mel" { \melody }

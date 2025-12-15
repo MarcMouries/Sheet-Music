@@ -1,6 +1,9 @@
 melody = \relative c'' {a4 g f e | f1} 
 chordsPart = \chordmode {f2 c:7 | f1} 
 
+
+targetKey = d
+
 \score { 
     << 
         \new ChordNames { 
@@ -8,7 +11,7 @@ chordsPart = \chordmode {f2 c:7 | f1}
         } 
         \new ChordNames { 
             \set instrument = #"Capo 3" 
-            \transpose f d {\chordsPart} 
+            \transpose f \targetKey {\chordsPart} 
         } 
         \new Staff { 
             \key f \major 

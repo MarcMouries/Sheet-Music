@@ -93,6 +93,9 @@ melody = \relative c'' {
 %       piece = "Original in F minor"
 %       genre = "Classical"
 %     }
+
+targetKey = b
+
 %     \score {
 %       <<
 %         \new ChordNames \chordNames
@@ -129,13 +132,13 @@ melody = \relative c'' {
     \score {
       <<
         \new ChordNames {
-          \transpose c b, {
+          \transpose c \targetKey, {
             \chordNames
           }
         }
         \new Staff {
           \key e \minor
-          \transpose c b, {
+          \transpose c \targetKey, {
             \melody
           }
         }

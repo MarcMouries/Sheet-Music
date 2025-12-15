@@ -47,6 +47,9 @@ melody = \relative e' {
   }
 }
 
+
+targetKey = a
+
 \score {
   <<
     \new ChordNames \chordNames
@@ -59,8 +62,8 @@ melody = \relative e' {
 
 \score {
   <<
-    \new ChordNames { \transpose e a \chordNames}
-    \new Staff      { \transpose e a \melody }
+    \new ChordNames { \transpose e \targetKey \chordNames}
+    \new Staff      { \transpose e \targetKey \melody }
   >>
   \layout {indent=0 }
   \midi { }

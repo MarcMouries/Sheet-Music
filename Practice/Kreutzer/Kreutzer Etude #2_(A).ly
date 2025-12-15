@@ -93,9 +93,12 @@ a cs e gs  a( cs) e a-4 a,2
 \bar "|."
 }
 
+
+targetKey = a
+
 \score {
     \new Staff {
-      { \transpose a a \melody }
+      { \transpose a \targetKey \melody }
     }
    \layout { indent = 0}
 }

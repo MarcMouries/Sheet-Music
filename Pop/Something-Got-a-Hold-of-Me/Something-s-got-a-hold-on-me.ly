@@ -109,6 +109,9 @@ lyricsOne = \lyricmode {
   real -- ly do be -- lieve __ __ that
 }
 
+
+targetKey = gs
+
 \score {
   <<
     \new ChordNames { \set chordChanges = ##f \chordNames }
@@ -125,7 +128,7 @@ lyricsOne = \lyricmode {
 
 
 % Transpose everything up a semitone (so first note is G♯)
-melodyGs = \transpose g gs \melody
+melodyGs = \transpose g \targetKey \melody
 chordsCs = \transpose c cs \chordNames
 
 \score {

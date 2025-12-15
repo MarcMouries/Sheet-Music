@@ -13,10 +13,13 @@
 
 \include "../../common/common-header.ily"
 
+
+targetKey = e
+
 \score {
   \new Staff \with {
     midiInstrument = "violin"
-  } { \transpose d e \emmaMelody }
+  } { \transpose d \targetKey \emmaMelody }
   \layout { }
   \midi { \tempo 4 = 120 }
 }

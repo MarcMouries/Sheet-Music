@@ -17,6 +17,9 @@
 
 \include "../../common/common-header.ily"
 
+
+targetKey = c
+
 \score {
   <<
     \new ChordNames \chordNames
@@ -29,7 +32,7 @@
 \score {
   <<
     \new ChordNames \chordNames
-    \new Staff { \transpose d c' \melody }
+    \new Staff { \transpose d \targetKey' \melody }
     \addlyrics { \words }
   >>
   \layout {indent=0 }

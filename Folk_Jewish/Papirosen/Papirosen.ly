@@ -52,6 +52,9 @@ melody = \relative c'' {
 
 \markup "C minor"
 
+
+targetKey = c
+
 \score {
   \new Staff \with {
     midiInstrument = "violin"
@@ -64,7 +67,7 @@ melody = \relative c'' {
 
 \score {
   <<
-    % \new ChordNames { \transpose e c \chordNames}
+    % \new ChordNames { \transpose e \targetKey \chordNames}
     \new Staff      { \transpose c d \melody }
   >>
   \layout {indent=0 }

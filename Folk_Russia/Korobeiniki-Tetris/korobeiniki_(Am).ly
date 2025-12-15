@@ -21,13 +21,16 @@
   #(set-paper-size "letter")
 }
 
+
+targetKey = la
+
 \score {
   \new Staff \with {
     midiInstrument = "violin"
   } {
     <<
-      \new ChordNames { \transpose la la \chordNames }
-      \new Voice = "mel" { \transpose la la \melody }
+      \new ChordNames { \transpose la \targetKey \chordNames }
+      \new Voice = "mel" { \transpose la \targetKey \melody }
     >>
   }
   \layout { }

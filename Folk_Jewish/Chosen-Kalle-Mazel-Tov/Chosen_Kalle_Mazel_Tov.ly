@@ -22,6 +22,9 @@
   \bookOutputName "Chosen_Kalle_Mazel_Tov"
 
   % --- Original in G minor ---
+
+targetKey = a
+
   \score {
     <<
       \new ChordNames \chordNames
@@ -38,8 +41,8 @@
   \score {
    
     <<
-      \new ChordNames { \transpose g a { \chordNames } }
-      \new Staff { \transpose g a { \melody } }
+      \new ChordNames { \transpose g \targetKey { \chordNames } }
+      \new Staff { \transpose g \targetKey { \melody } }
       \addlyrics { \words }
     >>
     \layout { }

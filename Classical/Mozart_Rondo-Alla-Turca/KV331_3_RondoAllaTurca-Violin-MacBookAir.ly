@@ -24,7 +24,7 @@
 
 
 
-righta = \transpose c c'' {
+righta = \transpose c \targetKey'' {
 
   \partial 2 b,8-3\p^\sulD ( a, gs, a, |
   c4)-.-4 r d8-3 ^\sulA( c b, c
@@ -38,7 +38,7 @@ righta = \transpose c c'' {
   \break
 }
 
-rightaa = \transpose c c'' {
+rightaa = \transpose c \targetKey'' {
   \partial 2 b,8\p( a, gs, a, |
   c4)-. r d8( c b, c |
   e4)-. r f8( e ds e |
@@ -49,7 +49,7 @@ rightaa = \transpose c c'' {
   a,2)--
 }
 
-rightb = \transpose c c'' {
+rightb = \transpose c \targetKey'' {
    e4[\mp-.-0 <d f>-.] |
   <e g>-.-2-3 <e g>-. a8-3( g f e) |
   << { d2\accent-3 } \\ { b,4-2( g,) } >>
@@ -83,7 +83,7 @@ rightco = \relative c'' {
   fs,( fs' b, b' gs, gs' e, e' |
 }
 
-rightcoa = \transpose c c' {
+rightcoa = \transpose c \targetKey' {
   <a a'>2)
 }
 
@@ -117,13 +117,13 @@ righte = \relative c''' {
   a\p b cs fs,-2 es fs gs es fs2)--
 }
 
-strum = \transpose c c { <<
+strum = \transpose c \targetKey { <<
   { cs'1\arpeggio\accent } \\
   { <cs e a>2\arpeggio }
 >>
 }
 
-rightf = \transpose c c'' {
+rightf = \transpose c \targetKey'' {
   << { cs'4. cs'8} \\ { cs2 } >> |
   << \strum \\ s2\f >> |
   \strum |
@@ -215,6 +215,9 @@ right = {
   \bar "|."
 }
 
+
+
+targetKey = c
 
 \score {
   \new PianoStaff

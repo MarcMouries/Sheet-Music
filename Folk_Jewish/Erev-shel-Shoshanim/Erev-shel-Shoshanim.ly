@@ -83,6 +83,9 @@ verseTwo = \lyricmode {
   % -------- E minor --------
   \bookpart {
     \header { subtitle = "Key: E minor" }
+
+targetKey = fs
+
     \score {
       <<
         \new ChordNames { \songChords }
@@ -105,10 +108,10 @@ verseTwo = \lyricmode {
     \header { subtitle = "Key: F# minor" }
     \score {
       <<
-        \new ChordNames { \transpose e fs \songChords }
+        \new ChordNames { \transpose e \targetKey \songChords }
         \new Staff <<
           \key fs \minor
-          \new Voice = "mel" { \transpose e fs \songMelody }
+          \new Voice = "mel" { \transpose e \targetKey \songMelody }
           \new Lyrics \lyricsto "mel" { \set stanza = "1." \verseOne }
           \new Lyrics \lyricsto "mel" { \set stanza = "2." \verseTwo }
         >>

@@ -101,7 +101,7 @@ AlteredScaleViolin=\markup\scale-diagram-violin
                (1 1 1) (1 3 2) (1 5 3)
               ) #7 #1.8
 
-Lydian     = \transpose f  c \relative c' { \FLydianScale }
+Lydian     = \transpose f \targetKey \relative c' { \FLydianScale }
 Ionian     = \transpose c  c \relative c' { \CIonianScale }
 Myxolidian = \transpose g, c \relative c' { \GMixolydianScale }
 Dorian     = \transpose d  c \relative c' { \DDorianScale }
@@ -109,7 +109,7 @@ Aeolian    = \transpose a, c \relative c' { \AEolianScale }
 Phrygian   = \transpose e  c \relative c' { \EPhrygianScale }
 Locrian    = \transpose b, c \relative c' { \BLocrianScale }
 
-LydianFlatSeven = \transpose f  c \relative c' { \FLydianFlatSeven}
+LydianFlatSeven = \transpose f \targetKey \relative c' { \FLydianFlatSeven}
 Altered    = \transpose c  c \relative c' { \CAltered}
 
 
@@ -144,6 +144,9 @@ Altered    = \transpose c  c \relative c' { \CAltered}
       \translate #'(85 . -1) \left-align \bold Fingering
 
       \translate #'(0  . -9) \left-align \column {\bold Lydian \small \concat {"Raised 4" {\raise #0.6 { \smaller th }}}}
+
+targetKey = c
+
       \translate #'(18 . -10) \left-align \score { \new Staff {\myStaffAndTimeSettings \Lydian}}
       \translate #'(85 . -10) \left-align \LydianScaleViolin
 

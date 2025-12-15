@@ -28,7 +28,7 @@ verseI = \lyricmode {
 }
 
 
-theMelody = \transpose f f  {
+theMelody = \transpose f \targetKey  {
   \relative c' {
     \clef treble
     \key f \major 
@@ -56,6 +56,9 @@ theMelody = \transpose f f  {
      
 }% end of last bar in partorvoice
 }
+
+
+targetKey = f
 
 \score { 
   << 

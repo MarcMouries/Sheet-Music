@@ -46,6 +46,9 @@ PostureDGCF = \relative c' {
   <a-1 f'-2 d'-3 b'-4>1
 }
 \markup { \writeMusic ##{ \PostureDGCF #} }
+
+targetKey = e
+
 %\score {    \new Staff { \PostureDGCF }
 %  \layout {indent =0\cm }}
 
@@ -273,7 +276,7 @@ impro_Triad_Above_Below = \relative c' {
 %}
 \markup { \writeMusic ##{ \impro_Triad_Above_Below#} }
 
-\markup { \writeMusic ##{ \transpose a e' \impro_Triad_Above_Below#} }
+\markup { \writeMusic ##{ \transpose a \targetKey' \impro_Triad_Above_Below#} }
 
 
 \pageBreak

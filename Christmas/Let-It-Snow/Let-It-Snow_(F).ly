@@ -18,10 +18,13 @@
   #(set-paper-size "letter")
 }
 
+
+targetKey = c
+
 \score {
   <<
     \new Voice = "eins" {
-      \transpose c c \Melodie
+      \transpose c \targetKey \Melodie
     }
     \new Lyrics \lyricsto "eins" \Text
   >>

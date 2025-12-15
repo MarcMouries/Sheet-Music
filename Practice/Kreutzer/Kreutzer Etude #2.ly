@@ -94,9 +94,12 @@ c e g b  c( e) g c-4 c,2
 \bar "|."
 }
 
+
+targetKey = c
+
 \score {
     \new Staff {
-      { \transpose c c \melody }
+      { \transpose c \targetKey \melody }
     }
    \layout { indent = 0}
 }

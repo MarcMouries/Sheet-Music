@@ -80,6 +80,9 @@ fs''4
   }
 }
 
+
+targetKey = a
+
 \score {
   \new Staff {
       \set Staff.midiInstrument = "flute"
@@ -92,4 +95,4 @@ fs''4
   }}
 
 
-\score { \new Staff { \transpose b a \melody   }}
+\score { \new Staff { \transpose b \targetKey \melody   }}

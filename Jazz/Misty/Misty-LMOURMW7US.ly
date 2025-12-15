@@ -133,6 +133,9 @@ chordNames = \chordmode {
 }
 
 
+
+targetKey = c
+
 \score {
   <<
     \new ChordNames \chordNames
@@ -150,8 +153,8 @@ chordNames = \chordmode {
 \pageBreak
 \score {
   <<
-    \new ChordNames{ \transpose ef c \chordNames }
-    \new Staff     { \transpose ef c \melody     }
+    \new ChordNames{ \transpose ef \targetKey \chordNames }
+    \new Staff     { \transpose ef \targetKey \melody     }
     \addlyrics     { \stanzaOne  }
     \addlyrics     { \stanzaTwo  }
   >>

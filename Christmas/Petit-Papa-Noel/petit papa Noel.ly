@@ -96,11 +96,14 @@ acc = \chords {
 
 }
 
+
+targetKey = g
+
 \score {
 	<<
-%	   \new ChordNames { \transpose c g { \acc} }
+%	   \new ChordNames { \transpose c \targetKey { \acc} }
 	   \new Voice  { \melody }
-%	   \new Voice      { \transpose c g { \melody} }
+%	   \new Voice      { \transpose c \targetKey { \melody} }
 	>>
     \layout  {}
     \midi {

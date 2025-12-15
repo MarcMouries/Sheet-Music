@@ -19,13 +19,16 @@
   #(set-paper-size "letter")
 }
 
+
+targetKey = c
+
 \score {
   \new Staff \with {
     midiInstrument = "violin"
   } {
     <<
       \new ChordNames \chordNames
-      \new Voice = "mel" { \transpose d c' \melody }
+      \new Voice = "mel" { \transpose d \targetKey' \melody }
       \addlyrics { \words }
     >>
   }

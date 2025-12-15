@@ -20,6 +20,9 @@
 \include "../../common/common-header.ily"
 
 
+
+targetKey = a
+
 \score {
   <<
     \new ChordNames  {\chordNames}
@@ -30,8 +33,8 @@
 }
 \score {
   <<
-    \new ChordNames  {\transpose g a \chordNames}
-    \new Staff       {\transpose g a \melody }
+    \new ChordNames  {\transpose g \targetKey \chordNames}
+    \new Staff       {\transpose g \targetKey \melody }
   >>
   \layout { }
   %\midi { }

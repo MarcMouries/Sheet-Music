@@ -65,6 +65,9 @@ bass = {
 }
 
 
+
+targetKey = c
+
   \score {
     \context GrandStaff <<
       \context Staff = upper <<
@@ -115,5 +118,5 @@ bass = {
 
 
 \score {
-	\transpose c c' \violonUn
+	\transpose c \targetKey' \violonUn
 }

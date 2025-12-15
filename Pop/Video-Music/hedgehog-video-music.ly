@@ -44,6 +44,9 @@ f'4 d a f
 
 
 
+
+targetKey = a
+
 \score {
   <<
     \new ChordNames \chordNames
@@ -55,8 +58,8 @@ f'4 d a f
 
 \score {
   <<
-    \new ChordNames \transpose d a, \chordNames
-    \new Staff { \transpose d a, \melody }
+    \new ChordNames \transpose d \targetKey, \chordNames
+    \new Staff { \transpose d \targetKey, \melody }
   >>
   \layout { }
   \midi { }

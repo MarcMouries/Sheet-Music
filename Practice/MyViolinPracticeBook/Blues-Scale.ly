@@ -27,6 +27,9 @@ C_m_blues =  \relative c' {
 
 
 
+
+targetKey = b
+
 \score {
   <<
     \new ChordNames \chordNames
@@ -64,22 +67,22 @@ C_Arpeggios =  \relative c' {
 
 \score {
   <<
-    \new ChordNames \transpose bf bf \chordNames
-    \new Staff {     \transpose bf bf \C_Arpeggios }
+    \new ChordNames \transpose bf \targetKeyf \chordNames
+    \new Staff {     \transpose bf \targetKeyf \C_Arpeggios }
   >>
   \layout { }
 }
 \score {
   <<
-    \new ChordNames \transpose bf b \chordNames
-    \new Staff {     \transpose bf b \C_Arpeggios }
+    \new ChordNames \transpose bf \targetKey \chordNames
+    \new Staff {     \transpose bf \targetKey \C_Arpeggios }
   >>
   \layout { }
 }
 \score {
   <<
-    \new ChordNames \transpose bf b \chordNames
-    \new Staff {     \transpose bf b \C_Arpeggios }
+    \new ChordNames \transpose bf \targetKey \chordNames
+    \new Staff {     \transpose bf \targetKey \C_Arpeggios }
   >>
   \layout { }
 }

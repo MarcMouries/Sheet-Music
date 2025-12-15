@@ -1,7 +1,10 @@
 \version "2.10.0"
 \include "deutsch.ly"
 
-righta = \transpose c c'' {
+targetKey = c
+
+
+righta = \transpose c \targetKey'' {
   \partial 4 h,16-4\p( a, gis, a,-1 |
   c8)-.-3 r d16-3( c h, c |
   e8)-.-4 r f16-4( e dis e-1 |
@@ -13,7 +16,7 @@ righta = \transpose c c'' {
   e4--
 }
 
-rightaa = \transpose c c'' {
+rightaa = \transpose c \targetKey'' {
   \partial 4 h,16\p( a, gis, a, |
   c8)-. r d16( c h, c |
   e8)-. r f16( e dis e |
@@ -24,7 +27,7 @@ rightaa = \transpose c c'' {
   a,4)--
 }
 
-rightb = \transpose c c'' {
+rightb = \transpose c \targetKey'' {
   <c e>8[\mp-.-1-3 <d! f!>-.] |
   <e g>-.-1-3 <e g>-. a16-4( g f e) |
   << { d4\accent-4 } \\ { h,8-2( g,) } >> <c e>8-. <d! f!>-. |
@@ -53,7 +56,7 @@ rightco = \relative c'' {
   fis,( fis' h, h' gis, gis' e, e' |
 }
 
-rightcoa = \transpose c c' {
+rightcoa = \transpose c \targetKey' {
   <a a'>4)
 }
 
@@ -86,13 +89,13 @@ righte = \relative c''' {
   a\p h cis fis,-2 eis fis gis eis fis4)--
 }
 
-strum = \transpose c c { <<
+strum = \transpose c \targetKey { <<
   { cis'2\arpeggio\accent } \\
   { <cis e a>4\arpeggio }
 >>
 }
 
-rightf = \transpose c c'' {
+rightf = \transpose c \targetKey'' {
   << { cis'8. cis'16} \\ { cis4 } >> |
   << \strum \\ s4\f >> |
   \strum |

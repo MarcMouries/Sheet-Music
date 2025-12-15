@@ -16,14 +16,17 @@
 
 
 
+
+targetKey = e
+
 \score {
   \new Staff {
-    \transpose g e \sopMusic
+    \transpose g \targetKey \sopMusic
   }
   \layout { }
 }
 
 \score {
-  \unfoldRepeats \transpose g e \sopMusic
+  \unfoldRepeats \transpose g \targetKey \sopMusic
   \midi { \tempo 4 = 184 }
 }

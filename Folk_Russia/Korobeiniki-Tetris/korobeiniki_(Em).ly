@@ -17,13 +17,16 @@
 
 \include "../../common/common-header.ily"
 
+
+targetKey = mi
+
 \score {
   \new Staff \with {
     midiInstrument = "violin"
   } {
     <<
-      \new ChordNames { \transpose la mi \chordNames }
-      \new Voice = "mel" { \transpose la mi \melody }
+      \new ChordNames { \transpose la \targetKey \chordNames }
+      \new Voice = "mel" { \transpose la \targetKey \melody }
     >>
   }
   \layout { }

@@ -48,6 +48,9 @@ melody = \relative c'' {
 }
 
 \markup \override #'(box-padding . 0.4) \box "In A"
+
+targetKey = d
+
 \score {
   <<
     \new ChordNames \chordNames
@@ -62,8 +65,8 @@ melody = \relative c'' {
 
 \score {
   <<
-    \new ChordNames { \transpose a d, \chordNames}
-    \new Staff      { \transpose a d  \melody    }
+    \new ChordNames { \transpose a \targetKey, \chordNames}
+    \new Staff      { \transpose a \targetKey  \melody    }
   >>
   \layout {indent=0 }
   \midi { }

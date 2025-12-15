@@ -1,6 +1,9 @@
 % Violin part for "The Mad Lover" by John Eccles
 % This file can be:
 %   1. Compiled standalone to produce a violin part PDF with chords
+
+targetKey = c
+
 %   2. Included in full scores (the \score block is skipped)
 
 \version "2.24.4"
@@ -113,10 +116,10 @@ melody = \relative c'' {
       \score {
         <<
           \new ChordNames {
-            \transpose c c { \chordNames }
+            \transpose c \targetKey { \chordNames }
           }
           \new Staff {
-            \transpose c c { \melody }
+            \transpose c \targetKey { \melody }
           }
         >>
         \layout {

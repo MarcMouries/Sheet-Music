@@ -32,6 +32,9 @@ melody_iiVI = \relative c' {
     \stemUp b g( f d) b g c4  
 }
 \markup "Lick ii V I"
+
+targetKey = b
+
 \score {
   
   <<
@@ -87,8 +90,8 @@ words = \lyricmode {
 \markup "Bm"
 \score {
   <<
-    \new ChordNames{ \transpose e b, \chordNames}
-    \new Staff     { \transpose e b, \melody }
+    \new ChordNames{ \transpose e \targetKey, \chordNames}
+    \new Staff     { \transpose e \targetKey, \melody }
   >>
   \layout { }
 }

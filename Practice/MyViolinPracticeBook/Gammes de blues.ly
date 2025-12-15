@@ -46,8 +46,11 @@ cMaj =  \relative c' {
 
 % Do 2
 Do = \markup {
+
+targetKey = c
+
   \score {
-    \transpose c c \cMaj
+    \transpose c \targetKey \cMaj
     \layout {
       \context {
         \Staff
@@ -361,7 +364,7 @@ Blues_Scale_in_Am_notes =  \relative c' {
   a e e ef d c
 }
 \score {
-  \transpose c c \Blues_Scale_in_Am_notes
+  \transpose c \targetKey \Blues_Scale_in_Am_notes
   \layout {
     \context {
       \Staff
@@ -379,7 +382,7 @@ Blues_Scale_in_C_notes =  \relative c' {
   a c a g e ef d c a g e ef d
 }
 \score {
-  \transpose c c  \Blues_Scale_in_C_notes
+  \transpose c \targetKey  \Blues_Scale_in_C_notes
   \layout {
     \context {
       \Staff

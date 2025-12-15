@@ -105,6 +105,9 @@ Harmonics = \relative c' {
 <fs-1  b -4\harmonic>4 <e -1  a -4\harmonic>4
 <d _0  g -3\harmonic>4
 }
+
+targetKey = g
+
 \score {
   \Harmonics
   \layout { indent = 0}
@@ -184,7 +187,7 @@ harmonicsG = {
   }
 }
 
-\markup { " G " \writeMusic ##{ \transpose g g  \harmonicsG #}
+\markup { " G " \writeMusic ##{ \transpose g \targetKey  \harmonicsG #}
           "    D " \writeMusic ##{ \transpose g d' \harmonicsG #}
           "    A " \writeMusic ##{ \transpose g a' \harmonicsG #}
           "    E " \writeMusic ##{ \transpose g e''\harmonicsG #}
