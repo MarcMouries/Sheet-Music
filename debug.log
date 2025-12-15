@@ -1,0 +1,60 @@
+[2025-12-15T13:25:55.872Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/FETCH_HEAD
+[2025-12-15T13:25:55.878Z]   Relative path: /.git/FETCH_HEAD
+[2025-12-15T13:25:55.880Z]   Path parts (2): [".git","FETCH_HEAD"]
+[2025-12-15T13:25:55.882Z]   EXCLUDED: not deep enough (2 < 3)
+[2025-12-15T13:26:11.351Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/logs/refs/remotes/origin/main
+[2025-12-15T13:26:11.351Z]   Relative path: /.git/logs/refs/remotes/origin/main
+[2025-12-15T13:26:11.353Z]   Path parts (6): [".git","logs","refs","remotes","origin","main"]
+[2025-12-15T13:26:11.354Z]   Instance folder: /Users/marc.mouries/projects/Sheet-Music/.git
+[2025-12-15T13:26:11.354Z]   Settings check: _settings.json=false, settings.json=false
+[2025-12-15T13:26:11.355Z]   EXCLUDED: no settings file in instance folder
+[2025-12-15T13:26:11.551Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/FETCH_HEAD
+[2025-12-15T13:26:11.556Z]   Relative path: /.git/FETCH_HEAD
+[2025-12-15T13:26:11.556Z]   Path parts (2): [".git","FETCH_HEAD"]
+[2025-12-15T13:26:11.556Z]   EXCLUDED: not deep enough (2 < 3)
+[2025-12-15T13:26:11.557Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/logs/HEAD
+[2025-12-15T13:26:11.557Z]   Relative path: /.git/logs/HEAD
+[2025-12-15T13:26:11.557Z]   Path parts (3): [".git","logs","HEAD"]
+[2025-12-15T13:26:11.557Z]   Instance folder: /Users/marc.mouries/projects/Sheet-Music/.git
+[2025-12-15T13:26:11.558Z]   Settings check: _settings.json=false, settings.json=false
+[2025-12-15T13:26:11.558Z]   EXCLUDED: no settings file in instance folder
+[2025-12-15T13:26:11.558Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/logs/refs/heads/main
+[2025-12-15T13:26:11.558Z]   Relative path: /.git/logs/refs/heads/main
+[2025-12-15T13:26:11.559Z]   Path parts (5): [".git","logs","refs","heads","main"]
+[2025-12-15T13:26:11.559Z]   Instance folder: /Users/marc.mouries/projects/Sheet-Music/.git
+[2025-12-15T13:26:11.559Z]   Settings check: _settings.json=false, settings.json=false
+[2025-12-15T13:26:11.559Z]   EXCLUDED: no settings file in instance folder
+[2025-12-15T13:26:11.560Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/Folk_Finland/Emma_(Waltz)/Emma_(Waltz)_(Dm).ly
+[2025-12-15T13:26:11.560Z]   Relative path: /Folk_Finland/Emma_(Waltz)/Emma_(Waltz)_(Dm).ly
+[2025-12-15T13:26:11.560Z]   Path parts (3): ["Folk_Finland","Emma_(Waltz)","Emma_(Waltz)_(Dm).ly"]
+[2025-12-15T13:26:11.560Z]   Instance folder: /Users/marc.mouries/projects/Sheet-Music/Folk_Finland
+[2025-12-15T13:26:11.560Z]   Settings check: _settings.json=false, settings.json=false
+[2025-12-15T13:26:11.561Z]   EXCLUDED: no settings file in instance folder
+[2025-12-15T13:26:11.561Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/Folk_Finland/Emma_(Waltz)/Emma_(Waltz)_(Dm).midi
+[2025-12-15T13:26:11.561Z]   Relative path: /Folk_Finland/Emma_(Waltz)/Emma_(Waltz)_(Dm).midi
+[2025-12-15T13:26:11.561Z]   Path parts (3): ["Folk_Finland","Emma_(Waltz)","Emma_(Waltz)_(Dm).midi"]
+[2025-12-15T13:26:11.561Z]   Instance folder: /Users/marc.mouries/projects/Sheet-Music/Folk_Finland
+[2025-12-15T13:26:11.562Z]   Settings check: _settings.json=false, settings.json=false
+[2025-12-15T13:26:11.562Z]   EXCLUDED: no settings file in instance folder
+[2025-12-15T13:26:11.562Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/Folk_Finland/Emma_(Waltz)/Emma_(Waltz)_(Dm).pdf
+[2025-12-15T13:26:11.563Z]   Relative path: /Folk_Finland/Emma_(Waltz)/Emma_(Waltz)_(Dm).pdf
+[2025-12-15T13:26:11.563Z]   Path parts (3): ["Folk_Finland","Emma_(Waltz)","Emma_(Waltz)_(Dm).pdf"]
+[2025-12-15T13:26:11.563Z]   Instance folder: /Users/marc.mouries/projects/Sheet-Music/Folk_Finland
+[2025-12-15T13:26:11.563Z]   Settings check: _settings.json=false, settings.json=false
+[2025-12-15T13:26:11.563Z]   EXCLUDED: no settings file in instance folder
+[2025-12-15T13:40:06.805Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/FETCH_HEAD
+[2025-12-15T13:40:06.807Z]   Relative path: /.git/FETCH_HEAD
+[2025-12-15T13:40:06.807Z]   Path parts (2): [".git","FETCH_HEAD"]
+[2025-12-15T13:40:06.807Z]   EXCLUDED: not deep enough (2 < 3)
+[2025-12-15T13:40:07.080Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/FETCH_HEAD
+[2025-12-15T13:40:07.080Z]   Relative path: /.git/FETCH_HEAD
+[2025-12-15T13:40:07.080Z]   Path parts (2): [".git","FETCH_HEAD"]
+[2025-12-15T13:40:07.081Z]   EXCLUDED: not deep enough (2 < 3)
+[2025-12-15T13:57:44.823Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/FETCH_HEAD
+[2025-12-15T13:57:44.825Z]   Relative path: /.git/FETCH_HEAD
+[2025-12-15T13:57:44.825Z]   Path parts (2): [".git","FETCH_HEAD"]
+[2025-12-15T13:57:44.825Z]   EXCLUDED: not deep enough (2 < 3)
+[2025-12-15T13:57:45.480Z] File change detected: /Users/marc.mouries/projects/Sheet-Music/.git/FETCH_HEAD
+[2025-12-15T13:57:45.480Z]   Relative path: /.git/FETCH_HEAD
+[2025-12-15T13:57:45.480Z]   Path parts (2): [".git","FETCH_HEAD"]
+[2025-12-15T13:57:45.480Z]   EXCLUDED: not deep enough (2 < 3)

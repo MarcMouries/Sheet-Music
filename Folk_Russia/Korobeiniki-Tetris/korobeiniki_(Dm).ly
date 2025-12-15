@@ -17,17 +17,13 @@
 
 \include "../../common/common-header.ily"
 
-\paper {
-  #(set-paper-size "letter")
-}
-
 \score {
   \new Staff \with {
     midiInstrument = "violin"
   } {
     <<
-      \new ChordNames { \transpose la mi \chordNames }
-      \new Voice = "mel" { \transpose la mi \melody }
+      \new ChordNames { \transpose la re \chordNames }
+      \new Voice = "mel" { \transpose la re \melody }
     >>
   }
   \layout { }

@@ -17,10 +17,6 @@
 
 \include "../../common/common-header.ily"
 
-\paper {
-  #(set-paper-size "letter")
-}
-
 \score {
   \new Staff \with {
     midiInstrument = "violin"
