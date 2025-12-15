@@ -29,8 +29,8 @@
       | f4 d4 f4
       | e2 e8 f
       | g4 f g 
-      | a2 f8 e16 f16 
-      | e4 d4 d8 f8
+      | a8 r8 f8 e16 f16 
+      e4 d2 d8 f
       | r4 r8 d8 f8 a8
       | d4. r8 r4
       | r4 r4 r4
