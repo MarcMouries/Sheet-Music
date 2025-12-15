@@ -24,13 +24,16 @@ function getTuneData(tuneSlug, selectedKey = null) {
         if (!titleEl) continue;
 
         const title = titleEl.textContent.trim();
-        const slug = sanitizeTitleForUrl(title);
+        const baseSlug = sanitizeTitleForUrl(title);
+        const fileKey = row.dataset.fileKey || '';
 
-        if (slug === tuneSlug) {
+        // Check if slug matches (with or without key suffix)
+        const rowSlug = fileKey ? `${baseSlug}-${fileKey.toLowerCase()}` : baseSlug;
+
+        if (rowSlug === tuneSlug || baseSlug === tuneSlug) {
             // Parse available keys
             const availableKeys = JSON.parse(row.dataset.availableKeys || '[]');
             const baseName = row.dataset.baseName || '';
-            const fileKey = row.dataset.fileKey || '';
             const directory = row.dataset.directory || '';
 
             // If a key is selected and available, use it; otherwise use the file's key
@@ -123,6 +126,40 @@ function findThumbnailForTune(tuneSlug, key = null) {
     return null;
 }
 
+function getCurrentCollection() {
+    // Get all currently visible tunes based on active filters
+    const visibleRows = Array.from(document.querySelectorAll('#music-table tbody tr'))
+        .filter(row => row.style.display !== 'none');
+
+    return visibleRows.map(row => {
+        const titleEl = row.querySelector('td:first-child strong');
+        if (!titleEl) return null;
+
+        const title = titleEl.textContent.trim();
+        const fileKey = row.dataset.fileKey || '';
+
+        // Create unique slug: if there's a key, append it to make unique
+        const baseSlug = sanitizeTitleForUrl(title);
+        return fileKey ? `${baseSlug}-${fileKey.toLowerCase()}` : baseSlug;
+    }).filter(slug => slug !== null);
+}
+
+function getNavigationInfo(tuneSlug) {
+    const collection = getCurrentCollection();
+    const currentIndex = collection.indexOf(tuneSlug);
+
+    if (currentIndex === -1) {
+        return { prev: null, next: null, position: 0, total: 0 };
+    }
+
+    return {
+        prev: currentIndex > 0 ? collection[currentIndex - 1] : null,
+        next: currentIndex < collection.length - 1 ? collection[currentIndex + 1] : null,
+        position: currentIndex + 1,
+        total: collection.length
+    };
+}
+
 function showTuneDetailView(tuneSlug, selectedKey = null) {
     const tuneData = getTuneData(tuneSlug, selectedKey);
 
@@ -131,6 +168,9 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
         window.location.href = 'index.html';
         return;
     }
+
+    // Get navigation info based on current collection
+    const navInfo = getNavigationInfo(tuneSlug);
 
     // Hide the normal view
     document.getElementById('table-container').style.display = 'none';
@@ -163,10 +203,67 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
 
     const backUrl = backParams.toString() ? `index.html?${backParams.toString()}` : 'index.html';
 
+    // Build navigation function to preserve filters
+    function buildNavUrl(targetSlug) {
+        const navUrl = new URL(window.location);
+        navUrl.searchParams.set('tune', targetSlug);
+        navUrl.searchParams.delete('key'); // Remove key when navigating to different tune
+
+        // Ensure all filter parameters are preserved
+        const currentParams = new URLSearchParams(window.location.search);
+        for (const [key, value] of currentParams.entries()) {
+            if (key !== 'tune' && key !== 'key') {
+                navUrl.searchParams.set(key, value);
+            }
+        }
+
+        return navUrl.toString();
+    }
+
     // Build detail HTML
     let detailHTML = `
-        <div style="margin-bottom: 20px;">
-            <a href="${backUrl}" style="color: var(--ocean-mid, #2d8a9f); text-decoration: none; font-weight: 600; font-size: 16px;">← Back to Collection</a>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+            <a href="${backUrl}" style="color: var(--ocean-mid, #2d8a9f); text-decoration: none; font-weight: 600; font-size: 16px;">← Back to Collection</a>`;
+
+    // Add collection position info and navigation
+    if (navInfo.total > 0) {
+        // Debug logging
+        console.log('Navigation Info:', navInfo);
+        console.log('Current tune:', tuneSlug);
+
+        detailHTML += `
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span style="color: #7f8c8d; font-size: 14px;">${navInfo.position} of ${navInfo.total}</span>
+                <div style="display: flex; gap: 8px;">`;
+
+        if (navInfo.prev) {
+            const prevUrl = buildNavUrl(navInfo.prev);
+            console.log('Previous URL:', prevUrl);
+            detailHTML += `
+                    <a href="${escapeHtml(prevUrl)}"
+                       style="padding: 8px 16px; background: var(--ocean-mid, #2d8a9f); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;"
+                       title="Previous tune in collection">
+                        ← Previous
+                    </a>`;
+        }
+
+        if (navInfo.next) {
+            const nextUrl = buildNavUrl(navInfo.next);
+            console.log('Next URL:', nextUrl);
+            detailHTML += `
+                    <a href="${escapeHtml(nextUrl)}"
+                       style="padding: 8px 16px; background: var(--ocean-mid, #2d8a9f); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;"
+                       title="Next tune in collection">
+                        Next →
+                    </a>`;
+        }
+
+        detailHTML += `
+                </div>
+            </div>`;
+    }
+
+    detailHTML += `
         </div>
 
         <div style="display: flex; align-items: center; gap: 20px; margin: 20px 20px 20px 0; padding: 5px; border-bottom: 3px solid var(--ocean-mid, #2d8a9f);">
@@ -214,18 +311,6 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
             <div><strong>Difficulty:</strong><br>${stars}</div>
         </div>
     `;
-
-    // Add tags if available
-    if (tuneData.tags && tuneData.tags.length > 0) {
-        detailHTML += `
-            <div style="margin: 20px 0;">
-                <strong>Tags:</strong>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-                    ${tuneData.tags.map(tag => `<span style="padding: 4px 12px; background: #ecf0f1; border-radius: 4px; font-size: 13px;">${tag}</span>`).join('')}
-                </div>
-            </div>
-        `;
-    }
 
     // Add preview image if available
     if (tuneData.thumbnailPath) {
@@ -303,11 +388,74 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
 
     detailHTML += `</div>`;
 
+    // Add keyboard shortcuts hint
+    if (navInfo.total > 0) {
+        detailHTML += `
+            <div style="margin-top: 40px; padding: 15px; background: #f8f9fa; border-left: 4px solid var(--ocean-mid, #2d8a9f); border-radius: 4px; font-size: 13px; color: #7f8c8d;">
+                <strong style="color: #2c3e50;">⌨️ Keyboard Shortcuts:</strong><br>
+                <span style="display: inline-block; margin-top: 8px;">
+                    ${navInfo.prev ? '<kbd style="padding: 2px 6px; background: white; border: 1px solid #ccc; border-radius: 3px; font-family: monospace;">←</kbd> Previous tune &nbsp;&nbsp;' : ''}
+                    ${navInfo.next ? '<kbd style="padding: 2px 6px; background: white; border: 1px solid #ccc; border-radius: 3px; font-family: monospace;">→</kbd> Next tune &nbsp;&nbsp;' : ''}
+                    <kbd style="padding: 2px 6px; background: white; border: 1px solid #ccc; border-radius: 3px; font-family: monospace;">Esc</kbd> Back to collection
+                </span>
+            </div>
+        `;
+    }
+
     detailView.innerHTML = detailHTML;
     detailView.style.display = 'block';
 
     // Update page title
     document.title = tuneData.title + ' - Marc\'s Sheet Music Collection';
+
+    // Set up keyboard navigation (arrow keys)
+    setupKeyboardNavigation(navInfo);
+}
+
+function setupKeyboardNavigation(navInfo) {
+    // Remove any existing keyboard listeners
+    if (window.tuneNavigationKeyHandler) {
+        document.removeEventListener('keydown', window.tuneNavigationKeyHandler);
+    }
+
+    // Create new handler
+    window.tuneNavigationKeyHandler = function(e) {
+        // Only handle if we're in detail view
+        const detailView = document.getElementById('tune-detail-view');
+        if (!detailView || detailView.style.display === 'none') {
+            return;
+        }
+
+        // Ignore if user is typing in an input/textarea/select
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+            return;
+        }
+
+        if (e.key === 'ArrowLeft' && navInfo.prev) {
+            // Navigate to previous tune
+            e.preventDefault();
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('tune', navInfo.prev);
+            newUrl.searchParams.delete('key');
+            window.location.href = newUrl.toString();
+        } else if (e.key === 'ArrowRight' && navInfo.next) {
+            // Navigate to next tune
+            e.preventDefault();
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('tune', navInfo.next);
+            newUrl.searchParams.delete('key');
+            window.location.href = newUrl.toString();
+        } else if (e.key === 'Escape') {
+            // Go back to collection
+            e.preventDefault();
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.delete('tune');
+            newUrl.searchParams.delete('key');
+            window.location.href = newUrl.toString();
+        }
+    };
+
+    document.addEventListener('keydown', window.tuneNavigationKeyHandler);
 }
 
 function hideDetailView() {
@@ -329,48 +477,69 @@ function hideDetailView() {
 function applyEnhancedURLFilters() {
     const params = new URLSearchParams(window.location.search);
 
-    // Check for tune detail view FIRST
+    // ALWAYS apply filters first (even if showing tune detail)
+    // This ensures the collection is properly filtered before navigation
+    applyFilterParameters(params);
+
+    // Check for tune detail view
     if (params.has('tune')) {
         const tuneSlug = params.get('tune');
         const selectedKey = params.get('key'); // Get key from URL if present
-        setTimeout(() => showTuneDetailView(tuneSlug, selectedKey), 100);
-        return; // Don't process other filters if showing tune detail
+        // Wait a bit longer to ensure filters are fully applied
+        setTimeout(() => showTuneDetailView(tuneSlug, selectedKey), 200);
+        return; // Don't process special category filters if showing tune detail
     }
 
     // Hide detail view if no tune parameter
     hideDetailView();
+}
 
-    // Check for category filter (enhanced)
-    if (params.has('category')) {
-        const categoryParam = decodeURIComponent(params.get('category')).toLowerCase();
-
-        // Check if this is a special category (wedding, christmas) that has a dedicated button
-        if (categoryParam === 'wedding' && typeof showWedding === 'function') {
-            showWedding();
-            return;
-        } else if (categoryParam === 'christmas' && typeof showChristmas === 'function') {
-            showChristmas();
-            return;
+// Apply filter parameters from URL
+function applyFilterParameters(params) {
+    // Apply search query
+    if (params.has('search')) {
+        const searchBox = document.getElementById('search');
+        if (searchBox) {
+            searchBox.value = decodeURIComponent(params.get('search'));
         }
+    }
 
-        // Otherwise, use the regular category filter
+    // Apply category filter
+    if (params.has('category')) {
+        const categoryParam = decodeURIComponent(params.get('category'));
         const categoryFilter = document.getElementById('category-filter');
         if (categoryFilter) {
-            // Find matching option (case-insensitive)
             const options = Array.from(categoryFilter.options);
             const matchingOption = options.find(opt =>
-                opt.value.toLowerCase() === categoryParam
+                opt.value.toLowerCase() === categoryParam.toLowerCase()
             );
-
             if (matchingOption) {
                 categoryFilter.value = matchingOption.value;
-
-                // Check if filterItems function exists
-                if (typeof filterItems === 'function') {
-                    filterItems();
-                }
             }
         }
+    }
+
+    // Apply country filter
+    if (params.has('country')) {
+        const countryParam = decodeURIComponent(params.get('country'));
+        const countryFilter = document.getElementById('country-filter');
+        if (countryFilter) {
+            countryFilter.value = countryParam;
+        }
+    }
+
+    // Apply difficulty filter
+    if (params.has('difficulty')) {
+        const difficultyParam = params.get('difficulty');
+        const difficultyFilter = document.getElementById('difficulty-filter');
+        if (difficultyFilter) {
+            difficultyFilter.value = difficultyParam;
+        }
+    }
+
+    // Now trigger the filter function to apply all filters
+    if (typeof filterItems === 'function') {
+        filterItems();
     }
 }
 
