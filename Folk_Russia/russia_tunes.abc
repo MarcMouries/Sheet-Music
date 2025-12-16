@@ -1,0 +1,1862 @@
+X:3
+T: Karapyet
+O:russia
+Z: John Chambers <jc@trillian.mit.edu>
+M: 2/4
+L: 1/8
+K: Bm
+[| "Bm"FB- BB | "F#7"^A>G F2 | Fc- cc | "Bm"d>c B2 \
+| "Bm"FB- BB | "F#7"^A>G F2 | fe dc | "Bm"B4 |]
+|: "Bm"Bf- ff | "Em"g>f e2 | eg- gg | "Bm"f>d f2 \
+| df- ff | "F#7"e>d c2 | fe dc | "Bm"B4 :| [K:B]
+[| "F#7"cz ez | "B"d3 B | "F#7"cd ef | "B"d>c B2 \
+| "F#7"cz ez | "B"d3 B | "F#7"fe GA | "B"B4 |]
+|: "E"eg- gb- | "B"bf- fd | "F#7"fe ce | "B"gf d2 \
+| "E"eg- gb- | "B"bf- fd | "F#7"fe GA | "B"B4 :|
+
+
+ 
+
+ 
+X:7
+T: Kohanochka
+O:russia
+R: Polka
+Z: John Chambers <jc@trillian.mit.edu>
+M: 2/4
+L: 1/16
+K: Bm
+|: "Bm"B2Bd "F7"c2ce | "Bm"d2d2 "Em"e4 | "F7"f3e d2c2 | "Bm"B2F2 B4 :|
+|| "A7"a4 a3g | "D"g2f2 f^efg | "A7"f2e2 e^def | "D"e2d2 A4 |
+|  "A7"a4 a3g | "D"g2f2 fedc | "Bm"B2Bc "Em"d2e2 | "F7"f4 z4 || [K:B]
+|: "B"Md2z2 "F7"Me2z2 | "B"d2f2 fdB2 | "F7"c2e2 ecA2 |1,3 "B"Bcde f4 :|2,4 "B"B2d2 B4 :|
+%%sep 0 1 8cm
+
+
+ 
+
+ 
+X:8
+T: Troika
+O:russia
+K: Em
+[| "Em"zb-"B7"ba "Em"g2 "B7"f2 | "Em"e2 "B7"^d2 "Em"e2 "B7"B2 \
+|  "Em"zb-"B7"ba "Em"g2 "B7"f2 | "Em"e2 "B7"^d2 "Em"e2 "D7"=d2 |
+|| "D7"zd'-d'c' "G"c'2b2 | "B7"zb-ba "Em"a2g2 \
+|  "Am"zfga "Em"b2B2 | "B7"gfe^d "Em"e2 z2 ||
+|| "Em"g4- ggfe | "B7"f4- ffe^d \
+|  "Em"e4- eefe | "B7"^d2B2 B4 |
+|| "Em"g4- ggfg | "Am"a4- aaga \
+|  "Em"b3a "B7"g2f2 | "Em"e2 "B7"^d2 "Em"e2 z2 |]
+Z: John Chambers <jc@trillian.mit.edu>
+%%sep 0 1 8cm
+
+
+ 
+
+ 
+X:11
+T: Toska po rodina (Mot Barrikaderna)
+O:russia
+R: march
+Z: John Chambers <jc@trillian.mit.edu>
+D: Norrl�ter "Framtidshopp", identified as "Finsk arbetarmarsch"
+D: Andy Statman & David Grisman "Songs of our Fathers", called "Toska" and identified as a Russian march.
+B: Kammen V.1 #40 "Toska Porodina" (Longing for Home), no attribution.
+M: C
+L: 1/8
+K: Em
+|: B^AB \
+| "Em"g2 g3 fe^d | "B7"f>^d B3 B^AB | "(Am)"a2 a3 "(B7)"a gf | "Em"b>g e3 B^AB |
+| "Em"g2 g3 fe^d | "B7"f>^d B3 b^ab | c'b fa ba gf | "Em"ee/e/ ee e :|
+|| z B2 \
+| "Em"e2 d2 "Am"c2 A2 | "B7"B4- B B^AB | "Am"c2 B2 A2 G2 | "B7"B4- B B^AB |
+| "Am"c2 B2 A2 G2 | "B7"B4- B BAG | F2 B2 G2 F2 | "Em"EE/E/ EE E ||
+|| BcB \
+| "Em"B2 e2 f2 e2 | "B7"^d4- d BcB | B2 f2 g2 f2 | "Em"e4- "E7"e BcB |
+| "Am"A2 e2 f2 e2 | "Em"B4- B BAG | "B7"F2 B2 G2 F2 | "Em"EE/E/ EE E |]
+
+
+ 
+
+ 
+X:13
+T: Ozhidanie (Expectation Waltz)
+O:russia
+Z: John Chambers <jc@trillian.mit.edu>
+R: Waltz
+M: 3/4
+L: 1/4
+K: Em
+|: z B, || "Em"C2 B, | E2 F | G3- | G E F | G E F | G E G | "B7"F3- | F z B, | C2 B, | F2 G |
+| A3- | A F G | A F G | A B c | "Em"B3- | B Z B, | "Em"C2 B, | E2 F | G3- | G z E/F/ |
+| G z F/G/ | "D7"A z G/A/ | "G"B3- | B c B | "B7"A3- | A B A | "Em"G3- | G A G | "B7"F2 c | B2 ^D | "Em"E3- | HE :|
+|: B G || "Em"B3- | B B G | B3- | B c A | "Am"c3- | c c A | c3- | c F G | "B7"A3- | A G A |
+| "Em"B3- | B A G | "B7"F> Bc/B/ | ^D> Bc/B/ | "Em"E3- | E :| \
+|: e d || "D7"d3- | d c A |"G"B> B B | z =f e |
+|"E7"e3- | e d B | "Am"c> c c | z A B "D7"c3- | c A e | "G"d3- | d B G | "D7"D> FA/c/ | e2 d | "G"G3- | "d.C."G :|
+
+
+ 
+
+ 
+X:15
+T: Ozhidanie
+T: Expectation Waltz
+O:russia
+Z: John Chambers <jc@trillian.mit.edu>
+R: Waltz
+M: 3/4
+L: 1/4
+K: Dm
+|: z A, || "Dm"B,2 A, | D2 E | F3- | F D E | F D E | F D F | "A7"E3- | E z A, | B,2 A, | E2 F |
+| G3- | G E F | G E F | G A B | "Dm"A3- | A Z A, | "Dm"B,2 A, | D2 E | F3- | F z D/E/ |
+| F z E/F/ | "C7"G z F/G/ | "F"A3- | A B A | "A7"G3- | G A G | "Dm"F3- | F G F | "A7"E2 B | A2 ^C | "Dm"D3- | HD :|
+|: A F || "Dm"A3- | A A F | A3- | A B G | "Gm"B3- | B B G | B3- | B E F | "A7"G3- | G F G |
+| "Dm"A3- | A G F | "A7"E> AB/A/ | ^C> AB/A/ | "Dm"D3- | D :| \
+|: d c || "C7"c3- | c B G |"F"A> A A | z _e d |
+|"D7"d3- | d c A | "Gm"B> B B | z G A "C7"B3- | B G d | "F"c3- | c A F | "C7"C> EG/B/ | d2 c | "F"F3- | "d.C."F :|
+%%sep 5 5 100
+P:
+|: z A || "Dm"B2 A | d2 e | f3- | f d e | f d e | f d f | "A7"e3- | e z A | B2 A | e2 f |
+| g3- | g e f | g e f | g a b | "Dm"a3- | a Z A | "Dm"B2 A | d2 e | f3- | f z d/e/ |
+| f z e/f/ | "C7"g z f/g/ | "F"a3- | a b a | "A7"g3- | g a g | "Dm"f3- | f g f | "A7"e2 b | a2 ^c | "Dm"d3- | Hd :|
+|: a f || "Dm"a3- | a a f | a3- | a b g | "Gm"b3- | b b g | b3- | b e f | "A7"g3- | g f g |
+| "Dm"a3- | a g f | "A7"e> ab/a/ | ^c> ab/a/ | "Dm"d3- | d :| \
+|: d' c' || "C7"c'3- | c' b g |"F"a> a a | z _e' d' |
+|"D7"d'3- | d' c' a | "Gm"b> b b | z g a "C7"b3- | b g d' | "F"c'3- | c' a f | "C7"c> eg/b/ | d'2 c' | "F"f3- | "d.C."f :|
+
+
+ 
+
+ 
+X:17
+T:Midnight in Moscow
+O:russia
+C:anon.
+Z:Transcribed by Frank Nordberg - http://www.musicaviva.com
+M:C
+L:1/4
+Q:1/4=144
+K:Dm
+"Dm"DFAF|"Gm"G2FE|"A7"A2G2|"Dm"D3 z|
+"F"FAcc|"Gm"d2"C7"cB|"F"A4|"E7"=B2^c2||
+|:"Dm"edA2|"Dm"z FED|"Gm"AGB2-|"Gm"B z cB|"Dm"A2GF|
+"Em7"A2 "A7"G2|[1"Dm"D4|"E7"=B2^c2:|[2"Dm"D4-|"Dm"D z z2|]
+
+
+ 
+
+ 
+X:18
+T:Peace I give you
+O:russia
+C:anon.
+Z:Transcribed by Frank Nordberg - http://www.musicaviva.com
+M:2/4
+L:1/4
+K:Em
+"Em"EG|"B7"FB,|"Em"EG|"B7"FB,|
+w:
+w:Peace I give you,Peace I leave you,
+"Em"GG|"D"A(d/c/)|"G"B2-|"B7"B z|
+w:
+w:Peace when Heav-en's won.
+"Em"BB|"B7"A(B/A/)|"Em"GG|"B7"FB,|
+w:
+w:World-ly peace is[ext] ev-er pass-ing;
+"Em"(E/F/) (G/A/)|"B7"B>^D|"Em"E2-|"Em"E z|]
+w:
+w:Trust[ext] in[ext] God's own Son.
+W:
+W:Yet good Savior, we must beg you,
+W:Keep our land from war.
+W:Guard our men who go in battle
+W:On a foreign shore.
+W:
+W:On the oceans, in the heavens,
+W:Through the tropic heat,
+W:Lead our brothers, sons and fathers;
+W:Hate and fear defeat
+W:
+W:Beat the sword into the plowshare;
+W:Let contention cease
+W:Love your brothers; serve them gladly,
+W:Seek the ways of peace
+
+
+ 
+
+ 
+X:19
+T:Bielo Litza Kruglolitza
+O:russia
+P:ABA
+L:1/8
+M:4/4
+K:Cm
+Q:1/4=96
+P:A
+z6 [B,2G2]|:"Cm"[E2c2] [E2c2] [E2c2] [G2e2]|\
+"G"[Fd][Ge][Fd][Ec] [D2=B2] [D2G2]|\
+"Cm"[G2e2] [G2e2] [G2e2] [B2g2]| "F"[B4f4] "Cm" [Bg][Af][Ge][Fd]|
+[Ge][Af][Ge][Fd] [E2c2] [B,2G2]| "G"[Fd][Ge][Fd][Ec] [D2=B2] [B,2G2]|\
+"Cm"[E2c2] [E2c2] "G"[D2=B2] [B,2G2]|\
+"Cm"[E4c4] z2 [B,2G2] :|
+P:B
+c2 cded ec| "G"dede "Cm"gfed| edef gfge| "Fm"f2 ba"Cm"gf ed|
+efed cdec| "G"dedc "Cm"gfed| cedc "Dm"dfdc| "Cm"c2 ga gfed|
+
+
+ 
+
+ 
+X:20
+T:Katia
+O:russia
+M:2/4
+L:1/8
+Q:1/4=120
+K:Bm
+|:"Em"B,2 B,2| G2 G2|"Bm"F2 "Em"ED|"F#m"C2 "Em"B,2:|\
+|:"Em"G2 "Bm"F2| "Em"EE B,2|EG "Bm"FE|"G"DC "Em"B,2:|
+
+
+ 
+
+ 
+X:21
+T:Cerdetshni
+O:russia
+S:Forgotten
+Z:Nigel Gatherer
+M:2/4
+L:1/8
+K:Dm
+f/e/f/d/ ^cA|df ea|g/f/e/d/ ^cA|df e2|f/e/f/d/ ^cA|df ea|
+g/f/e/d/ ^cA|df/e/ d2||A{^g}a A{^g}a|A{^g}a =g/f/e/d/|A{^g}a A{^g}a|
+A{^g}a d2|A{^g}a A{^g}a|A{^g}a =g/f/e/d/|A{^g}a A{^g}a|=ge d2|]
+
+
+ 
+
+ 
+X:22
+T:Vo Sadu Ly, V Ohorode
+O:russia
+S:A. Humenyuk
+A:village of Levkivka, Vinnyts'ky, Ukraine
+M:2/4
+L:1/8
+Q:120
+K:Em
+ccBB | AAAB | ccBB | A>c B/2A/2G/2F/2 | \
+GGFF | EEEF | GG F/2A/2G/2F/2 | E2 E2 |]
+
+
+ 
+
+ 
+X:23
+T:Korobochka
+O:russia
+H:H. Tantsyur
+S:A. Humenyuk
+M:2/4
+L:1/8
+A:village of Zyatkivtsi, Vinnyts'ky, Ukraine
+K:Cm
+GGDE | F2 ED | CCCE | G2 FE | \
+G3 A | GFED | C2 C2 | C4 |
+|: F3 A | c2 BA | GGGA | G2 FE | \
+G3 A | GFED | C2 C2 | C z3 |]
+
+
+ 
+
+ 
+X:24
+T: Chastushky
+O:russia
+S: Alexandru David
+M: 2/4
+L: 1/8
+Q: 1/4=120
+K: Dmix
+%%MIDI program 24
+[d2B2] [d2B2]|[^c2A2] [^c2A2]|[d2B2]
+%%MIDI program 41
+dc| BB AA|A2 A2 |A2 DD|GG FF|
+E2 G2|F2 DD |GG FF|E2 G2|
+F2 DD| GG FF|E2 G2|F2 d2|
+d2 d2| e2 e2|d2 d2|d2 d2|
+e2 dd|BB  A2| AGA2|G2 F2|
+DD GG| FF E2|G2 F2|DD GG|
+FF E2| G2 F2|DD GG|FF E2|\
+G2 F2|
+
+
+ 
+
+ 
+X:25
+T: Round Dance
+O:russia
+M: 2/4
+L: 1/8
+Q: 1/4=96
+K: EMin
+|:B2 B2|AG F2 |G2 FG|B2 A2|G2 G2  |FE ^D2  |E4 |E4  :|
+|:E2 E2|^DE F2|BAGF |FE DC|B,2 B,2|B,^C ^D2|E4 | E4 :|
+
+
+ 
+
+ 
+X:26
+T:Dwje gitary
+O:russia
+M:2/4
+L:1/8
+Q:1/4=108
+K:Cm
+V:1
+"Fm" z/.F/ .G/.c/[dG][cG]|"Cm" z/.E/ .G/.c/[dG][cG]|"G7" z/.F/ .G/.=B/[d=B]=B |.c/.g/.^f/.g/ .e/.c/.G/.E/ |
+"Fm" z/.F/.G/.c/ .d/.c/.G/.F/ |"Cm" z/.E/.G/.B/ .d/.c/.G/.E/ |"G7" z/.F/.G/.=B/ d=B |"Cm" cG [cG E]z ||
+"Fm" G3/2 F/GF |"Cm" FE E2 |"G7" E3/2 D/E=B, |"Cm" D2 C2 |
+CG, G,C |CG, G,2 |"G7" G3/2 F/E=B, |"Cm" D2 Cz ||
+"Fm" G2 (F2 |"Cm" F)E (E2 |"G7" E)D E=B, |"Cm" D2 C2 |
+"Fm" [BF]G[(G2F2]|"Cm" [G)F]G[G2E2]|[G3/2=B,3/2]F/ED |C[CF,G,][C2G,2 D,2]||
+{^F/}Gg z/g/^f/g/ |g2 g2 |{^F/}Gg z/g/^f/g/ |g2 g2 |
+"G7" zg z/g/^f/g/ |g3/4 g/4f/g/g g|"Cm" z gz/g/ ^f/g/|g3/4 g/4^f/g/g g|
+"Fm" b/c/ f/g/b/c/ f/g/|"Cm" g/c/ e/g/g/c/ e/g/|"G7" g/=B/ d/f/g/=B/ d/f/|f/G/ c/e/f/G/ c/e/|
+e/F/ G/d/e/F/ G/d/|"G7" d3/2 c/c2 |c=B =A=B |"Cm" c2 c'2 :|
+"Fm" [c4G4 F4]|"Cm" [c4G4 E4]|"G7" c=B =A=B |"Cm" [c4G4 E4]|
+"Fm" [c4G4 F4]|"Cm" [c4G4 E4]|"G7" c=B =A=B |"Cm" cz [cG E]z ||
+"Fm" B/G/G/G/ BG |"Cm" G/G/^F/G/ GG |"G7" G/F/=E/F/ GF |"Cm" F/E/D/E/ FE |
+"Fm" E/D/^C/D/ ED |"G7" D/C/=B,/C/ DC |"G7" CB, G,B, |"Cm" C4 ||
+"Fm" [c4G4 F4]|"Cm" [c4G4 E4]|"G7" c=B =A=B |"Cm" [c4G4 E4]|
+"Fm" [c4G4 F4]|"Cm" [c4G4 E4]|"G7" c=B =A=B |"Cm" cz [cG E]z |]
+
+
+ 
+
+ 
+X:27
+T:Grouchitsa
+O:russia
+M:3/4
+L:1/8
+Q:1/4=120
+K:Am
+V:1
+"Am" [c2A2 E2]"G" [c2A2 E2][d2B2 G2]|"C" [e2c2 G2][e2c2 G2][c'2g2 e2]|"G" [b2g2 d2]"F" [b2g2 d2][a2f2 c2]|"C" [g6e6 c6]|
+"G" [b2g2 d2]"F" [b2g2 d2][a2f2 c2]|"G" [g4d4 B4][g2d2 B2]|"F" [a4f4 c4]"G" [g2d2 B2]|"C" [e6c6 G6] |:
+"Dm" [f4d4 A4]"C" [g2e2 c2]|"F" [a4f4 c4][c'2a2 f2]|"G" [b4g4 d4]"F" [a2f2 c2]|"C" [g6e6 c6]|
+"G" [b2g2 d2]"F" [b2g2 d2][a2f2 c2]|"E" [^g4e4 B4][e2B2 ^G2]|"Am" [a2e2 c2][a2e2 c2][a2e2 c2]|1 "A" z^c eg fe :|2
+"Am" [a6e6 c6]||
+
+
+ 
+
+ 
+X:28
+T:Kak po logu
+O:russia
+C:SU
+M:2/4
+L:1/8
+Q:1/4=117
+K:Cm
+V:1
+"Cm" G2 G2 |"Fm" G2 G2 |"G" F2 "Cm" E2 |"Bb" F4 |
+"Gm" G3 F|"Cm" C4 |G2 G2 |"Fm" G2 G2 |
+"G" F2 "Cm" E2 |"Bb" F4 |"Gm" G3 F|"Cm" C G,=A, =B,|
+C/G,/ =A,/=B,/C/D/ E/F/  |:"Cm" C2 G2 |E2 C2 |"Fm" F2 G2 |
+"Gm" G3 F|"Cm" C4 |C2 G2 |E2 C2 |
+"Fm" F2 G2 |"Gm" G3 F|"Cm" C4 |"Cm" G2 G2 |
+"Fm" G2 G2 |"G" F2 "Cm" E2 |"Bb" F4 |"Gm" G3 F|
+"Cm" C4 |G2 G2 |"Fm" G2 G2 |"G" F2 "Cm" E2 |
+"Bb" F4 |"Gm" G3 F|"Cm" (C4 |C4) :|
+V:2          %2e stem
+.z4  |:E2 E2 |G2 E2 |G2 c2 |
+B3 G|E4 |E2 E2 |G2 E2 |
+D2 F2 |E3 d|c4 |[E2c2][E2c2]|
+[F2c2][E2c2]|[D2d2][C2c2]|[D4B4]|[B3D3][dD]|
+[c4E4]|[e2C4]d2 |[c2C4]e2 |[d2D2][c2C2]|
+[B4D4 d4]|[B3d3 D4][Ge]|[(E4G4 c4]|[E4)G4 c4]:|
+
+
+ 
+
+ 
+X:29
+T:Kasatsjok
+O:russia
+C:Intro + 5x(ABC) + AB + Coda
+M:2/4
+L:1/8
+Q:1/4=132
+K:D
+V:1
+"D" A2 d2 |A3 A|"G" B AG F|"A" E2 z2
+|:"D" FA "A" EA |"D" F/=F/F/G/ "A" AG |"D" FA "A" EA/G/ |"D" F"A" E "D" D2 :| |:
+"D" Ad "G" BA/G/ |"D" F/=F/F/A/ "A" E/_E/F/A/ |"D" Ad "G" BA/G/ |"A" F/G/F/E/ "D" D2 :|
+K:G
+"G" GB "D" A/B/c/A/ |"G" Bd "D" d/c/B/A/ |"G" GB "D" A/B/c/A/ |"G" Bd "D" d/c/B/A/ |
+"G" GB "D" A/B/c/A/ |"G" Bd "D" d/c/B/A/ |"G" GB "D" A/B/c/A/ |"G" B"D" A "G" G2 |]
+"G" [BG D]z3 |"Gm6" [_BG E]z3 |"D" [AF D][AFHD]z2 |]
+
+
+ 
+
+ 
+X:30
+T:Khorovod
+O:russia
+C:USSR
+M:4/4
+L:1/8
+Q:1/4=113
+K:Dm
+V:1
+"F" a2 c'2 "C" b2 "F" a2 |"C" ga b2 "F" a2 "C" g2 |"Dm" d2 f2 "A" e2 "Dm" d2 |"A" ^cd e2 d2 ^c2 |
+"A" A2 "G" B2 "F" B2 "E" ^c2 |]"Dm" d2 f2 e2 d2 |"A" ^cd e2 "Dm" d2 A2 |da3 g2 f2 |
+"A" ef g2 "Dm" f2 "A" g2 |"F" a2 a2 "C" b2 "F" a2 |"C" ga b2 "F" a2 "C" g2 |"Dm" da3 "A" g2 "Dm" f2 |
+"A" ef g2 "Dm" f2 "C" g2 |"F" a2 a2 "C" b2 "F" a2 |"C" ga b2 "F" a2 "C" g2 |"Dm" da3 "A" g2 "Dm" f2 |
+"A" ef g2 "Dm" d4 |]
+V:2          %Boventerts
+K:F
+z4 z4 |z4 z4 |z4 z4 |z4 z4 |
+z4 z4 |]f2 a2 g2 f2 |ef g2 (f2 f2) |ff3 e2 d2 |
+^cd e2 d2 e2 |f2 f2 g2 f2 |ef g2 f2 e2 |ff3 e2 d2 |
+^cd e2 d2 e2 |f2 f2 g2 f2 |ef g2 f2 e2 |ff3 e2 d2 |
+^cd e2 f4 |]
+
+
+ 
+
+ 
+X:31
+T:Lineynaya kadril
+O:russia
+M:2/4
+L:1/8
+Q:1/4=133
+K:A
+V:1
+"A" A Bc d|e2 a3/2 =g/|"D" ff af |"A" e2 c2 |
+"D" dd fe/d/ |"A" cc ed/c/ |"Bm" BB "E7" e/d/c/B/ |"A" A2 A2 |
+"D" dd fe/d/ |"A" cc ed/c/ |"Bm" Bd "E7" c/d/B |"A" A2 A2 |]
+
+
+ 
+
+ 
+X:32
+T:Malenky tanets
+O:russia
+M:2/4
+L:1/8
+Q:1/4=
+K:Am
+V:1
+"Am" A/B/c/d/ ee |"Dm" d/e/f "Am" e2 |"E7" d/e/d/B/ "Am" c/d/c/A/ |"E7" B/c/B/^G/ "Am" AE |
+A/B/c/d/ ee |"Dm" d/e/f "Am" e2 |"E7" d/e/d/B/ "Am" c/d/c/A/ |"E7" B/A/^G/B/ "Am" A2 :| |:
+"C" g3/2 f/ec |"F" a3/2 g/fe |"G7" de/f/ ed |"C" ee "E" e2 |
+"Am" ce ae |"Dm" f/g/f/e/ dd |"E7" b3/2 a/^g/a/b/ ^g/|"Am" a/b/a/ ^g/a2 :| |:
+"Am" EE {_e/}e3/2 d/|c~B A2 |"E7" ^G/A/B/^G/ E^G |"Am" A"G" G "F" F"E" E |
+"Am" EE {_e/}e3/2 d/|c~B A2 |"E7" ^G/A/B/^G/ E^G |"Am" .A2 .A2 :| |:
+"A7" aa ae/g/ |"Dm" fe dc |"E7" BB {f/}e3/2 d/|1 "Am" c/d/"E7" c/ B/"Am" A2 :|2
+"Am" c"E7" B "Am" A2 |]
+
+
+ 
+
+ 
+X:33
+T:Padmoskownye vjetsjera
+O:russia
+M:2/4
+L:1/8
+Q:1/4=
+K:Em
+V:1
+EG BG |A2 GF |B2 A2 |(E2 E2) |
+GB dd |e2 dc |B4  ||^c2 _e2 |
+fe (B2 |B)G FE |BA (c2 |c2) dc |
+B2 AG |B2 A2 |E2 B2  ||^c2 _e2 |
+fe (B2 |B)G FE |BA (c2 |c2) dc |
+B2 AG |B2 _e2 |1 e2 z2 |z4 :|2
+(e4 |e2) z2 ||
+V:2          %Orgel(r)
+z2 z2 z2 z8 |[EB,2]G[BE2]G|"Am" [A2E2][G^C2]F|"B" [B2F2][A2_E2]|
+[(E2G,2]E2) |"G" [GE][BG][dB][dB]|"C" [e2c2]"D7" [dB][cA]|"G" [B4G4]||
+[^c2_B2][_e2A2]|"Em" [fG4]e(B2 |[B)E2]G[FB,2]E|"Am" [BG][AF][(c2E2]|
+[c2)E2][dG][cA]|"Em" [B2G2][AF][GE]|"B7" [B2G2][A2F2]|"Em" E2 B2 ||
+[^c2_B2][_e2A2]|[fG4]e(B2 |[B)E2]G[FB,2]E|[BG][AF][(c2E2]|
+[c2)E2][dG][cA]|"Em" [B2G2][AF][GE]|[B2_E2][_e2F2]|1 "Em" [E2e2 G2]Bc |
+.B.A .G.F :|2 "Em" [(E4G4 e4]|[E2)G2 e2]z2 ||
+V:3          %orgel(l)
+z2 z2 z2 z2 |e2 g2 |a2 _b2 |b2 _e2 |
+e3  (3d/e/f/ |g2 b2 |C,2 D,F, |G,2 D,E, ||
+[F,2F,4]B,2 |E,3 =F,/F,/|G,3 G,/^G,/|A,3 _B,/B,/|
+C,4 |E,4 |B,2 _E,2 |E,2 [G,2B,2]||
+[_B,2_B,2][B,2B,2]|[E4E,4]|[B,4E,4]|[(A,4A,4]|
+[A,4)C,4]|[E,4G,4]|[B,2F,4]_E,2 |1 [E,2E,2 B,2][B,2B,2]|
+[^C,2^C,2][_E,2_E,2]:|2 [E,4B,4 (E,4]|[E,2B,2 E,2)]z2 ||
+
+
+ 
+
+ 
+X:34
+T:Schwarze Augen
+O:russia
+M:3/4
+L:1/8
+Q:1/4=150
+K:Dm
+V:1
+^G2 A2  |:"A7" B3 A(A2 |A)z ^G2 A2 |"Dm" B3 A(A2 |
+A)z A2 d2 |"A7" d3 ^c^c2 |z2 e2 f2 |"Dm" e3 dd2 |
+z2 f2 g2 |"Gm" f3 eH(e2 |e2) e2 f2 |"Dm" e3 d(A2 |
+A2) ^G2 A2 |"A7" B3 AA2 |z2 E2 F2 |"Dm" (D6 |
+D2) ^G2 A2 :|"A7" BA ^GA BA |^GA BA ^GA |"Dm" BA ^GA BA |
+^GA BA de |"A7" d^c c^c d^c |c^c d^c ef |"Dm" ed ^cd ed |
+^cd ed fg |"Gm" fe _ee fe |_ee fe gf |"Dm" ed ^cd ed |
+ed ^cd ^GA |"A7" BA ^GA BA |^GA Hf2 e2 |"Dm" (d6 |
+d2) |]
+
+
+ 
+
+ 
+X:35
+T:Serper
+O:russia
+C:trad. Kazachstan
+M:2/4
+L:1/8
+Q:1/4=120
+K:F
+V:1
+c2 z2 |c2 z2 |c2 z2 |z4 |
+FF (FG) |FF (FG) |
+M:3/4
+F2 cc c2 |c2 c2 z2 |
+M:2/4
+FF (FG) |FF (FG) |FF (FG) |(^GB) (cd) |
+_e_e (_ec) |ff (f_e) |ff (f_e) |z4 |
+FF (FG) |
+M:3/4
+F2 cc cc |1 c2 c2 z2 :|2 c2 c2 z2 || |:
+M:2/4
+c.^G .^G.c |.B.G .G.B |.^G.F .F.^G |.G._E ._E.F |
+(G2 ^G2) |^G^G ^G2 |^G^G ^G2 |(G2 ^G2) |
+M:3/4
+(G2 _E2) F2 |
+M:3/2
+(G2 _E2) F2 ^G2 (G2 _E2) |(C2 ^C2 _E2 F2) GG (GF) |
+M:2/2
+(_E2 C2) ^C2 F2 |
+M:2/4
+C2 z2 |C2 z2 :|C2 z2 |z4 |
+z4 |(G,2 B,2 |A,2 G,2) |(A,B, CD) |
+C2 z2 |(G2 B2 |A2 G2) |(AB cd |
+c2) z2 |ff g_e |f2 f2 |]
+V:2          %2
+FF (FG) |FF (FG) |FF (FG) |(AB) (cd) |
+c2 z2 |c2 z2 |
+M:3/4
+c2 ff g_e |f2 f2 (cd) |
+M:2/4
+c2 z2 |c2 z2 |c2 z2 |z4 |
+^G^G ^G2 |cc c2 |cc c2 |(AB) (cd) |
+c2 z2 |
+M:3/4
+c2 ff g_e |1 f2 f2 FG :|2 f2 f2 (F,G,) || |:
+M:2/4
+F,2 F,2 |F,2 F,2 |F,2 F,2 |F,2 F,2 |
+(F,2 ^C2) |^C^C ^C2 |^C^C ^C2 |(C2 ^C2) |
+M:3/4
+C4 C2 |
+M:3/2
+C4 C2 ^C2 C4 |(F,2 G,2 ^G,2 B,2) C2 C2 |
+M:2/2
+F,2 F,2 ^G,2 B,2 |
+M:2/4
+F,F, (F,G,) |F,F, (F,G,) :|F,F, (F,G,) |(A,B,) (CD) |
+C2 z2 |z4 |z4 |z4 |
+zF, F,F, |(G,2 B,2 |A,2 G,2) |(A,B, CD |
+C2) z2 |cc cc |c2 c2 |]
+
+
+ 
+
+ 
+X:36
+T:Sibirski
+O:russia
+M:2/4
+L:1/8
+Q:1/4=120
+K:E
+V:1
+"C#m" g3 a|"F#m" f cg c'|"C#m" g3 a|"F#m" f cg c'|
+"C#m" g2 gb  |b2 a2 |"F#m" c'f ga |b2 f2 |
+"B" bc' b2 |"E" e3 f|e2 B2   |:"E" G2 F2 |
+E2 G2 |"F#m" F2 E2 |F2 C2 |"C#m" [gC4]fe g|
+[fC4)]eg f|[eC4)]gf e|[gC4]fe g|"E" [B3G3][AF]|
+[G2E2][c2A2]|[B2G2][A2F2]|"C#m" [G2E2][c2C2]|[bB4 B,4]ag b|
+[aB4 B,4]gb a|[gB4 B,4]ba g|[bB4 B,4]ag c'|"C#m" G2 A2 |
+"F#m" F2 C2 |"C#m" G2 GA |"F#m" F2 C2 |"C#m" G2 A2 |
+B2 G2 |"F#m" (A4 |A2) F2 |"B" A2 G2 |
+"E" (E4 |"E7" [E2)B2][=d2G2 E2]|"A" [c3A3 E3][AE]|"E7" [A2E2][=d2G2 E2]|
+"A" [c3A3 E3][AE C]|"C#m" [G2E2 C2][B2E2 C2]|"F#m" [B2F4 C4]A2 |"A" [(c4A4 E4]|
+[c2)A4 E4]B2 |"B" [BG2 _E2]c[B2F2 _E2]|"E" E3 F|E4 :|
+
+
+ 
+
+ 
+X:37
+T:Stranjik moj
+O:russia
+M:4/4
+L:1/8
+Q:1/4=110
+K:Am
+V:1
+"Am" e ee e2 cA2 |"Dm" e2 d(c "E7" c2) B2 |"Am" ee e(e e)c A2 |"G7" g2 fe2 df2 |
+"C" .e2 de "Dm" gf ed |"Am" .e2 A(^G "E7" ^G)A B2 |"Am" A6 z2 :|
+|:"Am" c'2 e(c' c'4) |"E" b2 e(b b4) |"F" a2 c(a a4) |"A7" ga g_b2 a2 g|"Dm" f zd ef (a2 a)
+|1 "E7" ^g4 c'2 b(e |"Am" e6) z2 |"E7" z8 :|2 "E7" ^g4 c'2 b(a |"Am" a6) z2 |z8 ||
+
+
+
+ 
+
+ 
+X:38
+T:Troika
+O:russia
+C:- Rusl -
+M:2/4
+L:1/8
+Q:1/4=178
+K:Am
+V:1
+"Am" ze2 d|c2 "E" B2 |"Am" A2 "E7" ^G2 |1 "Am" A2 E2 :|2
+"Am" A4 ||"G7" zg2 f|"C" f2 e2 |"E7" ze2 d|
+"Am" d2 c2 |cB cd |e2 A2 |"E7" c2 B2 |
+"Am" A4 || |:Ac Ac |Ac Ac |Ac Ac |
+Ac Ac |"E7" Bd Bd |Bd Bd |"Am" c2 "E7" B2 "E7" |
+"Am" A4 :|
+V:2          %Onderterts
+"Am" zc2 B|A2 "E" E2 |"Am" D2 "E7" E2 |1 "Am" E2 C2 :|2
+"Am" C4 ||"G7" zB,2 D|"C" D2 C2 |"E7" z^G2 B|
+"Am" B2 A2 |A^G AB |c2 c2 |"E7" A2 E2 |
+"Am" C4 || |:A^G F^G |A^G FE |_EC B,C |
+_EC B,A, |"E7" B,C _EE |F^G AB |"Am" cB A"E7" ^G |
+A"Am" E A2 :|
+
+
+ 
+
+ 
+X:39
+T:Walenki
+O:russia
+M:4/4
+L:1/8
+Q:1/4=120
+K:Em
+V:1
+"Em" B, B,E3/2 G/"Am" GF F2 |"B" B,B, _E3/2 F/"Em" FE E2 |"Em" B,B, E3/2 G/"Am" GF F2 |"D" DF F3/2 A/"G" AG G2 |
+"E" E^G ^GB "Am" BA A2 |"D" DF A3/2 F/"G" AG G2 |"Em" G4 "Am" FE C2 |"B" B,B B3/2 _E/"Em" FE E2  |:
+"Em" B2 EB "Am" BA A2 |"D" A2 DD "G" AG G2 |"Em" zG3 "Am" FE C2 |"B" B,B B3/2 _E/"Em" FE E2 :|
+
+
+
+ 
+
+ 
+X:40
+T: Toska po rodina
+T: Mot Barrikaderna
+O:russia
+R: march
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/abc/
+D: Norrl�ter "Framtidshopp", identified as "Finsk arbetarmarsch"
+D: Andy Statman & David Grisman "Songs of our Fathers", called "Toska" and identified as a Russian march.
+B: Kammen V.1 #40 "Toska Porodina" (Longing for Home), no attribution.
+M: C
+L: 1/8
+K: Dm
+|: A^GA \
+| "Dm"f2 f3 ed^c | "A7"e>^c A3 A^GA | "(Gm)"g2 g3 g fe | "Dm"a>f d3 A^GA |
+| "Dm"f2 f3 ed^c | "A7"e>^c A3 a^ga | ba eg ag fe | "Dm"dd/d/ dd d :|
+|| z A2 \
+| "Dm"d2 c2 "Gm"B2 G2 | "A7"A4- A A^GA | "Gm"B2 A2 G2 F2 | "A7"A4- A A^GA |
+| "Gm"B2 A2 G2 F2 | "A7"A4- A AGF | E2 A2 F2 E2 | "Dm"DD/D/ DD D ||
+|| ABA \
+| "Dm"A2 d2 e2 d2 | "A7"^c4- c ABA | A2 e2 f2 e2 | "Dm"d4- "D7"d ABA |
+| "Gm"G2 d2 e2 d2 | "Dm"A4- A AGF | "A7"E2 A2 F2 E2 | "Dm"DD/D/ DD D |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:42
+T: Uralskaya ryabinushka
+T: Uralin pihlaja
+T: Ural Rowan Tree
+O:russia
+C: E.Rodygin
+M: 6/8
+L: 1/8
+K: Dm
+|: "Dm"D2D F2D | "Gm"G3 D2E \
+| "Dm"F2E "A7"A2G | "Dm"D3- D3 \
+| "Dm"D2A A2F | "Gm"G3 D2E \
+| "F"FEF "C7"A2G | "F"F3- F3 |
+| "F"c2c "D7"cBA | "Gm"G3 D2D \
+| "C7"E2F GFG | "F"A3- "A7"A3 \
+| "Dm"F2F FGA | "Gm"c3 B2A \
+| "A7"G2E A2G | "Dm"D3- D3 ||
+|: "D7"D2[dB] [dB]>[cA][dB] | "Gm"[c3A3] [B3G3] \
+| "C7"[B2G2][cA] [dB]>[cA][BG] | "F"[A3F3]- "A7"[A3E3] \
+| "Dm"[F2D2][FD] [FD][GE][AF] | "Gm"[c3A3] [B2G2][AF] \
+| "A7"[G2E2][E^C] [A2F2][GE] |1 "Dm"[F3D3]- [F3D3] :|2 "Dm"[d3F3D3]- [d3F3D3] :|
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:44
+T: Yamshchik, ne goni loshadey
+O:russia
+C: Ya.L.Feldman
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/abc/
+N:
+M: 2/4
+L: 1/8
+K: Dm
+A \
+| "Dm"A2 DE | F2{GF}ED | "Gm6"E4- | E2 zB \
+| "A7"A2 EF | G2 FE | "Dm"F4- | F2 zd |
+| "C7"c2 GG | d2 cB | "F"A2- "A7"A2- | "Dm"A2 "A7"zA \
+| "Dm"A2 "Gm"GD | "Dm"F2{GF}ED | "A7"A4- | A2 z ||
+|: A, \
+| "Dm"F2 ED | "A7"^C2 DE | "Dm"D4- | D2 zD \
+| "Gm"B2 AG | "D7"^F2 GA | "Gm"G4- | G2 zF |
+| "A7"E2 FG | B2 A^G | "Dm"A4- | "Gm"A2 zA, \
+| "Dm"HF2 ^CD | "E#7"HE2 "A7"=B,^C | "Dm"D2- "Gm"D2- | "Dm"D z2 :|
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:46
+T: Alexandrovsky
+O:russia
+R: waltz
+Z: John Chambers <jc@trillian.mit.edu>
+M: 3/4
+L: 1/4
+K: Am
+E \
+|| "Am"AA>c | ec>B | A^G>A | "E7"B3 || BB>c | dc>B | "Am"AA>c | e3 ||
+|| "Dm"aa>a | af>e | dd>f | a3 || "Am"ece | "E7"dc>B | "Am"A3- | Az"G7"G ||
+|| "C"cc>e | ge>d | cB>c | "G7"d3 || dd>f | af>d | "C"cc>e | g3 ||
+|| "Dm"aa>a | af>e | dd>f | a3 || "Am"ece | "E7"dc>B | "Am"A3- | Az2 |]
+
+
+ 
+
+ 
+X:47
+T: Alexandrovsky (Bb instr)
+O:russia
+K: C
+
+
+ 
+
+ 
+X:51
+T:Bielolitza Kruglolitza
+O:russia
+P:ABA
+L:1/8
+M:4/4
+K:Cm
+%Q:1/4=96
+%%MIDI gchord fzzzfzzz
+P:A
+z6 G2 |: "Cm"c2 c2 c2 e2 | "G"dedc =B2 G2 | "Cm"e2 e2 e2 g2 | "F"f4 "Cm"gfed |
+efed c2 G2 | "G"de dc =B2 G2 | "Cm"c2 c2 "G"=B2 G2 | "Cm"c4 z2 G2 :|
+P:B
+c2 cded ec | "G"dede "Cm"gfed | edef gfge | "Fm"f2 ba"Cm"gf ed |
+efed cdec | "G"dedc "Cm"gfed | cedc "Dm"dfdc | "Cm"c2 ga gfed |
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:53
+T: Bublichki
+T: Pretzels
+O:russia
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: 2/4
+L: 1/8
+K: Dm
+zA, DE \
+| "Dm"F2 ED- | DG FE | F2 ED- | DD FA \
+| d2 ^cd- | df ed | A4 | zA B=B |
+| "F"c2 BA- | Ad cB | A2 GF- | FA cB \
+| "Dm"A2 GF- | FG "A7"FE | "Dm"D4 ||
+|| "C7"zC FG \
+| "F"A2 GF- | Fc _cB | A2 GF- | FC FA \
+| c2 =Bc- | cf ed | "Dm"A4 | "A7"zA de |
+| "Dm"f2 ed- | dA cB | A2 GF- | "Dm"FA cB \
+| "Dm"A2 GF- |1 FG "A7"FE | "Dm"D4 :|2 FA "A7"^cA | "Dm"d4 |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:55
+T: Dorogoy Dal'noyu #1
+O:russia
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: C|
+L: 1/8
+K: Dm
+| "A7"AAAA f2e2 \
+| gfe2 "Dm"d4 \
+| AABc "D7"d3A \
+| "Gm"BA G6 \
+| "Dm"ddef g3f \
+| edf2 d4 \
+| ddef "Ddim"aa^gf \
+| "A7"e6 A |
+| "A7"Hf4 He4 \
+|: "Dm"e3d d4- \
+| d2d2 "D7"d2c2 \
+| "Gm"c3B B4- \
+| B2G2 A2B2 \
+| "C7"c6 d2 \
+| e3d c2B2 \
+| "F"A8- |
+| A2=F2 "D7"G2A2 \
+| "Gm"c3B B4- \
+| B2d2 d2B2 \
+| "Dm"A3A A4- \
+| A2d2 e2f2 \
+| "A7"a6 g2 \
+| f2e2 d2^c2 \
+|1 "Dm"d3 A \
+| "A7"Hf4 He4 \
+:|2 "Dm"d8 :|
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:56
+T: Dorogoy Dal'noyu #2
+O:russia
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: C|
+L: 1/8
+K: Dm
+| "Dm"ddef gfed \
+| fd3- d4 \
+| "D7"AABc dABA \
+| "Gm"G8 \
+| "Dm"ddef gfed \
+| fd3- d4 |
+| "E7"eeef e=B^cd \
+| "A7"e8 \
+| z2Hf2 Hf2He2 \
+|: "Dm"e2dd- dd"D7"dc \
+| "Gm"c2BB- BGAB \
+| "C7"c3d edcB |
+| "F"A8 zF"(D7)"GA \
+| "Gm"c2BB- BBcd \
+| "Dm"g2ff- fdef \
+| "A7"a3g fed^c \
+|1 "Dm"d2f2 "A7"f2e2 \
+:|2 "Dm"d8 |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:59
+T: Dve Gitari
+T: Two Guitars
+O:russia
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: 4/4
+L: 1/8
+K: Am
+| "Dm"zdfa b2a2 \
+| "Am"zcea b2a2 \
+| "E7"z2a2- a^g^fg \
+| "Am"a4 z4 \
+|| "Dm"z2g>f g2f2 \
+| "Am"z2f>e f2e2 \
+| "E7"z2e>d e3d |
+| "Am"d2c2 z4 \
+| "Dm"z2cB gffe \
+| "Am"e4 z4 \
+| "E7"ze2e- e2^f^g \
+| "Am"b4 a4 \
+|: "Dm"zg2f f4 \
+| "Am"zf2e e4 |
+| "E7"e2dd e2d2 \
+| "F"d3c c4 \
+| "Dm"b3b b2b2 \
+| "Am"b3a a4 \
+| "E7"a2^gg ^f2gg \
+| "Am"a3a a2z2 :|
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:65
+T: Otsveli Hrizantemy
+T: Chrysanthemums Were Blooming
+O:russia
+R: waltz
+M: 3/4
+L: 1/4
+K: Am
+"Intro"[|]EE \
+| "Am"[c3A3]- | [cA]FD | "Dm"B3- | BBA \
+| "E7"^GFE | DCB, | "Am"A,3- | A, ||
+|: E^D \
+"A"|"Am"[FD]>[EC][EC]- | [EC]EA | "Dm"E>DD- | D^CD \
+| "E7"F>EE- | EEB, | "Am"F>EE- | E^DE |
+| "A7"A>^G=G- | G_B,A, | "Dm"G>EF- | FEF \
+| "Am"EEE | "B7"^DB,A, | "E"E3- | E :|
+|: EE \
+"B"| "Am"[c3A3]- | [cA]FD | "Dm"B3- | BDE \
+| "E7"^G2G- | G^F^G | "Am"A3- | AAA |
+| "F"A3- | ABA | "Dm"c2B- | BDE \
+| "E7"^G3- | G^F^G | "Am"A3- | "fine"A :| [K:F]
+"C7"AG \
+"C1"| "F"G2F- | FE>F | "Gm"c2B- | BB^F \
+| "C7"A2G- | G^F>G | "F"c3- | "C7"cde |
+| "F"[f2A2][eG] | "D7"[d2^F2][AF] | "Gm"[c2A2][BG]- | [BG][BG][fd] \
+| "C7"[e2c2][A^F] | [B2G2][eB] | "F"[d2A2][cA]- | "C7"cAG |
+"C2"| "F"G2F- | FE>F | "Gm"c2B- | BB^F \
+| "C7"A2G- | G^F>G | "F"c3 | "Dm"def |
+| "G7"[a2f2][fd] | "E7"[d=B][c^G][=BG] | "F"d2c | "Dm"f"A"g"D7"a \
+| "Gm7"b3 | "C7"a2a | "F"f3- | "d.C."f |]
+
+
+ 
+
+ 
+X:66
+T:In the City Garden
+O:russia
+R:hornpipe
+S:A Russian song popularized by an old Russian film; learned from a local Russian singer (in Izhevsk)
+Z:From: Larry Sanger <larry@NUPEDIA.COM> irtrad-l 2001-5-08
+N:Obviously, not a hornpipe, but a nice tune with a pronounced hornpipe swing
+M:4/4
+K:F
+AAdf fe^de | fe=d^c d4 | AAdf ag^fg | agde =f4 |
+agfe gfed | fed^c d4 | ed=cB ABed | Bd^ce d3f ||
+fe^de a=ddd | d^ccc eddd | =cBA^G Adef |1 fed^c d3f :| 2 fed^c d4 ||
+
+
+X:69
+T: Katinka
+O:russia
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: 2/4
+L: 1/8
+K: Dm
+| "Dm"A,2 DF | A2 BA | "A7"A2 GE | ^C4 \
+| A,2 ^CE | G4 | "Dm"A,2 DF | A4 |
+| "Dm"A,2 DF | A2 BA | "A7"A2 GE | ^C4 \
+| A,2 ^CE | G2 FE | "Dm"D2- "Gm"D2- | "D7"DA Bc |
+| "Gm"d2 cB | d2 cB | d2 cB | "Dm"A4 \
+| "A7"B2 AG | B2 AG | "Dm"A>F- Fz | "A7"G>E- Ez |
+| "Dm"A,2 DF | A2 BA | "A7"A2 GE | ^C4 \
+| A,2 ^CE | G2 FE | "Dm"D2- "Gm"D2- | "Dm"D2 z2 |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:71
+T: Katyusha
+O:russia
+R:
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: 2/4
+L: 1/8
+P:
+K: Am
+[| "Am"A3 B | c3 A | cc BA | "E7"B2 E2 | B3 c | d3 B | dd cB | "Am"A4 ||
+|: "Am"e2 "F"a2 | "C"g2 "A7"ag | "Dm"ff ed | "Am"e2 A2 | "Dm"zf2 d | "Am"e3 c | "E7"BE cB | "Am"A4 :|
+%%sep 5 5 200
+P:
+K: Em
+[| "Em"E3 F | G3 E | GG FE | "B7"F2 B,2 | F3 G | A3 F | AA GF | "Em"E4 ||
+|: "Em"B2 "C"e2 | "G"d2 "E7"ed | "Am"cc BA | "Em"B2 E2 | "Am"zc2 A | "Em"B3 G | "B7"FB, GF | "Em"E4 :|
+%%sep 5 5 200
+P:
+K: Gm
+[| "Gm"G3 A | B3 G | BB AG | "D7"A2 D2 | A3 B | c3 A | cc BA | "Gm"G4 ||
+|: "Gm"d2 "E"g2 | "B"f2 "G7"gf | "Cm"ee dc | "Gm"d2 G2 | "Cm"ze2 c | "Gm"d3 B | "D7"AD BA | "Gm"G4 :|
+%%sep 5 5 200
+P:
+K: Dm
+[| "Dm"D3 E | F3 D | FF ED | "A7"E2 A,2 | E3 F | G3 E | GG FE | "Dm"D4 ||
+|: "Dm"A2 "B"d2 | "F"c2 "D7"dc | "Gm"BB AG | "Dm"A2 D2 | "Gm"zB2 G | "Dm"A3 F | "A7"EA, FE | "Dm"D4 :|
+%%sep 5 5 200
+
+
+ 
+
+ 
+X:74
+T: Lezginka
+O:russia
+R:
+N: Russian couple dance
+B:
+D:
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: 4/4
+L: 1/8
+K: Dm
+P: Intro
+"Dm"A2z2 A2z2 | "Gm"BAGB "Dm"AGFA | "Gm"GFEG "Dm"FED2 | "A7"^C2E2 A2A,2 ||
+P: A
+|: "Dm"D2F2 GF ED | "A7"^C2E2 A2z2 | E2G2 (3GAG FE |1 "Dm"F2D2 A2A,2 :|2 "Dm"F2D2 "D7"D2E^F ||
+P: B
+|: "Gm"G2B2 d2cB | "Dm"A2A2 A2GF | "A7"E2G2 (3GAG FE |1 "Dm"D2F2 A2z2 :|2 "Dm"D2F2 D2z2 ||
+P: C
+|| "Gm"B2z2 "Dm"A2z2 | "A7"GFEG "Dm"FED2 | "Gm"B2z2 "Dm"A2z2 | "A7"GFEF "Dm"D2z2 \
+|  "Gm"G2z2 "Dm"F2z2 | "A7"EGFE "Dm"FED2 | "Gm"G2z2 "Dm"F2z2 | "A7"EGFE "Dm"D2z2 ||
+P: D
+B |: "Bb"B2d2 (3ded cB | "F"A2.c2 .c2zG | "C7"G2B2 ~B2AG |1 "F"F2A2 c2z2 :|2 "F"F2A2 F2z2 ||
+P: E
+|: "C7"C2E2 G2FE | "F"F2A2 c2z2 | "C7"C2E2 G2FE | "F"F2A2 F2z2 :|
+P: C
+|| "Gm"B2z2 "Dm"A2z2 | "A7"GFEG "Dm"FED2 | "Gm"B2z2 "Dm"A2z2 | "A7"GFEF "Dm"D2z2 \
+|  "Gm"G2z2 "Dm"F2z2 | "A7"EGFE "Dm"FED2 | "Gm"G2z2 "Dm"F2z2 | "A7"EGFE "Dm"D2z2 ||
+
+
+ 
+
+ 
+X:75
+T: Lonely Accordion
+T: Odinokaya Garmon'
+O:russia
+C: M.Isakovsky
+N: Words by B.Mokrousov
+M: 3/4
+L: 1/4
+K: Dm
+|: "Dm"DF | AFD | "A7"^CEG | "Dm"BA2- \
+| ADE | "Bb"FDB, | "A7"A,^CE | "Dm"F3- | FGA |
+| "Gm"BBF | "C7"EEG | "F"AA2- | "Bb"ADF \
+| "Gm"GGF | "A7"EDE | "Dm"F3- | FGA |
+| "Gm"BBF | "C7"ccB | "F"AA2- | "Bb"ADA \
+| "Gm"GGF | "A7"ED^C | "Dm"D3- | D |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:77
+T: In the Manchurian Hills
+T: Mantsurian kukkuloilla
+O:russia
+C: J.A.Schatrow
+R: waltz
+M: 3/4
+L: 1/4
+K: Am
+A,/B,/C/D/ \
+"A"| "Am"E3- | ECD | "E7"E3- | E3 | DE^G | c2B \
+| "Am"A3- | A3 | "Am"EAc | ^G2A | "Dm"BAF | B2A |
+| "Am"EAB | "E7"c2B | "Am"A3- | "fine"A \
+"B":: E/^D/E/F/ | "E7"E>B,B, | zCD \
+| "Am"E3- | E G/^F/G/A/ | "G7"G>DD | ZEF |
+| "C"G3- | GG"E7"^G | "Am"A>EE | ((3E/F/E/) ^DE \
+| "Dm"G2F- | FCD | "Am"EDC | "E7"B,2C | "Am"A,3- | A, \
+"A":| A,/B,/C/D/ | "Am"E3- |
+| ECD | "E7"E3- | E3 | DE^G | c2B | "Am"A3- | A3 | "Am"EAc \
+| ^G2A | "Dm"BAF | B2A | "Am"EAB | "E7"c2B | "Am"A3- | A ||
+"C"|: A^G | "A7"A2_B | A2G | "Dm"G2F | FED | "G7"G2A | G2F \
+| "C"FE^D | "E7"E3 | "Am"A,CE | Ac>B | "Dm"AGF \
+| A2F | "Am"CED | "E7"B,2C | "Am"A,3- | A, :|
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:79
+T: Metelitsa
+T: Snowstorm
+O:russia
+Z: John Chambers <jc@trillian.mit.edu>
+M: C|
+L: 1/8
+K: Dm
+| "Gm"E4 E4 | "Dm"F2 F2 E2 D2 \
+| "A7"^C2 A,2 =B,2 C2 | "Dm"D6 z2 |
+| "Gm"E2 G2 F2 E2 | "Dm"A2 F2 E2 D2 \
+| "A7"^C2 A,2 =B,2 C2 | "Dm"D4 "C7"C4 ||
+|: "F"F2 A2 Hc2 A2 | "C7"G2 AB A2 "A7"G2 \
+| "Dm"F2 GF E2 D2 | "A7"^C4 A,4 |
+| "Dm"D2 A2 G2 F2 | "Gm"F4 E4 \
+| "A7"A,2 A,2 =B,2 ^C2 |1 "Dm"D4 "C7"C4 :|2 "Dm"D6 z2 |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:81
+T: Mot Barrikaderna (Toska po rodina)
+O:russia
+R: march
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/abc/
+D: Norrl�ter "Framtidshopp", identified as "Finsk arbetarmarsch"
+D: Andy Statman & David Grisman "Songs of our Fathers", called "Toska" and identified as a Russian march.
+B: Kammen V.1 #40 "Toska Porodina" (Longing for Home), no attribution.
+M: C
+L: 1/8
+K: Dm
+|: A^GA \
+| "Dm"f2 f3 ed^c | "A7"e>^c A3 A^GA | g2 g3 g fe | "Dm"a>f d3 A^GA |
+| "Dm"f2 f3 ed^c | "A7"e>^c A3 a^ga | ba eg ag fe | "Dm"dd/d/ dd d :|
+|: z A2 \
+| "Dm"d2 c2 "Gm"B2 G2 | "A7"A4- A A^GA | "Gm"B2 A2 G2 F2 | "A7"A4- A A^GA |
+| "Gm"B2 A2 G2 F2 | "A7"A4- A AGF | E2 A2 F2 E2 | "Dm"DD/D/ DD D :|
+|: ABA \
+| "Dm"A2 d2 e2 d2 | "A7"^c4- c ABA | A2 e2 f2 e2 | "Dm"d4- "D7"d ABA |
+| "Gm"G2 d2 e2 d2 | "Dm"A4- A AGF | "A7"E2 A2 F2 E2 | "Dm"D4- D :|
+
+
+ 
+
+ 
+X:83
+T: Mot Barrikaderna
+T: Toska po rodina
+O:russia
+R: march
+Z: John Chambers <jc@trillian.mit.edu>
+D: Norrl�ter "Framtidshopp", identified as "Finsk arbetarmarsch"
+D: Andy Statman & David Grisman "Songs of our Fathers", called "Toska" and identified as a Russian march.
+B: Kammen V.1 #40 "Toska Porodina" (Longing for Home), no attribution.
+M: C
+L: 1/8
+K: Em
+|: B^AB \
+| "Em"g2 g3 fe^d | "B7"f>^d B3 B^AB | a2 a3 a gf | "Em"b>g e3 B^AB |
+| "Em"g2 g3 fe^d | "B7"f>^d B3 b^ab | c'b fa ba gf | "Em"ee/e/ ee e :|
+|: z B2 \
+| "Em"e2 d2 "Am"c2 A2 | "B7"B4- B B^AB | "Am"c2 B2 A2 G2 | "B7"B4- B B^AB |
+| "Am"c2 B2 A2 G2 | "B7"B4- B BAG | F2 B2 G2 F2 | "Em"EE/E/ EE E :|
+|: BcB \
+| "Em"B2 e2 f2 e2 | "B7"^d4- d BcB | B2 f2 g2 f2 | "Em"e4- "E7"e BcB |
+| "Am"A2 e2 f2 e2 | "Em"B4- B BAG | "B7"F2 B2 G2 F2 | "Em"E4- E :|
+
+
+ 
+
+ 
+X:84
+T: Ochi chorniya
+T: Black Eyes
+O:russia
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: 3/4
+L: 1/8
+K: Dm
+z2 ^G2 A2 \
+| "A7"B3  A A2 | z2 ^G2 A2 | "Dm"B3 A A2 | z2  A2 d2 \
+| "A7"d3 ^c c2 | z2  e2 f2 | "Dm"e3 d d2 | z2  d2 f2 |
+| "Gm"f3  e B2 | z2  f2 e2 | "Dm"e3 d A2 | z2 ^G2 A2 \
+| "A7"B3  A A2 | z2  E2 F2 | "Dm"E3 D D2 |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:86
+T: Otce Nash
+T: (Pater Noster)
+O:russia
+C: Nikolaj Kedrov Sr.
+M: none
+Z: Edited by Guido Gonzato, 11 October 2000
+L: 1/4
+Q: "Adagio, " 1/4=40 % broken? in abcm2ps
+K: C
+%%staves [ 1 2 3 4 ]
+V: 1 clef=treble name="Soprano" sname="S"
+V: 2 clef=treble name="Alto"    sname="A"
+V: 3 clef=treble name="Tenor"   sname="T"
+V: 4 clef=bass   name="Bass"    sname="B"
+%
+V: 1
+E2 E E4 | E E E E E E E  E4    | F F F F G2 G G G2     |
+w: ot- ce nash, ie scio ie ti na nie be sah, da sfia ti za i mia tva io
+V: 2
+C2 C C4 | C C C C C C C C2 B,2 | B, B, B, B, D2 C C C2 |
+w: ot- ce nash, ie scio ie ti na nie be sah,  da sfia ti za i mia tva io
+V: 3
+G2 G G4 | G G G G G G G G4     | G G G G G2 G G G2     |
+w: ot- ce nash, ie scio ie ti na nie be sah, da sfia ti za i mia tva io
+V: 4
+c2 c c4 | c c c c c c c d4     | d d d d e2 e e e2     |
+w: ot- ce nash, ie scio ie ti na nie be sah, da sfia ti za i mia tva io
+%
+%
+V: 1
+G G G G G2 F F E HF4  | F F2 F2 F2 E G D2 D2   | D D D E F2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+V: 2
+C C C C C2 C C C HC4  | C C2 C2 C2 C C B,2 B,2 | B B B C C2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+V: 3
+G G c _B B2 A A G HA4 | A A2 A2 A2 G G G2 G2   | G G G G A2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+V: 4
+e e e e f2 f f f Hf4  | f f2 e2 d2 e e g2 g2   | g g g e d2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+%
+%
+V: 1
+E D2 C2 D2   | E2 E E E E F2 F F2 F F G2     | G G G G G2 F2 F2    |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal- ghi na scia ia
+V: 2
+C B,2 C2 B,2 | C2 C C C C C2 B, B,2 B, B, D2 | C C C C C2 C2 C2    |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal- ghi na scia is
+V: 3
+G G2 A2 G2   | G2 G G G G G2 G G2 G G G2     | G G c _B B2 A2 A2   |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal- ghi na scia ia
+V: 4
+e g2 a2 g2   | c2 c c c c d2 d d2 d d e2     | e e e e f2 (f e) d2 |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal ghi na scia-  ia
+%
+%
+V: 1
+F E G D2 D E F2   | F F F (E2 C) (D2 C2) D      | E E E |
+w: ka ie im ghi a sta vlia em dal ji da- am na - scim i nie ve
+V: 2
+C C C B,2 B, C C2 | C C C (C2 A,) (B,2 A,2) B,2 | C C C |
+w: ka je im ghi a sta vlia em dal ji da- am na - scim i nie ve
+V: 3
+G G G G2 G G A2   | A A A G3 (G E) G            | G G G |
+w: ka je im ghi a sta vlia em dal ji dam na-  scim i nie ve
+V: 4
+d e e g2 g e d2   |d d d e3 g2 g2               | c c c |
+w: ka je im ghi a sta vlia em dal ji dam na- scim i nie ve
+%
+%
+V: 1
+(E2 G2) c c B A G2 F2 E2   | D D G2 D G  | C D E4 E2 E4        |]
+w: di-  nas vo is ku sce ni e no iz ba vi nas at lu ka va ga.
+V: 2
+E4 E E E F (G C) (C B,) C  | C C C2 C C  | C C (C2 A,2) B,2 C4 |]
+w: di nas vo is ku sce-  ni-  e no iz ba vi nas at lu ka  va ga.
+V: 3
+c4 c c c c (c G) G2 G2     | A A G2 A G2 | A A (G2 E2) G2 G4   |]
+w: di nas vo is ku sce-  ni- e no iz ba vi nas at lu ka-  va ga.
+V: 4
+(c'2 b2) a a g f e2 d2 c2  | f f e2 f e2 | f f c4 g2 c4        |]
+w: di-  nas vo is ku sce ni e no iz ba vi nas at lu ka va ga.
+%
+% End of file otce-nash.abc
+
+
+ 
+
+ 
+X:87
+T: Pod Moskovniye Vechera
+T: Moscow Evenings
+O:russia
+M: 2/4
+L: 1/8
+K: Gm
+| "Gm"GB dB | "Cm"c2 BA | "D7"d2 c2 | "Gm"G4 \
+| "Bb"Bd ff | "Eb"g2 "F7"fe | "Bb"d4 |: "A7"=e2 "D7"^f2 |
+| "Gm"ag d2- | d A2G | "Cm"dc e2- | e2 fe \
+| "Gm"d2 cB | "D7"d2 c2 |1 "Gm"G4 :|2 "Gm"[g4-B2-] | [gB]z3 |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:90
+T: Proshchay
+O:russia
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: 2/4
+L: 1/8
+K: F
+z3c \
+| "F"c2 "Bb"d2 | "C7"cG BA | "F"G F3- | F2 zf \
+| "C7"e2 GA | BA/B/ dc | "F"A4 ||
+|: zf f_e \
+| "Bb"d3 f | gf ed | "F"fc AB | [cc]=B/c/ dc \
+| "C7"eG2 A | Bc de | "F"f4 :|
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:92
+T: Pust' vsegda budet solntse
+T: Let there always be sunshine
+O:russia
+C: A.Ostrovski
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: C
+L: 1/8
+K: Dm
+| "Dm"A2BA d4 | "E7"e2fe "A7"A4 | "Dm"A2ff f2ed | "A7"d2^c6 |
+| "F"=c2dc f4 | "C7"g2ag c4 | c2ef g2fg | "Em"a2 "A7"AA || [K:D]
+|: "D"d4 e2f2 | e2d2 A2A2 | d4 e2f2 | "A7"f2e2 A2A2 |
+| e4f2g2 | a2e2 e2f2 |1 "Gm"g4 "A7"d2e2 | "D"f4 "A7"A2A2 :|2 "Gm"g4 "A7"f2e2 | "D"d4 |]
+%%sep 5 5 5cm
+
+
+ 
+
+ 
+X:94
+T:Beskidski
+O:russia
+C:- Rusl -
+M:2/4
+L:1/8
+Q:1/4=130
+K:G
+V:1
+"G" GB dd |ee dd |"D" cc BB |1 "D" AA d2 :|2
+"D" AA "G" G2 |]"D" A2 A2 |A4 || |:"G" BB Bd |
+BB Bd |BB Bd |BA G2 :| |:
+K:F
+"F" AA Ac |AA Ac |AA Ac |AG F2 :|
+K:Dm
+"Dm" D3/2 E/FE |GF ED |"A" E2 A,2 |"D" DD D2 |]
+"Dm" A2 A2 |"A" AG2 E|"Dm" A2 A2 |"A" AG2 E |:
+"Dm" D3/2 E/FE |GF ED |"A" E2 A,2 |1 "D" DD2 D:|2
+D "D" DD2 || |:"Dm" DE FA |GF ED |"A" F2 E2 |
+|1 B2 A2 :|2 "Dm" EE D2 |]
+M:4/4
+K:D
+"A" A2 G2 F2 E2 || |:"A" A2 G2 F2 E2 |"D" FA GF ED CD |A,D CD ED CD |
+A,D CD EF GF |FA GF ED CD :|"A" BA2 B"D" A GF2 |]
+M:6/4
+"A" AA2 G"D" F2 E2 D4 |"A" EE2 DC2 B,2 A,4  |:
+M:2/4
+"A" A,B, CD |EF G2 |BA2 B|"D" A2 G2 |
+F4 :|
+
+
+ 
+
+ 
+X:96
+T:Waltzin' to Mongolia
+O:russia
+A:Mongoli\"e
+M:3/4
+L:1/4
+K:Dm
+\def\QR{\lower4pt\hbox{\kern3pt\musicsmallfont\char62}}
+"Dm" A3-|A F G| A3-| A3| "A7" A^ce| f2 e|"Dm" d3-|d3|
+|Adf| "A7" ^c2d| "Gm6" edB| e2d| "A7" A^ce| f2 e|"Dm" d3-|1d3
+:|2 "Dm" d "\QR" A/2B/2 "\QR" A/2B/2 |
+"A7" AE2-|EFG| "Dm" F3-|F c/2d/2 c/2d/2| "C" c G2-|GAB|"Dm" A3-|A3|
+"Dm" dA2-|A^GA|"Gm6" cB2-|B AG|"Bb" F2A|"A7" E2A|"Dm" D3-|D3|:
+"D7" d2 _e| d2 c| "Gm" c2B| BAB| "C" c2d|c2B| "Dm" B2A|A^GA|
+"Dm" d A2-| "m" A "\QR" ^G "\QR" A|
+"Gm6" c B2-| "m6" B "\QR" A "\QR" G|
+"Bb" F2A| "A7"E2A| "Dm" D3-|D3:|
+
+
+ 
+
+ 
+X:97
+T: Snowstorm
+O:russia
+Z: John Chambers <jc@trillian.mit.edu>
+M: C|
+L: 1/8
+K: Em
+| "Am"F4 F4 | "Em"G2 G2 F2 E2 \
+| "B7"^D2 B,2 ^C2 D2 | "Em"E6 z2 |
+| "Am"F2 A2 G2 F2 | "Em"B2 G2 F2 E2 \
+| "B7"^D2 B,2 ^C2 D2 | "Em"E4 "D7"D4 ||
+|: "G"G2 B2 Hd2 B2 | "D7"A2 Bc B2 "B7"A2 \
+| "Em"G2 AG F2 E2 | "B7"^D4 B,4 |
+| "Em"E2 B2 A2 G2 | "Am"G4 F4 \
+| "B7"B,2 B,2 ^C2 ^D2 |1 "Em"E4 "D7"D4 :|2 "Em"E6 z2 |]
+
+
+ 
+
+ 
+X:98
+T: Black Eyes
+O:russia
+Z: John Chambers <jc@trillian.mit.edu>
+M: 3/4
+L: 1/8
+K: Em
+z2 ^A2 B2 \
+| "B7"c3  B B2 | z2 ^A2 B2 | "Em"c3 B B2 | z2  B2 e2 \
+| "B7"e3 ^d d2 | z2  f2 g2 | "Em"f3 e e2 | z2  e2 g2 |
+| "Am"g3  f c2 | z2  g2 f2 | "Em"f3 e B2 | z2 ^A2 B2 \
+| "B7"c3  B B2 | z2  F2 G2 | "Em"F3 E E2 |]
+% otce-nash.abc
+%
+% Typeset this file with the following command:
+% abcm2ps otce-nash.abc -O otce-nash.ps
+%
+% This edition is formally not complete, as it needs more
+% decorations currently not supported by abcm2ps.
+%
+%%topspace       1.5cm
+%%titlefont      Helvetica-Bold 18
+%%subtitlefont   Helvetica-Bold 14
+%%composerfont   Helvetica 12
+%%composerspace  0.7cm
+%%musicspace     1.5cm
+%
+
+
+ 
+
+ 
+X:99
+T: Moscow Evenings
+O:russia
+M: 2/4
+L: 1/8
+K: Bm
+| "Bm"Bd fd | "Em"e2 dc | "F7"f2 e2 | "Bm"B4 \
+| "D"df aa | "G"b2 "A7"ag | "D"f4 |: "C7"^g2 "F7"^a2 |
+| "Bm"c'b f2- | f c2B | "Em"fe g2- | g2 ag \
+| "Bm"f2 ed | "F7"f2 e2 |1 "Bm"B4 :|2 "Bm"[b4-d2-] | [bd]z3 |]
+
+
+ 
+
+ 
+X:100
+T: Chrysanthemums Were Blooming
+O:russia
+R: waltz
+M: 3/4
+L: 1/4
+K: Am
+"Intro"[|]EE \
+| "Am"[c3A3]- | [cA]FD | "Dm"B3- | BBA \
+| "E7"^GFE | DCB, | "Am"A,3- | A, ||
+|: E^D \
+"A"|"Am"[FD]>[EC][EC]- | [EC]EA | "Dm"E>DD- | D^CD \
+| "E7"F>EE- | EEB, | "Am"F>EE- | E^DE |
+| "A7"A>^G=G- | G_B,A, | "Dm"G>EF- | FEF \
+| "Am"EEE | "B7"^DB,A, | "E"E3- | E :|
+|: EE \
+"B"| "Am"[c3A3]- | [cA]FD | "Dm"B3- | BDE \
+| "E7"^G2G- | G^F^G | "Am"A3- | AAA |
+| "F"A3- | ABA | "Dm"c2B- | BDE \
+| "E7"^G3- | G^F^G | "Am"A3- | "fine"A :| [K:F]
+"C7"AG \
+"C1"| "F"G2F- | FE>F | "Gm"c2B- | BB^F \
+| "C7"A2G- | G^F>G | "F"c3- | "C7"cde |
+| "F"[f2A2][eG] | "D7"[d2^F2][AF] | "Gm"[c2A2][BG]- | [BG][BG][fd] \
+| "C7"[e2c2][A^F] | [B2G2][eB] | "F"[d2A2][cA]- | "C7"cAG |
+"C2"| "F"G2F- | FE>F | "Gm"c2B- | BB^F \
+| "C7"A2G- | G^F>G | "F"c3 | "Dm"def |
+| "G7"[a2f2][fd] | "E7"[d=B][c^G][=BG] | "F"d2c | "Dm"f"A"g"D7"a \
+| "Gm7"b3 | "C7"a2a | "F"f3- | "d.C."f |]
+
+
+ 
+
+ 
+X:101
+T: Odinokaya Garmon'
+O:russia
+C: M.Isakovsky
+N: Words by B.Mokrousov
+M: 3/4
+L: 1/4
+K: Em
+|: "Em"EG | BGE | "B7"^DFA | "Em"cB2- \
+| BEF | "C"GEC | "B7"B,^DF | "Em"G3- | GAB |
+| "Am"ccG | "D7"FFA | "G"BB2- | "C"BEG \
+| "Am"AAG | "B7"FEF | "Em"G3- | GAB |
+| "Am"ccG | "D7"ddc | "G"BB2- | "C"BEB \
+| "Am"AAG | "B7"FE^D | "Em"E3- | E |]
+
+
+ 
+
+ 
+X:102
+T: Mantsurian kukkuloilla
+O:russia
+C: J.A.Schatrow
+R: waltz
+M: 3/4
+L: 1/4
+K: Bm
+B,/C/D/E/ \
+"A"| "Bm"F3- | FDE | "F7"F3- | F3 | EF^A | d2c \
+| "Bm"B3- | B3 | "Bm"FBd | ^A2B | "Em"cBG | c2B |
+| "Bm"FBc | "F7"d2c | "Bm"B3- | "ginf"B \
+"B":: F/=E/F/G/ | "F7"F>CC | zDE \
+| "Bm"F3- | F A/^G/A/B/ | "A7"A>EE | ZFG |
+| "D"A3- | AA"F7"^A | "Bm"B>FF | ((3F/G/F/) =EF \
+| "Em"A2G- | GDE | "Bm"FED | "F7"C2D | "Bm"B,3- | B, \
+"A":| B,/C/D/E/ | "Bm"F3- |
+| FDE | "F7"F3- | F3 | EF^A | d2c | "Bm"B3- | B3 | "Bm"FBd \
+| ^A2B | "Em"cBG | c2B | "Bm"FBc | "F7"d2c | "Bm"B3- | B ||
+"C"|: B^A | "B7"B2=c | B2A | "Em"A2G | GFE | "A7"A2B | A2G \
+| "D"GF=E | "F7"F3 | "Bm"B,DF | Bd>c | "Em"BAG \
+| B2G | "Bm"DFE | "F7"C2D | "Bm"B,3- | B, :|
+
+
+ 
+
+ 
+X:103
+T: Uralin pihlaja
+T: Ural Rowan Tree
+O:russia
+C: E.Rodygin
+M: 6/8
+L: 1/8
+K: Em
+|: "Em"E2E G2E | "Am"A3 E2F \
+| "Em"G2F "B7"B2A | "Em"E3- E3 \
+| "Em"E2B B2G | "Am"A3 E2F \
+| "G"GFG "D7"B2A | "G"G3- G3 |
+| "G"d2d "E7"dcB | "Am"A3 E2E \
+| "D7"F2G AGA | "G"B3- "B7"B3 \
+| "Em"G2G GAB | "Am"d3 c2B \
+| "B7"A2F B2A | "Em"E3- E3 ||
+|: "E7"E2[ec] [ec]>[dB][ec] | "Am"[d3B3] [c3A3] \
+| "D7"[c2A2][dB] [ec]>[dB][cA] | "G"[B3G3]- "B7"[B3F3] \
+| "Em"[G2E2][GE] [GE][AF][BG] | "Am"[d3B3] [c2A2][BG] \
+| "B7"[A2F2][F^D] [B2G2][AF] |1 "Em"[G3E3]- [G3E3] :|2 "Em"[e3G3E3]- [e3G3E3] :|
+
+
+ 
+
+ 
+X:104
+T: Ural Rowan Tree
+O:russia
+C: E.Rodygin
+M: 6/8
+L: 1/8
+K: Em
+|: "Em"E2E G2E | "Am"A3 E2F \
+| "Em"G2F "B7"B2A | "Em"E3- E3 \
+| "Em"E2B B2G | "Am"A3 E2F \
+| "G"GFG "D7"B2A | "G"G3- G3 |
+| "G"d2d "E7"dcB | "Am"A3 E2E \
+| "D7"F2G AGA | "G"B3- "B7"B3 \
+| "Em"G2G GAB | "Am"d3 c2B \
+| "B7"A2F B2A | "Em"E3- E3 ||
+|: "E7"E2[ec] [ec]>[dB][ec] | "Am"[d3B3] [c3A3] \
+| "D7"[c2A2][dB] [ec]>[dB][cA] | "G"[B3G3]- "B7"[B3F3] \
+| "Em"[G2E2][GE] [GE][AF][BG] | "Am"[d3B3] [c2A2][BG] \
+| "B7"[A2F2][F^D] [B2G2][AF] |1 "Em"[G3E3]- [G3E3] :|2 "Em"[e3G3E3]- [e3G3E3] :|
+
+
+ 
+
+ 
+X:105
+T: Pretzels
+O:russia
+Z: John Chambers <jc@trillian.mit.edu>
+M: 2/4
+L: 1/8
+K: Em
+zB, EF \
+| "Em"G2 FE- | EA GF | G2 FE- | EE GB \
+| e2 ^de- | eg fe | B4 | zB c^c |
+| "G"d2 cB- | Be dc | B2 AG- | GB dc \
+| "Em"B2 AG- | GA "B7"GF | "Em"E4 ||
+|| "D7"zD GA \
+| "G"B2 AG- | Gd _dc | B2 AG- | GD GB \
+| d2 ^cd- | dg fe | "Em"B4 | "B7"zB ef |
+| "Em"g2 fe- | eB dc | B2 AG- | "Em"GB dc \
+| "Em"B2 AG- |1 GA "B7"GF | "Em"E4 :|2 GB "B7"^dB | "Em"e4 |]
+
+
+ 
+
+ 
+X:106
+T: (Pater Noster)
+O:russia
+C: Nikolaj Kedrov Sr.
+M: none
+Z: Edited by Guido Gonzato, 11 October 2000
+L: 1/4
+Q: "Adagio, " 1/4=40 % broken? in abcm2ps
+K: C
+%%staves [ 1 2 3 4 ]
+V: 1 clef=treble name="Soprano" sname="S"
+V: 2 clef=treble name="Alto"    sname="A"
+V: 3 clef=treble name="Tenor"   sname="T"
+V: 4 clef=bass   name="Bass"    sname="B"
+%
+V: 1
+E2 E E4 | E E E E E E E  E4    | F F F F G2 G G G2     |
+w: ot- ce nash, ie scio ie ti na nie be sah, da sfia ti za i mia tva io
+V: 2
+C2 C C4 | C C C C C C C C2 B,2 | B, B, B, B, D2 C C C2 |
+w: ot- ce nash, ie scio ie ti na nie be sah,  da sfia ti za i mia tva io
+V: 3
+G2 G G4 | G G G G G G G G4     | G G G G G2 G G G2     |
+w: ot- ce nash, ie scio ie ti na nie be sah, da sfia ti za i mia tva io
+V: 4
+c2 c c4 | c c c c c c c d4     | d d d d e2 e e e2     |
+w: ot- ce nash, ie scio ie ti na nie be sah, da sfia ti za i mia tva io
+%
+%
+V: 1
+G G G G G2 F F E HF4  | F F2 F2 F2 E G D2 D2   | D D D E F2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+V: 2
+C C C C C2 C C C HC4  | C C2 C2 C2 C C B,2 B,2 | B B B C C2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+V: 3
+G G c _B B2 A A G HA4 | A A2 A2 A2 G G G2 G2   | G G G G A2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+V: 4
+e e e e f2 f f f Hf4  | f f2 e2 d2 e e g2 g2   | g g g e d2 |
+w: da pri i tiet zarst svi- et va- io da bu- diet vo lia tva-ia ia ka na nie be si
+%
+%
+V: 1
+E D2 C2 D2   | E2 E E E E F2 F F2 F F G2     | G G G G G2 F2 F2    |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal- ghi na scia ia
+V: 2
+C B,2 C2 B,2 | C2 C C C C C2 B, B,2 B, B, D2 | C C C C C2 C2 C2    |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal- ghi na scia is
+V: 3
+G G2 A2 G2   | G2 G G G G G2 G G2 G G G2     | G G c _B B2 A2 A2   |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal- ghi na scia ia
+V: 4
+e g2 a2 g2   | c2 c c c c d2 d d2 d d e2     | e e e e f2 (f e) d2 |
+w: i na zsem li. Chliep nash na su shi dash nan nie i a sta vi nam dal ghi na scia-  ia
+%
+%
+V: 1
+F E G D2 D E F2   | F F F (E2 C) (D2 C2) D      | E E E |
+w: ka ie im ghi a sta vlia em dal ji da- am na - scim i nie ve
+V: 2
+C C C B,2 B, C C2 | C C C (C2 A,) (B,2 A,2) B,2 | C C C |
+w: ka je im ghi a sta vlia em dal ji da- am na - scim i nie ve
+V: 3
+G G G G2 G G A2   | A A A G3 (G E) G            | G G G |
+w: ka je im ghi a sta vlia em dal ji dam na-  scim i nie ve
+V: 4
+d e e g2 g e d2   |d d d e3 g2 g2               | c c c |
+w: ka je im ghi a sta vlia em dal ji dam na- scim i nie ve
+%
+%
+V: 1
+(E2 G2) c c B A G2 F2 E2   | D D G2 D G  | C D E4 E2 E4        |]
+w: di-  nas vo is ku sce ni e no iz ba vi nas at lu ka va ga.
+V: 2
+E4 E E E F (G C) (C B,) C  | C C C2 C C  | C C (C2 A,2) B,2 C4 |]
+w: di nas vo is ku sce-  ni-  e no iz ba vi nas at lu ka  va ga.
+V: 3
+c4 c c c c (c G) G2 G2     | A A G2 A G2 | A A (G2 E2) G2 G4   |]
+w: di nas vo is ku sce-  ni- e no iz ba vi nas at lu ka-  va ga.
+V: 4
+(c'2 b2) a a g f e2 d2 c2  | f f e2 f e2 | f f c4 g2 c4        |]
+w: di-  nas vo is ku sce ni e no iz ba vi nas at lu ka va ga.
+%
+% End of file otce-nash.abc
+
+
+ 
+
+ 
+X:108
+T:Barinya
+O:russia
+Z:H. Tantsyur
+S:A. Humenyuk
+Q:120
+N:According to Humenyuk, the dance Kanava was originaly
+N:Tantsyura under the incorrect name, Barinya
+M:2/4
+L:1/8
+A:village of Zyatkivtsyakh, Vinnyts'kiy, Ukraine
+K:ADor
+agff | g/2f/2e dd | agff | g/2f/2e dd :: \
+ccBB | AAdd | ccBB | AA d2 :|
+
+
+ 
+
+ 
+X:109
+T:Kanava
+O:russia
+T:Barinya
+O:russia
+Z:H. Tantsyur
+S:A. Humenyuk
+Q:120
+N:According to Humenyuk, the dance Kanava was originaly
+N:Tantsyura under the incorrect name, Barinya
+M:2/4
+L:1/8
+A:village of Zyatkivtsyakh, Vinnyts'kiy, Ukraine
+K:ADor
+agff | g/2f/2e dd | agff | g/2f/2e dd :: \
+ccBB | AAdd | ccBB | AA d2 :|
+
+
+ 
+
+ 
+X:113
+T:Kamaryns'ka
+O:russia
+S:A. Humenyuk
+Q:72
+N:Russian Folk Dance collected in Ukraine
+M:2/4
+L:1/16
+A:Dykan'ka, Poltava region, Ukraine
+K:G
+(d2Bd) .c2.A2 | GFGB AGFE | FDEF G2G2 :: \
+GFGB cBcd | cdcB AGFE
+|1 FDEF dcBA :|2 FDEF G2{ABcdef}g2 |.d2.g2 ">"c4 | \
+BdB2 AGA2 | AGA2 BAB2 | BAB2 cBc2 | BAB2 AGA2 |
+AGA2 BAB2 | BAB2 cBc2 | B2d2 cBAG | FDEF G2G2 ||\
+|: d2(Bd) .c2.A2 | GFGB AGFE | FDEF G2G2 :|
+d2{ef}g2 c4 | d2{ef}g2 d2{efg}a2| \
+z2 A2 ">"G4 | g2gg e2ee | \
+d2dd {e}-d2dd | {e}-d2d2 {e}-d4 | \
+d2{ef}g2 ">"c4 | B2d2 cBAG | FDEF G2 |]
+
+
+X:115
+T: Let there always be sunshine
+O:russia
+C: A.Ostrovski
+Z: John Chambers <jc@trillian.mit.edu> http://trillian.mit.edu/~jc/music/
+M: C
+L: 1/8
+K: Em
+| "Em"B,2CB, E4 | "F#7"F2GF "B7"B,4 | "Em"B,2GG G2FE | "B7"E2^D6 |
+| "G"=D2ED G4 | "D7"A2BA D4 | D2FG A2GA | "F#m"B2 "B7"B,B, || [K:E]
+|: "E"E4 F2G2 | F2E2 B,2B,2 | E4 F2G2 | "B7"G2F2 B,2B,2 |
+| F4G2A2 | B2F2 F2G2 |1 "Am"A4 "B7"E2F2 | "E"G4 "B7"B,2B,2 :|2 "Am"A4 "B7"G2F2 | "E"E4 |]
+
+
+ 
+
+ 
+X:116
+T: Russian Sher
+O:russia
+Z: 1997 by John Chambers <jc@trillian.mit.edu>
+M: 2/4
+L: 1/16
+K: Em
+"A" \
+|: B,4 \
+| "Em"E2GG GGGG | AGAB G4 | GFEF GAGF | E2E2 G2E2 | "Em"E2GG GGGG | AGAB G4 | GFEF GAGF | E4 :|
+"B" \
+|| "G"B4 A2B2 | "D7"c2c2 "G"B4 | "D7"A4 E2F2 | "G"G6 c2 | Bcd2- d2d2 | e3d dccB | B3A Bcdc | B6 B2 |
+| "Em"BAAG GFFE | E2F2 G2A2 | BAAG GFFE | E2e2 B3B | BAAG GFFE | E2F2 G2A2 | BAAG GFFE | E6 G2 |
+| FGA4 A2 | A_BAB A3A | "G"GFEF GAGF | G4 G4 | "D7"F2GA _B=cde | =fed=c _BAG=F | "G"GDDG "Dm"G=FFE | "Em"E8 ||
+|| "G"B6 AG | ABG2 D2G2 | dccB BAAG | ABG2 D2G2 | dccB BAAG | dccB BAAG | dccB BAAG | ABG4 G2 |
+| "D"FGA4 A2 | A_BAB A3A | "G"GFEF GAGF | G4 G4 | "D7"F2GA _B=cde | =fed=c _BAG=F | "G"GDDG "Dm"G=FFE | "Em"E8 ||
+"C" \
+|: "Em"e2e2 e4 | g2g2 g4 | "B"f2e2 ^d2e2 | f6 B2 | f2f2 f4 | a2a2 a4 | "Em"g2f2e2g2 | b8 |
+| "Am"z2c'b a2b2 | c'2b2 a4 | "Em"z2e2 f2g2 | bag2 gfe2 | g2 g4 g2 | "B7"gfe2 ^defd | "Em"e8- | e4z4 :|
+"D" \
+|: "G"~d2=cd edcd | g2d2 B2G2 | "D7"A3B cBA2 | "G"B2d6 | "G"~d2=cd edcd | g2d2 B2G2 | "D7"A3B cBA2 |1 "G"G4 :|2 "G".G2 ||
+"E" \
+|: B,2E2F2 | "Em"G3F E4- | E2 A2G2A2 | G3F E4- | E2 B2c2B2 | "B7"A3GF4- | F2 F2G2A2 | "Em"GFE2 B4 | BAG2 GFE2 |
+| "Am"c3BA4- | A2 F2G2A2 | "Em"B3AG4- | G2 B,2E2F2 | G2G4G2 | "B7"GFE2 ^DEFD | "Em"E8- |1 E2 :|2 E4 ||
+"F" \
+K:Am^G
+|: "E".E4 G4 | GFEF G4 | .E4 B4 | BAGA B4 | "Dm"z2 D2E2F2 | E2D4 BA | GABA AGGF | "E"F2E6 :|
+"G" \
+|| "Am"c6 BA | "E"B6 AG | "Am"AGAB cBAG | Addc cBBA | c6 BA | "E"B6 AG | "Am"AGAB cBAG | A2 A6 ||
+"H" \
+|: "E"d3c Bcd2- | dcBc dcBA | B3A GAB2- | BAGA BAGF | G3F EFG2- | GFEF GFED | "Dm"DEFG BAGF | "E"E8 :|
+
+
+ 
+
+ 
+X:119
+T:Karapyet
+O:russia
+Z:H. Tantsyur
+S:A. Humenyuk
+Q:120
+M:2/4
+L:1/8
+A:village of Zyatkivtsi, Vinnyts'kiy, Ukraine
+K:AMin
+E A2 A | ^G2 {^F}E2 | E B2 d | c>B A2 |: \
+c/2d/2eee | fe d2 | d/2e/2fff | gf e2 | \
+c/2B/2c c/2B/2c | d>c B2 | e>dcB | A2 A2 :|
+P:Ending Variation
+|: c/2d/2e c/2d/2e | de f2 | \
+B/2c/2d B/2c/2d | cd e2 | \
+A/2B/2c A/2B/2c | Bc d2 | e>dcB | a2 A2 :|
+
+
+ 
+
+ 
