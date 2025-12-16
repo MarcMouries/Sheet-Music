@@ -1,12 +1,16 @@
 \version "2.19.53"
 
-\header {
-  title = "Minuet in G"
-  composer = "L. V. Beethoven (1770–1827) "
-  country = "Germany"
-  style = "minuet"
-  difficulty = "Level 1-2 - Beginner"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Minuet in G"
+      composer = "L. V. Beethoven (1770–1827) "
+      country = "Germany"
+      style = "minuet"
+      difficulty = "Level 1-2 - Beginner"
+    }
+  #})
 
 \include "../common/common-header.ily"
 

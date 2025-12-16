@@ -1,15 +1,19 @@
 \version "2.24.0"
 \language "english"
 
-\header {
-  title = "Spring (La Primavera)"
-  subtitle = "From The Four Seasons - Opening Theme"
-  composer = "Antonio Vivaldi (1678-1741)"
-  country = "Italy"
-  opus = "Op. 8, No. 1"
-  style = "concerto"
-  difficulty = "Level 3 - Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Spring (La Primavera)"
+      subtitle = "From The Four Seasons - Opening Theme"
+      composer = "Antonio Vivaldi (1678-1741)"
+      country = "Italy"
+      opus = "Op. 8, No. 1"
+      style = "concerto"
+      difficulty = "Level 3 - Intermediate"
+    }
+  #})
 
 \include "../common/common-header.ily"
 

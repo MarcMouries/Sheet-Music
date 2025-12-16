@@ -1,16 +1,19 @@
 \version "2.19.49"
 \include "english.ly"
 
-
-\header {
-  title = "Badinerie"
-  subtitle = "From Orchestral Suite No. 2 in B minor"
-  composer = "J. S. Bach (1685-1750)"
-  country = "Germany"
-  opus = "BWV 1067"
-  style = "suite movement"
-  difficulty = "Level 4-5 - Advanced"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Badinerie"
+      subtitle = "From Orchestral Suite No. 2 in B minor"
+      composer = "J. S. Bach (1685-1750)"
+      country = "Germany"
+      opus = "BWV 1067"
+      style = "suite movement"
+      difficulty = "Level 4-5 - Advanced"
+    }
+  #})
 
 \include "../common/common-header.ily"
 

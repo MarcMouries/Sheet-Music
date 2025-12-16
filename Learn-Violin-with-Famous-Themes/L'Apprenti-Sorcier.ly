@@ -4,13 +4,17 @@
 
 \version "2.19.5"
 
-\header {
-  title = "L'Apprenti Sorcier / The Sorcerer's Apprentice"
-  subtitle = "Scherzo after a ballad by Goethe"
-  composer = "Paul Dukas"
-  country = "France"
-  difficulty = "Level 3 - Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "L'Apprenti Sorcier / The Sorcerer's Apprentice"
+      subtitle = "Scherzo after a ballad by Goethe"
+      composer = "Paul Dukas"
+      country = "France"
+      difficulty = "Level 3 - Intermediate"
+    }
+  #})
 
 \include "../common/common-header.ily"
 

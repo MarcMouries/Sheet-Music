@@ -1,14 +1,19 @@
 \version "2.24.0"
 \language "english"
 
-\header {
-  title = "Canon in D"
-  composer = "Johann Pachelbel (1653-1706)"
-  country = "Germany"
-  opus = "T. 337"
-  style = "baroque"
-  difficulty = "Level 2-3 - Early Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Canon in D"
+      composer = "Johann Pachelbel (1653-1706)"
+      country = "Germany"
+      opus = "T. 337"
+      style = "baroque"
+      difficulty = "Level 2-3 - Early Intermediate"
+    }
+  #})
+
 
 \include "../common/common-header.ily"
 

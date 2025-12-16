@@ -1,14 +1,19 @@
 \version "2.24.0"
 \language "english"
 
-\header {
-  title = "Toreador Song"
-  subtitle = "From Carmen"
-  composer = "Georges Bizet (1838-1875)"
-  country = "France"
-  style = "opera"
-  difficulty = "Level 2-3 - Early Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Toreador Song"
+      subtitle = "From Carmen"
+      composer = "Georges Bizet (1838-1875)"
+      country = "France"
+      style = "opera"
+      difficulty = "Level 2-3 - Early Intermediate"
+    }
+  #})
+
 
 \include "../common/common-header.ily"
 

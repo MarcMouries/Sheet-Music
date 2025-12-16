@@ -1,12 +1,16 @@
 \version "2.19.1"
 \language "english"
-\header {
-  title = "Symphony No.40 in G minor, K.550"
-  composer = "Mozart, Wolfgang Amadeus"
-  country = "Austria"
-  difficulty = "Level 2 - Early Intermediate"
-}
 
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Symphony No.40 in G minor, K.550"
+      composer = "Mozart, Wolfgang Amadeus"
+      country = "Austria"
+      difficulty = "Level 2 - Early Intermediate"
+    }
+  #})
 
 MozartSymphony = \relative c'' {
     \time 4/4

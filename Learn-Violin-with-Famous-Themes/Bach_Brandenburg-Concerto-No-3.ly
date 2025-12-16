@@ -1,14 +1,18 @@
 \version "2.19.54"
 \language "english"
 
-\header {
-  title = "Brandenburg Concerto No. 3"
-  composer = "Johann Sebastian Bach"
-  country = "Germany"
-  opus = "BWV 1048"
-  genre = "Classical"
-  difficulty = "Level 3-4 - Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Brandenburg Concerto No. 3"
+      composer = "Johann Sebastian Bach"
+      country = "Germany"
+      opus = "BWV 1048"
+      genre = "Classical"
+      difficulty = "Level 3-4 - Intermediate"
+    }
+  #})
 
 \include "../common/common-header.ily"
 

@@ -1,15 +1,20 @@
 \version "2.24.0"
 \language "english"
 
-\header {
-  title = "Rondo alla Turca (Turkish March)"
-  subtitle = "From Piano Sonata No. 11"
-  composer = "Wolfgang Amadeus Mozart (1756-1791)"
-  country = "Austria"
-  opus = "K. 331"
-  style = "rondo"
-  difficulty = "Level 3 - Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Rondo alla Turca (Turkish March)"
+      subtitle = "From Piano Sonata No. 11"
+      composer = "Wolfgang Amadeus Mozart (1756-1791)"
+      country = "Austria"
+      opus = "K. 331"
+      style = "rondo"
+      difficulty = "Level 3 - Intermediate"
+    }
+  #})
+
 
 \include "../common/common-header.ily"
 

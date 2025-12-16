@@ -1,15 +1,19 @@
 \version "2.24.0"
 \language "english"
 
-\header {
-  title = "Eine kleine Nachtmusik"
-  subtitle = "Allegro (1st movement excerpt)"
-  composer = "Wolfgang Amadeus Mozart (1756-1791)"
-  country = "Austria"
-  opus = "K. 525"
-  style = "serenade"
-  difficulty = "Level 2 - Early Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Eine kleine Nachtmusik"
+      subtitle = "Allegro (1st movement excerpt)"
+      composer = "Wolfgang Amadeus Mozart (1756-1791)"
+      country = "Austria"
+      opus = "K. 525"
+      style = "serenade"
+      difficulty = "Level 2 - Early Intermediate"
+    }
+  #})
 
 \include "../common/common-header.ily"
 

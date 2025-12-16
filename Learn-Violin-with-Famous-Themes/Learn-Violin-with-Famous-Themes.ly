@@ -130,6 +130,11 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     composer = "L. V. Beethoven (1770–1827)"
   }
   \tocItem \markup { "1. Beethoven - Ode to Joy (Level 1)" }
+
+  \markup { \vspace #1 \bold "Theme" }
+  \Beethoven_OdeToJoy_Theme
+
+  \markup { \vspace #2 \bold "Theme Duet" }
   \Beethoven_OdeToJoy
 }
 

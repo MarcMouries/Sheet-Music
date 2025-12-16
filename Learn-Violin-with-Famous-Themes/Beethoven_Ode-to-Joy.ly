@@ -1,14 +1,18 @@
 \version "2.19.49"
 
-\header {
-  title = "Ode to Joy"
-  subtitle = "From Symphony No. 9"
-  composer = "L. V. Beethoven (1770–1827)"
-  country = "Germany"
-  opus = "Op. 125"
-  style = "hymn"
-  difficulty = "Level 1 - Beginner"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Ode to Joy"
+      subtitle = "From Symphony No. 9"
+      composer = "L. V. Beethoven (1770–1827)"
+      country = "Germany"
+      opus = "Op. 125"
+      style = "hymn"
+      difficulty = "Level 1 - Beginner"
+    }
+  #})
 
 \include "../common/common-header.ily"
 
@@ -52,6 +56,14 @@ global = {
 	\bar "|."
 }
 
+% Simple melody version (Theme)
+Beethoven_OdeToJoy_Theme = \context Staff = upper<<
+	\global
+	\clef "violin"
+	\sop
+>>
+
+% Duet version (Theme Duet)
 Beethoven_OdeToJoy = \context Staff = upper<<
 	\global
 	\clef "violin"
@@ -60,3 +72,19 @@ Beethoven_OdeToJoy = \context Staff = upper<<
 	   \context Voice = "alto" \alto
 	  >>
 >>
+
+% Only include score blocks when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \score {
+      \Beethoven_OdeToJoy_Theme
+      \layout { }
+      \header { piece = "Theme" }
+    }
+
+    \score {
+      \Beethoven_OdeToJoy
+      \layout { }
+      \header { piece = "Theme Duet" }
+    }
+  #})

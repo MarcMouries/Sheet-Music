@@ -1,13 +1,17 @@
 \version "2.19.25"
 \language "english"
 
-\header {
-  title = "Für Elise"
-  composer = "Ludwig van Beethoven"
-  country = "Germany"
-  style = "bagatelle"
-  difficulty = "Level 2-3 - Early Intermediate"
-}
+% Only set header when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \header {
+      title = "Für Elise"
+      composer = "Ludwig van Beethoven"
+      country = "Germany"
+      style = "bagatelle"
+      difficulty = "Level 2-3 - Early Intermediate"
+    }
+  #})
 
 \include "../common/common-header.ily"
 
