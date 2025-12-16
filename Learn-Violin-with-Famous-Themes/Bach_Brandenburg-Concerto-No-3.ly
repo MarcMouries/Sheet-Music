@@ -7,6 +7,7 @@
   country = "Germany"
   opus = "BWV 1048"
   genre = "Classical"
+  difficulty = "Level 3-4 - Intermediate"
 }
 
 \include "../common/common-header.ily"
@@ -32,11 +33,15 @@ Bach_Brandenburg_Concerto_Three  =  \relative c'' {
  b, g' cs, g' d fs d g d a' d, b' d, c'! d, d' |
  b4 a8 g d4 fs g fs8 e d c b a |
  b4 a8 g d'4 d g,2  
- r2 
+ r2
 }
 
-\score {
-   \new Staff { \Bach_Brandenburg_Concerto_Three }
-  \layout { }  
-  \header { piece = "Bach Brandenburg Concerto Three" }
-}
+% Only include score block when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \score {
+      \new Staff { \Bach_Brandenburg_Concerto_Three }
+      \layout { }
+      \header { piece = "Bach Brandenburg Concerto Three" }
+    }
+  #})

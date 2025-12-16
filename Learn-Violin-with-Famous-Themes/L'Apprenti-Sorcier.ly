@@ -4,13 +4,13 @@
 
 \version "2.19.5"
 
-%\header {
-%   title    = "L'Apprenti Sorcier / The Sorcerer's Apprentice"
-%  subtitle = "Scherzo after a ballad by Goethe"
-%  composer = "Paul Dukas"
+\header {
+  title = "L'Apprenti Sorcier / The Sorcerer's Apprentice"
+  subtitle = "Scherzo after a ballad by Goethe"
+  composer = "Paul Dukas"
   country = "France"
-%
-%}
+  difficulty = "Level 3 - Intermediate"
+}
 
 \include "../common/common-header.ily"
 
@@ -20,7 +20,7 @@
 
 soli = \markup { \upright Soli }
 
-The_Sorcerers_Apprentice = \relative c' {
+Dukas_Sorcerer = \relative c' {
   \key f \minor
   \time 3/8
   f8-. r r   |  r4. |

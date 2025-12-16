@@ -9,6 +9,7 @@
   country = "Germany"
   opus = "BWV 1067"
   style = "suite movement"
+  difficulty = "Level 4-5 - Advanced"
 }
 
 \include "../common/common-header.ily"
@@ -58,14 +59,15 @@ Bach_Badinerie = {
  \acciaccatura {  cs''8 (  }  b'4 )  \bar "|."
 }
 
-
-
-
-\score {
-   \new Staff { \Bach_Badinerie }
-  \layout { }  
-  \header { piece = "Bach Badinerie" }
-}
+% Only include score block when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \score {
+      \new Staff { \Bach_Badinerie }
+      \layout { }
+      \header { piece = "Bach Badinerie" }
+    }
+  #})
 
 %{
 convert-ly (GNU LilyPond) 2.19.53  convert-ly: Processing `'...

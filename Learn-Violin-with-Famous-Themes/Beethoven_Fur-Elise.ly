@@ -6,6 +6,7 @@
   composer = "Ludwig van Beethoven"
   country = "Germany"
   style = "bagatelle"
+  difficulty = "Level 2-3 - Early Intermediate"
 }
 
 \include "../common/common-header.ily"
@@ -16,7 +17,7 @@ global = {
   \tempo 4=100
 }
 
-FurElise = \relative c'' {
+Beethoven_FurElise = \relative c'' {
    \time 3/8
  \partial 8 e16\pp^\markup { \bold "Poco moto." } ds e ds e b d c a8 r16 c, e a b8 r16 e, gs b
  c8 r16 e, e' ds e ds e b d c a8 r16 c, e a b8 r16 e, c' b  a4

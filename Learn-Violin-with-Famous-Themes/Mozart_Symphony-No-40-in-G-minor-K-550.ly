@@ -4,10 +4,11 @@
   title = "Symphony No.40 in G minor, K.550"
   composer = "Mozart, Wolfgang Amadeus"
   country = "Austria"
+  difficulty = "Level 2 - Early Intermediate"
 }
 
 
-Mozart_Symphony_No_Forty_in_G_minor = \relative c'' {
+MozartSymphony = \relative c'' {
     \time 4/4
   \key bf \major
   r2 r4 ef8-4( d) 
@@ -26,11 +27,15 @@ Mozart_Symphony_No_Forty_in_G_minor = \relative c'' {
   a4( c fs, a)
   g4 bf a8 g f ef
   d1 cs1 d1
-  
+
 }
 
-\score {
-    \new Staff { \Mozart_Symphony_No_Forty_in_G_minor }
-  \layout { }  
-  \header { piece = "Romanze" }
-}
+% Only include score block when compiling standalone (not as part of a book)
+#(if (not (defined? 'compilingBook))
+  #{
+    \score {
+      \new Staff { \MozartSymphony }
+      \layout { }
+      \header { piece = "Romanze" }
+    }
+  #})

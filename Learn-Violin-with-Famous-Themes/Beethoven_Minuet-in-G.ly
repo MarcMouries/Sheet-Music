@@ -5,6 +5,7 @@
   composer = "L. V. Beethoven (1770–1827) "
   country = "Germany"
   style = "minuet"
+  difficulty = "Level 1-2 - Beginner"
 }
 
 \include "../common/common-header.ily"
@@ -48,7 +49,7 @@ global = {
 	\bar "|."
 }
 
-OdeToJoy = \context Staff = upper<< 
+Beethoven_MinuetInG = \context Staff = upper<<
 	\global
 	\clef "violin"
 	  <<

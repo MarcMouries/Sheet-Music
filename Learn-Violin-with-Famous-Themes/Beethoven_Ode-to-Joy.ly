@@ -7,6 +7,7 @@
   country = "Germany"
   opus = "Op. 125"
   style = "hymn"
+  difficulty = "Level 1 - Beginner"
 }
 
 \include "../common/common-header.ily"
@@ -14,6 +15,7 @@
 sop =  \transpose c c'{
 	\voiceOne
 	b4 b c' d' | d' c' b a | g g a b | b4. a8 a2 \bar "||"
+	\break
 	b4 b c' d' | d' c' b a | g g a b | a4. g8 g2 \bar "||"	
 	a4 a b g | a  b8[( c']) b4 g | a  b8[( c']) b4 a | g a d2 \bar "||"
 	b4 b c' d' | d' c' b a | g g a b | a4. g8 g2 |
@@ -50,7 +52,7 @@ global = {
 	\bar "|."
 }
 
-OdeToJoy = \context Staff = upper<< 
+Beethoven_OdeToJoy = \context Staff = upper<<
 	\global
 	\clef "violin"
 	  <<
