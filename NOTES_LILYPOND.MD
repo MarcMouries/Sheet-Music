@@ -1,10 +1,138 @@
 # NOTES LILYPOND
 
+## Octave Notation in LilyPond
+
+**IMPORTANT:** Understanding LilyPond's octave notation system:
+
+- `c` = C below middle C (one octave below middle C)
+- `c'` = middle C (the C in the middle of the piano keyboard)
+- `c''` = C above middle C (one octave above middle C)
+- `c'''` = C two octaves above middle C
+
+### For Violin in First Position:
+- Open strings: `g`, `d'`, `a'`, `e''`
+- G string: `g` (open) to `c'` (4th finger)
+- D string: `d'` (open) to `g'` (4th finger)
+- A string: `a'` (open) to `d''` (4th finger)
+- E string: `e''` (open) to `a''` (4th finger)
+
+### For Violin in Third Position:
+- D string: `g'` (1st finger) to `c''` (4th finger)
+- A string: `d''` (1st finger) to `g''` (4th finger)
+- E string: `a''` (1st finger) to `d'''` (4th finger)
+
+**Example - "You Are My Sunshine":**
+The melody includes `e''` which is NOT a high note on the E string, but rather:
+- E on the A string, 3rd position, 2nd finger
+- OR the open E string (but in context, it's played in 3rd position)
+- The tune is good for learning 3rd position because it uses the comfortable pattern: `d'` (open D string), `g'` (1st finger), `a'` (2nd finger), `b'` (3rd finger) on the D string
+
 ## Setting the staff size
 
 ````bash
 #(set-global-staff-size 14)
 ````
+
+## Multi-lines Labels for Notes with Perfect Alignment
+
+To create reference charts with labels (like "Note names:" and "LilyPond:") that align perfectly with lyrics under staff notes:
+
+### The Problem
+When displaying note names or notation references under staff notes, you need:
+- Labels positioned on the left side
+- Perfect alignment of text under notes
+- Colons in labels vertically aligned
+- No overlap between labels and note letters
+- Proper page margins so labels are visible
+
+### The Solution: instrumentName on Lyrics contexts
+
+Use the `Instrument_name_engraver` on Lyrics contexts to position labels, with careful margin and spacing settings:
+
+```lilypond
+\version "2.24.0"
+
+\paper {
+  left-margin = 35\mm  % Ensure labels fit within printable area
+}
+
+melody = {
+  \override Score.BarNumber.break-visibility = ##(#f #f #f)
+  g1 d' a' e''
+  \bar "|."
+}
+
+noteNames = \lyricmode {
+  G D A E
+}
+
+lilypondNotation = \lyricmode {
+  g d' a' "e''"
+}
+
+\score {
+  <<
+    \new Staff {
+      \clef treble
+      \melody
+    }
+    \new Lyrics \with {
+      \override LyricText.self-alignment-X = #CENTER
+      \consists "Instrument_name_engraver"
+      \override InstrumentName.X-offset = #2
+      instrumentName = \markup \line {
+        \pad-to-box #'(0 . 11) #'(0 . 0)
+        \right-align \bold "Note names:"
+      }
+      shortInstrumentName = \markup \bold "Note:"
+    } \lyricsto "" {
+      \noteNames
+    }
+    \new Lyrics \with {
+      \override LyricText.font-family = #'typewriter
+      \override LyricText.self-alignment-X = #CENTER
+      \consists "Instrument_name_engraver"
+      \override InstrumentName.X-offset = #2
+      instrumentName = \markup \line {
+        \pad-to-box #'(0 . 11) #'(0 . 0)
+        \right-align \bold "LilyPond:"
+      }
+      shortInstrumentName = \markup \bold "Lily:"
+    } \lyricsto "" {
+      \lilypondNotation
+    }
+  >>
+  \layout {
+    indent = 15\mm  % Space between labels and staff
+    \context {
+      \Staff
+      \remove "Time_signature_engraver"
+    }
+  }
+}
+```
+
+### Key Components Explained
+
+1. **Page margins**: `left-margin = 35\mm` provides enough space for labels within the printable area
+
+2. **Instrument name engraver**: `\consists "Instrument_name_engraver"` adds instrument name capability to Lyrics contexts
+
+3. **X-offset adjustment**: `\override InstrumentName.X-offset = #2` shifts labels right to stay within margins
+
+4. **Colon alignment**: `\pad-to-box #'(0 . 11) #'(0 . 0) \right-align` creates a fixed-width box (11 units) with right-aligned text, ensuring colons line up vertically
+
+5. **Staff indent**: `indent = 15\mm` controls horizontal space between labels and staff (not too wide, not too narrow)
+
+6. **Automatic lyrics alignment**: `\lyricsto ""` uses LilyPond's automatic lyrics system for perfect note-to-syllable alignment
+
+### Result
+- Labels appear on the left with colons perfectly aligned
+- Note letters automatically align under their staff notes
+- No overlap or clipping
+- Professional, clean appearance
+
+See `Lilypond_How-to/Notes-Lilypond-Violin.ly` and `Lilypond_How-to/Notes-Lilypond-Violin-Comparison.ly` for working examples.
 
 ## Conditional Compilation - Dual-Purpose Part Files
 

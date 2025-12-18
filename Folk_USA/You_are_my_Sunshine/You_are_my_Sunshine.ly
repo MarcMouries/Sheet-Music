@@ -13,36 +13,35 @@
 \include "../../common/common-header.ily"
 
 
-Melody = \relative c'' {
+Melody = {
   \clef "treble"
   \key g \major
   \time 4/4
   \partial 2
-  r8 d,8-0 g8-1 a8
+  r8 d'8-0 g'8-1 a'8
   \repeat volta 3 {
-    b4  b4  ~ b8 b8 as8 b8
-    | g4  g4  ~ g8 g8 a8 b8
-    | c4  e4    d4 c4
-    | b2        r8 g8 a8 b8
-    | c4  e4  ~ e8 e8 d8 c8
-    | b4  g4  ~ g4 g8 a8
-    | b4. c8    a4. b8
-    | g2        r8 d8 g8 a8
-    | b4  b4    r8 b8 as8 b8
-    | g4  g4    r8 g8 a8 b8
-    | c4  e4 ~  e8 e8 d8 c8
-    | b2        r8 g8 a8 b8
-    | c4  e4  ~ e8 e8 d8 c8
-    | b4  g4  ~ g4 g8 a8
-    | b4. c8    a4 a8 b8
+    | b'4  b'4  ~ b'8 b'8 as'8 b'8
+    | g'4  g'4  ~ g'8 g'8 a'8 b'8
+    | c''4  e''4    d''4 c''4
+    | b'2        r8 g'8 a'8 b'8
+    \break
+    | c''4  e''4  ~ e''8 e''8 d''8 c''8
+    | b'4  g'4  ~ g'4 g'8 a'8
+    | b'4. c''8    a'4. b'8
+    | g'2        r8 d'8 g'8 a'8
+    \break
+    | b'4  b'4    r8 b'8 as'8 b'8
+    | g'4  g'4    r8 g'8 a'8 b'8
+    | c''4  e''4 ~  e''8 e''8 d''8 c''8
+    | b'2        r8 g'8 a'8 b'8
+    \break
+    | c''4  e''4  ~ e''8 e''8 d''8 c''8
+    | b'4  g'4  ~ g'4 g'8 a'8
+    | b'4. c''8    a'4 a'8 b'8
   }
   \alternative {
-    {
-      g2 ~       g8 d8 g8 a8
-    }
-    {
-      g2 ~       g2
-    }
+    { g'2 ~       g'8 d'8 g'8 a'8   }
+    { g'2 ~       g'2    }
   }
 }
 

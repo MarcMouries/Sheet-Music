@@ -28,7 +28,7 @@
 }
   \layout {
     \override LyricText.font-size = #-2
-    \override LyricText.font-name = #"Arial"
+    \override LyricText.font-name = #"Optima"
 
     % Increase spacing between staff lines for better readability
     \context {
@@ -82,11 +82,10 @@
 
   % Custom title formatting - pulls from header fields above
   bookTitleMarkup = \markup {
-    %\override #'(font-name . "Helvetica Neue")
-    \override #'(font-name . "Arial") 
-    
+    \override #'(font-name . "Optima")
+
     \fill-line {
-      \fontsize #-2
+      \fontsize #-1
       \column {
         \line { \fromproperty #'header:notes }
         \line {
@@ -96,11 +95,11 @@
         }
       }
       \center-column {
-        \override #'(font-name . "Garamond Premier Pro Semibold") 
-        \bold \fontsize #2 \smallCaps \fromproperty #'header:title
+        \override #'(font-name . "Optima Bold")
+        \bold \fontsize #6 \smallCaps \fromproperty #'header:title
         \fontsize #-2 \fromproperty #'header:subtitle
       }
-      \fontsize #-2
+      \fontsize #-1
       \column {
         \fromproperty #'header:composer
       }

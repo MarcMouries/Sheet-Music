@@ -28,7 +28,26 @@
 - [ ] Add QR codes linking to performance videos
 - [ ] Create accompanying piano parts for selected pieces
 
-### Future Enhancements
+### Future Enhancements - New Pieces to Add
+
+**High Priority Additions (from "Short Fun Famous Pieces Violin.docx"):**
+- [ ] Saint-Saëns: Le Cygne (The Swan) - Key G, Level 2-3
+  - Famous beautiful melody, good for legato and bow control
+- [ ] Massenet: Thaïs Meditation - Key D, Level 3-4
+  - One of the most famous violin pieces
+- [ ] Dvořák: Humoresque No. 7 - Key G or D, Level 3
+  - Very recognizable, Suzuki Book 3, good for 3rd position
+- [ ] Gershwin: Summertime - Level 2-3
+  - Adds jazz/American style variety to mostly classical collection
+- [ ] Greensleeves (Traditional) - Key Em, Level 1-2
+  - Very famous traditional melody, good for beginners
+
+**Medium Priority Additions:**
+- [ ] Monti: Czardas - Level 4-5 (simplified arrangement)
+- [ ] Dark Eyes (Traditional) - adds Russian folk style
+- [ ] Scott Joplin: The Entertainer - adds ragtime style
+
+**Other Future Pieces:**
 - [ ] Mozart: "Queen of the Night" Aria excerpt
 - [ ] Albinoni: Adagio in G minor
 - [ ] More Bach pieces (Air on G String, etc.)
