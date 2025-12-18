@@ -65,7 +65,27 @@ This document describes the educational value and learning objectives for each p
 
 ---
 
-### 4. Mozart - Symphony No. 40 in G minor (Romanze excerpt)
+### 4. Grieg - Morning Mood (from Peer Gynt Suite)
+**Key:** E Major | **Time:** 6/8 | **Tempo:** Allegretto pastorale (♩. = 48)
+
+**Pedagogical Value:**
+- **First 6/8 pastoral piece**: Introduction to compound meter in a calm, flowing context
+- **Four sharps**: First piece with this many sharps (E major scale)
+- **Lyrical phrasing**: Gentle, singing melody depicting sunrise
+- **Grace notes**: Simple ornaments that add musical interest
+- **Programmatic music**: Describes the sun rising over Norwegian mountains
+- **Norwegian Romantic style**: Introduction to Scandinavian classical music
+
+**What Students Learn:**
+- 6/8 compound meter feel
+- Playing in E major (4 sharps)
+- Legato bow strokes for pastoral character
+- Simple grace note execution
+- Musical imagery and storytelling
+
+---
+
+### 5. Mozart - Symphony No. 40 in G minor (Romanze excerpt)
 **Key:** B♭ Major | **Time:** 4/4 | **Range:** D to A
 
 **Pedagogical Value:**
@@ -83,7 +103,26 @@ This document describes the educational value and learning objectives for each p
 
 ---
 
-### 5. Pachelbel - Canon in D
+### 6. Grieg - Solveig's Song (from Peer Gynt)
+**Key:** A minor | **Time:** 4/4 | **Tempo:** Andante (♩ = 60)
+
+**Pedagogical Value:**
+- **Lyrical Norwegian folk style**: Haunting, melancholic melody
+- **Natural minor key**: A minor with simple finger patterns
+- **Slow, expressive tempo**: Focus on tone production and phrasing
+- **Repeat structure**: Same phrase repeated, building confidence
+- **Emotional depth**: Introduction to Romantic expressiveness
+- **Opera/incidental music**: Originally sung by Solveig character in Ibsen's play
+
+**What Students Learn:**
+- Expressive minor key playing
+- Long, sustained bow strokes
+- Romantic phrasing and rubato
+- Norwegian folk music character
+
+---
+
+### Pachelbel - Canon in D
 **Key:** D Major | **Time:** 4/4 | **Tempo:** Adagio (♩ = 54)
 
 **Pedagogical Value:**
@@ -101,7 +140,7 @@ This document describes the educational value and learning objectives for each p
 
 ---
 
-### 6. Beethoven - Für Elise (Bagatelle excerpt)
+### Beethoven - Für Elise (Bagatelle excerpt)
 **Key:** A minor | **Time:** 3/8 | **Range:** E to E (one octave)
 
 **Pedagogical Value:**
@@ -119,7 +158,7 @@ This document describes the educational value and learning objectives for each p
 
 ---
 
-### 7. Bizet - Toreador Song (from Carmen)
+### Bizet - Toreador Song (from Carmen)
 **Key:** F Major | **Time:** 2/4 | **Tempo:** Allegro moderato (♩ = 120)
 
 **Pedagogical Value:**
@@ -201,7 +240,7 @@ This document describes the educational value and learning objectives for each p
 
 ## Level 3 - Intermediate
 
-### 8. Vivaldi - Spring (from The Four Seasons)
+### Vivaldi - Spring (from The Four Seasons)
 **Key:** E Major | **Time:** 4/4 | **Tempo:** Allegro (♩ = 120)
 
 **Pedagogical Value:**
@@ -220,7 +259,7 @@ This document describes the educational value and learning objectives for each p
 
 ---
 
-### 9. Mozart - Rondo alla Turca (Turkish March)
+### Mozart - Rondo alla Turca (Turkish March)
 **Key:** A minor | **Time:** 2/4 | **Tempo:** Allegretto (♩ = 120)
 
 **Pedagogical Value:**
@@ -239,7 +278,7 @@ This document describes the educational value and learning objectives for each p
 
 ---
 
-### 10. Dukas - L'Apprenti Sorcier (The Sorcerer's Apprentice)
+### Dukas - L'Apprenti Sorcier (The Sorcerer's Apprentice)
 **Key:** Various | **Time:** 3/8 | **Tempo:** Vivo
 
 **Pedagogical Value:**
@@ -260,7 +299,28 @@ This document describes the educational value and learning objectives for each p
 
 ## Level 3-4 - Intermediate to Advanced
 
-### 11. Shostakovich - Waltz No. 2
+### Grieg - In the Hall of the Mountain King (from Peer Gynt Suite)
+**Key:** B minor | **Time:** 4/4 | **Tempo:** Alla marcia e molto marcato (♩ = 120, accelerating)
+
+**Pedagogical Value:**
+- **Building intensity**: Famous piece that starts soft and slow, building to loud and fast
+- **Staccato throughout**: "Sempre staccato" - excellent staccato etude
+- **Chromatic passages**: Unusual accidentals (E♯, C natural) add color
+- **Dynamic control**: Requires gradual crescendo over extended passage
+- **March character**: Marcato style with strong accents on downbeats
+- **Programmatic storytelling**: Depicts trolls in the Mountain King's hall
+- **Famous orchestral excerpt**: One of the most recognizable classical themes
+
+**What Students Learn:**
+- Extended staccato passages
+- Gradual dynamic buildup (pp to ff)
+- Controlling tempo through accelerando
+- B minor key with accidentals
+- Programmatic interpretation
+
+---
+
+### Shostakovich - Waltz No. 2
 **Key:** C Major | **Time:** 3/4 | **Tempo:** Allegretto (♩ = 160)
 
 **Pedagogical Value:**
@@ -279,7 +339,7 @@ This document describes the educational value and learning objectives for each p
 
 ---
 
-### 12. Bach - Brandenburg Concerto No. 3 (excerpt)
+### Bach - Brandenburg Concerto No. 3 (excerpt)
 **Key:** G Major | **Time:** 2/2 (Alla breve) | **Tempo:** Allegro
 
 **Pedagogical Value:**
@@ -300,7 +360,7 @@ This document describes the educational value and learning objectives for each p
 
 ## Level 4-5 - Advanced
 
-### 13. Bach - Badinerie (from Orchestral Suite No. 2)
+### Bach - Badinerie (from Orchestral Suite No. 2)
 **Key:** B minor | **Time:** 2/4 | **Tempo:** Presto
 
 **Pedagogical Value:**

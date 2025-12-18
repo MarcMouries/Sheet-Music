@@ -1,9 +1,10 @@
 # Learn Violin with Famous Themes - TODO
 
 ## Current Status
-- Book compiles successfully with 13 pieces ordered by difficulty
+- Book compiles successfully with **16 pieces** ordered by difficulty
 - All pieces use conditional compilation for standalone vs. book mode
 - No more header bleeding (BWV 1067, opus numbers, etc.)
+- **NEW:** Added 3 Grieg pieces from Peer Gynt Suite (Morning Mood, Solveig's Song, In the Hall of the Mountain King)
 
 ## Pending Tasks
 
@@ -59,7 +60,7 @@
 - All \header blocks are conditionally set
 - All \score blocks are conditionally included
 - Main file: Learn-Violin-with-Famous-Themes.ly
-- Total pieces: 13 (Level 1 through Level 4-5)
+- Total pieces: 16 (Level 1 through Level 4-5)
 
 ## Completed ✓
 - [x] Fixed title page formatting (reduced title size from #8 to #4)
@@ -75,3 +76,8 @@
 - [x] Fixed page numbering system
 - [x] Fixed headers bleeding across pages (wrapped all \header blocks in conditionals)
 - [x] Added Theme and Theme Duet versions for Ode to Joy
+- [x] Added Grieg pieces from Peer Gynt Suite:
+  - Morning Mood (Level 2 - lyrical, 6/8, E major)
+  - Solveig's Song (Level 2-3 - expressive, A minor)
+  - In the Hall of the Mountain King (Level 3-4 - staccato, building dynamics)
+- [x] Updated Pedagogical Guide with new Grieg pieces

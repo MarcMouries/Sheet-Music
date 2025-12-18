@@ -175,7 +175,25 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 4. MOZART SYMPHONY NO. 40 - Level 2 - Early Intermediate
+%% 4. GRIEG MORNING MOOD - Level 2 - Early Intermediate
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include "Grieg_Morning-Mood.ly"
+
+\bookpart {
+  \paper {
+    print-page-number = ##t
+  }
+  \header {
+    title = \markup { \fromproperty #'toc:number "Morning Mood" }
+    subtitle = ##f
+    composer = "Edvard Grieg (1843-1907)"
+  }
+  \tocItem \markup { "4. Grieg - Morning Mood (Level 2)" }
+  \Grieg_MorningMood
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 5. MOZART SYMPHONY NO. 40 - Level 2 - Early Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Mozart_Symphony-No-40-in-G-minor-K-550.ly"
 
@@ -188,12 +206,30 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "Mozart"
   }
-  \tocItem \markup { "4. Mozart - Symphony No 40 (Level 2)" }
+  \tocItem \markup { "5. Mozart - Symphony No 40 (Level 2)" }
   \MozartSymphony
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 5. PACHELBEL CANON IN D - Level 2-3 - Early Intermediate
+%% 6. GRIEG SOLVEIG'S SONG - Level 2-3 - Early Intermediate
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include "Grieg_Solveigs-Song.ly"
+
+\bookpart {
+  \paper {
+    print-page-number = ##t
+  }
+  \header {
+    title = \markup { \fromproperty #'toc:number "Solveig's Song" }
+    subtitle = ##f
+    composer = "Edvard Grieg (1843-1907)"
+  }
+  \tocItem \markup { "6. Grieg - Solveig's Song (Level 2-3)" }
+  \Grieg_SolveigsSong
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 7. PACHELBEL CANON IN D - Level 2-3 - Early Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Pachelbel_Canon-in-D.ly"
 
@@ -206,12 +242,12 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "Johann Pachelbel"
   }
-  \tocItem \markup { "5. Pachelbel - Canon in D (Level 2-3)" }
+  \tocItem \markup { "7. Pachelbel - Canon in D (Level 2-3)" }
   \Pachelbel_Canon
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 6. FÜR ELISE - Level 2-3 - Early Intermediate
+%% 8. FÜR ELISE - Level 2-3 - Early Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Beethoven_Fur-Elise.ly"
 
@@ -224,7 +260,7 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "L. V. Beethoven (1770–1827)"
   }
-  \tocItem \markup { "6. Beethoven - Für Elise (Level 2-3)" }
+  \tocItem \markup { "8. Beethoven - Für Elise (Level 2-3)" }
   \Beethoven_FurElise
   \markup "Play it an octave lower to stretch the first finger."
 
@@ -238,7 +274,7 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 7. BIZET TOREADOR SONG - Level 2-3 - Early Intermediate
+%% 9. BIZET TOREADOR SONG - Level 2-3 - Early Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Bizet_Toreador-Song.ly"
 
@@ -251,12 +287,12 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "Georges Bizet"
   }
-  \tocItem \markup { "7. Bizet - Toreador Song from Carmen (Level 2-3)" }
+  \tocItem \markup { "9. Bizet - Toreador Song from Carmen (Level 2-3)" }
   \Bizet_Toreador
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 8. VIVALDI SPRING - Level 3 - Intermediate
+%% 10. VIVALDI SPRING - Level 3 - Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Vivaldi_Spring.ly"
 
@@ -269,12 +305,12 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "Antonio Vivaldi"
   }
-  \tocItem \markup { "8. Vivaldi - Spring from Four Seasons (Level 3)" }
+  \tocItem \markup { "10. Vivaldi - Spring from Four Seasons (Level 3)" }
   \Vivaldi_Spring
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 9. MOZART RONDO ALLA TURCA - Level 3 - Intermediate
+%% 11. MOZART RONDO ALLA TURCA - Level 3 - Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Mozart_Rondo-alla-Turca.ly"
 
@@ -287,12 +323,12 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "Wolfgang Amadeus Mozart"
   }
-  \tocItem \markup { "9. Mozart - Rondo alla Turca (Level 3)" }
+  \tocItem \markup { "11. Mozart - Rondo alla Turca (Level 3)" }
   \Mozart_Rondo
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 10. L'APPRENTI SORCIER - Level 3 - Intermediate
+%% 12. L'APPRENTI SORCIER - Level 3 - Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "L'Apprenti-Sorcier.ly"
 
@@ -306,12 +342,30 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "Paul Dukas"
   }
-  \tocItem \markup { "10. Dukas - L'Apprenti Sorcier (Level 3)" }
+  \tocItem \markup { "12. Dukas - L'Apprenti Sorcier (Level 3)" }
   \Dukas_Sorcerer
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 11. SHOSTAKOVICH WALTZ NO 2 - Level 3-4 - Intermediate
+%% 13. GRIEG IN THE HALL OF THE MOUNTAIN KING - Level 3-4 - Intermediate
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include "Grieg_Mountain-King.ly"
+
+\bookpart {
+  \paper {
+    print-page-number = ##t
+  }
+  \header {
+    title = \markup { \fromproperty #'toc:number "In the Hall of the Mountain King" }
+    subtitle = ##f
+    composer = "Edvard Grieg (1843-1907)"
+  }
+  \tocItem \markup { "13. Grieg - In the Hall of the Mountain King (Level 3-4)" }
+  \Grieg_MountainKing
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 14. SHOSTAKOVICH WALTZ NO 2 - Level 3-4 - Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Shostakovich_Waltz-No-2.ly"
 
@@ -324,12 +378,12 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "Dmitri Shostakovich"
   }
-  \tocItem \markup { "11. Shostakovich - Waltz No. 2 (Level 3-4)" }
+  \tocItem \markup { "14. Shostakovich - Waltz No. 2 (Level 3-4)" }
   \Shostakovich_Waltz
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 12. BRANDENBURG CONCERTO NO. 3 - Level 3-4 - Intermediate
+%% 15. BRANDENBURG CONCERTO NO. 3 - Level 3-4 - Intermediate
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Bach_Brandenburg-Concerto-No-3.ly"
 
@@ -342,12 +396,12 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "J. S. Bach"
   }
-  \tocItem \markup { "12. Bach - Brandenburg Concerto No. 3 (Level 3-4)" }
+  \tocItem \markup { "15. Bach - Brandenburg Concerto No. 3 (Level 3-4)" }
   \Bach_Brandenburg_Concerto_Three
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 13. BADINERIE - Level 4-5 - Advanced
+%% 16. BADINERIE - Level 4-5 - Advanced
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include "Bach_Badinerie.ly"
 
@@ -360,6 +414,6 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
     subtitle = ##f
     composer = "J. S. Bach"
   }
-  \tocItem \markup { "13. Bach - Badinerie (Level 4-5)" }
+  \tocItem \markup { "16. Bach - Badinerie (Level 4-5)" }
   \Bach_Badinerie
 }
