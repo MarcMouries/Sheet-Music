@@ -1,4 +1,4 @@
-\version "2.24.4"
+\version "2.19.32"
 
 %=============================================
 % PARAGRAPH
@@ -44,7 +44,7 @@
 sectionLetter =
 #(define-music-function ( letter) (string?)
    #{
-     \once \override Score.RehearsalMark.extra-offset = #'(-8 . 1)
+     \once \override Score.RehearsalMark #'extra-offset = #'(-8 . 1)
      \mark \markup{\box{\bold{ $letter }}}
    #})
 

@@ -27,7 +27,7 @@
 - Folk_Canada/Teardrop Waltz/Teardrop Waltz_Marc.ly
 - (3 others)
 
-#### 3. **stylesheets/stylesheet_fiddle.ly** (29 usages - MOST USED!)
+#### 3. **common/stylesheet_fiddle.ly** (29 usages - MOST USED!)
 **Purpose:** Fiddle-specific formatting
 **Usage:** Most popular include file in the repository
 
@@ -42,7 +42,7 @@
 - sectionLetter - section markers
 - repeat-stencil - bracket repeats
 
-#### 6. **stylesheets/common-header.ily** (1 usage - NEW)
+#### 6. **common/common-header.ily** (1 usage - NEW)
 **Purpose:** Standardized tagline setting
 **Contents:**
 ```lilypond
@@ -54,7 +54,7 @@
 
 ### Duplicated Files
 
-Some files exist in both `common/` and `stylesheets/`:
+Some files exist in both `common/` and `common/`:
 - bars-per-line-engraver.ly (both locations)
 - twoByTwoBeaming.ly (both locations)
 - Others may be duplicated
@@ -66,7 +66,7 @@ Some files exist in both `common/` and `stylesheets/`:
    - New common-header.ily uses 2.24.0 (correct)
 
 2. **Location Confusion**
-   - Files scattered between `common/` and `stylesheets/`
+   - Files scattered between `common/` and `common/`
    - Some files duplicated in both locations
    - No clear organization principle
 
@@ -78,7 +78,7 @@ Some files exist in both `common/` and `stylesheets/`:
 
 4. **No Master Documentation**
    - No README in common/ directory
-   - Only new README in stylesheets/ (just created)
+   - Only new README in common/ (just created)
    - Users don't know which includes to use
 
 ## Recommendations
@@ -91,9 +91,9 @@ Some files exist in both `common/` and `stylesheets/`:
    - Add documentation about using with common-header.ily
 
 2. **Consolidate Location**
-   - Decide on single location: either `common/` OR `stylesheets/`
+   - Decide on single location: either `common/` OR `common/`
    - Recommendation: Use `common/` for all shared includes
-   - Keep `stylesheets/` for pure style files (fonts, spacing, etc.)
+   - Keep `common/` for pure style files (fonts, spacing, etc.)
 
 3. **Create common/README.md**
    - Document all available includes
@@ -135,7 +135,7 @@ common/
 ├── bars-per-line-engraver.ly    # Bar engraver
 └── ...
 
-stylesheets/
+common/
 ├── README.md                    # Style-specific docs
 ├── stylesheet_fiddle.ly         # Fiddle formatting
 ├── stylesheet_lighter.ly        # Lighter formatting
@@ -183,10 +183,10 @@ Priority files that should adopt new common-header.ily:
 ## Next Steps
 
 1. ✅ Created common-header.ily with tagline = ##f
-2. ✅ Created stylesheets/README.md
+2. ✅ Created common/README.md
 3. ⬜ Update title-formatting.ly version and tagline
 4. ⬜ Create common/README.md
-5. ⬜ Decide on common/ vs stylesheets/ organization
+5. ⬜ Decide on common/ vs common/ organization
 6. ⬜ Consider creating master sheet-music-common.ily
 7. ⬜ Test with multiple file types
 8. ⬜ Document migration path for existing files

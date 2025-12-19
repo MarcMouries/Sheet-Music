@@ -1,7 +1,7 @@
 \version "2.24.0"
 \language "english"
 
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 
 \header {
   title = "Darby O' Gill - Fox Chase"

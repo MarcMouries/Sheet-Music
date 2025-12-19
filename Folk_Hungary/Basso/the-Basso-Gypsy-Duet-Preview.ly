@@ -2,7 +2,7 @@
 % Canon in D
 % ****************************************************************
 \version "2.14.0"
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 \include "english.ly"
 #(set-global-staff-size 26)
 

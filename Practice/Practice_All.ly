@@ -1,6 +1,6 @@
 \version "2.24.4"
 
-\include "./stylesheets/markups.ly"
+\include "./common/markups.ly"
 \header {
   title = "Practice"
   composer = "Marc Mouries"

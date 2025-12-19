@@ -1,7 +1,7 @@
 \version "2.19.22"
 \language "english"
 
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 \include "../../common/violin-functions.ly"
 
 

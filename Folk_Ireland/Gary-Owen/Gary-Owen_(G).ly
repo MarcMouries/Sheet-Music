@@ -1,5 +1,5 @@
 \version "2.24.0"
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 \language "english"
 
 \include "Gary-Owen_music.ily"

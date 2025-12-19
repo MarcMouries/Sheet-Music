@@ -15,14 +15,14 @@ Fixed include file organization and paths across the repository. This enables 9 
 
 **Principle:**
 - `common/` = Functional/reusable code (functions, markup definitions)
-- `stylesheets/` = Visual styling/engraving (appearance, layout)
+- `common/` = Visual styling/engraving (appearance, layout)
 
 **Files Copied to `common/`:**
 - `improviso.ily` (from stylesheets)
 - `markups.ly` (from stylesheets)
 - `score.ly` (from stylesheets)
 
-**Files Copied to `stylesheets/`:**
+**Files Copied to `common/`:**
 - `twoByTwoBeaming.ly` (from common)
 
 **Current Organization:**
@@ -37,7 +37,7 @@ common/
 ├── twoByTwoBeaming.ly       # (kept for backwards compatibility)
 └── violin-functions.ly      # Violin-specific functions
 
-stylesheets/
+common/
 ├── bars-per-line-engraver.ly
 ├── fingering-slide-engraver.ly
 ├── improviso.ily            # (kept for backwards compatibility)
@@ -75,7 +75,7 @@ stylesheets/
 2. **Wrong directory** (file moved to correct location):
    ```lilypond
    # Before:
-   \include "../../stylesheets/violin-functions.ly"  # Wrong - it's functional, not styling
+   \include "../../common/violin-functions.ly"  # Wrong - it's functional, not styling
 
    # After:
    \include "../../common/violin-functions.ly"       # Correct
@@ -105,8 +105,8 @@ stylesheets/
 
 | File | Includes Fixed |
 |------|----------------|
-| `Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml.ly` | bars-per-line-engraver.ly → ../../stylesheets/ |
-| `Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur_Chords_Arpeggios.ly` | bars-per-line-engraver.ly → ../../stylesheets/ |
+| `Gypsy-Jazz/Bistro-Fada/Bistro_Fada.xml.ly` | bars-per-line-engraver.ly → ../../common/ |
+| `Gypsy-Jazz/Blues-en-Mineur/Blues-en-Mineur_Chords_Arpeggios.ly` | bars-per-line-engraver.ly → ../../common/ |
 | `Gypsy-Jazz/Daphné/Daphne - Grappelli+Taylor.ly` | includes.ly, markups.ly, score.ly → ../../common/ |
 | `Gypsy-Jazz/Minor-Swing/Minor Swing - van Hemert.ly` | includes.ly, improviso.ily, score.ly → ../../common/ |
 | `Gypsy-Jazz/Si-Tu-Savais/Si-Tu-Savais.ly` | violin-functions.ly → ../../common/ |
@@ -123,7 +123,7 @@ stylesheets/
 |------|----------------|
 | `Soundtrack/Color Purple/Color-Purple.ly` | violin-functions.ly → ../../common/ |
 | `Soundtrack/In the Mood for Love/In the Mood for Love_lily.ly` | violin-functions.ly, markups.ly → ../../common/ |
-| `Soundtrack/Midnight-in-Paris_Tango-Flambe/Midnight-in-Paris_Tango-Flambe.ly` | bars-per-line-engraver.ly → ../../stylesheets/ |
+| `Soundtrack/Midnight-in-Paris_Tango-Flambe/Midnight-in-Paris_Tango-Flambe.ly` | bars-per-line-engraver.ly → ../../common/ |
 
 ### Other (11 files - Folk, Practice, etc.)
 
@@ -229,9 +229,9 @@ When creating new `.ly` files that need include files:
 
 **For visual styling:**
 ```lilypond
-\include "../../stylesheets/stylesheet_fiddle.ly"
-\include "../../stylesheets/bars-per-line-engraver.ly"
-\include "../../stylesheets/twoByTwoBeaming.ly"
+\include "../../common/stylesheet_fiddle.ly"
+\include "../../common/bars-per-line-engraver.ly"
+\include "../../common/twoByTwoBeaming.ly"
 ```
 
 ### Verifying Include Paths
@@ -250,7 +250,7 @@ python3 scripts/fix-include-paths.py
 
 ### Backwards Compatibility
 
-Files exist in both `common/` and `stylesheets/` for backwards compatibility:
+Files exist in both `common/` and `common/` for backwards compatibility:
 - `improviso.ily`
 - `markups.ly`
 - `score.ly`

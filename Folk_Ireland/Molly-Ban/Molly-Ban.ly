@@ -1,6 +1,6 @@
 \version "2.24.4"
 \language "english"
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 
 \header {
   title = "Molly Bán"

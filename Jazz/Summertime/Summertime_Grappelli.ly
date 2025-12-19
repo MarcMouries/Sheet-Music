@@ -1,6 +1,6 @@
 \version "2.24.0"
 \language "english"
-\include "../../stylesheets/twoByTwoBeaming.ly"
+\include "../../common/twoByTwoBeaming.ly"
 
 date = #(strftime "%B, %d %Y" (localtime (current-time)))
 

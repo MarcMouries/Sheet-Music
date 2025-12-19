@@ -1,8 +1,8 @@
 \version "2.24.4"
 \language "english"
 
-\include "../../stylesheets/twoByTwoBeaming.ly"
-\include "../../stylesheets/bars-per-line-engraver.ly"
+\include "../../common/twoByTwoBeaming.ly"
+\include "../../common/bars-per-line-engraver.ly"
 
 \header {
   title = "The Mad Lover"

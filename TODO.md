@@ -200,5 +200,5 @@ Fields to consider:
 
 - Always use `style` field for genre/type (NOT `meter` - that's time signature!)
 - Include composer dates for classical music: "J. S. Bach (1685–1750)"
-- Use relative paths for includes: `\include "../../stylesheets/stylesheet_fiddle.ly"`
+- Use relative paths for includes: `\include "../../common/stylesheet_fiddle.ly"`
 - All folk tunes in 4/4 or 2/2 should include the fiddle stylesheet

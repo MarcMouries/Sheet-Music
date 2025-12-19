@@ -83,7 +83,7 @@ python3 scripts/batch-generate-previews.py --verbose
 **Excluded Directories:**
 
 The batch generator automatically skips template and library files:
-- **Template dirs**: `Scales/`, `common/`, `stylesheets/`
+- **Template dirs**: `Scales/`, `common/`, `common/`
 - **Tutorial dirs**: `lilypong_how-to/`, `Harmonica/`, etc.
 - **Practice dirs**: `8-Step_Warm-Up_Plan/`, `Marc's Practice Points/`
 

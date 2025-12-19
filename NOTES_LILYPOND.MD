@@ -219,7 +219,7 @@ Set the option before including the part files:
 Controls the number of measures per line with repeating patterns:
 
 ```lilypond
-\include "../../stylesheets/bars-per-line-engraver.ly"
+\include "../../common/bars-per-line-engraver.ly"
 
 \layout {
   \context {
@@ -236,7 +236,7 @@ The list `'(4 4 4 4 4 4 4 4 4 6)` specifies 4 bars per line for the first 9 line
 Custom beaming pattern that groups eighth notes in pairs (♪♪ ♪♪) instead of groups of four:
 
 ```lilypond
-\include "../../stylesheets/twoByTwoBeaming.ly"
+\include "../../common/twoByTwoBeaming.ly"
 
 \layout {
   \context {
@@ -251,7 +251,7 @@ Custom beaming pattern that groups eighth notes in pairs (♪♪ ♪♪) instead
 For violin music - attaches glissandi to fingering numbers instead of note heads:
 
 ```lilypond
-\include "../../stylesheets/fingering-slide-engraver.ly"
+\include "../../common/fingering-slide-engraver.ly"
 ```
 
 ## Common Headers and Metadata
@@ -493,13 +493,13 @@ Start with a partial measure:
 ```lilypond
 \include "../../common/includes.ly"           % Sets English language, includes engravers
 \include "../../common/violin-functions.ly"   % Violin-specific functions (slide, harmonicPitch, etc.)
-\include "../../stylesheets/twoByTwoBeaming.ly"
-\include "../../stylesheets/bars-per-line-engraver.ly"
+\include "../../common/twoByTwoBeaming.ly"
+\include "../../common/bars-per-line-engraver.ly"
 ```
 
 ### Stylesheets for Different Styles
 
 ```lilypond
-\include "../../stylesheets/stylesheet_fiddle.ly"   % Optimized for folk/fiddle music
-\include "../../stylesheets/LilyJAZZ.ily"           % Jazz font style
+\include "../../common/stylesheet_fiddle.ly"   % Optimized for folk/fiddle music
+\include "../../common/LilyJAZZ.ily"           % Jazz font style
 ```

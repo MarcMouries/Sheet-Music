@@ -1,5 +1,5 @@
 
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 
 \version "2.19.13"
 \language "english"

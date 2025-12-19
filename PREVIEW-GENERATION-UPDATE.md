@@ -37,7 +37,7 @@ The script now automatically skips:
 **Template/Library Directories:**
 - `Scales/` - 105 template files (English & French scale generators)
 - `common/` - 2 include files (title-formatting.ly, etc.)
-- `stylesheets/` - 10 stylesheet files (violin-functions.ly, etc.)
+- `common/` - 10 stylesheet files (violin-functions.ly, etc.)
 
 **Previously Excluded (unchanged):**
 - Tutorial directories: `lilypong_how-to/`, `Harmonica/`, etc.

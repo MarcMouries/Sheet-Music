@@ -72,7 +72,7 @@ For each key, create a separate file named `TuneName_(Key).ly`:
 **Example: `Gary-Owen_(A).ly`**
 ```lilypond
 \version "2.24.0"
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 \language "english"
 
 \include "Gary-Owen_music.ily"
@@ -119,7 +119,7 @@ Update the original file to be a preview wrapper:
 **Example: `Gary-Owen.ly`**
 ```lilypond
 \version "2.24.0"
-\include "../../stylesheets/stylesheet_fiddle.ly"
+\include "../../common/stylesheet_fiddle.ly"
 \language "english"
 
 % This file is the PREVIEW WRAPPER for editing

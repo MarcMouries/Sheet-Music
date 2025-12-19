@@ -1,6 +1,6 @@
 \version "2.19.7"
 
-%\include "../../stylesheets/stylesheet_fiddle.ly"
+%\include "../../common/stylesheet_fiddle.ly"
 
 %date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 %\markup{ engraved on \date }
