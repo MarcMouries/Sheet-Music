@@ -20,18 +20,15 @@ global = {
 
 chordNames = \chordmode {
   \global
-  \partial 4 s4
-  e2.:m   e2.:m   d2.   d2.  
-  e2.:m   e2.:m   d2.   e2.:m     
-  e2.:m   e2.:m   d2.   e2.:m     
-  
+  e2.:m    e2.:m    d2.    d2.  
+  e2.:m    e2.:m    d2.    e2.:m     
+  e2.:m    e2.:m    d2.    e2.:m     
+  e2.:m    e2.:m    d2.    e2.:m     
 }
 
-melody = \relative c' {
+melody = \relative c'' {
   \global
   
-  \partial 4 
-   e 8 fs
   \repeat volta 2 {
    | g  8   e    e    b'\upbow e, e
    | g  8   e    e    b' a  g
@@ -41,12 +38,16 @@ melody = \relative c' {
    | g  8   e    e    b'\upbow e, e
    | g  8   e    e    b'4\upbow cs8\upbow
    | d  8   cs   d    a  g  fs
-   | g  8   e    e    e8
+  }
+  \alternative 
+  {
+    { g  8   e    e    e4    fs 8}
+    { g  8   e    e    e4    b' 8 }
   }
   \break
   \repeat volta 2 {
-      \partial 8
-   b'8\upbow
+      
+   
    b8( cs d)  e4( fs8)
    e4( fs8)   e8( d  b)
    b8( cs d)  e4( fs8)
@@ -55,8 +56,14 @@ melody = \relative c' {
    b8( cs d)  e4( fs8)
    e4( fs8)   e8( d  b)
    d8 cs d    a  g  fs
-   g8\downbow( e)  e    e8
-  }     
+   
+  }
+  \alternative 
+  {
+    { g  8   e    e    e4    b' 8 }
+    { g  8   e    e    e4    fs 8}
+    
+  }
 }
 
 

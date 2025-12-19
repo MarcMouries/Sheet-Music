@@ -204,11 +204,25 @@ spaceSm = \markup { \vspace #1.6 }
   }
 }
 
-\markup \stepHeading "10" "Strategic Etude"
-\markup \column { \paragraph {
-  "To address a specific problem, such as "
-  \italic "Mazas, Kreutzer, Rovelli, etc." "; materials of Step 2 played rapidly, "
-  "or passagework from repertoire."
-}
-\vspace #1.2
+\markup \stepHeading "10" "Strategic Etude / Bach"
+\markup \column {
+  \paragraph {
+    "To address a specific problem, such as "
+    \italic "Mazas, Kreutzer, Rovelli, etc." "; materials of Step 2 played rapidly, "
+    "or passagework from repertoire."
+  }
+  \spaceSm
+  \paragraph {
+    \bold "Bach: "
+    "A movement from the " \italic "Sonatas and Partitas" " (BWV 1001-1006). "
+    "Heifetz, Galamian, Auer, and Flesch all recommended daily Bach practice. "
+    "The polyphonic writing combines double-stops, shifting, and all bow strokes "
+    "in a musical context. Rotate through movements to cover different techniques."
+  }
+  \spaceSm
+  \paragraphIndent {
+    "Suggested rotation: Fugues for polyphony, Sarabandes for tone and phrasing, "
+    "Gigues and Preludes for bow technique, Chaconne for comprehensive work."
+  }
+  \vspace #1.2
 }
