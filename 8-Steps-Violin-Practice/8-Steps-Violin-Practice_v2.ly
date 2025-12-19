@@ -1,9 +1,9 @@
 \version "2.24.4"
 
 \header {
-  title = "Eight-Step Warm-Up Plan"
+  title = "8 Steps Violin Practice"
   subtitle = "LilyPond markup version"
-    composer = "Marc Mouries"
+  composer = "Marc Mouries"
   genre = "Exercise"
 }
 
