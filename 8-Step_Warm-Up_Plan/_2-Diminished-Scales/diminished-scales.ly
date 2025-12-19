@@ -1,10 +1,13 @@
-\version "2.19.14"
+\version "2.24.4"
 \language "english"
+
 \header {
-  title = ""
+  title = "Diminished Scales"
   composer = "Marc Mouries"
   genre = "Exercise"
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4

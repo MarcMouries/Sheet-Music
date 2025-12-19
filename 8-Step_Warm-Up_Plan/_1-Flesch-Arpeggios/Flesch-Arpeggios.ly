@@ -1,10 +1,13 @@
-\version "2.19.15"
+\version "2.24.4"
 \language "english"
+
 \header {
-  title = "Flesch One-octave arpeggios"
+  title = "Flesch One-octave Arpeggios"
   composer = "Marc Mouries"
   genre = "Exercise"
 }
+
+\include "../../common/common-header.ily"
 %{
            Page
 E majeur =  89

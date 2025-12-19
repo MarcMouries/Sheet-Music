@@ -1,11 +1,13 @@
-\version "2.19.37"
+\version "2.24.4"
 \language "english"
 
 \header {
-  title = ""
+  title = "Arpeggios in 12 Keys"
   composer = "Marc Mouries"
   genre = "Exercise"
 }
+
+\include "../../common/common-header.ily"
 
 global = {
   \time 4/4
