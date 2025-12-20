@@ -17,7 +17,7 @@ REPO_ROOT = Path(__file__).parent
 OUTPUT_FILE = REPO_ROOT / "index.html"
 METADATA_FILE = REPO_ROOT / ".music-metadata.json"
 CSV_METADATA_FILE = REPO_ROOT / "tune_catalog_rich_schema.csv"
-EXCLUDE_DIRS = {'.git', 'stylesheets', 'common', 'lilypong_how-to', 'Lilypond_How-to', 'node_modules', '__pycache__', 'Scales', 'Practice'}
+EXCLUDE_DIRS = {'.git', 'stylesheets', 'common', 'lilypong_how-to', 'Lilypond_How-to', 'node_modules', '__pycache__', 'Scales'}
 
 # Country-to-flag emoji mapping
 COUNTRY_FLAGS = {
@@ -474,7 +474,11 @@ def scan_repository():
         rel_path = ly_file.relative_to(REPO_ROOT)
         pdf_path = ly_file.with_suffix('.pdf')
         midi_path = ly_file.with_suffix('.midi')
+        # Check for SVG preview first (preferred for CSS theming), then fall back to PNG
+        svg_path = ly_file.parent / (ly_file.stem + '-preview.svg')
         png_path = ly_file.parent / (ly_file.stem + '-preview.png')
+        thumbnail_path = svg_path if svg_path.exists() else png_path
+        thumbnail_exists = svg_path.exists() or png_path.exists()
 
         # Get category and auto-tags
         category, auto_tags = get_category_and_tags(rel_path)
@@ -515,10 +519,10 @@ def scan_repository():
             'ly_path': quote(str(rel_path)),
             'pdf_exists': pdf_path.exists(),
             'midi_exists': midi_path.exists(),
-            'thumbnail_exists': png_path.exists(),
+            'thumbnail_exists': thumbnail_exists,
             'pdf_path': quote(str(rel_path.with_suffix('.pdf'))),
             'midi_path': quote(str(rel_path.with_suffix('.midi'))),
-            'thumbnail_path': quote(str(rel_path.parent / (ly_file.stem + '-preview.png'))),
+            'thumbnail_path': quote(str(rel_path.parent / thumbnail_path.name)),
             # Dimensional tags
             'dance_types': dimensions['dance_type'],
             'genres': dimensions['genre'],
@@ -572,16 +576,19 @@ def scan_repository():
         #   - Gary-Owen_(G).ly, Gary-Owen_(D).ly, etc. -> counted as 1 tune with 4 keys
         #   - Korobeiniki_(Am).ly, Korobeiniki_(Dm).ly, etc. -> counted as 1 tune with 5 keys
         group_key = f"{ly_file.parent}/{base_name}"
+        # Determine the key to add to available_keys: use filename key if present, else header key
+        key_to_add = file_key if file_key else tune_info.get('key', '')
+
         if group_key not in tunes_by_base:
             # First time seeing this tune - add it with its key
-            tune_info['available_keys'] = [file_key] if file_key else []
+            tune_info['available_keys'] = [key_to_add] if key_to_add else []
             tunes_by_base[group_key] = tune_info
             tunes.append(tune_info)
         else:
             # We've seen this tune before - just add the key to the existing entry
             # This ensures multi-key tunes are counted only once
-            if file_key:
-                tunes_by_base[group_key]['available_keys'].append(file_key)
+            if key_to_add and key_to_add not in tunes_by_base[group_key]['available_keys']:
+                tunes_by_base[group_key]['available_keys'].append(key_to_add)
 
     return sorted(tunes, key=lambda x: (x['category'], x['title']))
 
@@ -690,7 +697,7 @@ def generate_html(tunes):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marc's Sheet Music Collection 🎵</title>
+    <title>Marc's Violin Music Collection 🎵</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
     <!-- Tone.js libraries for MIDI playback -->
     <script src="https://unpkg.com/tone"></script>
@@ -711,7 +718,7 @@ def generate_html(tunes):
     </div>
 
     <div class="container">
-        <h1>Marc's Sheet Music Collection 🎵</h1>
+        <h1>Marc's Violin Music Collection 🎵</h1>
 
         <div class="stats">
             <div class="stat-item">
@@ -1026,6 +1033,14 @@ def generate_html(tunes):
         tune_slug = tune['title'].lower()
         tune_slug = re.sub(r'[^a-z0-9]+', '-', tune_slug)
         tune_slug = tune_slug.strip('-')
+
+        # Include version tag from base_name if present (e.g., [Easy], [Simple])
+        base_name = tune.get('base_name', '')
+        version_match = re.search(r'\[([^\]]+)\]', base_name)
+        if version_match:
+            version_tag = version_match.group(1).lower()
+            version_tag = re.sub(r'[^a-z0-9]+', '-', version_tag)
+            tune_slug = f"{tune_slug}-{version_tag}"
 
         # Prepare key-related data
         available_keys_json = json.dumps(tune.get('available_keys', []))

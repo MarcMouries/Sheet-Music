@@ -8,12 +8,13 @@
 #(set-default-paper-size "letter")
 %#(set-global-staff-size 19)
 \header {
-  title      = "Etude № 2"
-  subtitle   = "for Maxence, Stella & Victor"
-  composer   = "Kreutzer"
+  title      = "Kreutzer Etude No. 2"
+  composer   = "Rodolphe Kreutzer"
+  country    = "France"
+  key        = "A"
   poetyear   = "Mouries - 2015"
   composeryear  = "Mouries 2015"
-  genre = "Exercise"
+  genre      = "Exercise"
 }
 
 \include "../../common/common-header.ily"

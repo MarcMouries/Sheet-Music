@@ -24,13 +24,12 @@ function getTuneData(tuneSlug, selectedKey = null) {
         if (!titleEl) continue;
 
         const title = titleEl.textContent.trim();
-        const baseSlug = sanitizeTitleForUrl(title);
         const fileKey = row.dataset.fileKey || '';
 
-        // Check if slug matches (with or without key suffix)
-        const rowSlug = fileKey ? `${baseSlug}-${fileKey.toLowerCase()}` : baseSlug;
+        // Check if slug matches using data-tune-slug attribute
+        const rowTuneSlug = row.dataset.tuneSlug || '';
 
-        if (rowSlug === tuneSlug || baseSlug === tuneSlug) {
+        if (rowTuneSlug === tuneSlug) {
             // Parse available keys
             const availableKeys = JSON.parse(row.dataset.availableKeys || '[]');
             const baseName = row.dataset.baseName || '';
@@ -111,7 +110,24 @@ function findThumbnailForTune(tuneSlug, key = null) {
         }
     }
 
-    // Fall back to card-based thumbnail
+    // Fall back to finding thumbnail via table row data-tune-slug
+    const allRows = document.querySelectorAll('#music-table tbody tr');
+    for (let row of allRows) {
+        if (row.dataset.tuneSlug === tuneSlug) {
+            // Found matching row, get base_name and directory to construct thumbnail path
+            const baseName = row.dataset.baseName || '';
+            const directory = row.dataset.directory || '';
+            if (baseName && directory) {
+                const relativePath = directory.replace('/Users/marc.mouries/projects/Sheet-Music/', '');
+                // Check for SVG first, then PNG
+                const encodedBaseName = encodeURIComponent(baseName);
+                // Return relative path - the browser will resolve it
+                return `${relativePath}/${encodedBaseName}-preview.svg`;
+            }
+        }
+    }
+
+    // Final fallback to card-based thumbnail by title
     const cards = document.querySelectorAll('.card');
     for (let card of cards) {
         const titleEl = card.querySelector('.card-title');
@@ -132,15 +148,8 @@ function getCurrentCollection() {
         .filter(row => row.style.display !== 'none');
 
     return visibleRows.map(row => {
-        const titleEl = row.querySelector('td:first-child strong');
-        if (!titleEl) return null;
-
-        const title = titleEl.textContent.trim();
-        const fileKey = row.dataset.fileKey || '';
-
-        // Create unique slug: if there's a key, append it to make unique
-        const baseSlug = sanitizeTitleForUrl(title);
-        return fileKey ? `${baseSlug}-${fileKey.toLowerCase()}` : baseSlug;
+        // Use data-tune-slug directly for consistent slug handling
+        return row.dataset.tuneSlug || null;
     }).filter(slug => slug !== null);
 }
 
@@ -183,7 +192,7 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
     if (!detailView) {
         detailView = document.createElement('div');
         detailView.id = 'tune-detail-view';
-        detailView.style.cssText = 'width: 100%; margin: 0; padding: 30px; background: white;';
+        detailView.style.cssText = 'width: 100%; margin: 0; padding: 30px; background: var(--bg-container, white); color: var(--text-primary, #2d3842);';
         document.querySelector('.container').appendChild(detailView);
     }
 
@@ -304,7 +313,7 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
         </div>
         ${tuneData.subtitle ? `<p style="font-size: 1.1em; color: #7f8c8d; margin-bottom: 20px; margin-top: 5px;">${tuneData.subtitle}</p>` : ''}
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; padding: 20px; background: var(--bg-filter, #f8f9fa); border-radius: 8px;">
             <div><strong>Composer:</strong><br>${tuneData.composer || '—'}</div>
             <div><strong>Country:</strong><br>${tuneData.country || '—'}</div>
             <div><strong>Genre:</strong><br>${tuneData.csvGenre || '—'}${tuneData.csvSubgenre ? `<br><small style="color: #7f8c8d;">${tuneData.csvSubgenre}</small>` : ''}</div>
@@ -317,8 +326,8 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
         const escapedThumbnailPath = escapeForJs(tuneData.thumbnailPath);
         const escapedTitle = escapeForJs(tuneData.title);
         detailHTML += `
-            <div id="tune-preview-container" style="margin: 30px 0; width: 100%;">
-                <h2 style="color: #2c3e50; margin-bottom: 15px;">Preview</h2>
+            <div id="tune-preview-container" style="margin: 30px 0; width: 100%; color: var(--text-primary, #2c3e50);">
+                <h2 style="color: var(--text-heading, #2c3e50); margin-bottom: 15px;">Preview</h2>
                 <img src="${tuneData.thumbnailPath}" alt="${escapeHtml(tuneData.title)}"
                      style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer;"
                      onclick="openLightbox('${escapedThumbnailPath}', '${escapedTitle}')">
@@ -391,12 +400,12 @@ function showTuneDetailView(tuneSlug, selectedKey = null) {
     // Add keyboard shortcuts hint
     if (navInfo.total > 0) {
         detailHTML += `
-            <div style="margin-top: 40px; padding: 15px; background: #f8f9fa; border-left: 4px solid var(--ocean-mid, #2d8a9f); border-radius: 4px; font-size: 13px; color: #7f8c8d;">
-                <strong style="color: #2c3e50;">⌨️ Keyboard Shortcuts:</strong><br>
+            <div style="margin-top: 40px; padding: 15px; background: var(--bg-filter, #f8f9fa); border-left: 4px solid var(--ocean-mid, #2d8a9f); border-radius: 4px; font-size: 13px; color: var(--text-primary, #7f8c8d);">
+                <strong style="color: var(--text-heading, #2c3e50);">⌨️ Keyboard Shortcuts:</strong><br>
                 <span style="display: inline-block; margin-top: 8px;">
-                    ${navInfo.prev ? '<kbd style="padding: 2px 6px; background: white; border: 1px solid #ccc; border-radius: 3px; font-family: monospace;">←</kbd> Previous tune &nbsp;&nbsp;' : ''}
-                    ${navInfo.next ? '<kbd style="padding: 2px 6px; background: white; border: 1px solid #ccc; border-radius: 3px; font-family: monospace;">→</kbd> Next tune &nbsp;&nbsp;' : ''}
-                    <kbd style="padding: 2px 6px; background: white; border: 1px solid #ccc; border-radius: 3px; font-family: monospace;">Esc</kbd> Back to collection
+                    ${navInfo.prev ? '<kbd style="padding: 2px 6px; background: var(--bg-input, white); border: 1px solid var(--border-color, #ccc); border-radius: 3px; font-family: monospace;">←</kbd> Previous tune &nbsp;&nbsp;' : ''}
+                    ${navInfo.next ? '<kbd style="padding: 2px 6px; background: var(--bg-input, white); border: 1px solid var(--border-color, #ccc); border-radius: 3px; font-family: monospace;">→</kbd> Next tune &nbsp;&nbsp;' : ''}
+                    <kbd style="padding: 2px 6px; background: var(--bg-input, white); border: 1px solid var(--border-color, #ccc); border-radius: 3px; font-family: monospace;">Esc</kbd> Back to collection
                 </span>
             </div>
         `;

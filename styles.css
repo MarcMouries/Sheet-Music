@@ -714,3 +714,23 @@ tbody tr td.links button {
         display: none;
     }
 }
+
+/* Sheet music preview theming */
+
+/* Dark mode: invert all preview images (PNG and SVG loaded via img tag) */
+/* Note: SVG currentColor doesn't work with <img> tags - they're isolated from CSS */
+[data-theme="dark"] .card-thumbnail img,
+[data-theme="dark"] #lightbox-image,
+[data-theme="dark"] #tune-preview-container img {
+    /* Invert colors: black notation becomes white, white background becomes dark */
+    filter: invert(1) hue-rotate(180deg);
+    opacity: 1;
+}
+
+/* For native dark mode previews (already dark), skip the filter */
+[data-theme="dark"] .card-thumbnail img[src*="-dark"],
+[data-theme="dark"] #lightbox-image[src*="-dark"],
+[data-theme="dark"] #tune-preview-container img[src*="-dark"] {
+    filter: none;
+    opacity: 1;
+}
