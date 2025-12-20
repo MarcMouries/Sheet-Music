@@ -701,6 +701,15 @@ def generate_html(tunes):
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <div class="theme-toggle" id="theme-toggle">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark mode">
+            🌙
+        </button>
+        <span class="theme-toggle-label" id="theme-toggle-label">Dark</span>
+        <span class="theme-toggle-auto" id="theme-auto-indicator"></span>
+    </div>
+
     <div class="container">
         <h1>Marc's Sheet Music Collection 🎵</h1>
 
@@ -1160,6 +1169,79 @@ def generate_html(tunes):
     </div>
 
     <script>
+        // Dark Mode Management
+        const themeManager = {
+            STORAGE_KEY: 'theme-preference',
+            AUTO_KEY: 'theme-auto',
+
+            init() {
+                // Check if user has a saved preference
+                const savedTheme = localStorage.getItem(this.STORAGE_KEY);
+                const isAuto = localStorage.getItem(this.AUTO_KEY) !== 'false';
+
+                if (savedTheme && !isAuto) {
+                    // Use saved preference
+                    this.setTheme(savedTheme, false);
+                } else {
+                    // Auto-detect based on time
+                    this.autoDetectTheme();
+                }
+
+                this.updateToggleUI();
+            },
+
+            autoDetectTheme() {
+                const hour = new Date().getHours();
+                // Dark mode between 7 PM (19:00) and 7 AM (07:00)
+                const isDarkTime = hour >= 19 || hour < 7;
+                this.setTheme(isDarkTime ? 'dark' : 'light', true);
+            },
+
+            setTheme(theme, isAuto = false) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem(this.STORAGE_KEY, theme);
+                localStorage.setItem(this.AUTO_KEY, isAuto ? 'true' : 'false');
+                this.updateToggleUI();
+            },
+
+            toggleTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                this.setTheme(newTheme, false); // Manual toggle disables auto
+            },
+
+            updateToggleUI() {
+                const btn = document.getElementById('theme-toggle-btn');
+                const label = document.getElementById('theme-toggle-label');
+                const autoIndicator = document.getElementById('theme-auto-indicator');
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const isAuto = localStorage.getItem(this.AUTO_KEY) !== 'false';
+
+                if (btn) btn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+                if (label) label.textContent = currentTheme === 'dark' ? 'Light' : 'Dark';
+                if (autoIndicator) autoIndicator.textContent = isAuto ? '(auto)' : '';
+            },
+
+            enableAuto() {
+                localStorage.setItem(this.AUTO_KEY, 'true');
+                this.autoDetectTheme();
+            }
+        };
+
+        function toggleTheme() {
+            themeManager.toggleTheme();
+        }
+
+        // Initialize theme on page load
+        themeManager.init();
+
+        // Re-check theme every minute for auto mode
+        setInterval(() => {
+            if (localStorage.getItem(themeManager.AUTO_KEY) !== 'false') {
+                themeManager.autoDetectTheme();
+            }
+        }, 60000);
+
         let currentView = 'table';
 
         function filterItems() {

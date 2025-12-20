@@ -10,6 +10,44 @@
     --slate: #2d3842;
     --mist: #e3eaed;
     --shadow: rgba(26, 92, 110, 0.08);
+
+    /* Light mode (default) */
+    --bg-primary: linear-gradient(135deg, var(--cream) 0%, #e8f5f8 100%);
+    --bg-container: white;
+    --bg-card: white;
+    --bg-filter: var(--cream);
+    --bg-input: white;
+    --bg-stat: linear-gradient(135deg, var(--cream) 0%, white 100%);
+    --text-primary: var(--slate);
+    --text-heading: var(--ocean-deep);
+    --border-color: var(--mist);
+    --table-row-hover: linear-gradient(135deg, #e8f5f8 0%, #f0f9fb 100%);
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+    --ocean-deep: #4db8d4;
+    --ocean-mid: #7ed4d4;
+    --ocean-bright: #9ce0e0;
+    --seafoam: #2d8a9f;
+    --coral: #ff9080;
+    --sunset: #ffb896;
+    --sand: #3a3520;
+    --cream: #1e2328;
+    --slate: #e8eef0;
+    --mist: #2d3842;
+    --shadow: rgba(0, 0, 0, 0.3);
+
+    --bg-primary: linear-gradient(135deg, #0d1214 0%, #1a2530 100%);
+    --bg-container: #1a2025;
+    --bg-card: #1e2830;
+    --bg-filter: #151a1e;
+    --bg-input: #0d1214;
+    --bg-stat: linear-gradient(135deg, #1e2830 0%, #252f38 100%);
+    --text-primary: #e8eef0;
+    --text-heading: #4db8d4;
+    --border-color: #2d3842;
+    --table-row-hover: linear-gradient(135deg, #1a2530 0%, #222d38 100%);
 }
 
 * {
@@ -21,19 +59,21 @@
 body {
     font-family: 'Work Sans', -apple-system, sans-serif;
     line-height: 1.6;
-    color: var(--slate);
-    background: linear-gradient(135deg, var(--cream) 0%, #e8f5f8 100%);
+    color: var(--text-primary);
+    background: var(--bg-primary);
     padding: 2rem;
     min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
     max-width: 1600px;
     margin: 0 auto;
-    background: white;
+    background: var(--bg-container);
     padding: 3rem;
     border-radius: 24px;
     box-shadow: 0 8px 32px var(--shadow);
+    transition: background 0.3s ease;
 }
 
 h1 {
@@ -55,10 +95,10 @@ h1 {
 }
 
 .stat-item {
-    background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+    background: var(--bg-stat);
     border-radius: 16px;
     padding: 1.75rem;
-    border: 2px solid var(--mist);
+    border: 2px solid var(--border-color);
     transition: all 0.3s ease;
 }
 
@@ -90,24 +130,24 @@ h1 {
 .filters {
     margin: 2rem 0;
     padding: 2rem;
-    background: var(--cream);
+    background: var(--bg-filter);
     border-radius: 16px;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     align-items: center;
-    border: 2px solid var(--mist);
+    border: 2px solid var(--border-color);
 }
 
 .filters input, .filters select {
     padding: 0.875rem 1.25rem;
-    border: 2px solid var(--mist);
+    border: 2px solid var(--border-color);
     border-radius: 12px;
     font-size: 0.95rem;
     font-family: 'Work Sans', sans-serif;
     transition: all 0.2s ease;
-    background: white;
-    color: var(--slate);
+    background: var(--bg-input);
+    color: var(--text-primary);
 }
 
 .filters input {
@@ -187,7 +227,7 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     margin-top: 1.5rem;
-    background: white;
+    background: var(--bg-card);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 2px 8px var(--shadow);
@@ -222,7 +262,7 @@ th::after {
 
 td {
     padding: 1.125rem 1rem;
-    border-bottom: 1px solid var(--mist);
+    border-bottom: 1px solid var(--border-color);
     vertical-align: middle;
     font-size: 0.95rem;
 }
@@ -233,7 +273,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-    background: linear-gradient(135deg, #e8f5f8 0%, #f0f9fb 100%);
+    background: var(--table-row-hover);
     transform: scale(1.005);
 }
 
@@ -325,8 +365,8 @@ tbody tr td.links button {
 }
 
 .card {
-    background: white;
-    border: 2px solid var(--mist);
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
     border-radius: 16px;
     padding: 1.5rem;
     transition: all 0.3s;
@@ -412,10 +452,10 @@ tbody tr td.links button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: white;
+    background: var(--bg-card);
     padding: 1.5rem;
     border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(26, 92, 110, 0.2);
+    box-shadow: 0 8px 24px var(--shadow);
     z-index: 1000;
     display: none;
     min-width: 320px;
@@ -610,5 +650,67 @@ tbody tr td.links button {
 
     .cards-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-card);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    box-shadow: 0 6px 16px var(--shadow);
+    transform: translateY(-2px);
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle-label {
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.theme-toggle-auto {
+    font-size: 0.65rem;
+    color: var(--ocean-mid);
+    margin-left: 0.25rem;
+}
+
+/* Hide theme toggle label on mobile */
+@media (max-width: 768px) {
+    .theme-toggle {
+        padding: 0.5rem;
+    }
+
+    .theme-toggle-label,
+    .theme-toggle-auto {
+        display: none;
     }
 }

@@ -5,7 +5,6 @@
 % https://lists.gnu.org/archive/html/lilypond-user/2025-01/msg00018.html
 
 \paper {
-  tagline = ##f
   background-color = #(x11-color "gray20")
   print-color = "ivory"
 
