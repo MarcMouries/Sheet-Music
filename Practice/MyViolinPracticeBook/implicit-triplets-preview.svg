@@ -1,0 +1,583 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" width="210.00mm" height="297.00mm" viewBox="0.0000 -0.0000 119.5016 169.0094">
+<style type="text/css">
+<![CDATA[
+tspan { white-space: pre; }
+]]>
+</style>
+<g transform="translate(14.2264, 9.6243)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 8.6243)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 7.6243)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 6.6243)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 5.6243)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(113.6210, 7.6243)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(90.6736, 7.6243)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(67.7261, 7.6243)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(44.7787, 7.6243)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:10:11">
+<g transform="translate(70.6372, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:18:19">
+<g transform="translate(22.8311, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(15.0264, 8.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M266 -635h-6c-108 0 -195 88 -195 197c0 58 53 103 112 103c54 0 95 -47 95 -103c0 -52 -43 -95 -95 -95c-11 0 -21 2 -31 6c26 -39 68 -65 117 -65h4zM461 -203c68 24 113 90 113 164c0 90 -66 179 -173 190c19 -89 48 -242 60 -354zM74 28c0 -145 141 -247 264 -247
+c1 0 47 0 82 6c-7 64 -29 203 -63 364c-79 -8 -124 -61 -124 -119c0 -44 25 -91 81 -123c5 -5 7 -10 7 -15c0 -11 -10 -22 -22 -22c-15 0 -126 62 -126 187c0 88 58 174 160 197c-14 58 -29 117 -46 175c-107 -121 -213 -243 -213 -403zM250 553c-29 96 -52 170 -52 346
+c0 115 55 224 149 292c6 5 14 5 20 0c68 -80 133 -245 133 -358c0 -143 -86 -255 -180 -364c21 -68 39 -138 56 -207c2 0 7 1 13 1c155 0 256 -128 256 -261c0 -113 -74 -212 -180 -246c3 -35 5 -70 5 -105c0 -19 -1 -39 -2 -58c-7 -119 -88 -225 -202 -228l1 43
+c93 2 153 92 159 191c1 18 2 37 2 55c0 31 -1 61 -4 92c-5 -1 -44 -8 -89 -8c-193 0 -333 180 -333 374c0 177 131 306 248 441zM428 916c0 34 1 66 -20 129c-99 -48 -162 -149 -162 -259c0 -52 12 -115 36 -194c80 97 146 198 146 324z" fill="currentColor"/>
+</g>
+<g transform="translate(19.2947, 7.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M229 0c-88 0 -90 66 -144 66c-30 0 -59 -20 -62 -55c-1 -7 -6 -11 -11 -11c-6 0 -12 4 -12 11c0 154 232 170 232 344c0 59 -16 122 -67 122c-25 0 -49 -14 -49 -37c0 -27 35 -41 35 -68c0 -38 -31 -69 -69 -69s-69 31 -69 69c0 76 72 128 152 128c95 0 183 -57 183 -145
+c0 -151 -150 -159 -246 -220c9 2 18 3 27 3c83 0 111 -59 171 -59c48 0 38 38 55 38c6 0 12 -5 12 -12c0 -22 -44 -105 -138 -105z" fill="currentColor"/>
+</g>
+<g transform="translate(19.2264, 9.6403)">
+<path transform="scale(0.0040, -0.0040)" d="M196 117h117c0 -48 27 -94 72 -94c8 0 12 -5 12 -11s-4 -12 -12 -12c-44 0 -87 13 -131 13s-87 -13 -131 -13c-8 0 -12 6 -12 12s4 11 12 11c45 0 73 46 73 94zM-2 148c0 12 140 143 140 336c0 10 7 19 16 16c23 -7 47 -13 71 -13s48 6 71 13c14 4 23 -9 17 -16
+l-284 -330h167v131c0 34 34 27 68 72c22 30 23 56 36 56c6 0 13 -5 13 -14v-245h72c10 0 15 -7 15 -14s-5 -15 -15 -15h-72v-8h-117v8h-167c-23 0 -31 14 -31 23z" fill="currentColor"/>
+</g>
+<g transform="translate(22.8961, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(102.6406, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(102.6406, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:22:23">
+<g transform="translate(24.7423, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(24.8073, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(97.1570, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(97.1570, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:24:25">
+<g transform="translate(26.6535, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(26.7185, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(91.6734, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(91.6734, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:26:27">
+<g transform="translate(28.3147, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(28.3797, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(85.1767, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(85.1767, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:28:29">
+<g transform="translate(30.2259, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(30.2909, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(79.6931, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(79.6931, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:30:31">
+<g transform="translate(32.1371, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(32.2021, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(74.2096, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(74.2096, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:32:33">
+<g transform="translate(33.7983, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(33.8633, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(68.7260, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(68.7260, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:34:35">
+<g transform="translate(35.7095, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(35.7745, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(62.2293, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(62.2293, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:36:37">
+<g transform="translate(37.6206, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(37.6856, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(56.7457, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(56.7457, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:38:39">
+<g transform="translate(39.2818, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(39.3468, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:40:41">
+<g transform="translate(41.1930, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(41.2580, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:42:43">
+<g transform="translate(43.1042, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(43.1692, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(51.2621, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(51.2621, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:15:20:21">
+<g transform="translate(45.7786, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(45.8436, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:15:24:25">
+<g transform="translate(47.6897, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(47.7547, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(45.7786, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(45.7786, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:15:26:27">
+<g transform="translate(49.6009, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(49.6659, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:8:9">
+<g transform="translate(51.2621, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(51.3271, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:10:11">
+<g transform="translate(53.1733, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(53.2383, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(39.2818, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(39.2818, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:12:13">
+<g transform="translate(55.0845, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(55.1495, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:15:4:5">
+<g transform="translate(47.3109, 11.9619)">
+<text font-family="serif" font-style="italic" font-size="1.7461" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:14:15">
+<g transform="translate(56.7457, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(56.8107, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:15:4:5">
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:16:17">
+<g transform="translate(58.6569, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(58.7219, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(33.7983, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(33.7983, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:18:19">
+<g transform="translate(60.5681, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(60.6331, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+<g transform="translate(40.8142, 11.9619)">
+<text font-family="serif" font-style="italic" font-size="1.7461" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:20:21">
+<g transform="translate(62.2293, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(62.2943, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:22:23">
+<g transform="translate(64.1405, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(64.2055, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(28.3147, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(28.3147, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:18:24:25">
+<g transform="translate(66.0517, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(66.1167, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+<g transform="translate(35.3306, 11.9619)">
+<text font-family="serif" font-style="italic" font-size="1.7461" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:2:3">
+<g transform="translate(68.7260, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(68.7910, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(22.8311, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(22.8311, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+<g transform="translate(29.8470, 11.9619)">
+<text font-family="serif" font-style="italic" font-size="1.7461" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(70.7022, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(108.1242, 9.6243)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<g transform="translate(108.1242, 10.4343)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.9124 -1.0100 3.9124 -0.6100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:12:13">
+<g transform="translate(72.5484, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(72.6134, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+<g transform="translate(24.3634, 11.9619)">
+<text font-family="serif" font-style="italic" font-size="1.7461" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:14:15">
+<g transform="translate(74.2096, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(74.2746, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:9:2:3">
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:16:17">
+<g transform="translate(76.1208, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(76.1858, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:18:19">
+<g transform="translate(78.0319, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(78.0969, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:20:21">
+<g transform="translate(79.6931, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(79.7581, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:22:23">
+<g transform="translate(81.6043, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(81.6693, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:24:25">
+<g transform="translate(83.5155, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(83.5805, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:26:27">
+<g transform="translate(85.1767, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(85.2417, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:28:29">
+<g transform="translate(87.0879, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(87.1529, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:21:30:31">
+<g transform="translate(88.9991, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(89.0641, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:4:5">
+<g transform="translate(91.6734, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(91.7384, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:8:9">
+<g transform="translate(93.5846, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(93.6496, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:10:11">
+<g transform="translate(95.4958, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(95.5608, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:12:13">
+<g transform="translate(97.1570, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(97.2220, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:14:15">
+<g transform="translate(99.0682, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(99.1332, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:16:17">
+<g transform="translate(100.9794, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(101.0444, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:18:19">
+<g transform="translate(102.6406, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(102.7056, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(112.0115, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:20:21">
+<g transform="translate(104.5518, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(104.6168, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:28:29">
+<g transform="translate(111.9465, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:22:23">
+<g transform="translate(106.4630, 6.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(106.5280, 7.6243)">
+<rect x="-0.0650" y="-1.3139" width="0.1300" height="3.3272" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:24:25">
+<g transform="translate(108.1242, 7.1243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(108.1892, 7.6243)">
+<rect x="-0.0650" y="-0.3139" width="0.1300" height="3.1106" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/marc.mouries/projects/Sheet-Music/Practice/MyViolinPracticeBook/implicit-triplets.ly:25:26:27">
+<g transform="translate(110.0353, 6.6243)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(110.1003, 7.6243)">
+<rect x="-0.0650" y="-0.8139" width="0.1300" height="3.2189" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(34.5530, 165.1202)">
+<a xlink:href="https://lilypond.org/">
+<rect x="0.0000" y="-0.4748" width="50.3955" height="2.0024" fill="none" stroke="none" stroke-width="0.0"/>
+</a>
+</g>
+<g transform="translate(34.5530, 165.1202)">
+<text font-family="serif" font-size="2.2001" text-anchor="start" fill="currentColor">
+<tspan>Music engraving by LilyPond 2.24.4—www.lilypond.org</tspan>
+</text>
+</g>
+</svg>

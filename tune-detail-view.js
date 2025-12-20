@@ -30,13 +30,19 @@ function getTuneData(tuneSlug, selectedKey = null) {
         const rowTuneSlug = row.dataset.tuneSlug || '';
 
         if (rowTuneSlug === tuneSlug) {
-            // Parse available keys
+            // Parse available keys and filename keys
             const availableKeys = JSON.parse(row.dataset.availableKeys || '[]');
+            let filenameKeys = [];
+            try {
+                filenameKeys = JSON.parse(row.dataset.filenameKeys || '[]');
+            } catch (e) {
+                filenameKeys = [];
+            }
             const baseName = row.dataset.baseName || '';
             const directory = row.dataset.directory || '';
 
-            // If a key is selected and available, use it; otherwise use the file's key
-            const currentKey = selectedKey && availableKeys.includes(selectedKey) ? selectedKey : fileKey;
+            // If a key is selected and available, use it; otherwise use the first available key (default)
+            const currentKey = selectedKey && availableKeys.includes(selectedKey) ? selectedKey : (availableKeys[0] || fileKey);
 
             // Get subtitle and filter out key information
             let subtitle = row.querySelector('td:first-child small')?.textContent.trim() || '';
@@ -60,6 +66,7 @@ function getTuneData(tuneSlug, selectedKey = null) {
                 videoUrl: row.querySelector('.links a[title="Watch video"]')?.href,
                 thumbnailPath: findThumbnailForTune(tuneSlug, currentKey),
                 availableKeys: availableKeys,
+                filenameKeys: filenameKeys,
                 baseName: baseName,
                 fileKey: fileKey,
                 directory: directory,
@@ -86,42 +93,46 @@ function extractMidiPath(button) {
 }
 
 function findThumbnailForTune(tuneSlug, key = null) {
-    // First try to find key-specific preview
+    const allRows = document.querySelectorAll('#music-table tbody tr');
+
+    // If key is provided, determine the correct preview path
     if (key) {
-        const allRows = document.querySelectorAll('#music-table tbody tr');
         for (let row of allRows) {
-            const titleEl = row.querySelector('td:first-child strong');
-            if (!titleEl) continue;
-
-            const title = titleEl.textContent.trim();
-            const slug = sanitizeTitleForUrl(title);
-
-            if (slug === tuneSlug) {
+            if (row.dataset.tuneSlug === tuneSlug) {
                 const baseName = row.dataset.baseName || '';
                 const directory = row.dataset.directory || '';
+                // Parse filename_keys - these are keys that have _(Key) suffix in filename
+                let filenameKeys = [];
+                try {
+                    filenameKeys = JSON.parse(row.dataset.filenameKeys || '[]');
+                } catch (e) {
+                    filenameKeys = [];
+                }
+
                 if (baseName && directory) {
-                    // Construct path to key-specific preview
                     const relativePath = directory.replace('/Users/marc.mouries/projects/Sheet-Music/', '');
-                    // Encode the key part properly (handles F#m -> F%23m)
-                    const encodedKey = encodeURIComponent(key);
-                    return `${relativePath}/${baseName}_(${encodedKey})-preview.png`;
+                    const encodedBaseName = encodeURIComponent(baseName);
+
+                    // If the key has a filename suffix (is in filename_keys), use _(Key)-preview.svg
+                    if (filenameKeys.includes(key)) {
+                        const encodedKey = encodeURIComponent(key);
+                        return `${relativePath}/${encodedBaseName}_(${encodedKey})-preview.svg`;
+                    }
+                    // Otherwise, key is from header - use base preview (no key suffix)
+                    return `${relativePath}/${encodedBaseName}-preview.svg`;
                 }
             }
         }
     }
 
-    // Fall back to finding thumbnail via table row data-tune-slug
-    const allRows = document.querySelectorAll('#music-table tbody tr');
+    // Fall back to finding thumbnail via table row data-tune-slug (no key specified)
     for (let row of allRows) {
         if (row.dataset.tuneSlug === tuneSlug) {
-            // Found matching row, get base_name and directory to construct thumbnail path
             const baseName = row.dataset.baseName || '';
             const directory = row.dataset.directory || '';
             if (baseName && directory) {
                 const relativePath = directory.replace('/Users/marc.mouries/projects/Sheet-Music/', '');
-                // Check for SVG first, then PNG
                 const encodedBaseName = encodeURIComponent(baseName);
-                // Return relative path - the browser will resolve it
                 return `${relativePath}/${encodedBaseName}-preview.svg`;
             }
         }
@@ -563,28 +574,44 @@ function switchKey(tuneSlug, newKey) {
     const tuneData = getTuneData(tuneSlug, newKey);
     if (!tuneData) return;
 
-    // Update only the elements that change with the key
+    // Check if this key has a filename suffix (is in filenameKeys)
+    const hasFilenameSuffix = tuneData.filenameKeys && tuneData.filenameKeys.includes(newKey);
     const encodedKey = encodeURIComponent(newKey);
+    const encodedBaseName = encodeURIComponent(tuneData.baseName);
 
     // Update preview image
     const previewImg = document.querySelector('#tune-preview-container img');
     if (previewImg && tuneData.baseName && tuneData.directory) {
         const relativePath = tuneData.directory.replace('/Users/marc.mouries/projects/Sheet-Music/', '');
-        previewImg.src = `${relativePath}/${tuneData.baseName}_(${encodedKey})-preview.png`;
+        if (hasFilenameSuffix) {
+            previewImg.src = `${relativePath}/${encodedBaseName}_(${encodedKey})-preview.svg`;
+        } else {
+            // Key is from header, use base preview (no key suffix)
+            previewImg.src = `${relativePath}/${encodedBaseName}-preview.svg`;
+        }
     }
 
     // Update PDF link
     const pdfLink = document.getElementById('pdf-link');
     if (pdfLink && tuneData.baseName && tuneData.directory) {
         const relativePath = tuneData.directory.replace('/Users/marc.mouries/projects/Sheet-Music/', '');
-        pdfLink.href = `${relativePath}/${tuneData.baseName}_(${encodedKey}).pdf`;
+        if (hasFilenameSuffix) {
+            pdfLink.href = `${relativePath}/${encodedBaseName}_(${encodedKey}).pdf`;
+        } else {
+            pdfLink.href = `${relativePath}/${encodedBaseName}.pdf`;
+        }
     }
 
     // Update MIDI button
     const midiButton = document.getElementById('midi-button');
     if (midiButton && tuneData.baseName && tuneData.directory) {
         const relativePath = tuneData.directory.replace('/Users/marc.mouries/projects/Sheet-Music/', '');
-        const midiPath = `${relativePath}/${tuneData.baseName}_(${encodedKey}).midi`;
+        let midiPath;
+        if (hasFilenameSuffix) {
+            midiPath = `${relativePath}/${encodedBaseName}_(${encodedKey}).midi`;
+        } else {
+            midiPath = `${relativePath}/${encodedBaseName}.midi`;
+        }
         const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
         const absolutePath = new URL(midiPath, window.location.origin + basePath).href;
         const escapedMidiPath = escapeForJs(absolutePath);

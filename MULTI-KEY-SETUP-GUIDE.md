@@ -219,6 +219,46 @@ The script will:
 
 The key selector will sort keys chromatically: C, C#, D, D#, E, F, F#, G, G#, A, A#, B
 
+## Alternative: Header-Based Keys
+
+For simpler setups where you don't want separate files per key, you can specify the key in the header:
+
+```lilypond
+\header {
+  title = "My Tune"
+  composer = "Traditional"
+  key = "C"
+}
+```
+
+This is useful for:
+- **Single-key tunes**: Tunes that exist in only one key
+- **Mixed multi-key setups**: Where some keys have filename suffixes and others use header keys
+
+### Example: Mixed Setup (Kreutzer Etude)
+
+```
+Kreutzer_Étude-No.-2.ly       # key = "C" in header (original/default key)
+Kreutzer_Étude-No.-2_(A).ly   # key = "A" in header (transposed version)
+```
+
+The index generator will:
+1. First check for key suffix in filename `_(Key)`
+2. If no filename key, use the `key` field from the header
+3. Group all variants together with both keys available
+4. **The base file's key (no filename suffix) is always the default** - it appears first in the key selector
+
+**Priority order for key detection:**
+1. Filename suffix `_(Key)` - highest priority
+2. Header `key = "X"` field - used when no filename key
+3. Music notation `\key` - fallback if neither above exists
+
+**Default key ordering:**
+- The base file (without `_(Key)` suffix) provides the default key
+- This key appears first in the available keys list
+- When opening the detail view, this key is selected by default
+- Example: `Kreutzer_Étude-No.-2.ly` with `key = "C"` → C is the default, even if `_(A)` version exists
+
 ## Workflow for Editing
 
 When you need to edit the tune:

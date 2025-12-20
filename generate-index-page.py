@@ -295,7 +295,7 @@ def parse_lilypond_header(ly_file):
                 header = header_match.group(1)
 
                 # Extract fields - try both simple string and \markup formats
-                for field in ['title', 'composer', 'country', 'style', 'subtitle', 'video']:
+                for field in ['title', 'composer', 'country', 'style', 'subtitle', 'video', 'key']:
                     # Try simple string format first: field = "value"
                     # Pattern handles escaped quotes: allows \" inside the string
                     pattern = rf'{field}\s*=\s*"((?:[^"\\]|\\.)*)"'
@@ -313,12 +313,13 @@ def parse_lilypond_header(ly_file):
                             # Take the last match (usually the actual content)
                             metadata[field] = markup_matches[-1]
 
-            # Extract key signature
-            key_match = re.search(r'\\key\s+([a-g][sf]*)\s+\\(major|minor|dorian|mixolydian|lydian|phrygian|locrian)', content)
-            if key_match:
-                note = key_match.group(1)
-                mode = key_match.group(2)
-                metadata['key'] = convert_key_to_standard(note, mode)
+            # Extract key signature from \key in music notation (only if not already set in header)
+            if not metadata['key']:
+                key_match = re.search(r'\\key\s+([a-g][sf]*)\s+\\(major|minor|dorian|mixolydian|lydian|phrygian|locrian)', content)
+                if key_match:
+                    note = key_match.group(1)
+                    mode = key_match.group(2)
+                    metadata['key'] = convert_key_to_standard(note, mode)
 
             # Extract tempo
             tempo_match = re.search(r'\\tempo\s+.*?=\s*(\d+)', content)
@@ -578,17 +579,30 @@ def scan_repository():
         group_key = f"{ly_file.parent}/{base_name}"
         # Determine the key to add to available_keys: use filename key if present, else header key
         key_to_add = file_key if file_key else tune_info.get('key', '')
+        # Track if this is the "base" file (no key suffix in filename) - its key should be default
+        is_base_file = not file_key
 
         if group_key not in tunes_by_base:
             # First time seeing this tune - add it with its key
             tune_info['available_keys'] = [key_to_add] if key_to_add else []
+            # Track which keys have filename suffixes (for preview lookup)
+            tune_info['filename_keys'] = [file_key] if file_key else []
+            tune_info['_has_base_key'] = is_base_file  # Track if we've seen the base file
             tunes_by_base[group_key] = tune_info
             tunes.append(tune_info)
         else:
-            # We've seen this tune before - just add the key to the existing entry
+            # We've seen this tune before - add the key to the existing entry
             # This ensures multi-key tunes are counted only once
             if key_to_add and key_to_add not in tunes_by_base[group_key]['available_keys']:
-                tunes_by_base[group_key]['available_keys'].append(key_to_add)
+                # Base file key (no filename suffix) should be first as the default
+                if is_base_file:
+                    tunes_by_base[group_key]['available_keys'].insert(0, key_to_add)
+                    tunes_by_base[group_key]['_has_base_key'] = True
+                else:
+                    tunes_by_base[group_key]['available_keys'].append(key_to_add)
+            # Track filename keys separately
+            if file_key and file_key not in tunes_by_base[group_key].get('filename_keys', []):
+                tunes_by_base[group_key].setdefault('filename_keys', []).append(file_key)
 
     return sorted(tunes, key=lambda x: (x['category'], x['title']))
 
@@ -709,10 +723,8 @@ def generate_html(tunes):
 </head>
 <body>
     <!-- Dark Mode Toggle -->
-    <div class="theme-toggle" id="theme-toggle">
-        <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark mode">
-            🌙
-        </button>
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+        <span class="theme-toggle-btn" id="theme-toggle-btn">🌙</span>
         <span class="theme-toggle-label" id="theme-toggle-label">Dark</span>
         <span class="theme-toggle-auto" id="theme-auto-indicator"></span>
     </div>
@@ -1044,6 +1056,7 @@ def generate_html(tunes):
 
         # Prepare key-related data
         available_keys_json = json.dumps(tune.get('available_keys', []))
+        filename_keys_json = json.dumps(tune.get('filename_keys', []))
         base_name = html.escape(tune.get('base_name', ''))
         file_key = html.escape(tune.get('file_key') or '')
         directory = html.escape(tune.get('directory', ''))
@@ -1055,7 +1068,7 @@ def generate_html(tunes):
         # Get moods as comma-separated string for data attribute
         moods_str = ','.join(tune.get('csv_moods', []))
 
-        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-csv-genre="{html.escape(tune.get('csv_genre', ''))}" data-csv-subgenre="{html.escape(display_subgenre)}" data-csv-period="{html.escape(tune.get('csv_period', ''))}" data-csv-type="{html.escape(tune.get('csv_type', ''))}" data-csv-key="{html.escape(tune.get('csv_key', ''))}" data-csv-ensemble="{html.escape(tune.get('csv_ensemble', ''))}" data-csv-use-case="{html.escape(tune.get('csv_use_case', ''))}" data-csv-session="{html.escape(tune.get('csv_session', ''))}" data-csv-moods="{html.escape(moods_str)}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}" data-tune-slug="{tune_slug}" data-available-keys='{available_keys_json}' data-base-name="{base_name}" data-file-key="{file_key}" data-directory="{directory}" onclick="navigateToTune(event, '{tune_slug}')">
+        html_output += f"""                <tr data-category="{html.escape(tune['category'])}" data-difficulty="{tune['difficulty']}" data-tags="{html.escape(','.join(tune['tags']))}" data-style="{html.escape(tune['style'])}" data-country="{html.escape(tune['country']) if tune['country'] else ''}" data-dance-types="{html.escape(','.join(tune['dance_types']))}" data-genres="{html.escape(','.join(tune['genres']))}" data-occasions="{html.escape(','.join(tune['occasions']))}" data-csv-genre="{html.escape(tune.get('csv_genre', ''))}" data-csv-subgenre="{html.escape(display_subgenre)}" data-csv-period="{html.escape(tune.get('csv_period', ''))}" data-csv-type="{html.escape(tune.get('csv_type', ''))}" data-csv-key="{html.escape(tune.get('csv_key', ''))}" data-csv-ensemble="{html.escape(tune.get('csv_ensemble', ''))}" data-csv-use-case="{html.escape(tune.get('csv_use_case', ''))}" data-csv-session="{html.escape(tune.get('csv_session', ''))}" data-csv-moods="{html.escape(moods_str)}" data-top10="{str(is_top10).lower()}" data-christmas="{str(is_christmas).lower()}" data-wedding="{str(is_wedding).lower()}" data-tune-slug="{tune_slug}" data-available-keys='{available_keys_json}' data-filename-keys='{filename_keys_json}' data-base-name="{base_name}" data-file-key="{file_key}" data-directory="{directory}" onclick="navigateToTune(event, '{tune_slug}')">
                     <td>
                         <strong>{html.escape(tune['title'])}</strong>"""
         if tune['subtitle']:
