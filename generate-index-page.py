@@ -530,7 +530,7 @@ def scan_repository():
             'occasions': dimensions['occasion'],
             # For grouping multi-key versions
             'base_name': base_name,
-            'directory': str(ly_file.parent)
+            'directory': str(ly_file.parent.relative_to(REPO_ROOT))
         }
 
         # Merge CSV metadata if available (CSV takes priority for rich metadata)
@@ -1800,7 +1800,7 @@ def generate_html(tunes):
         // Auto-switch to card view on mobile
         function checkMobileView() {
             if (window.innerWidth <= 768) {
-                showCards();
+                switchView('cards');
             }
         }
 

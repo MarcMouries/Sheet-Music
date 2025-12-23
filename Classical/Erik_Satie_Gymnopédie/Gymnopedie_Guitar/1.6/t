@@ -1,5 +1,0 @@
-    b4\rest^\markup {
-	\translate #`(0 . 3 ) {
-	    \hspace #10.0 \bold \roman \fontsize #1.0 "Lent et douloureux"
-	}
-    } 
